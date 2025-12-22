@@ -1,0 +1,1 @@
+(also cover global and local scope in this mini lesson)
