@@ -37,7 +37,6 @@ The variable `result` now holds the value that was returned by the function.
 ## Return vs Print
 
 It is important to understand the difference between `print` and `return`:
-
 * `print` displays something to the terminal
 * `return` sends a value back to the program
 
@@ -47,12 +46,7 @@ A function can return a value without printing anything, and a function can prin
 
 The `return` keyword can also be used **without a value**.
 
-When `return` is used by itself:
-
-* The function stops running immediately
-* No value is returned
-
-This is useful when you want to exit a function early and skip the rest of the code.
+When `return` is used by itself the function stops running immediately, and no value is returned. This is useful when you want to exit a function early and skip the rest of the code.
 
 Example:
 

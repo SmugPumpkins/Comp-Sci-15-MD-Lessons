@@ -2,27 +2,15 @@
 
 In this lesson, you will learn how to organize programs that use **multiple functions across multiple files**, while preventing code from running when a file is imported as a module. You will learn how and why to use a `main` function, and how Python decides what code should run.
 
-This lesson is designed to make these ideas as **clear and predictable** as possible.
-
 # Important Information
 
-As programs grow, they often:
-
-* Use many functions
-* Use helper files (modules)
-* Have one clear place where the program *starts*
+As programs grow, they often use many different functions. There may be multiple modules that are being imported. Usually you want your program to start at one specifc point, but this can become more difficult as more and more code is added to your projects. This can be solved by structuring your project around a `main()` function.
 
 Without structure, importing files can cause code to run when you do **not** want it to.
 
 ## The Problem: Code Running on Import
 
-By default, **Python runs every line of code in a file from top to bottom**.
-
-That includes:
-
-* `print()` statements
-* Function calls
-* Any code not inside a function
+By default, **Python runs every line of code in a file from top to bottom**. That includes `print()` statements, function calls, variable declaration and intialization, and any code not inside a function.
 
 Example:
 
@@ -40,35 +28,19 @@ print("Helpers file running")
 ```python
 import helpers
 ```
-
 When `main.py` runs, this prints:
-
 ```
 Helpers file running
 ```
-
-This happens even though `greet()` was never called.
-
-This is often **not what the programmer intends**.
-
-## The Goal
-
-We want:
-
-* Helper files to define functions
-* Code to run **only when we choose**
-* One clear starting point for the program
-
-This is done using:
-
-* A `main` function
-* A special Python check using `__name__`
+This happens even though `greet()` was never called. This is often **not what the programmer intends**.
 
 ## The `main` Function
 
-A common pattern is to put the main logic of a program inside a function called `main`.
+We want helper files to define functions. We only want code to run **when we tell it to**. We need to create one clear starting point for the program. This is done using a `main` function.
 
-Example:
+A common pattern in python is to put the main logic of a program inside a function called `main`.
+
+For example:
 
 ```python
 def main():
@@ -77,28 +49,18 @@ def main():
 
 On its own, this function does nothing until it is called.
 
-## How Python Knows What File Is Running
+## The `__name__` Check
 
-Python keeps track of which file is being run directly.
+Python keeps track of which file is being run directly. If a file is run directly, Python sets a special variable called `__name__` to `"__main__"`. If a file is imported, `__name__` is set to the file’s name. You do **not** change `__name__`. Python does this automatically. 
 
-* If a file is run directly, Python sets a special variable called `__name__` to `"__main__"`
-* If a file is imported, `__name__` is set to the file’s name
 
-You do **not** change `__name__`. Python does this automatically.
-
-## Preventing Code From Running on Import
-
-This is the key pattern to remember:
-
+Because the file that is being run directly has the `__name__` variable set to `"__main__"`, it means that we can check to see if our file is being run or imported with the following block of code. When the file is run directly, we can call the `main()` function:
 ```python
 if __name__ == "__main__":
     main()
 ```
 
-This means:
-
-* “Only run `main()` if this file is the one being run directly”
-* “Do not run this code if the file is imported”
+With this example, python knows to only run `main()` if the file is being run directly, and to __not__ run `main()` if the file is an imported module,
 
 ## Complete Example
 
@@ -128,23 +90,16 @@ if __name__ == "__main__":
     main()
 ```
 
-What happens:
-
+In this example, code does not run accidentally on import. This is because:
 * `helpers.py` defines functions only
 * `main.py` controls when the program runs
-* Code does not run accidentally on import
 
-## Why This Helps
+## Why Use `main()` Functions or `__name__`?
 
-Using this pattern:
-
-* Prevents unexpected output
-* Makes programs easier to read
-* Makes debugging easier
-* Makes files safe to import
+Using this pattern in your projects allows you as a programmer to be more intentional with your code. You prevent unexpected output by making your files safer to import. It also makes debugging easier and code easier to read by breaking programs into smaller pieces.
 
 ## Common Errors and Fixes
-
+When using this pattern, you may find yourself running into issues sometimes. The following section is intended to help you identify problems and possible solutions. 
 ### Error: Code Runs When Imported
 
 **Cause**: Code is written at the top level

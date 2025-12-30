@@ -80,11 +80,7 @@ def repeat_word(word: str, times: int):
     print(times)
 ```
 
-Type hints:
-
-* Make code easier to understand
-* Help code editors warn you about mistakes
-* Do not change how the program runs
+Type hints make code easier to understand and help code editors warn you about possible mistakes. However, in python, type hints __do not__ change how the program runs. They really are just hints, and not hard and fast rules.
 
 ## Unused Parameters
 

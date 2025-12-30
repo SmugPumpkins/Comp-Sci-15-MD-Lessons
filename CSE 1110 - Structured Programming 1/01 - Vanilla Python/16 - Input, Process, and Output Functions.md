@@ -44,20 +44,15 @@ print(answer)
 ```
 
 The function:
-
 1. Receives `5` as input
 2. Processes it by doubling it
 3. Outputs `10` back to the program
 
 ## Why Return Is Important
 
-Using `return` allows:
+Using `return` allows the output of the process to be stored as a variable to be used by other code. By returning a variable, the function can be tested to see if it produces the expected output. The `return` keyword on it's own doesn't provide any additional feedback to the user, it only provides data to the program itself.
 
-* The result to be reused later
-* The function to be tested easily
-* The function to focus only on processing, not printing
-
-Printing is something the **main program** should usually handle, not the function itself.
+When the user does require feedback, the program needs to `print()` the result. Printing is something the **main program** should usually handle, not the function itself.
 
 ## Multiple Steps of Processing
 
@@ -78,11 +73,7 @@ IPO breakdown:
 
 ## Using Returned Values
 
-Returned values can be:
-
-* Stored in variables
-* Printed
-* Used in expressions
+Returned values can be stored in a variable, used again later, or printed.
 
 ```python
 score = calculate_score(10)
@@ -142,5 +133,3 @@ Write a new function that:
 * Takes one number as degrees celsius as input
 * Converts the number to fahrenheit
 * Returns the final result
-
-Be prepared to explain the input, process, and output clearly.

@@ -55,10 +55,7 @@ print(sqrt(9))
 print(pi)
 ```
 
-In this case:
-
-* You do not use `math.` before the function
-* Only the imported names are available
+In this case you do not need to use `math` as a prefix for functions. You also only have access to `sqrt()` and `pi`, but not any other functions or variables from the `math` module.
 
 This can make code cleaner, but it is less obvious where functions come from.
 
@@ -68,16 +65,14 @@ This can make code cleaner, but it is less obvious where functions come from.
 
 ```python
 import turtle
-
 t = turtle.Turtle()
 t.forward(100)
 t.left(90)
 t.forward(100)
 
+# Keep the window open
 turtle.done()
 ```
-
-`turtle.done()` is needed to keep the window open.
 
 ## Example: Using the `tkinter` Module
 
@@ -94,8 +89,6 @@ label.pack()
 
 window.mainloop()
 ```
-
-This creates a simple window with text inside it.
 
 ## Not All Modules Are Installed
 
@@ -116,7 +109,7 @@ This is **beyond the scope of this lesson** and will be covered later in the cou
 For now:
 
 * If `import` works without errors, the module is available
-* If Python raises a `ModuleNotFoundError`, the module is not installed
+* If Python raises an `AttributeError` or `ModuleNotFoundError`, the module is not installed
 
 ## Finding Documentation
 
@@ -135,9 +128,9 @@ A good search habit:
 
 Examples:
 
-* `python math module`
-* `python turtle forward`
-* `python tkinter Label`
+* "python math"
+* "python turtle forward"
+* "python tkinter Label"
 
 ## Reading Documentation Effectively
 

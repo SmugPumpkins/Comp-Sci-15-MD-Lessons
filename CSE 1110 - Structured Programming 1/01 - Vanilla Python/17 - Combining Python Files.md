@@ -8,11 +8,7 @@ As programs grow larger, keeping all code in one file becomes difficult to manag
 
 Each Python file is called a **module**.
 
-Using multiple files helps you:
-
-* Keep related code together
-* Reuse helper functions
-* Make programs easier to read and debug
+By separating code into different files (or **modules**), it becomes easier to group related code together. You may also find yourself reusing the same kinds of functions over and over again. By storing these "helper" functions in a module, you cna import them into any other program you need. Separating code into different modules also makes debugging easier. If you know what function or module has a bug, you only need to focus on fixing that area.
 
 ## Helper Files
 
@@ -50,11 +46,7 @@ import helpers
 helpers.say_hello()
 ```
 
-When you import the whole file:
-
-* You must use the file name as a prefix
-* This prefix is called a **namespace**
-* It helps avoid name conflicts
+When you import the whole file you must use the file name as a prefix (in the above example `helpers` is used a prefix for the `say_hello()` function). This prefix is called a namespace, and it helps avoid name conflicts. If you had a `say_hello()` function defined in both your main program and your helper module, prefixing the one from the module with `helpers` clarifies which function should be used to the interpreter.
 
 ## Importing a File With an Alias
 
@@ -66,16 +58,7 @@ import helpers as h
 h.say_hello()
 ```
 
-This:
-
-* Shortens the namespace
-* Makes code faster to write
-* Still keeps names organized
-
-Aliases are especially useful when:
-
-* Module names are long
-* Multiple modules have similar names
+This shortens the namespace so you can just write `h` instead of `helpers` everytime, while maintaining the protection of using different namespaces. Aliases are especiall useful when module names are long or multiple modules have similar names.
 
 ## Code Runs on Import
 
@@ -111,10 +94,7 @@ Main file is running
 
 Even though `add()` was never called, the `print()` statement ran because it was not inside a function.
 
-For now, the safest rule is:
-
-* Helper files should mostly contain function definitions
-* Avoid code that runs automatically at the top level
+For now, the safest rule is helper modules should only (or mostly) contain function defintions. This avoids code that runs automatically at the top level when a module is imported.
 
 ## Importing Specific Functions
 
@@ -131,10 +111,7 @@ result = add(3, 4)
 print(result)
 ```
 
-Notice:
-
-* No file name prefix is needed
-* The function name is placed directly into your program’s namespace
+Notice that no file name prefix is needed. This is because all of the functions you import like this are placed directly into you program's namespace rather than being protected in their own namespace.
 
 ## Importing Multiple Specific Functions
 
@@ -153,11 +130,7 @@ print(total)
 print(difference)
 ```
 
-This is useful when:
-
-* You only need a handful of functions
-* You want clean, readable code
-* You want to avoid long namespaces
+This is useful when you only need a handful of functions or want to avoid retyping namespaces over and over again.
 
 ## Importing Everything With `*`
 
@@ -167,10 +140,7 @@ Python also allows importing **everything** from a file.
 from helpers import *
 ```
 
-After this:
-
-* All functions and variables in `helpers.py` are available
-* You can call them directly without a prefix
+When you import `*` all functions and variables from the module you import are available. In the above example, everything from `helpers.py` is added to the program's namespace. This allows all functions from `helpers.py` to be used directly without a prefix.
 
 Example:
 
@@ -195,25 +165,18 @@ print(subtract(4, 2))
 
 ### Use With Caution
 
-While `import *` can be convenient, it has drawbacks:
+While `import *` can be convenient, it has drawbacks. Importing everything makes it unclear where functions come from which can make debugging more difficult. It also increases the likelyhood of naming conflicts (like accidentally redefining a function by using the same name in your main program). Code can also be more difficult to read in terms of identifying where functions are defined because imported functions aren't labeled with a prefix anymore.
 
-* It is unclear where functions come from
-* Name conflicts are more likely
-* Code becomes harder to read
-
-In this course:
-
-* `import *` should only be used in **small, controlled programs**
-* Prefer importing specific functions whenever possible
+As a general rule of thumb, `import *` should only be used in **small, controlled programs**. Whenever possible, it's preferred that you import a handful of specific functions instead.
 
 ## Choosing How to Import
 
-General guidelines:
-
-* `import helpers` → clear structure and namespaces
-* `import helpers as h` → same clarity with shorter names
-* `from helpers import add` → best when using a few functions
-* `from helpers import *` → use sparingly and carefully
+|Import Syntax|Guidelines|
+|-|-|
+|`import helpers`|Clear structure and namespaces. Requires the full module name as a prefix.|
+|`import helpers as h`|Same clarity and namespace rules as importing the module, but allows shorter or custom prefixes.|
+|`from helpers import add`|Allows you to pick and choose specific functions to import. Best when using a few functions. Does not require a prefix on the functions when called.|
+|`from helpers import *`|Imports all functions from the module and uses the main program's namespace. Convenient for smaller projects, but has the risk of muddling the namespace by not using prefixes on functions. Use sparingly and carefully.|
 
 # Set Up
 

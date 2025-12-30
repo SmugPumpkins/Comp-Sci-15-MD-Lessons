@@ -10,60 +10,45 @@ Python is updated regularly. Each update is called a **version**, such as:
 * Python 3.10
 * Python 3.11
 
-While newer versions often add features and improvements, **not all libraries support every version**.
-
-This means:
-
-* A program can work perfectly in one Python version
-* The same program may fail in another version
-* External libraries may refuse to install or run
+While newer versions often add features and improvements, **not all libraries support every version**. If a library is not updated to the most recent version of python, you can end up with a program that can run perfectly in one Python version, but the same program may fail in another version. You may also have external libraries refuse to install or run.
 
 ## Why Libraries Care About Python Versions
 
-External libraries are written by other programmers. They:
+External libraries are written by other programmers. They choose which Python versions to support, and may not update their library immediately when Python changes. Sometimes they will also stop supporting older versions of python.
 
-* Choose which Python versions to support
-* May not update immediately when Python changes
-* Sometimes stop supporting older versions
-
-Later in the course, when working with **computer vision libraries**, you may need to:
-
-* Install a specific Python version
-* Switch between Python versions depending on the project
+Later in the course, when working with **computer vision libraries**, you may need to install a specific Python version and switch between Python versions depending on the project.
 
 ## Checking Installed Python Versions
 
 Many computers have **more than one Python version installed**.
 
-You can check which versions are available by using the command line.
+You can check which version your device defaults to by using this command in the command line. _(Depending on your computer's specific configuration, different prefixes may or may not work, so try all 3 of them)._
+```bash
+python --version
+```
+```bash
+python3 --version
+```
+```bash
+py --version
+```
 
-Common commands:
-
-* `python --version`
-* `python3 --version`
-* `py --list`
-
-On Windows, `py --list` is especially useful because it shows:
-
-* All installed Python versions
-* The exact version numbers available
-
-## Python and the PATH
+To see all versions of python that your computer has installed and knows about, you can use the following command. There will be an asterix `*` next to the version your device defaults to when running programs or installing libraries:
+```bash
+python -0
+```
+```bash
+python3 -0
+```
+```bash
+py -0
+```
 
 Your computer uses something called the **PATH** to decide which Python version runs when you type `python`.
 
-The PATH:
+The PATH is a list of folders the system searches and determines which executable is used first. This can change depending on the installation order. Typing `python` may not run the version you expect. Installing a new version does not always replace the old one. The version that shows up with the `python --version` command is the version that your PATH is currently using.
 
-* Is a list of folders the system searches
-* Determines which executable is used first
-* Can change depending on installation order
-
-This means:
-
-* Typing `python` may not run the version you expect
-* Installing a new version does not always replace the old one
-
-Because of this, **explicitly controlling Python versions is important**.
+**Explicitly controlling Python which python version you use is important**.
 
 ## Installing Multiple Python Versions
 
@@ -76,7 +61,7 @@ Good practices:
 * Let the Python launcher manage versions when possible
 
 On Windows, the **Python Launcher (`py`)** is designed specifically for this purpose.
-
+# Using Different Python Versions
 ## Using `py.ini` to Control Python Versions
 
 On Windows, you can control the default Python version using a configuration file called `py.ini`.
@@ -86,63 +71,62 @@ This file is usually placed in your user AppData directory, such as:
 * `C:\Users\<your_username>\AppData\Local\Programs\Python`
 * or directly in `C:\Users\<your_username>\AppData\Local`
 
-### What `py.ini` Does
+The `py.ini` file tells the Python launcher which Python version to use by default and which version to use when running scripts from the command prompt.
 
-The `py.ini` file tells the Python launcher:
+Without this file, Python chooses a default automatically. With this file, **you explicitly control the version**.
 
-* Which Python version to use by default
-* Which version to use when running scripts from the command prompt
-
-Without this file, Python chooses a default automatically.
-With this file, **you explicitly control the version**.
-
-### Example `py.ini` Configuration
-
-Below is a simple example that sets the default Python version to **Python 3.10** when using the command prompt:
+Below is a simple example that sets the default Python version to **Python 3.10**:
 
 ```ini
 [defaults]
 python=3.10
 ```
+With this content in your `py.ini` file, typing `python` in the command prompt will use Python 3.10 and the Python launcher (`py`) will prefer Python 3.10 unless told otherwise.
 
-What this means:
+You can change `3.10` to any version you have installed, such as `3.9` or `3.11`. This is especially useful when a library only works with a specific Python version. You may also want consistent behavior across different projects, or you may want to avoid accidentally using the wrong version.
 
-* Typing `python` in the command prompt will use Python 3.10
-* The Python launcher (`py`) will prefer Python 3.10 unless told otherwise
+You will practice creating and editing `py.ini` throughout this course.
 
-You can change `3.10` to any version you have installed, such as `3.9` or `3.11`.
+### Common Problems and Causes
 
-This is especially useful when:
+#### Library Will Not Install
 
-* A library only works with a specific Python version
-* You want consistent behavior across different projects
-* You want to avoid accidentally using the wrong version
+* **Cause**: Python version is unsupported
+* **Fix**: Check library documentation for required versions
 
-You will practice creating and editing `py.ini` later in the course.
+#### Code Works on One Computer, But Not Another
 
-## Common Problems and Causes
+* **Cause**: Different Python versions
+* **Fix**: Verify installed versions and PATH behavior
 
-### Library Will Not Install
+#### Wrong Python Version Runs
 
-**Cause**: Python version is unsupported
-**Fix**: Check library documentation for required versions
+* **Cause**: PATH order or default launcher behavior
+* **Fix**: Use the Python launcher or configure `py.ini`
 
-### Code Works for One Student but Not Another
+## Using Shorthand to Access Different Python Versions
 
-**Cause**: Different Python versions
-**Fix**: Verify installed versions and PATH behavior
+Sometimes you may want to run a python program in a specific version or install a library for a specific version _without_ changing the default python version for your whole computer. You can do this directly in the command prompt by prefacing your commands with the version.
 
-### Wrong Python Version Runs
+For example:
+```bash
+py -3.12 my_program.py
+```
 
-**Cause**: PATH order or default launcher behavior
-**Fix**: Use the Python launcher or configure `py.ini`
+By adding the `-3.12`, the computer knows to run the program using the `3.12` version of python.
 
-## Key Takeaways
+### Installing Libraries with Shorthand
 
-* Python versions matter
-* External libraries often depend on specific versions
-* Multiple Python versions can exist on one system
-* PATH determines which version runs
-* The Python launcher and `py.ini` give you control
+This also works for installing libraries.
 
-Later in the course, you will apply these ideas directly when installing and using advanced libraries.
+For example, this would install the `opencv-python` library for python `3.12`:
+```bash
+py -3.12 -m pip install opencv-python
+```
+
+Whereas using this code would try to install the library for your default python version:
+```bash
+py -m pip install opencv-python
+```
+When installing a library for your default python version, if you don't have a compatible version of python selected, the library installation will fail. To fix this, visit the library's documentation to see what versions of python are compatible and use those.
+

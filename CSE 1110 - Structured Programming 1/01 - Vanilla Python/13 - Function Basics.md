@@ -59,11 +59,7 @@ def greet():
     pass
 ```
 
-This function:
-
-* Is valid
-* Does nothing when called
-* Does not cause an error
+The above function is valid, and does not cause any errors.
 
 Using `pass` is useful when planning your program or writing placeholder functions.
 
