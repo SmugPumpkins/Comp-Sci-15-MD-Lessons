@@ -6,7 +6,7 @@ This lesson introduces `approx()` from the `pytest` testing library. You will le
 
 Computers do not store decimal numbers the same way humans write them. Inside a computer, numbers are stored using binary (base 2). Many simple decimals, such as `0.1` or `0.2`, cannot be represented exactly in binary. Instead, the computer stores the closest possible approximation.
 
-Because of this, math that looks simple can produce surprising results. For example, adding `0.1` and `0.2` does not result in exactly `0.3`. The result is extremely close, but not identical. This is not a Python bug; it is a limitation of how numbers are stored in hardware.
+Because of this, math that looks simple can produce surprising results. For example, adding `0.1` and `0.2` does not result in exactly `0.3`, but instead `0.30000000000000004`. This is not a Python bug, it is a limitation of how numbers are stored in hardware.
 
 When writing tests, this becomes a problem. A direct equality check (`==`) expects values to match exactly. If two decimal values are only slightly different due to rounding, a test can fail even though the calculation is logically correct.
 

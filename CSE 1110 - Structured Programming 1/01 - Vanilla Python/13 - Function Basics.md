@@ -144,7 +144,7 @@ print(message)
 greet()
 ```
 
-By default, global variables aren't accessed inside of functions. To access a global variable inside of a function, you need to use the `global` keyword.
+By default, global variables can't be reassigned inside of functions. To reassign a global variable inside of a function, you need to use the `global` keyword.
 
 ```python
 # message is declared as a global variable
@@ -153,6 +153,7 @@ message = "Hello, World!"
 def greet():
     # by specifying that we want to use the global message variable, python interprets this variable as intended
     global message
+    message = "Goodbye now!"
     print(message)
 
 # message is global so this line does not result in an error
