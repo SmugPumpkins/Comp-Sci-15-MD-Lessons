@@ -6,7 +6,8 @@ A `frame` is a widget that displays as a simple rectangle. Frames help to organi
 ## Creating a Frame
 Frames are created using the `ttk.Frame` class:
 ```python
-frame = ttk.Frame(root)
+# parent represents whatever container you want to put it in. This can be the root, or another frame.
+frame = ttk.Frame(parent)
 ```
 Frames can take several different configuration options, which can alter how they are displayed.
 
@@ -42,7 +43,7 @@ frame['padding'] = (5, 7, 10, 12)
 ```
 
 ## Changing Styles
-Frames have a `style` configuration option, which is common to all of the themed widgets. This lets you control many other aspects of their appearance or behavior. This is a bit more advanced, so we won't go into it in too much detail right now. But here's a quick example of creating a "Danger" frame with a red background and a raised border.
+Frames have a `style` configuration option, __which is common to all of the themed widgets__. This lets you control many other aspects of their appearance or behavior. This is a bit more advanced, so we won't go into it in too much detail right now. But here's a quick example of creating a "Danger" frame with a red background and a raised border.
 
 ```python
 s = ttk.Style()
