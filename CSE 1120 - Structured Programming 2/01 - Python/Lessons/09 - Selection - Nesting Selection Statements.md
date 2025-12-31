@@ -33,20 +33,20 @@ This version works, and in simple cases it is perfectly fine. However, nesting c
 
 When you use `and`, Python evaluates both sides of the condition as part of a single expression. When you nest conditionals, Python evaluates conditions **one at a time**, in a specific order that you control.
 
+This reads as “check both conditions together”:
+
 ```python
 if condition_a and condition_b:
     do_something()
 ```
 
-This reads as “check both conditions together.”
+This reads as “only check the second condition if the first one is already true”:
 
 ```python
 if condition_a:
     if condition_b:
         do_something()
 ```
-
-This reads as “only check the second condition if the first one is already true.”
 
 That difference becomes critical in certain situations.
 
@@ -77,7 +77,7 @@ if name != None:
 
 Here, `len(name)` is only evaluated **after** Python confirms that `name` is not `None`. This prevents the program from crashing.
 
-This pattern is extremely common in real-world programming and is one of the strongest reasons to use nested conditionals instead of `and`.
+This pattern is extremely common in real-world programming and is one of the most common reasons to use nested conditionals instead of `and`.
 
 ## Nesting Improves Readability for Complex Logic
 
@@ -114,20 +114,17 @@ This structure allows the program to make layered decisions instead of trying to
 
 ## When to Prefer Nesting Over `and`
 
-Nesting conditionals is usually the better choice when:
+|Use Nesting|Use `and`|
+|-|-|
+|A later check depends on an earlier check being valid.|All conditions are simple and safe to evaluate.|
+|You are protecting against invalid or missing values.|No condition depends on another existing first.|
+|The logic is easier to understand step by step.|Readability is not harmed.|
+|You want to avoid runtime errors.|The two conditions make sense to evaluate at the same time.|
 
-* A later check depends on an earlier check being valid
-* You are protecting against invalid or missing values
-* The logic is easier to understand step by step
-* You want to avoid runtime errors
-
-Using `and` is usually better when:
-
-* All conditions are simple and safe to evaluate
-* No condition depends on another existing first
-* Readability is not harmed
 
 Understanding when to nest conditionals is a key skill that separates beginner code from **robust, defensive code**.
+
+_Even though you are technically beginners, you should still be trying to write robust and defensive code._
 
 # Set Up
 
@@ -151,13 +148,13 @@ Change `username` to `None` and confirm that the program does not crash.
 
 ## Change
 
-Rewrite the program using a single `if` statement with `and`. Then test it with `username = None`. Observe what happens and explain why.
+Rewrite the program using a single `if` statement with `and`. Then test it with `username = None`. Observe what happens and consider why.
 
 ## Challenge
 
 Write a program that:
 
-* Uses **nested conditionals**
+* Uses **nested conditionals** to avoid a value of `None` being used incorrectly
 * Performs a **safety check** before a more specific check
 * Would be unsafe or unclear if written using only `and`
 

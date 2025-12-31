@@ -55,7 +55,7 @@ If the password matches `"admin"`, access is granted. Otherwise, access is denie
 
 ## Else Depends on the If Statement
 
-The `else` block is directly tied to the `if` statement above it. Indentation is critical.
+The `else` block is directly tied to the `if` statement above it. Indentation is critical, and the `else` statement needs to be indented the same amount as the `if` stamement it is linked to.
 
 ```python
 score = 80

@@ -6,7 +6,7 @@ This lesson introduces **`try` / `except`**, a tool used to **prevent programs f
 
 ## Why Programs Crash
 
-So far, most of your programs have worked as expected because **you controlled the data**. As soon as users start typing their own input, your program becomes vulnerable to errors.
+So far, most of your programs have worked as expected because **you controlled the data**. As soon as users start typing their own input, your program becomes vulnerable to errors. You have been giving your programs nice data to work with. __Users are not nice. Users break things.__
 
 For example, this code assumes the user types a number:
 
@@ -42,8 +42,6 @@ except:
     # code that runs if an error happens
 ```
 
-Only one of these blocks will run.
-
 ## Simple Example with User Input
 
 ```python
@@ -60,15 +58,11 @@ If the user enters invalid data, the program does **not crash**. Instead, the er
 
 ## What Happens Internally
 
-Python runs the code inside the `try` block line by line.
+Python runs the code inside the `try` block line by line. If no error occurs, the `except` block is skipped. If an error __DOES__ occur, Python immediately jumps to the `except` block, but keeps all of the valid data it used from the `try` block. Then, the program continues running afterward.
 
-* If no error occurs, the `except` block is skipped
-* If an error occurs, Python immediately jumps to the `except` block
-* The program continues running afterward
+This allows your program to handle an error and keep going instead of stopping.
 
-This allows your program to **recover gracefully** instead of stopping.
-
-## Catching Specific Errors (Optional but Important)
+## Catching Specific Errors (_Technically_ Optional, But Use Them Most of the Time)
 
 Different mistakes cause different errors. You can catch specific ones.
 
@@ -79,7 +73,7 @@ except ValueError:
     print("You must enter a whole number")
 ```
 
-This is safer than a generic `except` because it avoids hiding unexpected bugs.
+This is safer than a generic `except` because it avoids hiding unexpected bugs. Whenever possible, you should specify the type of error you are expecting to handle.
 
 There is a list of common errors and what they mean available on the [Debugging Common Errors](/Debugging%20Common%20Errors.md) page.
 
@@ -87,19 +81,9 @@ There is a list of common errors and what they mean available on the [Debugging 
 
 Handling errors is not just about avoiding crashes. It is about **anticipating failure**.
 
-Good programmers assume:
+Good programmers assume users will make mistakes or intentionally push programs to their limits. Data will be messy and needs to be monitored. Programs will be used in ways they did not expect. A lot.
 
-* Users will make mistakes
-* Data will be messy
-* Programs will be used in ways they did not expect
-
-Error handling shows:
-
-* Careful planning
-* Defensive thinking
-* Professional responsibility
-
-These skills are used everywhere in computer science, from game development to cybersecurity to medical software.
+Error handling shows careful planning, defensive thinking, and professional responsibility. These skills are used everywhere in computer science, from game development to cybersecurity to medical software.
 
 ## Common Invalid Inputs to Think About
 
@@ -107,23 +91,18 @@ When asking for user input, ask yourself:
 
 * What if the user types letters instead of numbers?
 * What if they press Enter without typing anything?
-* What if they type a negative number?
+* What if they type a negative number or a decimal?
 * What if they copy-paste something unexpected?
 * What if they misunderstand the prompt?
 
-You do not need to catch **every** possible mistake, but you should catch the **most likely ones**.
+At this level of computer science, the possible errors that could show up are __all preventable__. Your code should be able to handle __any kind of error that it encounters__ because we are working with limited amounts and types of data.
 
 ## Try / Except vs If / Else
 
-`if` / `else` is best when:
-
-* You can check the condition ahead of time
-* You are comparing values
-
-`try` / `except` is best when:
-
-* You cannot know in advance if the code will fail
-* You are converting input or accessing data
+|`if` / `else`|`try` / `except`|
+|-|-|
+|You can check the condition ahead of time.|You cannot know in advance if the code will fail.|
+|You are comparing values.|You are converting input or accessing data.|
 
 Both tools are essential, and they are often used together.
 

@@ -22,8 +22,12 @@ Only one case will ever run.
 
 ## Basic Match Case Syntax
 
-Here is the simplest possible example.
+Here is a simple example of a `match` / `case` in action.
 
+* `day` is a variable that stores the value `"Monday"`
+* the `match` block uses the `day` variable as the value to check
+* each `case` has a value that could be equal to the variable we specifiec, in this case `day`
+* the indented block underneath each `case` is the code that will run if the `match` variable (`day`) is the same as the value of the `case`
 ```python
 day = "Monday"
 
@@ -36,7 +40,7 @@ match day:
         print("Weekend")
 ```
 
-If `day` is `"Monday"`, only the first case runs. The rest are skipped.
+In the example above, `day` is `"Monday"`, and only the first case runs. The rest are skipped. This means that the program will print `"Start of the week"`.
 
 ## Ordering of Cases Matters
 
@@ -60,13 +64,15 @@ If Python finds a match, it does **not** check the remaining cases.
 A `match` statement should almost always include a **default case**. The underscore `_` is used to represent “anything else.”
 
 ```python
-command = "save"
+command = "wiggle"
 
 match command:
     case "open":
         print("Opening file")
     case "close":
         print("Closing file")
+    case "save":
+        print("Saving file")
     case _:
         print("Unknown command")
 ```
@@ -166,7 +172,7 @@ Change the value of `command` and observe how the output changes.
 
 ## Change
 
-Add **two more cases** to the program. One should trigger a new message, and one should fall through to the default case.
+Add **two more cases** to the program. Both should trigger a new message. Change the value of `command` to ensure the cases you added work.
 
 ## Challenge
 

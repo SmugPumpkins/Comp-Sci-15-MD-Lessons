@@ -53,11 +53,11 @@ score == 100
 
 This comparison does not store anything. It evaluates to either `True` or `False`.
 
-Using `=` instead of `==` in an `if` statement is a mistake. Assignment sets a value. Comparison checks a value.
+Using `=` instead of `==` in an `if` statement is a common beginner mistake that will lead to unexpected outcomes. Assignment sets a value. Comparison checks a value.
 
 ## Using Variables in If Conditions
 
-Most `if` statements compare variables to specific values.
+Many `if` statements compare variables to specific values.
 
 ```python
 age = 13

@@ -21,10 +21,14 @@ else:
 
 Python checks these conditions **in order, from top to bottom**. As soon as it finds a condition that is `True`, it runs that block and **skips the rest**.
 
+_Note: When using an_ `elif` _block, it is completely optional to also include an_ `else` _block. The_ `else` _block will effectively function as a defualt if none of the conditions are_ `True`_, but in many situations you will not need a default to fall back to._
+
 ## Top-to-Bottom Execution Is Critical
 
 Once a condition is matched, Python stops checking the remaining conditions. This means the **order of your conditions matters**.
 
+
+The following is an example of a common beginner mistake:
 ```python
 number = 5
 
@@ -101,13 +105,7 @@ This program assigns a **D**, which is incorrect. The problem occurs because `sc
 
 This demonstrates why `elif` conditions must be ordered **carefully**, especially when working with ranges.
 
-## Key Rule to Remember
 
-When using `elif`:
-
-* Conditions are checked **top to bottom**
-* The **first matching condition wins**
-* More specific or higher-value conditions should usually come **first**
 
 # Set Up
 
@@ -117,30 +115,30 @@ Create a new Python file called `elif_statements.py`.
 
 ## Copy
 
-Copy and run the **correct** grade calculator example.
+Copy and run the **incorrect** grade calculator example.
 
 ```python
 score = 75
 
-if score >= 90:
-    grade = "A"
-elif score >= 80:
-    grade = "B"
+if score >= 60:
+    grade = "D"
 elif score >= 70:
     grade = "C"
-elif score >= 60:
-    grade = "D"
+elif score >= 80:
+    grade = "B"
+elif score >= 90:
+    grade = "A"
 else:
     grade = "F"
 
 print("Grade:", grade)
 ```
 
-Change the value of `score` and verify that the output makes sense.
+Change the value of `score` and notice that the results are almost always incorrect. Can you find a value of `score` that isn't incorrect?
 
 ## Change
 
-Reorder the conditions so that the program produces an **incorrect result** for at least one score. Run the program and observe what goes wrong.
+Reorder the conditions so that the program produces a **correct result** for all of the possible score ranges. Run the program and verify it works as expected.
 
 ## Challenge
 

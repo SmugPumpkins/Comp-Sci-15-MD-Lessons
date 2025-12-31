@@ -87,14 +87,12 @@ This code runs because `not False` becomes `True`.
 
 The `^` operator represents **exclusive or** (xor). It returns `True` only when **exactly one** condition is `True`. If both are `True` or both are `False`, the result is `False`.
 
-In Python, `^` works with boolean values even though it is more commonly associated with bitwise operations.
-
 ```python
-has_ticket = True
-has_pass = False
+hot_outside = True
+wearing_coat = False
 
-if has_ticket ^ has_pass:
-    print("Access granted")
+if hot_outside ^ wearing_coat:
+    print("Ah... the perfect temperature!")
 ```
 
 This code runs because exactly one condition is `True`.
@@ -111,16 +109,71 @@ This code runs because exactly one condition is `True`.
 ## Combining Logical Operators with Brackets
 
 As conditions become more complex, **brackets (parentheses)** are used to control the order in which logic is evaluated. Python evaluates expressions inside brackets first.
-
+### Example 1
 ```python
-age = 16
+age = 11
 has_permission = True
 
-if (age >= 13 and age <= 18) and has_permission:
+if (age >= 13 and age <= 18) or has_permission:
     print("Allowed to participate")
 ```
 
-The age range is evaluated first, then combined with the permission check.
+* age >= 13 is `False`
+* age <= 18 is `True`
+```python
+if (False and True) or has_permission:
+    print("Allowed to participate")
+```
+* (`False` and `True`) is `False`
+```python
+if False or has_permission:
+    print("Allowed to participate")
+```
+* has_permission is `True`
+```python
+if False or True:
+    print("Allowed to participate")
+```
+* `False` or `True` is `True`
+```python
+if True:
+    print("Allowed to participate")
+```
+In this case, the message __DOES__ print. Because of the way the brackets are placed, the statement evalueates to `True`.
+### Example 2
+Let's look at what happens if we switch the bracket placement.
+
+```python
+age = 11
+has_permission = True
+
+if age >= 13 and (age <= 18 or has_permission):
+    print("Allowed to participate")
+```
+* age <= 18 is `True`
+* has_permission is `True`
+```python
+if age >= 13 and (True or True):
+    print("Allowed to participate")
+```
+* (`True` or `True`) is `True`
+```python
+if age >= 13 and True:
+    print("Allowed to participate")
+```
+* age >= 13 is `False`
+```python
+if False and True:
+    print("Allowed to participate")
+```
+* `False` and `True` is `False`
+```python
+if False:
+    print("Allowed to participate")
+```
+In this case, the message __DOES NOT__ print. Because of the way the brackets are placed, the statement evalueates to `False`.
+
+### Example 3
 
 You can also mix `and`, `or`, and `not` together.
 
@@ -133,16 +186,6 @@ if username == "admin" and not is_banned:
 ```
 
 Without brackets, Python follows a built-in order of operations, which can be confusing. Using brackets makes your logic **clearer and safer**.
-
-```python
-score = 85
-extra_credit = True
-
-if (score >= 80 and score <= 100) or extra_credit:
-    print("Pass")
-```
-
-This condition passes either when the score is in range **or** when extra credit is enabled.
 
 # Set Up
 

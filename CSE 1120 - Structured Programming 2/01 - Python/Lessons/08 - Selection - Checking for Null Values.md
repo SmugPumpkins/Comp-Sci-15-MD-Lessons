@@ -1,6 +1,6 @@
 # Overview
 
-This lesson builds logically from `try` / `except` by introducing **null checks**. You will learn what a null value is in Python, why using a null value incorrectly can cause errors, and how checking for null values can prevent crashes before they happen.
+This lesson builds on your ability to prevent errors by introducing **null checks**. You will learn what a null value is in Python, why using a null value incorrectly can cause errors, and how checking for null values can prevent crashes before they happen.
 
 # Important Information
 

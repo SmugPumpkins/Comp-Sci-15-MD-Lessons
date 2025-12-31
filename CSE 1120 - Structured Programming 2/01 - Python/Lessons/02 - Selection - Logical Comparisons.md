@@ -97,7 +97,7 @@ Only `"Done"` prints because the condition is not met.
 
 ## Comparing Non-Number Values (Strings)
 
-In Python, **strings are compared using the same operators** as numbers. There is **no** `.equals()` method in Python. Equality is checked using `==`.
+In Python, **strings are compared using the same operators** as numbers. Equality is checked using `==`.
 
 ```python
 name = "Alex"
