@@ -111,4 +111,3 @@ Create a program with **two frames**:
   * Use a non-pixel unit (such as points) for its width
   * Use different padding values for each side
 * Place both frames in the window so they are clearly visible
-* Try creating and applying a custom `ttk.Style` to **one** of the frames
