@@ -85,6 +85,17 @@ for i in range(3):
 
 Each time the loop runs, `i` updates automatically.
 
+
+### When You Don't Need A Loop Variable
+
+Sometimes you won't need to keep track of the loop variable for your loop and  just need your code to repeat a certain number of times. A common pattern for communicating this is by setting the loop variable to `_`. The loop variable is still *technically* being set, but `_` communicates that the actual value of the count doesn't matter each iteration.
+
+```python
+for _ in range(10):
+    print("Hello!")
+```
+
+
 ## Common Situations Where This Loop Is Useful
 
 A `for i in range()` loop is useful whenever you know **how many times** something should happen.

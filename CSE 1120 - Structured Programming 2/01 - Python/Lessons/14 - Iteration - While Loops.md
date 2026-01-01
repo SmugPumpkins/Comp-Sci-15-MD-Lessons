@@ -39,7 +39,7 @@ while i < 5:
     i += 1
 ```
 
-Both loops produce the same output. The main difference is how much control you have over the loop’s behavior.
+Both loops produce the same output. The main difference is how you as the programmer control the loop’s behavior.
 
 ## How While Loops Are Different from For Loops
 
@@ -65,7 +65,7 @@ while number <= 3:
     number += 1
 ```
 
-If you forget to change the variable that controls the condition, the loop may never end.
+If you forget to change the variable that controls the condition, the loop may never end. This can crash your program, or more likely, freeze it so it becomes unresponsive.
 
 ## Infinite While Loops
 
@@ -87,7 +87,7 @@ Examples include:
 
 These programs are designed to keep running until the user or system tells them to stop.
 
-## Breaking Out of an Infinite Loop
+### Breaking Out of an Infinite Loop
 
 When a `while` loop is designed to run continuously, a **best practice** is to include a clear way to exit the loop. This is usually done with a `break` statement tied to a condition.
 
@@ -103,20 +103,13 @@ while True:
 
 In this example, the loop runs forever unless the user types `"quit"`. When that happens, `break` exits the loop and the program ends cleanly.
 
-This pattern is extremely important and will come up again when working with tools like **OpenCV**, where programs often run continuously until a specific exit condition is met.
-
 ## Choosing Between For and While Loops
 
-A `for` loop is usually the better choice when:
-
-* You know how many times the loop should run
-* You are iterating over a list, string, or range
-
-A `while` loop is usually the better choice when:
-
-* The loop depends on user input
-* The loop should run until something specific happens
-* The number of iterations is unknown ahead of time
+|`for` loop|`while` loop|
+|-|-|
+|The loop is independent from external input.|The loop depends on external input (like user input or a camera feed).|
+|You are iterating over a list, string, or range.|The loop should run until something specific happens.|
+|You know how many times the loop should run.|The number of iterations is unknown ahead of time.|
 
 Understanding when to use each type of loop is a key skill in writing clear and effective programs.
 

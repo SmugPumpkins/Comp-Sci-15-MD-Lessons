@@ -8,13 +8,22 @@ This lesson introduces **nested loops**, which are loops placed inside other loo
 
 A loop is **nested** when one loop runs completely inside another loop. The outer loop controls how many times the inner loop starts, and the inner loop runs fully for each iteration of the outer loop.
 
+In this example, the inner loop runs **two times** for every single iteration of the outer loop.
 ```python
 for i in range(3):
     for j in range(2):
-        print(i, j)
+        print(f"outer loop: {i}, inner loop: {j}")
+```
+Output:
+```
+outer loop: 0, inner loop: 0
+outer loop: 0, inner loop: 1
+outer loop: 1, inner loop: 0
+outer loop: 1, inner loop: 1
+outer loop: 2, inner loop: 0
+outer loop: 2, inner loop: 1
 ```
 
-In this example, the inner loop runs **two times** for every single iteration of the outer loop.
 
 ## Common Variable Naming in Nested Loops
 
@@ -37,7 +46,25 @@ For example, imagine checking every seat in a movie theatre. One loop could repr
 ```python
 for row in range(3):
     for seat in range(5):
-        print("Row", row, "Seat", seat)
+        print(f"Row: {row}, Seat: {seat}")
+```
+Output
+```
+Row: 0, Seat: 0
+Row: 0, Seat: 1
+Row: 0, Seat: 2
+Row: 0, Seat: 3
+Row: 0, Seat: 4
+Row: 1, Seat: 0
+Row: 1, Seat: 1
+Row: 1, Seat: 2
+Row: 1, Seat: 3
+Row: 1, Seat: 4
+Row: 2, Seat: 0
+Row: 2, Seat: 1
+Row: 2, Seat: 2
+Row: 2, Seat: 3
+Row: 2, Seat: 4
 ```
 
 This pattern is extremely common when working with grids, tables, game boards, images, or any situation where one action must happen for **every possible pairing** of values.
@@ -46,34 +73,80 @@ This pattern is extremely common when working with grids, tables, game boards, i
 
 Nested loops can dramatically increase how much work a program performs. If one loop runs 5 times and another loop inside it also runs 5 times, the total number of operations is not 10—it is **25**.
 
+The outer loop runs 5 times. Each time it runs, the inner loop also runs 5 times. This results in 5 × 5 total iterations.
 ```python
 for i in range(5):
     for j in range(5):
         print(i, j)
 ```
 
-The outer loop runs 5 times. Each time it runs, the inner loop also runs 5 times. This results in 5 × 5 total iterations.
+Output
+
+```
+Nice try, I'm not writing out 25 pairs of numbers. If you want to see 25 pairs of numbers just copy the code from above and run it.
+```
 
 As more loops are nested, the number of operations grows even faster. This is why nested loops must be used carefully, especially with large ranges.
+```python
+# This nested loop will run 125 times!
+for i in range(5):
+    for j in range(5):
+        for k in range(5):
+            print(i, j, k)
+
+# This one runs 525 times!
+for i in range(5):
+    for j in range(5):
+        for k in range(5):
+            for l on range(5):
+                print(i, j, k, l)
+
+# This one runs 625 times!
+for i in range(5):
+    for j in range(5):
+        for k in range(5):
+            for l in range(5):
+                print(i, j, k, l)
+
+# This one runs 3125 times!
+for i in range(5):
+    for j in range(5):
+        for k in range(5):
+            for l in range(5):
+                for m in range(5):
+                    print(i, j, k, l, m)
+```
 
 ## Understanding Execution Order
 
 A key concept with nested loops is understanding **execution order**. The inner loop always completes fully before the outer loop moves to its next iteration.
 
+The inner loop runs from start to finish for `i = 0`, then runs again from start to finish for `i = 1`. This predictable pattern is essential to understand in order to get the expected output.
+
 ```python
 for i in range(2):
-    print("Outer loop:", i)
+    print(f"Outer loop: {i}")
     for j in range(3):
-        print("  Inner loop:", j)
+        print(f"Inner loop: {j}")
+print("Program end.")
+```
+Output:
+```
+Outer loop: 0
+Inner loop: 0
+Inner loop: 1
+Inner loop: 2
+Outer loop: 1
+Inner loop: 0
+Inner loop: 1
+Inner loop: 2
+Program end.
 ```
 
-The inner loop runs from start to finish for `i = 0`, then runs again from start to finish for `i = 1`. This predictable pattern is essential to understand in order to get the expected output.
 
 ## Why Nested Loops Are a Crucial Skill
 
 Knowing how to correctly nest loops allows programmers to solve complex problems using simple logic. Nested loops appear in nearly every area of computer science, including game development, data processing, simulations, image analysis, and artificial intelligence.
-
-Being able to predict how nested loops execute helps prevent bugs, improves performance, and allows you to reason clearly about what your program is doing. Programmers who struggle with nested loops often struggle to scale their solutions to more complex problems.
 
 Mastering nested loops is less about memorization and more about **thinking step by step**, understanding how repeated actions interact, and visualizing how data flows through your program.
 
@@ -90,7 +163,7 @@ Copy and run the following code.
 ```python
 for i in range(3):
     for j in range(2):
-        print("i:", i, "j:", j)
+        print(f"i: {i}, j: {j}")
 ```
 
 Observe how many total lines are printed and how the values of `i` and `j` change.
@@ -110,5 +183,3 @@ Write a program that:
 * Uses **nested loops**
 * Prints a grid-like pattern (for example, rows and columns)
 * Clearly demonstrates that the inner loop finishes completely before the outer loop continues
-
-Your goal is to show that you understand both **why** loops are nested and **how** they execute.

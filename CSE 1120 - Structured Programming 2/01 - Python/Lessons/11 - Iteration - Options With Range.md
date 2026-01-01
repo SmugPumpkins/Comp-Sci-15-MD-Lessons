@@ -8,9 +8,9 @@ This lesson builds on your understanding of `for` loops by introducing **multipl
 
 Every `for` loop follows the same basic structure, even if it looks simple on the surface. Programmers often describe loops using three core ideas:
 
-* **Initialization** – where the loop starts counting
-* **Condition** – when the loop should stop
-* **Increment** – how the loop changes each time it runs
+* **Initialization:** where the loop starts counting
+* **Condition:** when the loop should stop
+* **Increment:** how the loop changes each time it runs
 
 In Python, all of these are controlled by the values you pass into `range()`.
 
@@ -24,10 +24,10 @@ for i in range(5):
 ```
 
 This loop behaves as if it were defined like this:
-
-* **Initialization:** `0`
+ 
+* **Initialization:** start at `0` *(default)*
 * **Condition:** stop before `5`
-* **Increment:** `1`
+* **Increment:** add `1` each loop *(default)*
 
 So the loop counts:
 
@@ -48,9 +48,9 @@ for i in range(2, 6):
 
 This loop works as follows:
 
-* **Initialization:** `2`
+* **Initialization:** start at `2`
 * **Condition:** stop before `6`
-* **Increment:** `1` (default)
+* **Increment:** add `1` each loop *(default)*
 
 The output is:
 
@@ -65,20 +65,20 @@ The loop always starts at the first number and stops **one less than** the secon
 When `range()` is given **three values**, you control everything.
 
 ```python
-for i in range(0, 10, 2):
+for i in range(4, 16, 2):
     print(i)
 ```
 
 This loop works as follows:
 
-* **Initialization:** `0`
-* **Condition:** stop before `10`
-* **Increment (step):** `2`
+* **Initialization:** start at `4`
+* **Condition:** stop before `16`
+* **Increment:** add `2` each loop
 
 The output is:
 
 ```
-0, 2, 4, 6, 8
+4, 6, 8, 10, 12, 14
 ```
 
 The increment determines how much the loop variable changes each time the loop runs.
@@ -94,9 +94,9 @@ for i in range(5, 0, -1):
 
 This loop works as follows:
 
-* **Initialization:** `5`
+* **Initialization:** start at `5`
 * **Condition:** stop before `0`
-* **Increment:** `-1`
+* **Increment:** add `-1` each loop
 
 The output is:
 
@@ -105,17 +105,6 @@ The output is:
 ```
 
 When counting backwards, the initialization must be **greater than** the condition, or the loop will never run.
-
-## Why Understanding These Parameters Matters
-
-By controlling initialization, condition, and increment, you can:
-
-* Count forwards or backwards
-* Skip values
-* Start and stop at specific numbers
-* Avoid unnecessary calculations
-
-This gives you precise control over how many times your code runs and what values are used during each repetition.
 
 # Set Up
 
@@ -147,7 +136,7 @@ Modify the loop so that it:
 Write **three separate `for` loops**:
 
 1. One that uses **one parameter** in `range()`
-2. One that uses **two parameters**
-3. One that uses **three parameters** and counts backwards
+2. One that uses **two parameters** in `range()`
+3. One that uses **three parameters** in `range()` and *counts backwards*
 
 For each loop, add a comment explaining the initialization, condition, and increment.
