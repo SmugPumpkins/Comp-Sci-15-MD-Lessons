@@ -620,7 +620,7 @@ On it's own this code doesn't do much, so there are 3 methods we will focus on w
 
 Neopixel brightness can range from `0` to `1`. It is important to realize that Neopixels are *very* bright. 
 
-When testing, I usually lower the brightness to `0.025` so I don't go blind. Once everything is working, I may change the brightness to something brighter, like `0.1`. The example in the official documentation sets it to `0.3`, but that's still to bright for me.
+When testing, I usually lower the brightness to `0.025` so I don't go blind. Once everything is working, I may change the brightness to something brighter, like `0.1`. The example in the official documentation sets it to `0.3`, but that's still too bright for me.
 
 The code for changing brightness is:
 ```python
