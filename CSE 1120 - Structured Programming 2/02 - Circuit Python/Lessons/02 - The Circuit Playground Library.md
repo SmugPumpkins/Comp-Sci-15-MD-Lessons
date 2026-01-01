@@ -693,6 +693,8 @@ PIXEL_OFF = (0, 0, 0)
 cp.pixels[0] = PIXEL_OFF
 ```
 #### Individual Neopixel Example
+Your code for changing the colors of individual pixels might look something like this:
+```python
 from adafruit_circuitplayground import cp
 
 cp.pixels.brightness = 0.025
