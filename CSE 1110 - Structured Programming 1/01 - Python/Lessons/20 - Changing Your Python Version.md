@@ -126,7 +126,24 @@ py -3.12 -m pip install opencv-python
 
 Whereas using this code would try to install the library for your default python version:
 ```bash
-py -m pip install opencv-python
+pip install opencv-python
 ```
 When installing a library for your default python version, if you don't have a compatible version of python selected, the library installation will fail. To fix this, visit the library's documentation to see what versions of python are compatible and use those.
+
+# If You Have Been Working Ahead
+Hello! Mr. Forsyth here. The next sections of these lessons will start covering some libraries that we will use for projects. For Structured Programming 1, these first 20 lessons have covered most of the important things you need to understand in terms of general programming. If you understand these concepts well, you __do not__ need any additional general python knowledge...
+
+...however...
+
+...you have been working ahead...
+
+...which probably means that you find this course at least *somewhat* interesting. 
+
+*Again, what we have covered so far is enough to get you full marks for Structured Programming 1.* But you have shown yourself to be someone who has taken an interest in computer science. If you are still ahead, you may find it interesting to cover the Structured Programming 2 Python Lessons starting with [Lesson 01 - Selection - If Statements](/CSE%201120%20-%20Structured%20Programming%202/01%20-%20Python/Lessons/01%20-%20Selection%20-%20If%20Statements.md) and continuing through until [15 - Iteration - Nesting Loops](/CSE%201120%20-%20Structured%20Programming%202/01%20-%20Python/Lessons/15%20-%20Iteration%20-%20Nesting%20Loops.md). 
+
+So far in this course we have covered general python syntax and __sequence__ control structures (the concept that code runs in order). The Structured Programming 2 Lessons cover __selection__ (being able to run code based on conditions) and __iteration__ (looping over code to have it repeat).
+
+These control structures __are not necessary__ for Structured Programming 1, *but* they will let you write code that can do more. A lot more. So much more that you can pretty much do whatever you want with code.
+
+If you are interested in creating projects that go above and beyond, my recommendation is that you skip ahead to those lessons, and then come back after to make your projects. Hopefully, *hopefully*, you'll thank me later.
 
