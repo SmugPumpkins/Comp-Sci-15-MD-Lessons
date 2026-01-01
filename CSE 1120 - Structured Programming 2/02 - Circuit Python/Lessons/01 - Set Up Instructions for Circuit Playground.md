@@ -265,3 +265,30 @@ This code will do the following:
 Save the file.
 
 Try pressing the A and B buttons to see if everything is properly configured.
+
+One last program to upload to ensure everything works is this program that allows you to get all of the pins and sensors that are built into the Circuit Playground Express. When you paste and save this code, it should output a list of pins that the board has access to:
+```python
+import microcontroller
+import board 
+try:
+    import cyw43  # raspberrypi
+except ImportError:
+    cyw43 = None
+
+board_pins = []
+for pin in dir(microcontroller.pin):
+    if (isinstance(getattr(microcontroller.pin, pin), microcontroller.Pin) or
+        (cyw43 and isinstance(getattr(microcontroller.pin, pin), cyw43.CywPin))):
+        pins = []
+        for alias in dir(board):
+            if getattr(board, alias) is getattr(microcontroller.pin, pin):
+                pins.append(f"board.{alias}")
+        # Add the original GPIO name, in parentheses.
+        if pins:
+            # Only include pins that are in board.
+            pins.append(f"({str(pin)})")
+            board_pins.append(" ".join(pins))
+
+for pins in sorted(board_pins):
+    print(pins)
+```
