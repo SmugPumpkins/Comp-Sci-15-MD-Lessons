@@ -9,6 +9,8 @@ Now the board shows up as a drive
 
 Paste the UF2 file into the circuit playground drive
 
+Additional details from: https://learn.adafruit.com/welcome-to-circuitpython/pycharm-and-circuitpython 
+
 # PyCharm Setup
 
 This guide is based off of [this video by Professor G](https://www.youtube.com/watch?v=Qx0twoHyH-8). It also uses the TA guide for windows from [http://bit.ly/windows-pycharm-circuitpython]
