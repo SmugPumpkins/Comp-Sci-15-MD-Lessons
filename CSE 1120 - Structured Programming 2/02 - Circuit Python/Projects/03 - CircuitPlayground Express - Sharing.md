@@ -14,7 +14,7 @@ Your task is to:
     * Explain how you used iteration control structures.
 ## Outcome Criteria
 2. Demonstrate the ability to take an algorithm and convert it to a programming language. Run the program and see the results.
-    1. Maintain a clear input–process–output (IPO) structure in the algorithm.
+    2.1 Maintain a clear input–process–output (IPO) structure in the algorithm.
     5. Use literals (setting values manually or assigning them to variables in the code) and input commands (allowing the user to set values through input or interaction) to supply data for processing.
     6. Use the appropriate operators to work with data (for example, assigning values, doing math, comparing values, combining text, or inserting values into strings, etc.) whenever the task requires it.
     8. Use suitable selection and looping structures to avoid unconditional jumps, including:
