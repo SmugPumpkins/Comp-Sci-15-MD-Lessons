@@ -43,7 +43,8 @@ Python cannot understand the way the code is written. This usually means a symbo
 2. Look carefully for missing `)`, `]`, `"`, `'`, or `:`.
 3. Make sure strings start and end with the same quote.
 4. If the line has `if`, `def`, `for`, or `while`, make sure it ends with `:`.
-5. Run the program again.
+5. Ensure that variable names do not have spaces in them.
+6. Run the program again.
 
 #### Check the line above
 
