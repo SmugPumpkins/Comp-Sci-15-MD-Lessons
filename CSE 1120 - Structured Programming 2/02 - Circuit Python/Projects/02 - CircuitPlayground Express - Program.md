@@ -1,10 +1,10 @@
-# Python - CircuitPlayground Express 
+# Python - CircuitPlayground Express - Program
 ## Overview
 Create something phenomenal using the CircuitPlayground Express and Python. Your project will need to be planned, tested, and presented to the class to demonstrate your understanding of structured programming. Be sure to focus on using `selection` and `iteration` structures to make your project work.
 ## Project Criteria
 Your task is to:
 * Create a project using the CircuitPlayground Express and Python.
-* Use at least 3 input devices in your project. Input devices can include, but are not limited to:
+* Use *at least 3* input devices in your project. Input devices can include, but are not limited to:
     * A Button
     * B Button
     * Switch
@@ -47,5 +47,9 @@ Your task is to:
 | **3.1 Use suitable test data to ensure the program works as intended**   | Testing is systematic and thorough; results are analyzed and used to meaningfully improve program design.                                       | Program is thoroughly tested using varied inputs; testing clearly informed improvements.                                                                | Program is tested with multiple inputs to verify behavior.                                 | Limited testing; issues remain unresolved.                             | Minimal or ineffective testing.                    | No testing evident.                        |
 | **3.1.1 Use debugging techniques to correct run-time and syntax errors** | Independently and efficiently diagnoses errors using tools, reasoning, and iteration; errors are prevented through design choices.              | Independently identifies and fixes syntax and run-time errors using systematic debugging strategies.                                                    | Fixes most errors with minimal guidance.                                                   | Struggles to identify or fix errors.                                   | Rarely attempts to debug.                          | Makes no attempt to debug.                 |
 | **3.1.2 Use debugging techniques to correct logic errors**               | Anticipates, isolates, and resolves logic errors through deliberate testing and reasoning; demonstrates strong problem-solving habits.          | Effectively diagnoses and corrects logic errors through testing, observation, and revision.                                                             | Identifies and fixes most logic errors with guidance.                                      | Has difficulty identifying logic errors.                               | Does not meaningfully address logic errors.        | Makes no attempt to debug logic errors.    |
-
+## Submission
+The following are *required* submissions:
+* Your python source code *(include all files you created, not just your* `main.py` *file)*.
+* A short video *(1-2 minutes)* demonstrating your inputs and outputs for your CircuitPlayground Express project.
+* A short personal reflection *(no more than 200 words)*on how well you think you have demonstrated the required outcomes for this project *(this reflection will be taken into consideration when assessing your mastery)*.
 
