@@ -1,0 +1,2 @@
+While I finish building out this course content, as I think you guys will beat me to it, I will provide the resources here that I am learning from that we might just have to use together.
+* [I2C Communication](https://learn.adafruit.com/adafruit-circuit-playground-express/circuitpython-i2c)
