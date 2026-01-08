@@ -23,11 +23,14 @@ At the top of our code we will put everything that needs to run once. Importing 
 
 At the bottom of our code, we will use a `while` loop to continuously check for inputs and provide outputs.
 ```python
-# Set Up code
+# Library imports
 from adafruit_circuitplayground import cp
-...
+
+# Additional set up code goes here if you have it
+
 while True:
-    # Input and output code from the CircuitPlayground Express will go here
+    # Replace 'pass' with input and output code from the CircuitPlayground Express that will go here
+    pass
 ```
 
 ## Inputs (Sensors)
