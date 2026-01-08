@@ -15,22 +15,22 @@ Your task is to:
 * Use the built in Neopixels
 * Use the built in speaker
 ## Outcome Criteria
-2. Demonstrate the ability to take an algorithm and convert it to a programming language. Run the program and see the results.
-    1. Maintain a clear input–process–output (IPO) structure in the algorithm.
-    2. Include appropriate internal and external documentation. This can include comments in your code that explain how it works and planning you’ve done previously.
-    3. Use basic data types correctly (integer, real/float, character, string, Boolean).
-    4. Use variables and constants appropriately to store data.
-    5. Use literals (setting values manually or assigning them to variables in the code) and input commands (allowing the user to set values through input or interaction) to supply data for processing.
-    6. Use the appropriate operators to work with data (for example, assigning values, doing math, comparing values, combining text, or inserting values into strings, etc.) whenever the task requires it.
-    7. Use common algorithm patterns when needed, such as accumulation or finding maximum/minimum values.
-    8. Use suitable selection and looping structures to avoid unconditional jumps, including:
-        1. nested conditional blocks
-        2. nested loops
-    9. Use output commands (methods or operators) to display results in a clear, formatted way.
-3. Run the program. Determine if there are any errors and fix them so that the program runs as expected.
-    1. Use suitable test data to check the program. This can include user inputs or literals that you manually program to check if things work as expected.
-        1. Use debugging techniques to track and correct run-time or syntax errors. These are errors that occur when a program will not run at all until the code is correct.
-        2. Use debugging techniques to find and fix logic errors. These are errors where the code does run, but produces an unexpected result due to the logic used in the program.
+* **2 Demonstrate the ability to take an algorithm and convert it to a programming language. Run the program and see the results.**
+    * **2.1** Maintain a clear input–process–output (IPO) structure in the algorithm.
+    * **2.2** Include appropriate internal and external documentation. This can include comments in your code that explain how it works and planning you’ve done previously.
+    * **2.3** Use basic data types correctly (integer, real/float, character, string, Boolean).
+    * **2.4** Use variables and constants appropriately to store data.
+    * **2.5** Use literals (setting values manually or assigning them to variables in the code) and input commands (allowing the user to set values through input or interaction) to supply data for processing.
+    * **2.6** Use the appropriate operators to work with data (for example, assigning values, doing math, comparing values, combining text, or inserting values into strings, etc.) whenever the task requires it.
+    * **2.7** Use common algorithm patterns when needed, such as accumulation or finding maximum/minimum values.
+    * **2.8** Use suitable selection and looping structures to avoid unconditional jumps, including:
+        * **2.8.1** nested conditional blocks
+        * **2.8.2** nested loops
+    * **2.9** Use output commands (methods or operators) to display results in a clear, formatted way.
+* **3 Run the program. Determine if there are any errors and fix them so that the program runs as expected.**
+    * **3.1** Use suitable test data to check the program. This can include user inputs or literals that you manually program to check if things work as expected.
+        * **3.1.1** Use debugging techniques to track and correct run-time or syntax errors. These are errors that occur when a program will not run at all until the code is correct.
+        * **3.1.2** Use debugging techniques to find and fix logic errors. These are errors where the code does run, but produces an unexpected result due to the logic used in the program.
 
 ## Mastery Rubric
 | Outcome| **5 – Mastery of Skill** | **4 – Excellence in Skill**| **3 – Proficiency in Skill**| **2 – Attempting Skill**| **1 – Starting to Attempt Skill** | **0 – Refusal to Engage with Skill**       |
@@ -51,5 +51,7 @@ Your task is to:
 The following are *required* submissions:
 * Your python source code *(include all files you created, not just your* `main.py` *file)*.
 * A short video *(1-2 minutes)* demonstrating your inputs and outputs for your CircuitPlayground Express project.
-* A short personal reflection *(no more than 200 words)*on how well you think you have demonstrated the required outcomes for this project *(this reflection will be taken into consideration when assessing your mastery)*.
+
+The following are *optional* submissions:
+* A short personal reflection *(no more than 200 words)* on how well you think you have demonstrated the required outcomes for this project *(this reflection will be taken into consideration when assessing your mastery)*. Submit as a word document.
 

@@ -17,16 +17,16 @@ Your task is to:
 * Use IPO charts to break down the input, process steps, and output for different modules in your project.
 * Use pseudocode or a structured flow chart to communicate the flow of your overall program.
 ## Outcome Criteria
-1. Demonstrate the ability to plan for structured programming challenges that incorporate selection and iteration structures
-    1. Determine whether a problem can be solved with an algorithm using the input–process–output (IPO) model.
-    2. Decide if the problem contains more than one IPO module.
-    3. Break the problem into smaller modules and identify the input, processing, and output for each.
-    4. Identify what data the program already has, what data the user must provide, and group those inputs logically using suitable control structures.
-    5. Identify the processing steps needed for the solution and group them logically using suitable control structures.
-    6. Use common algorithm patterns when needed, such as accumulation or finding maximum/minimum values.
-    7. Identify the required outputs and group them logically using suitable control structures.
-    8. Arrange all inputs, processes, and outputs in a logical order so that processing only happens when all needed data is available, and output only happens after processing is complete.
-    9. Write the final algorithm in a clear, standard format (e.g., pseudocode or a structured chart).
+* **1 Demonstrate the ability to plan for structured programming challenges that incorporate selection and iteration structures**
+    * **1.1** Determine whether a problem can be solved with an algorithm using the input–process–output (IPO) model.
+    * **1.2** Decide if the problem contains more than one IPO module.
+    * **1.3** Break the problem into smaller modules and identify the input, processing, and output for each.
+    * **1.4** Identify what data the program already has, what data the user must provide, and group those inputs logically using suitable control structures.
+    * **1.5** Identify the processing steps needed for the solution and group them logically using suitable control structures.
+    * **1.6** Use common algorithm patterns when needed, such as accumulation or finding maximum/minimum values.
+    * **1.7** Identify the required outputs and group them logically using suitable control structures.
+    * **1.8** Arrange all inputs, processes, and outputs in a logical order so that processing only happens when all needed data is available, and output only happens after processing is complete.
+    * **1.9** Write the final algorithm in a clear, standard format (e.g., pseudocode or a structured chart).
 ## Mastery Rubric
 | Outcome                                                                            | **5 – Mastery of Skill**                                                                                                                                          | **4 – Excellence in Skill**                                                                                                       | **3 – Proficiency in Skill**                                                             | **2 – Attempting Skill**                                | **1 – Starting to Attempt Skill**                     | **0 – Refusal to Engage with Skill** |
 | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------ |
@@ -44,6 +44,8 @@ Your task is to:
 The following are *required* submissions:
 * Your IPO charts with separate modules for different features of your project.
 * Either pseudocode or a structured flow chart that clearly outlines the flow of your program.
-* A short personal reflection *(no more than 200 words)*on how well you think you have demonstrated the required outcomes for this project *(this reflection will be taken into consideration when assessing your mastery)*.
+
+The following are *optional* submissions:
+* A short personal reflection *(no more than 200 words)* on how well you think you have demonstrated the required outcomes for this project *(this reflection will be taken into consideration when assessing your mastery)*. Submit as a word document.
 
 
