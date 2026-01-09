@@ -586,7 +586,9 @@ cp.stop_tone()
 #### Playing Files with `play_file()`
 The CircuitPlayground Express also has the ability to play sound files that are saved as a `.wav` file on the device itself. This is done with the `play_file()` method.
 
-The CircuitPlayground Express has very limited storage space, and many free online sound effects download as `.mp3` files. You may need to use an online `.mp3` to `.wav` converter. You also may need to use an online `.wav` compressor.
+It also cannot play `.mp3` files. Many free online sound effects download as `.mp3` files. You may need to use an online `.mp3` to `.wav` converter.
+
+The CircuitPlayground Express has very limited storage space. You also may need to use an online `.wav` compressor.
 
 It is also important to note, your code will be much easier to manage if you rename your sound files appropriately. There should be no spaces (use underscores `_` instead), letters should be all lowercase, and names should be short and descriptive. 
 
