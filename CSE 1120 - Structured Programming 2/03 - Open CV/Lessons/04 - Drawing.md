@@ -13,21 +13,21 @@ All coordinates are pixel-based and use the format `(x, y)`, where `(0, 0)` is t
 * `target_img` – The image or video frame to draw on.
 * `start_pos` – The starting point of the line `(x, y)`.
 * `end_pos` – The ending point of the line `(x, y)`.
-* `BGR_color` – The line color in **BGR** format.
+* `bgr_color` – The line color in **BGR** format.
 * `thickness` – The width of the line in pixels.
 
 ```python
 target_img = np.zeros((512,512,3), np.uint8) # This could also be the frame of a video feed
 start_pos = (0,0)
 end_pos = (511, 511)
-BGR_color = (255, 0, 0) # Blue
+bgr_color = (255, 0, 0) # Blue
 thickness = 5
 
 cv.line(
     target_img,
     start_pos,
     end_pos,
-    BGR_color,
+    bgr_color,
     thickness
 )
 ```
@@ -39,21 +39,21 @@ cv.line(
 * `target_img` – The image or video frame to draw on.
 * `top_left_corner` – The top-left corner of the rectangle `(x, y)`.
 * `bottom_right_corner` – The bottom-right corner of the rectangle `(x, y)`.
-* `BGR_color` – The rectangle color in **BGR** format.
+* `bgr_color` – The rectangle color in **BGR** format.
 * `thickness` – Border thickness in pixels. Use `-1` to fill the rectangle.
 
 ```python
 target_img = np.zeros((512,512,3), np.uint8) # This could also be the frame of a video feed
 top_left_corner = (50,50)
 bottom_right_corner = (100, 100)
-BGR_color = (0, 255, 0) # Green
+bgr_color = (0, 255, 0) # Green
 thickness = 3 # If thickness is -1 then it fills the shape
 
 cv.rectangle(
     target_img,
     top_left_corner,
     bottom_right_corner,
-    BGR_color,
+    bgr_color,
     thickness
 )
 ```
@@ -65,21 +65,21 @@ cv.rectangle(
 * `target_img` – The image or video frame to draw on.
 * `center_pos` – The center of the circle `(x, y)`.
 * `radius` – Radius of the circle in pixels.
-* `BGR_color` – The circle color in **BGR** format.
+* `bgr_color` – The circle color in **BGR** format.
 * `thickness` – Border thickness in pixels. Use `-1` to fill the circle.
 
 ```python
 target_img = np.zeros((512,512,3), np.uint8) # This could also be the frame of a video feed
 center_pos = (400, 400)
 radius = 75
-BGR_color = (0, 0, 255) # Red
+bgr_color = (0, 0, 255) # Red
 thickness = 8 # If thickness is -1 then it fills the shape
 
 cv.circle(
     target_img,
     center_pos,
     radius,
-    BGR_color,
+    bgr_color,
     thickness
 )
 ```
@@ -94,7 +94,7 @@ cv.circle(
 * `rotation_angle` – Rotation of the ellipse in degrees.
 * `arc_start_angle` – Starting angle of the arc in degrees.
 * `arc_end_angle` – Ending angle of the arc in degrees.
-* `BGR_color` – The ellipse color in **BGR** format.
+* `bgr_color` – The ellipse color in **BGR** format.
 * `thickness` – Border thickness in pixels. Use `-1` to fill the ellipse.
 
 ```python
@@ -104,7 +104,7 @@ width_height = (75, 150)
 rotation_angle = 45
 arc_start_angle = 0
 arc_end_angle = 320
-BGR_color = (0, 255, 255) # Yellow
+bgr_color = (0, 255, 255) # Yellow
 thickness = 8 # If thickness is -1 then it fills the shape
 
 cv.ellipse(
@@ -114,7 +114,7 @@ cv.ellipse(
     rotation_angle,
     arc_start_angle,
     arc_end_angle,
-    BGR_color,
+    bgr_color,
     thickness
 )
 ```
@@ -126,7 +126,7 @@ cv.ellipse(
 * `target_img` – The image or video frame to draw on.
 * `points` – A list of point arrays defining the polygon vertices.
 * `connect_first_and_last_point` – Whether the shape should be closed.
-* `BGR_color` – The polygon color in **BGR** format.
+* `bgr_color` – The polygon color in **BGR** format.
 * `thickness` – Line thickness in pixels. Use `-1` to fill the polygon.
 
 ```python
@@ -135,14 +135,14 @@ points = [np.array(unformatted_points, dtype=np.int32).reshape((-1,1,2))]
 
 target_img = np.zeros((512,512,3), np.uint8) # This could also be the frame of a video feed
 connect_first_and_last_point = True
-BGR_color = (255, 255, 0) # Cyan
+bgr_color = (255, 255, 0) # Cyan
 thickness = 2 # If thickness is -1 then it fills the shape
 
 cv.polylines(
     target_img,
     points,
     connect_first_and_last_point,
-    BGR_color,
+    bgr_color,
     thickness
 )
 ```
@@ -156,7 +156,7 @@ cv.polylines(
 * `bottom_left_corner_pos` – Position of the text baseline `(x, y)`.
 * `font` – Font type used to draw the text.
 * `size` – Font scale factor.
-* `BGR_color` – Text color in **BGR** format.
+* `bgr_color` – Text color in **BGR** format.
 * `thickness` – Thickness of the text strokes.
 * `line_type` – How the text edges are rendered.
 
@@ -166,7 +166,7 @@ message = "Hello World!"
 bottom_left_corner_pos = (10, 300)
 font = cv.FONT_HERSHEY_SIMPLEX
 size = 2
-BGR_color = (255, 0, 255) # Magenta
+bgr_color = (255, 0, 255) # Magenta
 thickness = 1 # If thickness is -1 then it fills the shape
 line_type = cv.Line_AA
 
@@ -174,7 +174,7 @@ cv.circle(
     target_img,
     center_pos,
     radius,
-    BGR_color,
+    bgr_color,
     thickness
 )
 ```
