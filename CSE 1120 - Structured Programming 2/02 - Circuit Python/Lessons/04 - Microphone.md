@@ -6,6 +6,10 @@ The Circuit Playground Express includes a built-in microphone that can be used t
 
 Working with sound on the Circuit Playground Express involves three main steps: recording raw audio samples from the microphone, storing those samples efficiently, and converting them into a single value that represents volume.
 
+It is located by the little ear icon.
+
+![Microphone](https://cdn-learn.adafruit.com/assets/assets/000/057/738/medium640/makecode_circuit_playground_mic.jpg?1532013732)
+
 ## Importing Libraries
 
 Several libraries are required to work with audio input and basic math.
