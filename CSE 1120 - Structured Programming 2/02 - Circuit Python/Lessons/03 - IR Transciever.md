@@ -241,7 +241,7 @@ while True:
     # Read the pulses
     pulses = decoder.read_pulses(pulsein)
 
-    # In case there wouls be an error we use a try / except block
+    # In case there would be an error we use a try / except block
     try:
         message = decoder.decode_bits(pulses)
     except adafruit_irremote.IRDecodeException:
