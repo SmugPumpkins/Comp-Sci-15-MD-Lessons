@@ -30,14 +30,14 @@ Any external component that needs power will usually connect to one power pin an
 
 The remaining pads are input/output pins, often called I/O pins. These pins can send signals out to components or read signals coming in, depending on how they are configured in code.
 
-* A0 / `D12` – This pin can output true analog signals and is commonly used for audio. It can also act as digital or analog I/O, but using it this way interferes with the built-in speaker. This pin cannot be used for capacitive touch.
-* A1 / `D6` – This pin can be used for digital I/O or analog input.
-* A2 / `D9` – This pin can be used for digital I/O or analog input.
-* A3 / `D10` – This pin can be used for digital I/O or analog input.
-* A4 / `D3` – This pin can be used for digital I/O or analog input.
-* A5 / `D2` – This pin can be used for digital I/O or analog input.
-* A6 / `D0` – This pin can be used for digital I/O or analog input.
-* A7 / `D1` – This pin can be used for digital I/O or analog input.
+* `A0` / `D12` – This pin can output true analog signals and is commonly used for audio. It can also act as digital or analog I/O, but using it this way interferes with the built-in speaker. This pin cannot be used for capacitive touch.
+* `A1` / `D6` – Can be digital input or output, supports analog input, PWM, and capacitive touch.
+* `A2` / `D9` – Can be digital input or output, supports analog input, PWM, and capacitive touch.
+* `A3` / `D10` – Can be digital input or output, supports analog input, PWM, and capacitive touch.
+* `A4` / `D3` – Can be digital input or output, supports analog input, PWM, capacitive touch, and I2C SCL.
+* `A5` / `D2` – Can be digital input or output, supports analog input, PWM, capacitive touch, and I2C SDA.
+* `A6` / `D0` – Can be digital input or output, supports analog input, PWM, capacitive touch, and serial receive.
+* `A7` / `D1` – Can be digital input or output, supports analog input, PWM, capacitive touch, and serial transmit.
 
 In this lesson, we focus only on using these pins as **digital outputs**.
 

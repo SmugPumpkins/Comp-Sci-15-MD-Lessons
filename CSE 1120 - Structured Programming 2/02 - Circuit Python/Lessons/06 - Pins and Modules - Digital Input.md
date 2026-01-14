@@ -30,14 +30,14 @@ Most digital input circuits will use **GND** and sometimes **3.3V** depending on
 
 The I/O pins can be configured as digital inputs. When used this way, the board reads whether the pin is receiving voltage or not.
 
-* A0 / D12 – Can be digital input or output, but cannot be used for capacitive touch.
-* A1 / D6 – Can be digital input, supports PWM and capacitive touch.
-* A2 / D9 – Can be digital input, supports PWM and capacitive touch.
-* A3 / D10 – Can be digital input, supports PWM and capacitive touch.
-* A4 / D3 – Can be digital input, also I2C SCL.
-* A5 / D2 – Can be digital input, also I2C SDA.
-* A6 / D0 – Can be digital input, also serial receive.
-* A7 / D1 – Can be digital input, also serial transmit.
+* `A0` / `D12` – This pin can output true analog signals and is commonly used for audio. It can also act as digital or analog I/O, but using it this way interferes with the built-in speaker. This pin cannot be used for capacitive touch.
+* `A1` / `D6` – Can be digital input or output, supports analog input, PWM, and capacitive touch.
+* `A2` / `D9` – Can be digital input or output, supports analog input, PWM, and capacitive touch.
+* `A3` / `D10` – Can be digital input or output, supports analog input, PWM, and capacitive touch.
+* `A4` / `D3` – Can be digital input or output, supports analog input, PWM, capacitive touch, and I2C SCL.
+* `A5` / `D2` – Can be digital input or output, supports analog input, PWM, capacitive touch, and I2C SDA.
+* `A6` / `D0` – Can be digital input or output, supports analog input, PWM, capacitive touch, and serial receive.
+* `A7` / `D1` – Can be digital input or output, supports analog input, PWM, capacitive touch, and serial transmit.
 
 In this lesson, these pins are used strictly as **digital inputs**.
 
