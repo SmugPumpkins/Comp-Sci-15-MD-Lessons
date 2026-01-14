@@ -20,7 +20,7 @@ They are labeled as:
 
 * `GND` – Ground. This is the reference point for all voltages and must be connected for most circuits to work.
 * `3.3V` – A regulated 3.3-volt power output. This is used to power low-voltage components.
-* `VOUT` – The voltage supplied to the board, usually from USB or battery. This can be higher than 3.3V.
+* `VOUT` – A higher volt output (for example, 5 volts). The voltage supplied to the board, usually from USB or battery. 
 
 Any external component that needs power will usually connect to one power pin and one other pin for control.
 
