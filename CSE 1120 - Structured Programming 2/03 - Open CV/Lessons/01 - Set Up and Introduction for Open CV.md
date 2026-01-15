@@ -41,3 +41,12 @@ cv.imwrite("hello.png", img)
 ```
 
 If this script runs without errors and creates the image file, OpenCV-Python is installed and working correctly.
+
+# Pictures Used
+During this part of the module, the example code I have will use the following images, and calls them `red.png`, `green.png`, and `blue.png`. I would recommend downloading them to follow allong. You can either save them from this page or [download this folder](/Images/OpenCV%20Images/).
+
+![Red](/Images/OpenCV%20Images/red.png)
+
+![Green](/Images/OpenCV%20Images/green.png)
+
+![Blue](/Images/OpenCV%20Images/blue.png)
