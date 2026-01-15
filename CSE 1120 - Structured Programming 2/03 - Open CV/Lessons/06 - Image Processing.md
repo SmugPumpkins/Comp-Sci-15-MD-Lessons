@@ -2,7 +2,7 @@ https://docs.opencv.org/4.x/d2/d96/tutorial_py_table_of_contents_imgproc.html
 
 # Overview
 
-# Important Information
+
 Assume the following set up for this section:
 ```python
 import cv2 as cv
@@ -12,7 +12,7 @@ blue = cv.imread('blue.png')
 green = cv.imread('green.png')
 red = cv.imread('red.png')
 ```
-## Changing Color Space
+# Changing Color Space
 Color spaces are described below.
 
 The syntax is always like this:
@@ -24,7 +24,7 @@ input_img = red
 output_img = cv.cvtColor(input_img, cv.COLOR_BGR2RGB)
 ```
 
-### BGR (Blue, Green, Red)
+## BGR (Blue, Green, Red)
 This is the default color space.
 3 Channels per pixel, one for blue, green, and red
 
@@ -36,7 +36,7 @@ This is the default color space.
 | `cv.COLOR_BGR2RGB`  | **BGR** – 3 Channels (Blue, Green, Red) | **RGB** – 3 Channels (Red, Green, Blue)                                  |
 | `cv.COLOR_BGR2RGBA` | **BGR** – 3 Channels (Blue, Green, Red) | **RGBA** – 4 Channels (Red, Green, Blue, Alpha)                          |
 
-### RGB (Red, Green, Blue)
+## RGB (Red, Green, Blue)
 Common color space with many other programs. Most graphics programs use RGB space.
 3 channels per pixel, one for red, green, and blue
 
@@ -48,7 +48,7 @@ Common color space with many other programs. Most graphics programs use RGB spac
 | `cv.COLOR_RGB2HSV`  | **RGB** – 3 Channels (Red, Green, Blue) | **HSV** – 3 Channels (Hue/Color, Saturation/Intensity, Value/Brightness) |
 | `cv.COLOR_RGB2RGBA` | **RGB** – 3 Channels (Red, Green, Blue) | **RGBA** – 4 Channels (Red, Green, Blue, Alpha)                          |
 
-### GRAY (Grayscale)
+## GRAY (Grayscale)
 1 channel per pixel for brightness
 
 | Code                | Input Color Space                                                        | Output Color Space                              |
@@ -58,7 +58,7 @@ Common color space with many other programs. Most graphics programs use RGB spac
 | `cv.COLOR_HSV2RGB`  | **HSV** – 3 Channels (Hue/Color, Saturation/Intensity, Value/Brightness) | **RGB** – 3 Channels (Red, Green, Blue)         |
 | `cv.COLOR_HSV2RGBA` | **HSV** – 3 Channels (Hue/Color, Saturation/Intensity, Value/Brightness) | **RGBA** – 4 Channels (Red, Green, Blue, Alpha) |
 
-### HSV (Hue, Saturation, Value)
+## HSV (Hue, Saturation, Value)
 Useful for when you want to control the color with a single channel
 3 channels, one for hue (color), saturation (how vibrant or gray the color is), and value (brightness)
 
@@ -69,7 +69,7 @@ Useful for when you want to control the color with a single channel
 | `cv.COLOR_GRAY2RGB`  | **Gray** – 1 Channel (Brightness) | **RGB** – 3 Channels (Red, Green, Blue)         |
 | `cv.COLOR_GRAY2RGBA` | **Gray** – 1 Channel (Brightness) | **RGBA** – 4 Channels (Red, Green, Blue, Alpha) |
 
-### BRGA (Blue, Green, Red, Alpha)
+## BRGA (Blue, Green, Red, Alpha)
 Same as BGR but with transparency
 4 channels, one for blue, green, red, and alpha
 
@@ -81,7 +81,7 @@ Same as BGR but with transparency
 | `cv.COLOR_BGRA2RGB`  | **BGRA** – 4 Channels (Blue, Green, Red, Alpha) | **RGB** – 3 Channels (Red, Green, Blue)                                  |
 | `cv.COLOR_BGRA2RGBA` | **BGRA** – 4 Channels (Blue, Green, Red, Alpha) | **RGBA** – 4 Channels (Red, Green, Blue, Alpha)                          |
 
-### RGBA (RED, Green, Blue, Alpha)
+## RGBA (RED, Green, Blue, Alpha)
 Same as RGB but with transparency
 4 channels, one for red, green, blue, and alpha
 
@@ -93,8 +93,8 @@ Same as RGB but with transparency
 | `cv.COLOR_RGBA2GRAY` | **RGBA** – 4 Channels (Red, Green, Blue, Alpha) | **Gray** – 1 Channel (Brightness)                                        |
 | `cv.COLOR_RGBA2HSV`  | **RGBA** – 4 Channels (Red, Green, Blue, Alpha) | **HSV** – 3 Channels (Hue/Color, Saturation/Intensity, Value/Brightness) |
 
-## Geometric Transformations
-### Scale
+# Geometric Transformations
+## Scale
 ```python
 # Manual pixel size
 width = 100 # 100 pixels
@@ -108,7 +108,7 @@ height_factor = 2
 big_green = cv.resize(green, None, fx=width_factor, fy=height_factor)
 ```
 
-### Translate
+## Translate
 ```python
 # In this example the image we create will be the same size as our start image
 red_height, red_width, _ = red.shape
@@ -125,7 +125,7 @@ translation_matrix = np.float32([[1, 0, translate_x], [0, 1, translate_y]])
 moved_red = cv.warpAffine(red, translation_matrix, red_size)
 
 ```
-### Rotate
+## Rotate
 ```python
 # In this example the image we create will be the same size as our start image
 green_height, green_width, _ = green.shape
@@ -144,6 +144,6 @@ rotation_matrix = cv.getRotationMatrix2D(rotation_point, angle, 1)
 rotated_green = cv.warpAffine(green, rotation_matrix, green_size)
 ```
 
-## Thresholding
+# Thresholding
 
 

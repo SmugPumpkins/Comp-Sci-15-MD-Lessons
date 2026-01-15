@@ -4,7 +4,7 @@ OpenCV treats images as **NumPy arrays**, which means every image is made up of 
 
 This lesson focuses on **core image operations** in OpenCV: examining image properties, accessing and modifying pixels, working with color channels, and combining images.
 
-# Important Information
+# Starting Code
 
 For the following code examples, assume we have the following libraries and images initialized.
 
@@ -21,7 +21,7 @@ img_2 = cv.imread('green.png')
 
 Each image loaded with `cv.imread()` is stored as a NumPy array with a specific shape, size, and data type.
 
-## Image Properties
+# Image Properties
 
 OpenCV images have several useful properties that describe their structure.
 
@@ -45,7 +45,7 @@ img.dtype
 
 These properties are often used to verify image dimensions or ensure compatibility when combining images.
 
-## Accessing and Modifying Pixel Values
+# Accessing and Modifying Pixel Values
 
 Individual pixels can be accessed using array indexing.
 
@@ -73,7 +73,7 @@ img[100,100] = [255, 0, 0]
 
 This sets the pixel to pure blue (maximum blue channel, no green or red). Pixel manipulation like this is useful for marking points, debugging, or drawing simple indicators.
 
-## Modifying Regions of Pixels
+# Modifying Regions of Pixels
 
 Instead of working with a single pixel, OpenCV allows entire **regions of interest (ROIs)** to be copied and modified.
 
@@ -91,7 +91,7 @@ The first line extracts a rectangular region from the image using slicing. The s
 
 Region-based operations are very fast because they use NumPy slicing instead of looping over pixels.
 
-## Splitting and Merging Channels
+# Splitting and Merging Channels
 
 Color images contain separate color channels that can be manipulated independently.
 
@@ -107,7 +107,7 @@ img = cv.merge((b,g,r))
 
 `cv.merge()` combines separate channels back into a single color image. Channels must be merged in BGR order.
 
-### With NumPy Indexing (Advanced)
+## With NumPy Indexing (Advanced)
 
 Channels can also be accessed directly using NumPy slicing.
 
@@ -129,11 +129,11 @@ g = 255
 
 Direct channel manipulation is often used for color filtering, masking, and visual effects.
 
-## Adding Images
+# Adding Images
 
 OpenCV provides functions to combine images mathematically. These operations require images to be the same size and data type.
 
-### `cv.add`
+## `cv.add`
 
 ```python
 added_img = cv.add(img_1, img_2)
@@ -141,7 +141,7 @@ added_img = cv.add(img_1, img_2)
 
 `cv.add()` performs **saturated addition**, meaning values above `255` are clipped instead of wrapping around. This prevents unexpected color artifacts and is preferred over normal NumPy addition for images.
 
-### `cv.addWeighted()`
+## `cv.addWeighted()`
 
 ```python
 img_1_weight = 0.4
@@ -155,7 +155,7 @@ weighted_added_img = cv.addWeighted(img_1, img_1_weight, img_2, img_2_weight, sc
 
 This function is commonly used for overlays, fades, and blending effects.
 
-## Example
+# Example
 
 ```python
 # Import library
