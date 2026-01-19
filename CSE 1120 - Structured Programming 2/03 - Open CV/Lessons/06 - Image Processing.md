@@ -11,6 +11,7 @@ import numpy as np
 blue = cv.imread('blue.png')
 green = cv.imread('green.png')
 red = cv.imread('red.png')
+grey = cv.imread('grey.png')
 ```
 # Changing Color Space
 Color spaces are described below.
@@ -145,5 +146,49 @@ rotated_green = cv.warpAffine(green, rotation_matrix, green_size)
 ```
 
 # Thresholding
+Only works on greyscale images.
 
+![Grey](/Images/OpenCV%20Images/grey.png)
 
+I would recommend playing around with the `threshold_value` and the `white` value below to get a deeper understanding of how they work.
+```python
+# Convert the image you want to threshold to greyscale
+grey_img = cv.cvtColor(grey, cv.COLOR_BGR2GRAY)
+
+# The threshold value is the number used to determine what is white and what is black. 
+# Pixels less than this value will be black.
+# Pixels greater than his value will be white.
+threshold_value = 127
+
+# Determines what color to display as "white" in the output.
+# 255 will produce a threshold that is black (0) and white (255).
+# A value less than 255 will result in a black and grey image
+white = 255
+
+# There are different types of thresholding that are outlined later. Binary is the most basic and intuitive one.
+threshold_type = cv.THRESH_BINARY
+
+# cv.threshold() returns an image. '_' is used to store the boolean for whether or not an image was successfully produced.
+_, grey_threshold = cv.threshold(grey_img, threshold_value, white, threshold_type)
+```
+## Threshold Types
+
+|Code|Description|Output|
+|-|-|-|
+|`cv.THRESH_BINARY`|Pixels greater than `threshold_value` are *white*. Pixels les than `threshold_value` are *black*.|![Binary](/Images/OpenCV%20Output%20Images/threshold_binary.png)|
+|`cv.THRESH_BINARY_INV`|Pixels greater than `threshold_value` are *black*. Pixels les than `threshold_value` are *black*.|![Binary Inverted](/Images/OpenCV%20Output%20Images/threshold_binary_inv.png)|
+|`cv.THRESH_TRUNC`|Pixels less than `threshold_value` are *unchanged*. Pixels greater than `threshold_value` are set to *`threshold_value`*.|![Truncate](/Images/OpenCV%20Output%20Images/threshold_truncate.png)|
+|`cv.THRESH_TOZERO`|Pixels less than `threshold_value` are set to *black*. Pixels greater than `threshold_value` are *unchanged*.|![To Zero](/Images/OpenCV%20Output%20Images/threshold_to_zero.png)|
+|`cv.THRESH_TOZERO_INV`|Pixels greater than `threshold_value` are set to *black*. Pixels less than `threshold_value` are *unchanged*.|![Binary](/Images/OpenCV%20Output%20Images/threshold_to_zero_inv.png)|
+
+# Edge Detection 
+
+```python
+grey_red = cv.cvtColor(red, cv.COLOR_BGR2GRAY)
+
+weak_edge = 100
+strong_edge = 200
+
+edge_image = cv.Canny(grey_red, min_threshold, max_threshold)
+```
+CHECK OUT CVZONE instead of media pipe!

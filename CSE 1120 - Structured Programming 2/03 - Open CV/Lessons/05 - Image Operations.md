@@ -77,7 +77,7 @@ This sets the pixel to pure blue (maximum blue channel, no green or red). Pixel 
 
 Instead of working with a single pixel, OpenCV allows entire **regions of interest (ROIs)** to be copied and modified.
 
-![Blue With 3 Eyes](/Images/blue_3_eye.png)
+![Blue With 3 Eyes](/Images/OpenCV%20Output%20Images/blue_3_eye.png)
 
 This example gives blue a third eye on their forehead.
 
@@ -181,6 +181,6 @@ cv.waitKey(0)
 cv.destroyAllWindows()
 ```
 
-![Add Weighted Example](/Images/weighted.png)
+![Add Weighted Example](/Images/OpenCV%20Output%20Images/weighted.png)
 
 This example blends a red image and a green image together using weighted addition. The result is a combined image where each original image contributes proportionally to the final color. This technique is widely used for transparency effects, visual comparisons, and overlays in computer vision projects.
