@@ -1,9 +1,9 @@
-https://docs.opencv.org/4.x/d2/d96/tutorial_py_table_of_contents_imgproc.html
-
 # Overview
 
+This section builds on earlier OpenCV skills by introducing **color spaces**, **geometric transformations**, **thresholding**, and **edge detection**. You will learn how images are represented internally, how to convert between different color formats, how to resize, move, and rotate images, and how to extract useful information like edges or high-contrast regions.
 
-Assume the following set up for this section:
+Assume the following setup is already completed. These imports give us access to OpenCV and NumPy, and the images are loaded into variables so they can be reused throughout the lesson.
+
 ```python
 import cv2 as cv
 import numpy as np
@@ -13,10 +13,15 @@ green = cv.imread('green.png')
 red = cv.imread('red.png')
 grey = cv.imread('grey.png')
 ```
-# Changing Color Space
-Color spaces are described below.
 
-The syntax is always like this:
+# Changing Color Space
+
+Images in OpenCV are stored as arrays of pixel values. Each pixel contains one or more **channels**, and the meaning of those channels depends on the **color space** being used. A color space defines how color information is stored and interpreted.
+
+OpenCV provides a single function, `cv.cvtColor()`, to convert an image from one color space to another. You always provide the input image and a conversion code that describes how the conversion should happen.
+
+The general pattern for converting color spaces looks like this:
+
 ```python
 # Make sure you have a reference image
 input_img = red
@@ -25,9 +30,13 @@ input_img = red
 output_img = cv.cvtColor(input_img, cv.COLOR_BGR2RGB)
 ```
 
+The conversion code always follows the pattern `cv.COLOR_<INPUT>2<OUTPUT>`.
+
 ## BGR (Blue, Green, Red)
-This is the default color space.
-3 Channels per pixel, one for blue, green, and red
+
+BGR is the **default color space used by OpenCV**. Each pixel has three channels, representing blue, green, and red values. Even though RGB is more common in other programs, OpenCV loads images as BGR by default.
+
+The table below shows common conversions that start from BGR:
 
 | Code                | Input Color Space                       | Output Color Space                                                       |
 | ------------------- | --------------------------------------- | ------------------------------------------------------------------------ |
@@ -38,8 +47,10 @@ This is the default color space.
 | `cv.COLOR_BGR2RGBA` | **BGR** – 3 Channels (Blue, Green, Red) | **RGBA** – 4 Channels (Red, Green, Blue, Alpha)                          |
 
 ## RGB (Red, Green, Blue)
-Common color space with many other programs. Most graphics programs use RGB space.
-3 channels per pixel, one for red, green, and blue
+
+RGB is the most common color space used by graphics software, image editors, and displays. Like BGR, it uses three channels, but the order of those channels is red, green, then blue.
+
+These conversions are useful when working with other libraries that expect RGB instead of BGR:
 
 | Code                | Input Color Space                       | Output Color Space                                                       |
 | ------------------- | --------------------------------------- | ------------------------------------------------------------------------ |
@@ -50,7 +61,10 @@ Common color space with many other programs. Most graphics programs use RGB spac
 | `cv.COLOR_RGB2RGBA` | **RGB** – 3 Channels (Red, Green, Blue) | **RGBA** – 4 Channels (Red, Green, Blue, Alpha)                          |
 
 ## GRAY (Grayscale)
-1 channel per pixel for brightness
+
+Grayscale images store only **brightness information**. Each pixel has a single channel, where lower values are darker and higher values are brighter. Grayscale images are commonly used for thresholding and edge detection because they remove color complexity.
+
+The following conversions show how grayscale images can be converted back into multi-channel formats:
 
 | Code                | Input Color Space                                                        | Output Color Space                              |
 | ------------------- | ------------------------------------------------------------------------ | ----------------------------------------------- |
@@ -60,8 +74,8 @@ Common color space with many other programs. Most graphics programs use RGB spac
 | `cv.COLOR_HSV2RGBA` | **HSV** – 3 Channels (Hue/Color, Saturation/Intensity, Value/Brightness) | **RGBA** – 4 Channels (Red, Green, Blue, Alpha) |
 
 ## HSV (Hue, Saturation, Value)
-Useful for when you want to control the color with a single channel
-3 channels, one for hue (color), saturation (how vibrant or gray the color is), and value (brightness)
+
+HSV separates color information into three more intuitive components: hue (the color itself), saturation (how intense the color is), and value (brightness). This makes HSV very useful when you want to isolate or adjust colors.
 
 | Code                 | Input Color Space                 | Output Color Space                              |
 | -------------------- | --------------------------------- | ----------------------------------------------- |
@@ -71,8 +85,8 @@ Useful for when you want to control the color with a single channel
 | `cv.COLOR_GRAY2RGBA` | **Gray** – 1 Channel (Brightness) | **RGBA** – 4 Channels (Red, Green, Blue, Alpha) |
 
 ## BRGA (Blue, Green, Red, Alpha)
-Same as BGR but with transparency
-4 channels, one for blue, green, red, and alpha
+
+BGRA is the same as BGR but with an additional **alpha channel**. The alpha channel controls transparency, where lower values are more transparent and higher values are more opaque.
 
 | Code                 | Input Color Space                               | Output Color Space                                                       |
 | -------------------- | ----------------------------------------------- | ------------------------------------------------------------------------ |
@@ -83,8 +97,8 @@ Same as BGR but with transparency
 | `cv.COLOR_BGRA2RGBA` | **BGRA** – 4 Channels (Blue, Green, Red, Alpha) | **RGBA** – 4 Channels (Red, Green, Blue, Alpha)                          |
 
 ## RGBA (RED, Green, Blue, Alpha)
-Same as RGB but with transparency
-4 channels, one for red, green, blue, and alpha
+
+RGBA is commonly used in graphics applications where transparency is required. It is identical to RGB, with an added alpha channel.
 
 | Code                 | Input Color Space                               | Output Color Space                                                       |
 | -------------------- | ----------------------------------------------- | ------------------------------------------------------------------------ |
@@ -95,13 +109,24 @@ Same as RGB but with transparency
 | `cv.COLOR_RGBA2HSV`  | **RGBA** – 4 Channels (Red, Green, Blue, Alpha) | **HSV** – 3 Channels (Hue/Color, Saturation/Intensity, Value/Brightness) |
 
 # Geometric Transformations
+
+Geometric transformations change the **shape, size, or position** of an image. OpenCV provides built-in tools for scaling, translating, and rotating images.
+
 ## Scale
+
+Scaling changes the size of an image. You can do this by explicitly setting a new width and height, or by using scale factors.
+
+In the first example, the image is resized to a specific pixel size:
+
 ```python
 # Manual pixel size
 width = 100 # 100 pixels
 height = 100 # 100 pixels
 small_blue = cv.resize(blue, (width, height))
 ```
+
+In the second example, the image is scaled relative to its original size using factors:
+
 ```python
 # Scaling factor
 width_factor = 2
@@ -110,6 +135,11 @@ big_green = cv.resize(green, None, fx=width_factor, fy=height_factor)
 ```
 
 ## Translate
+
+Translation moves an image horizontally and/or vertically. This is done using a **transformation matrix** and the `cv.warpAffine()` function.
+
+The code below first determines the size of the output image, then defines how far the image should move in each direction.
+
 ```python
 # In this example the image we create will be the same size as our start image
 red_height, red_width, _ = red.shape
@@ -124,9 +154,14 @@ translation_matrix = np.float32([[1, 0, translate_x], [0, 1, translate_y]])
 
 # cv.warpAffine() is used to create a new translated image
 moved_red = cv.warpAffine(red, translation_matrix, red_size)
-
 ```
+
 ## Rotate
+
+Rotation spins an image around a point, usually its center. OpenCV requires a rotation matrix that includes the rotation angle and scale.
+
+This example rotates the image by 45 degrees around its center:
+
 ```python
 # In this example the image we create will be the same size as our start image
 green_height, green_width, _ = green.shape
@@ -146,11 +181,15 @@ rotated_green = cv.warpAffine(green, rotation_matrix, green_size)
 ```
 
 # Thresholding
-Only works on greyscale images.
+
+Thresholding converts a grayscale image into a high-contrast image by deciding which pixels should be considered black or white. This technique is commonly used for object detection and image segmentation.
+
+Thresholding only works on grayscale images.
 
 ![Grey](/Images/OpenCV%20Images/grey.png)
 
-I would recommend playing around with the `threshold_value` and the `white` value below to get a deeper understanding of how they work.
+The code below first converts the image to grayscale, then applies a binary threshold.
+
 ```python
 # Convert the image you want to threshold to greyscale
 grey_img = cv.cvtColor(grey, cv.COLOR_BGR2GRAY)
@@ -171,24 +210,31 @@ threshold_type = cv.THRESH_BINARY
 # cv.threshold() returns an image. '_' is used to store the boolean for whether or not an image was successfully produced.
 _, grey_threshold = cv.threshold(grey_img, threshold_value, white, threshold_type)
 ```
+
 ## Threshold Types
 
-|Code|Description|Output|
-|-|-|-|
-|`cv.THRESH_BINARY`|Pixels greater than `threshold_value` are *white*. Pixels les than `threshold_value` are *black*.|![Binary](/Images/OpenCV%20Output%20Images/threshold_binary.png)|
-|`cv.THRESH_BINARY_INV`|Pixels greater than `threshold_value` are *black*. Pixels les than `threshold_value` are *black*.|![Binary Inverted](/Images/OpenCV%20Output%20Images/threshold_binary_inv.png)|
-|`cv.THRESH_TRUNC`|Pixels less than `threshold_value` are *unchanged*. Pixels greater than `threshold_value` are set to *`threshold_value`*.|![Truncate](/Images/OpenCV%20Output%20Images/threshold_truncate.png)|
-|`cv.THRESH_TOZERO`|Pixels less than `threshold_value` are set to *black*. Pixels greater than `threshold_value` are *unchanged*.|![To Zero](/Images/OpenCV%20Output%20Images/threshold_to_zero.png)|
-|`cv.THRESH_TOZERO_INV`|Pixels greater than `threshold_value` are set to *black*. Pixels less than `threshold_value` are *unchanged*.|![Binary](/Images/OpenCV%20Output%20Images/threshold_to_zero_inv.png)|
+| Code                   | Description                                                                                                               | Output                                                                        |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `cv.THRESH_BINARY`     | Pixels greater than `threshold_value` are *white*. Pixels les than `threshold_value` are *black*.                         | ![Binary](/Images/OpenCV%20Output%20Images/threshold_binary.png)              |
+| `cv.THRESH_BINARY_INV` | Pixels greater than `threshold_value` are *black*. Pixels les than `threshold_value` are *black*.                         | ![Binary Inverted](/Images/OpenCV%20Output%20Images/threshold_binary_inv.png) |
+| `cv.THRESH_TRUNC`      | Pixels less than `threshold_value` are *unchanged*. Pixels greater than `threshold_value` are set to *`threshold_value`*. | ![Truncate](/Images/OpenCV%20Output%20Images/threshold_truncate.png)          |
+| `cv.THRESH_TOZERO`     | Pixels less than `threshold_value` are set to *black*. Pixels greater than `threshold_value` are *unchanged*.             | ![To Zero](/Images/OpenCV%20Output%20Images/threshold_to_zero.png)            |
+| `cv.THRESH_TOZERO_INV` | Pixels greater than `threshold_value` are set to *black*. Pixels less than `threshold_value` are *unchanged*.             | ![Binary](/Images/OpenCV%20Output%20Images/threshold_to_zero_inv.png)         |
 
-# Edge Detection 
+# Edge Detection
+
+Edge detection finds areas of **rapid brightness change**, which often correspond to object boundaries. The Canny edge detector is one of the most common algorithms used for this purpose.
+
+Before detecting edges, the image must be converted to grayscale. Two threshold values are then used to control how strong an edge must be to appear in the final result.
 
 ```python
+# Convert the color space to grayscale.
 grey_red = cv.cvtColor(red, cv.COLOR_BGR2GRAY)
 
+# Define the weak and strong edges.
 weak_edge = 100
 strong_edge = 200
 
+# Create the image that has edge detection.
 edge_image = cv.Canny(grey_red, min_threshold, max_threshold)
 ```
-CHECK OUT CVZONE instead of media pipe!
