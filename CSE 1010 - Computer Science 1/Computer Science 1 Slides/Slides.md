@@ -1,7 +1,11 @@
-1. What is Computer Science? (And what is its role in an information society?)
-2. Computer Science v Computer Engineering v Information Technology v Math
-3. Misconceptions about Computer Science
-4. Systems Development Lifecycle (Plan, Analyze, Design, Program, Test, Maintain)
+1. [What is Computer Science? (And what is its role in an information society?)](https://drive.google.com/file/d/1ztESV4w_yhlnZSgNiG8k540qtzTOZxn1/view)
+    * [Questions](https://drive.google.com/file/d/10erptwdBZ1JmTrpsqt33sNE332jnOpB3/view?usp=sharing)
+2. [Computer Science v Computer Engineering v Information Technology v Math](https://drive.google.com/file/d/1-xE5TkXBrOkjkRKhHCA9ASgWBDhMOeRi/view?usp=sharing)
+    * [Questions](https://drive.google.com/file/d/1Wr5F26Y_FSHVutRwzgeqqMYengi6I5tt/view?usp=sharing)
+3. [Misconceptions about Computer Science](https://drive.google.com/file/d/1NhCkaG2wHhZJTdCijliAMEKAChNFvnW0/view?usp=sharing)
+    * [Questions](https://drive.google.com/file/d/13cb8qN_kLbV8aZMW6egon24t4UyxHYYq/view?usp=sharing)
+4. [Systems Development Lifecycle (Plan, Analyze, Design, Program, Test, Maintain)](https://drive.google.com/file/d/1YOrNzOitrEAIUlqnJhnVZMJpDPe8YiVr/view?usp=sharing)
+    * [Questions](https://drive.google.com/file/d/15cLD1W0Ej9BZpAgXman8LGewF3X4ylub/view?usp=sharing)
 5. What are algorithms? How can people use them? How can computers use them?
 6. Algorithms and Control Structures -Sequence, Selection, Iteration 
 7. IPO Charting

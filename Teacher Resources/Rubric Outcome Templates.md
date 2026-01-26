@@ -1,4 +1,32 @@
-# CSE 1020 - Structured Programming 2
+# CSE 1110 - Structured Programming 1
+## Outcome 1
+||5 - Mastery of Skill|4 - Excellence in Skill|3 - Proficiency in Skill|2 - Attempting Skill|1 - Starting to Attempt Skill|0 - Refusal to Engage with Skill|
+|-|-|-|-|-|-|-|
+|1.1 Explain what an algorithm is and why it is used.|||||||
+|1.2 Analyze and describe the tasks of simple algorithms.|||||||
+|1.3 Determine whether a problem can be solved with an IPO approach.|||||||
+|1.4 Break a problem down into IPO components.|||||||
+|1.5 Identify data used for inputs.|||||||
+|1.6 Order the steps of the IPO modules so that input is gathered before processing, and processing is complete before output.|||||||
+|1.7 Write algorithms in a clear standard format (pseudocode or flow charts).|||||||
+|1.8 Test algorithms using appropriate data.|||||||
+|1.9 Revise and improve algorithms based on testing results.|||||||
+## Outcome 2
+||5 - Mastery of Skill|4 - Excellence in Skill|3 - Proficiency in Skill|2 - Attempting Skill|1 - Starting to Attempt Skill|0 - Refusal to Engage with Skill|
+|-|-|-|-|-|-|-|
+|2.1 Use a programming IDE.|||||||
+|2.2 Explain why you use an IDE.|||||||
+|2.3 Use the features of an IDE like the code editor, the terminal, and the file explorer.|||||||
+|2.4 Convert your algorithm into code, including maintaining IPO structure, documentation, using variables, and outputting data.|||||||
+|2.5 Test your program using appropriate data.|||||||
+|2.6 Revise programs based on testing.|||||||
+## Outcome 3
+||5 - Mastery of Skill|4 - Excellence in Skill|3 - Proficiency in Skill|2 - Attempting Skill|1 - Starting to Attempt Skill|0 - Refusal to Engage with Skill|
+|-|-|-|-|-|-|-|
+|3.1 Compare program output with the intended output.|||||||
+|3.2 Use debugging techniques to correct run-time, syntax, and logic errors.|||||||
+|3.3 Modify algorithms or code to improve accuracy.|||||||
+# CSE 1120 - Structured Programming 2
 ## Outcome 1
 ||5 - Mastery of Skill|4 - Excellence in Skill|3 - Proficiency in Skill|2 - Attempting Skill|1 - Starting to Attempt Skill|0 - Refusal to Engage with Skill|
 |-|-|-|-|-|-|-|
