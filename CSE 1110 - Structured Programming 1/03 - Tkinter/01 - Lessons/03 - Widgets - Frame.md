@@ -6,7 +6,7 @@ A `frame` is a widget that displays as a simple rectangle. Frames help to organi
 ## Creating a Frame
 Frames are created using the `ttk.Frame` class:
 ```python
-# parent represents whatever container you want to put it in. This can be the root, or another frame.
+# 'parent' represents whatever container you want to put it in. This can be the root, or another frame.
 frame = ttk.Frame(parent)
 ```
 Frames can take several different configuration options, which can alter how they are displayed.
@@ -19,7 +19,17 @@ If, for some reason, you want an empty frame that does not contain other widgets
 frame['width'] = 500 
 frame['height'] = 400
 ```
+### Oh No! My Frame Isn't Displaying With It's Intended Size!
+By default, frames shrink to fit their internal content! If you put another element inside of a frame, the frame will shrink! You might be wondering "What happened to my frame?".
 
+To prevent your frame from shrinking when adding elements, make sure that it has it's propgate set to false.
+```python
+# Add the frame to the display.
+frame.grid()
+
+# Prevent the frame from shrinking.
+frame.grid_propagate(False)
+```
 ## Specifying Units
 When we asked that the frame be "500" wide, how big is that? What are the units? If not otherwise specified, screen distances such as width and height (and others, like padding and borderwidth below) are measured in pixels. So when we ask that a frame be "500" wide, we're requesting 500 pixels.
 

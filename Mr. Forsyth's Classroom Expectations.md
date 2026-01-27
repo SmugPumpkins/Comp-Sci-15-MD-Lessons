@@ -37,7 +37,7 @@ The fourth time I move you, it will be to **the "Mr. Chute's BFF" seat** *(I'll 
 
 **I don't let students leave during the last 20 minutes of class.** You can hold it until the bell.
 
-If you are leaving the classrrom, write **your name** and the **time that you left** on the board. This is for 2 reasons:
+If you are leaving the classroom, write **your name** and the **time that you left** on the board. This is for 2 reasons:
 1. As your teacher, I am legally responsible for knowing where you are in the case of an emergency. Having your name on the board helps me remember this.
 2. Writing the time on the board also helps me realize how long you've been gone for.
 
@@ -46,13 +46,13 @@ If you aren't doing what you are supposed to be doing when you leave the classro
 I don't want you to be late for your next class, but please don't pack up until the last 5 minutes of class.
 
 You also may not leave the classroom until the bell has gone. Leaving the classroom early often disrupts other classes whose bells aren't aligned with ours.
-## Absense
+## Absence
 All course work and content will be posted on schoology. It is likely that if you miss class that the content is there.
 
 If you have questions about what you missed, **you will be responsible for reaching out**. I am going to assume that because you have the resources posted for you, you are good to go.
 
 If you are missing class for an extended period of time, **you may have to catch up when you get back rather than working ahead**. This is my first year teaching most of my courses, so I don't have premade material yet.
-# Classtime Structure
+# Class Time Structure
 ## Instructional Time
 At the start of class most days there will be instructional time. With instructional time there will be slides and questions for you to answer. 
 
@@ -77,7 +77,8 @@ During instructional time and presentation time, **headphones are not on your he
 **I don't let students use the breakout room.** This is for 2 reasons.
 1. Often, other teachers have students they need to assess and need the breakout rooms.
 2. When I have let students use the breakout rooms, their work has always been worse and less, and has not been more or better. I just don't believe that in this class the breakout room provides any benefits that being in the classroom doesn't.
-## Presentaion Time
+
+## Presentation Time
 At the end of projects, typically we will have a class period to present to one another.
 
 When you are presenting, *please* take it **seriously** and have some ***dignity***.
@@ -151,7 +152,7 @@ Every week or so, I also do **one on one check ins**, where I see how your work 
 ## Outside of School Hours
 I'll make you a deal. I won't contact you on weekends if you don't contact me on weekends. **I will not respond over the weekend or over breaks.**
 
-I am more than happy to respond to emails with questions on school days. If you must contect me over the weekend, *please use the "scheduled send" feature to have the email reach me Monday morning*.
+I am more than happy to respond to emails with questions on school days. If you must contact me over the weekend, *please use the "scheduled send" feature to have the email reach me Monday morning*.
 
 Please allow me up to 2 business days to respond to an email if it doesn't get addressed in person.
 
@@ -220,7 +221,7 @@ When it comes to adding comments and documentation to your code, again you shoul
 ### Planning and Idea Generation
 When it comes to planning and idea generation, you are ruining your learning in two ways if you use AI. 
 
-First, you aren't exercing your own creativity and problem solving. If you don't practice it now, its a skill that will be challenging to develop down the line. 
+First, you aren't exercising your own creativity and problem solving. If you don't practice it now, its a skill that will be challenging to develop down the line. 
 
 Second, AI is just bad at creative ideas. Consider the ginger bread house story.
 

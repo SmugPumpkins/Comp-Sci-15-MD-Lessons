@@ -67,6 +67,41 @@ long_label.grid(row=1, column=0)
 
 In this example, column `0` automatically becomes wide enough to fit `"Full Legal Name"`. The two rows can also end up with different heights. Rows and columns do not need to be equal in size, which allows the layout to adapt naturally to its content.
 
+## Row and Column Weights
+
+Row and column **weights** control how extra space is distributed when a container is larger than the widgets inside it. By default, all rows and columns have a weight of `0`, which means they **do not expand**.
+
+A weight is assigned using `grid_rowconfigure()` and `grid_columnconfigure()` on the **container**, not on the widget.
+
+```python
+root.grid_rowconfigure(0, weight=1)
+root.grid_columnconfigure(0, weight=1)
+```
+
+A row or column with a higher weight gets a larger share of extra space. If multiple rows or columns have weights, the space is divided proportionally.
+
+```python
+root.grid_columnconfigure(0, weight=1)
+root.grid_columnconfigure(1, weight=2)
+```
+
+In this example, column `1` grows twice as fast as column `0`.
+
+Weights work together with the `sticky` option. A widget will only stretch to fill its cell if:
+
+* the row and/or column has a positive weight
+* the widget uses `sticky` (`"n"`, `"s"`, `"e"`, `"w"`)
+
+```python
+frame.grid_rowconfigure(0, weight=1)
+frame.grid_columnconfigure(0, weight=1)
+
+label.grid(row=0, column=0, sticky="nsew")
+```
+
+Without row and column weights, `sticky` has no effect because the cell itself never grows.
+
+
 ## Planning Layouts with Grid
 
 When planning a layout, it helps to think in rows and columns rather than pixels. Related widgets should be grouped into shared rows or columns, and unused row or column numbers can be left open for future expansion.

@@ -69,6 +69,7 @@
   * **1.7** Write algorithms in a clear, standard format.
   * **1.8** Test algorithms using appropriate data.
   * **1.9** Revise and improve algorithms based on testing results.
+
 * **2 Demonstrate the ability to translate algorithms into working programs.**
   * **2.1** Describe the purpose of key parts of a programming development environment.
   * **2.2** Compare an integrated development environment with a setup using separate tools.
@@ -83,6 +84,7 @@
     * **2.4.7** displaying results clearly
   * **2.5** Test programs using appropriate data.
   * **2.6** Revise programs based on testing.
+  
 * **3 Analyze program results and debug errors.**
   * **3.1** Compare program output with the intended algorithm.
   * **3.2** Use debugging techniques to correct:

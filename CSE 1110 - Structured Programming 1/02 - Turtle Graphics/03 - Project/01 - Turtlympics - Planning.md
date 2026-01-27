@@ -52,5 +52,6 @@ The following are *required* submissions:
   * Description of what and algorithm is and why it is being used.
   * IPO charts for each function.
   * Pseudocode or flow chart.
-  * Diagram and maze sketches (upload photos to word document).
+  * Photos of maze sketches (upload photos to word document).
+
 

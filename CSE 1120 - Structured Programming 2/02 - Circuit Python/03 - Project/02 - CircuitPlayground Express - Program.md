@@ -51,6 +51,7 @@ Your task is to:
 The following are *required* submissions:
 * Your python source code *(include all files you created, not just your* `main.py` *file)*.
 * A short video *(1-2 minutes)* demonstrating your inputs and outputs for your CircuitPlayground Express project.
+* Reference log including AI usage and all other links to websites you have used throughout the project.
 
 The following are *optional* submissions:
 * A short personal reflection *(no more than 200 words)* on how well you think you have demonstrated the required outcomes for this project *(this reflection will be taken into consideration when assessing your mastery)*. Submit as a word document.

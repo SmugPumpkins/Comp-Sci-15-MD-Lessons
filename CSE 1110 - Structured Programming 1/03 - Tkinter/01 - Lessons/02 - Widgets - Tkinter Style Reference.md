@@ -94,6 +94,9 @@ style.configure("My.TLabel", foreground="blue")
 
 Controls the font used for text.
 
+The first parameter for `font` is the typeface name.
+
+The second parameter for `font` is the text size in points.
 ```python
 style.configure("My.TLabel", font=("Arial", 14))
 ```

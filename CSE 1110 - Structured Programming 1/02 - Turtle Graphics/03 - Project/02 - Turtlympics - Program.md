@@ -50,8 +50,8 @@ Your task is to create a program that creates a maze for the Turtlympics. Your p
 The following are *required* submissions:
 * Python file titled `firstname_lastinitial_turtlympics.py`.
     * *For example, Mr. Forsyth's file would be named `Nathan_F_turtlympics.py`*
-
-*Please **DO NOT zip** your python file.*
+  * *Please **DO NOT zip** your python file.*
+* Reference log including AI usage and all other links to websites you have used throughout the project.
 
 *To be considered for the maze competition, your assignment **MUST** be handed in **ON TIME!***
 
