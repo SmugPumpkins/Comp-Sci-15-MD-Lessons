@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>15 - Parameters and Arguments</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>In this lesson, you will learn how to create functions that take input values called arguments. You will learn the difference between parameters and arguments, how to write functions that accept them, how to allow a function to accept any number of arguments, how to use type hints, and how to indicate when a parameter may not be used.</p>
+<h1>Important Information</h1>
+<p>Functions become much more powerful when they can receive data from outside the function. This data is passed into the function when it is called.</p>
+<h2>Parameters vs Arguments</h2>
+<p>Although they are closely related, <strong>parameters</strong> and <strong>arguments</strong> are not the same thing.</p>
+<ul>
+<li><strong>Parameters</strong> are the variable names listed in a function definition.</li>
+<li><strong>Arguments</strong> are the actual values passed into the function when it is called.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-python">def greet(name):
+    print(name)
+
+greet(&quot;Alex&quot;)
+</code></pre>
+<ul>
+<li><code>name</code> is a <strong>parameter</strong></li>
+<li><code>"Alex"</code> is an <strong>argument</strong></li>
+</ul>
+<h2>Functions With Parameters</h2>
+<p>Parameters act like local variables inside the function. Their values come from the arguments provided when the function is called.</p>
+<pre><code class="language-python">def show_number(number):
+    print(number)
+
+show_number(5)
+show_number(42)
+</code></pre>
+<p>Each time the function is called, the parameter <code>number</code> receives a different value.</p>
+<h2>Functions With Multiple Parameters</h2>
+<p>Functions can take more than one parameter.</p>
+<pre><code class="language-python">def introduce(name, age):
+    print(name)
+    print(age)
+
+introduce(&quot;Sam&quot;, 14)
+</code></pre>
+<p>The order of arguments matters. The first argument goes to the first parameter, the second argument goes to the second parameter, and so on.</p>
+<h2>Any Number of Arguments</h2>
+<p>Sometimes you do not know how many arguments will be passed into a function. Python allows this using <code>*args</code>.</p>
+<ul>
+<li><code>*args</code> collects all extra arguments into a tuple</li>
+<li>The name <code>args</code> is a convention, but the <code>*</code> is what matters</li>
+</ul>
+<pre><code class="language-python">def show_all(*args):
+    print(args)
+
+show_all(1, 2, 3)
+show_all(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;)
+</code></pre>
+<p>This allows the function to accept any number of arguments without changing the function definition.</p>
+<h2>Type Hinting Arguments</h2>
+<p>Type hints allow you to indicate what type of data a parameter is expected to receive. This does not stop the program from running, but it helps with readability and error checking.</p>
+<pre><code class="language-python">def repeat_word(word: str, times: int):
+    print(word)
+    print(times)
+</code></pre>
+<p>Type hints make code easier to understand and help code editors warn you about possible mistakes. However, in python, type hints <strong>do not</strong> change how the program runs. They really are just hints, and not hard and fast rules.</p>
+<h2>Unused Parameters</h2>
+<p>Sometimes a function must accept a parameter even if it is not used yet. In this case, the parameter name should start with an underscore <code>_</code>.</p>
+<p>This signals to other programmers (and tools) that the parameter is intentionally unused.</p>
+<pre><code class="language-python">def placeholder(_unused_value):
+    print(&quot;This function ignores its parameter&quot;)
+</code></pre>
+<p>Using <code>_</code> helps keep code clean and avoids confusion.</p>
+<h1>Set Up</h1>
+<p>Create a new python file called <code>function_arguments.py</code>.</p>
+<h1>Copy, Change, Challenge - Using Parameters</h1>
+<h2>Copy</h2>
+<pre><code class="language-python">def greet(name):
+    print(&quot;Hello&quot;)
+    print(name)
+
+greet(&quot;Jordan&quot;)
+</code></pre>
+<h2>Change</h2>
+<p>Change the argument so a different name is printed.</p>
+<h2>Challenge</h2>
+<p>Call the function three times using three different names.</p>
+<h1>Copy, Change, Challenge - Any Number of Arguments</h1>
+<h2>Copy</h2>
+<pre><code class="language-python">def add_numbers(*numbers):
+    print(numbers)
+
+add_numbers(1, 2)
+add_numbers(3, 4, 5, 6)
+</code></pre>
+<h2>Change</h2>
+<p>Call the function with only one argument, then with at least five arguments.</p>
+<h2>Challenge</h2>
+<p>Modify the function so it prints each value in <code>numbers</code> on its own line.</p>
+<h1>Copy, Change, Challenge - Unused Parameters</h1>
+<h2>Copy</h2>
+<pre><code class="language-python">def display_info(name: str, _id_number: int):
+    print(name)
+
+display_info(&quot;Taylor&quot;, 12345)
+</code></pre>
+<h2>Change</h2>
+<p>Rename the <code>_id_number</code> parameter to something else that still starts with <code>_</code>.</p>
+<h2>Challenge</h2>
+<p>Create a function with two parameters where one is used and the other is intentionally unused, and demonstrate calling the function.</p>
+</body>
+</html>

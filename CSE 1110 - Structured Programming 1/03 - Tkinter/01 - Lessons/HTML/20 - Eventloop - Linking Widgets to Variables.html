@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>20 - Eventloop - Linking Widgets to Variables.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* a11y-dark theme */
+/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
+/* @author: ericwbailey */
+
+/* Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #d4d0ab;
+}
+
+/* Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #ffa07a;
+}
+
+/* Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #f5ab35;
+}
+
+/* Yellow */
+.hljs-attribute {
+  color: #ffd700;
+}
+
+/* Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #abe338;
+}
+
+/* Blue */
+.hljs-title,
+.hljs-section {
+  color: #00e0e0;
+}
+
+/* Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #dcc6e0;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #2b2b2b;
+  color: #f8f8f2;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type,
+  .hljs-quote {
+        color: highlight;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+        font-weight: bold;
+    }
+}
+
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///r%3A/2.Travail/1.Enseignement/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css"><link rel="stylesheet" href="file:///d%3A/rdaros/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="overview">Overview</h1>
+<p>This lesson explains how Tkinter widgets can be linked to special variable objects so that changes in your program and changes in the user interface stay in sync automatically.</p>
+<h1 id="important-information">Important Information</h1>
+<h2 id="why-widgets-use-special-variables">Why Widgets Use Special Variables</h2>
+<p>In regular Python programs, variables are simple names that store values. In Tkinter, many widgets need a way to communicate changes back and forth between the user interface and your code. To make this work, Tkinter provides special variable classes that can be linked directly to widgets.</p>
+<p>When a widget is linked to one of these variables, changing the variable updates the widget, and user actions that change the widget update the variable.</p>
+<h2 id="the-four-main-tkinter-variable-types">The Four Main Tkinter Variable Types</h2>
+<p>Tkinter provides four main variable classes that you will use most often.</p>
+<h3 id="stringvar">StringVar</h3>
+<p><code>StringVar</code> stores text data. It is commonly used with labels, entry widgets, and comboboxes.</p>
+<pre class="hljs"><code><div>name_var = StringVar()
+</div></code></pre>
+<h3 id="booleanvar">BooleanVar</h3>
+<p><code>BooleanVar</code> stores either <code>True</code> or <code>False</code>. It is often used with checkbuttons or to track on/off states.</p>
+<pre class="hljs"><code><div>enabled_var = BooleanVar()
+</div></code></pre>
+<h3 id="intvar">IntVar</h3>
+<p><code>IntVar</code> stores whole numbers. It is commonly used with radiobuttons or numeric settings.</p>
+<pre class="hljs"><code><div>choice_var = IntVar()
+</div></code></pre>
+<h3 id="doublevar">DoubleVar</h3>
+<p><code>DoubleVar</code> stores decimal numbers. Even though Python usually calls decimal numbers <code>float</code>, Tkinter uses the name <code>DoubleVar</code>. This comes from other programming languages where decimal numbers are often called “doubles,” and Tkinter was designed to work with multiple languages, not just Python.</p>
+<pre class="hljs"><code><div>volume_var = DoubleVar()
+</div></code></pre>
+<h2 id="initializing-variables-with-starting-values">Initializing Variables with Starting Values</h2>
+<p>Each of these variable classes can be created with an initial value. If you do not provide one, Tkinter will use a default value.</p>
+<pre class="hljs"><code><div>name_var = StringVar(value=<span class="hljs-string">"Guest"</span>)
+enabled_var = BooleanVar(value=<span class="hljs-literal">True</span>)
+choice_var = IntVar(value=<span class="hljs-number">2</span>)
+volume_var = DoubleVar(value=<span class="hljs-number">0.75</span>)
+</div></code></pre>
+<p>Using an initial value is helpful when you want widgets to start in a specific state when the program opens.</p>
+<h2 id="linking-variables-to-widgets">Linking Variables to Widgets</h2>
+<p>Widgets are linked to variables using specific configuration options. Which option you use depends on the widget.</p>
+<p>Labels, entries, and comboboxes typically use <code>textvariable</code>.</p>
+<pre class="hljs"><code><div>name_label = ttk.Label(root, textvariable=name_var)
+name_entry = ttk.Entry(root, textvariable=name_var)
+</div></code></pre>
+<p>Checkbuttons and radiobuttons use the <code>variable</code> option.</p>
+<pre class="hljs"><code><div>check = ttk.Checkbutton(root, text=<span class="hljs-string">"Enable"</span>, variable=enabled_var)
+
+radio1 = ttk.Radiobutton(root, text=<span class="hljs-string">"Option 1"</span>, variable=choice_var, value=<span class="hljs-number">1</span>)
+radio2 = ttk.Radiobutton(root, text=<span class="hljs-string">"Option 2"</span>, variable=choice_var, value=<span class="hljs-number">2</span>)
+</div></code></pre>
+<p>When the user interacts with these widgets, the linked variable automatically updates.</p>
+<h2 id="getting-and-setting-variable-values-in-the-program">Getting and Setting Variable Values in the Program</h2>
+<p>Each Tkinter variable class provides <code>get()</code> and <code>set()</code> methods.</p>
+<pre class="hljs"><code><div>current_name = name_var.get()
+name_var.set(<span class="hljs-string">"Alex"</span>)
+</div></code></pre>
+<p>You do not assign to these variables using <code>=</code>. Instead, you always use <code>get()</code> and <code>set()</code> so Tkinter can keep the widget and variable synchronized.</p>
+<h2 id="using-linked-variables-inside-functions">Using Linked Variables Inside Functions</h2>
+<p>Linked variables work the same way inside functions, including callbacks. As long as the variable exists in scope, you can read or change its value.</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">submit</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">if</span> enabled_var.get():
+        print(<span class="hljs-string">"Enabled for"</span>, name_var.get())
+    <span class="hljs-keyword">else</span>:
+        print(<span class="hljs-string">"Disabled"</span>)
+</div></code></pre>
+<p>Changing a variable inside a function automatically updates any widgets linked to it.</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reset_name</span><span class="hljs-params">()</span>:</span>
+    name_var.set(<span class="hljs-string">"Guest"</span>)
+</div></code></pre>
+<p>This is one of the most powerful features of Tkinter’s variable system.</p>
+<p>Because linked variables are represented using <em>objects</em> instead of <em>regular python variables</em>, the <code>global</code> keyword is not necessary. You aren't <em>reassigning</em> the variable, you are <em>setting the value of an object</em>.</p>
+<h2 id="accessing-values-through-widgets-directly">Accessing Values Through Widgets Directly</h2>
+<p>Some widgets provide methods to get or set their values without accessing the linked variable directly. For example, entry widgets have a <code>get()</code> method.</p>
+<pre class="hljs"><code><div>typed_text = name_entry.get()
+</div></code></pre>
+<p>You can also insert or delete text directly in an entry widget.</p>
+<pre class="hljs"><code><div>name_entry.delete(<span class="hljs-number">0</span>, <span class="hljs-string">"end"</span>)
+name_entry.insert(<span class="hljs-number">0</span>, <span class="hljs-string">"New Name"</span>)
+</div></code></pre>
+<p>While these widget methods are useful in some cases, using linked variables is usually preferred because it keeps all parts of the program synchronized. Widgets like labels do not provide direct <code>get()</code> methods, which makes variable linking especially important for consistent data handling.</p>
+<p>Understanding how to link widgets to variables is a key step in writing clean, responsive Tkinter programs that react smoothly to user input.</p>
+
+</body>
+
+</html>

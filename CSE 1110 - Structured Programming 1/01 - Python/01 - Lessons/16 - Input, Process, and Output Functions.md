@@ -28,6 +28,7 @@ A function that follows IPO does not need to print anything. Instead, it returns
 def double_number(number):
     result = number * 2
     return result
+
 ```
 
 Breaking this down:
@@ -41,9 +42,11 @@ When the function is called:
 ```python
 answer = double_number(5)
 print(answer)
+
 ```
 
 The function:
+
 1. Receives `5` as input
 2. Processes it by doubling it
 3. Outputs `10` back to the program
@@ -62,7 +65,8 @@ Functions can have more than one processing step before returning a value.
 def calculate_score(points):
     bonus = 5
     total = points + bonus
-    return total
+    return total 
+
 ```
 
 IPO breakdown:
@@ -79,6 +83,7 @@ Returned values can be stored in a variable, used again later, or printed.
 score = calculate_score(10)
 final_score = score * 2
 print(final_score)
+
 ```
 
 The function does the processing, and the rest of the program decides what to do with the output.
@@ -94,10 +99,11 @@ Create a new python file called `functions_ipo.py`.
 ```python
 def square(number):
     result = number * number
-    return result
+    return result 
 
 answer = square(4)
 print(answer)
+
 ```
 
 Identify the input, process, and output in this function.
@@ -116,10 +122,11 @@ Create a function that takes a number as input, adds 10 to it, and returns the r
 ```python
 def convert_minutes(minutes):
     seconds = minutes * 60
-    return seconds
+    return seconds 
 
 time_in_seconds = convert_minutes(3)
 print(time_in_seconds)
+
 ```
 
 ## Change

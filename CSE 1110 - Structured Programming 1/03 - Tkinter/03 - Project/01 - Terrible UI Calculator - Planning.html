@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>01 - Terrible UI Calculator - Planning.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* 
+
+An Old Hope â Star Wars Syntax (c) Gustavo Costa <gusbemacbe@gmail.com>
+Original theme - Ocean Dark Theme â by https://github.com/gavsiu
+Based on Jesse Leite's Atom syntax theme 'An Old Hope' â https://github.com/JesseLeite/an-old-hope-syntax-atom
+
+*/
+
+/* Death Star Comment */
+.hljs-comment,
+.hljs-quote 
+{
+  color: #B6B18B;
+}
+
+/* Darth Vader */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion 
+{
+  color: #EB3C54;
+}
+
+/* Threepio */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link 
+{
+  color: #E7CE56;
+}
+
+/* Luke Skywalker */
+.hljs-attribute 
+{
+  color: #EE7C2B;
+}
+
+/* Obi Wan Kenobi */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition 
+{
+  color: #4FB4D7;
+}
+
+/* Yoda */
+.hljs-title,
+.hljs-section 
+{
+  color: #78BB65;
+}
+
+/* Mace Windu */
+.hljs-keyword,
+.hljs-selector-tag 
+{
+  color: #B45EA4;
+}
+
+/* Millenium Falcon */
+.hljs 
+{
+  display: block;
+  overflow-x: auto;
+  background: #1C1D21;
+  color: #c0c5ce;
+  padding: 0.5em;
+}
+
+.hljs-emphasis 
+{
+  font-style: italic;
+}
+
+.hljs-strong 
+{
+  font-weight: bold;
+}
+
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="python---terrible-ui-calculator---planning">Python - Terrible UI Calculator - Planning</h1>
+<h2 id="overview">Overview</h2>
+<p>In the time that we have been using Tkinter, you've probably noticed that the graphics aren't impressive. Why not consider that a feature instead of a bug? Why not lean into the ugly and create a calculator with a terrible UI?</p>
+<p>A great place to find inspiration for a terrible UI is <a href="https://goulartnogueira.github.io/BadUI/">GoulartNogueira/BadUI</a>.</p>
+<h2 id="project-criteria">Project Criteria</h2>
+<p>Your task is to use python and Tkinter to create a terrible calculator UI. The calculator may be a regular arithmetic calculator or a custom kind of calculator (like sport stats or triangle angles or something).</p>
+<p>Your project must include the following:</p>
+<ul>
+<li>At least 10 input widgets.</li>
+<li>The use of styles to customize the appearance of widgets.</li>
+<li>At least 1 label that is used for outputting data.</li>
+<li>At least 3 functions that accept parameters.</li>
+<li>At least 3 functions that return values.</li>
+<li>At least 6 total functions.</li>
+</ul>
+<p>Your planning must include:</p>
+<ul>
+<li>A description and explanation for how this project relates to algorithms.</li>
+<li>Sketches of the UI layout you plan to create.</li>
+<li>IPO Charts for each of your functions.</li>
+<li>Either pseudocode or a flow chart to outline the overall control flow of your program.
+<ul>
+<li><em>Note: I would recommend a <strong>flow chart</strong> for this project, as it will make it significantly easier to map out the control flow of events triggering things!</em></li>
+</ul>
+</li>
+</ul>
+<h2 id="outcome-criteria">Outcome Criteria</h2>
+<ul>
+<li><strong>1 Demonstrate introductory structured programming skills by planning and writing sequential algorithms.</strong>
+<ul>
+<li><strong>1.1</strong> Explain what an algorithm is and why it is used.</li>
+<li><strong>1.2</strong> Analyze simple algorithms and describe the task or tasks they perform.</li>
+<li><strong>1.3</strong> Determine whether a problem can be solved using an input–process–output (IPO) approach.</li>
+<li><strong>1.4</strong> Break a problem into input, processing, and output components.</li>
+<li><strong>1.5</strong> Identify which data is already available to the program and which data must be provided as input.</li>
+<li><strong>1.6</strong> Arrange inputs, processing steps, and outputs in the correct order so that:
+<ul>
+<li><strong>1.6.1</strong> processing occurs only after all required input is available</li>
+<li><strong>1.6.2</strong> output occurs only after processing is complete</li>
+</ul>
+</li>
+<li><strong>1.7</strong> Write algorithms in a clear, standard format.</li>
+<li><strong>1.8</strong> Test algorithms using appropriate data.</li>
+<li><strong>1.9</strong> Revise and improve algorithms based on testing results.</li>
+</ul>
+</li>
+</ul>
+<h2 id="mastery-rubric">Mastery Rubric</h2>
+<table>
+<thead>
+<tr>
+<th>Outcome</th>
+<th>5 – Mastery of Skill</th>
+<th>4 – Excellence in Skill</th>
+<th>3 – Proficiency in Skill</th>
+<th>2 – Attempting Skill</th>
+<th>1 – Starting to Attempt Skill</th>
+<th>0 – Refusal to Engage with Skill</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1.1 Explain what an algorithm is and why it is used.</strong></td>
+<td>Clearly and precisely explains algorithms using correct terminology, connects explanation directly to the calculator project, and shows deep understanding of why algorithms are essential for program control and correctness.</td>
+<td>Clearly explains what an algorithm is and why it is used, with relevant connections to the calculator project.</td>
+<td>Gives a basic, accurate explanation of what an algorithm is and a general reason for its use.</td>
+<td>Provides a vague or partially incorrect explanation of algorithms or their purpose.</td>
+<td>Shows very limited understanding of what an algorithm is or why it is used.</td>
+<td>Makes no attempt to explain algorithms.</td>
+</tr>
+<tr>
+<td><strong>1.2 Analyze and describe the tasks of simple algorithms.</strong></td>
+<td>Thoroughly analyzes multiple algorithms in the project, clearly describing each task and how they work together within the calculator.</td>
+<td>Correctly analyzes and describes the tasks performed by the main algorithms used in the project.</td>
+<td>Describes the tasks of simple algorithms with basic accuracy.</td>
+<td>Descriptions are incomplete or show partial misunderstanding of algorithm tasks.</td>
+<td>Shows minimal ability to describe what algorithms do.</td>
+<td>Makes no attempt to analyze or describe algorithms.</td>
+</tr>
+<tr>
+<td><strong>1.3 Determine whether a problem can be solved with an IPO approach.</strong></td>
+<td>Independently and accurately justifies why the calculator problem fits an IPO model, with clear references to specific inputs, processes, and outputs.</td>
+<td>Correctly identifies that the problem can be solved using IPO and explains the reasoning.</td>
+<td>Correctly identifies the IPO approach with limited explanation.</td>
+<td>Shows partial or unclear understanding of when IPO applies.</td>
+<td>Shows little understanding of the IPO approach.</td>
+<td>Makes no attempt to apply IPO reasoning.</td>
+</tr>
+<tr>
+<td><strong>1.4 Break a problem down into IPO components.</strong></td>
+<td>Breaks the calculator problem into detailed, well-organized IPO components for all functions, showing strong structural planning.</td>
+<td>Correctly breaks the problem into clear IPO components for most functions.</td>
+<td>Breaks the problem into basic IPO components with minor gaps or simplifications.</td>
+<td>IPO components are incomplete or incorrectly identified.</td>
+<td>IPO breakdown is minimal or largely incorrect.</td>
+<td>Makes no attempt to break the problem into IPO components.</td>
+</tr>
+<tr>
+<td><strong>1.5 Identify data used for inputs.</strong></td>
+<td>Accurately identifies all required inputs, clearly distinguishing between user-provided data and data already available to the program.</td>
+<td>Identifies most required inputs correctly, with minor omissions.</td>
+<td>Identifies basic input data with general accuracy.</td>
+<td>Identifies some inputs but misses key data or shows confusion.</td>
+<td>Shows very limited recognition of input data.</td>
+<td>Makes no attempt to identify inputs.</td>
+</tr>
+<tr>
+<td><strong>1.6 Order the steps of the IPO modules correctly.</strong></td>
+<td>Consistently orders input, processing, and output correctly across all planned algorithms, demonstrating strong logical sequencing.</td>
+<td>Orders IPO steps correctly with only minor sequencing issues.</td>
+<td>Orders IPO steps correctly in simple cases.</td>
+<td>Shows inconsistent or partially incorrect ordering of IPO steps.</td>
+<td>Shows little understanding of correct IPO sequencing.</td>
+<td>Makes no attempt to order IPO steps.</td>
+</tr>
+<tr>
+<td><strong>1.7 Write algorithms in a clear standard format.</strong></td>
+<td>Produces clear, detailed, and well-structured pseudocode or flow charts that fully represent the calculator’s control flow and events.</td>
+<td>Produces clear pseudocode or flow charts that accurately represent the program logic.</td>
+<td>Writes understandable pseudocode or flow charts with basic structure.</td>
+<td>Uses a standard format inconsistently or unclearly.</td>
+<td>Shows minimal ability to use pseudocode or flow charts effectively.</td>
+<td>Makes no attempt to write algorithms in a standard format.</td>
+</tr>
+<tr>
+<td><strong>1.8 Test algorithms using appropriate data.</strong></td>
+<td>Describes and plans thorough testing using varied and meaningful data, clearly explaining how results validate algorithm correctness.</td>
+<td>Plans and describes appropriate testing using relevant data.</td>
+<td>Describes basic testing with appropriate data.</td>
+<td>Testing is minimal, poorly chosen, or weakly explained.</td>
+<td>Shows little understanding of how to test algorithms.</td>
+<td>Makes no attempt to test algorithms.</td>
+</tr>
+<tr>
+<td><strong>1.9 Revise and improve algorithms based on testing results.</strong></td>
+<td>Clearly explains how testing results lead to thoughtful revisions and improvements, demonstrating strong problem-solving independence.</td>
+<td>Explains how algorithms are revised based on testing feedback.</td>
+<td>Mentions making changes based on testing with limited detail.</td>
+<td>Shows limited or unclear revision based on testing.</td>
+<td>Shows little evidence of revising algorithms.</td>
+<td>Makes no attempt to revise or improve algorithms.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="submission">Submission</h2>
+<p>The following are <em>required</em> submissions:</p>
+<ul>
+<li>A word document with the following:
+<ul>
+<li>Description of what an algorithm is and why it is being used.</li>
+<li>IPO charts for each function.</li>
+<li>Pseudocode or flow chart.</li>
+<li>Photos of interface sketches (upload photos to word document).</li>
+</ul>
+</li>
+</ul>
+
+</body>
+</html>

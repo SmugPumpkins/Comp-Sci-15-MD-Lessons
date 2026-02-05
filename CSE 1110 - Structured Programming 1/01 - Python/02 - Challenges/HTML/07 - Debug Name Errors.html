@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>07 - Debug Name Errors</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Challenge - Debug Name Errors</h1>
+<p>The object of this challenge is to practice identifying and debugging name errors.</p>
+<h2>Mild 🌶️</h2>
+<p>Copy and run the following code.</p>
+<pre><code class="language-python">def paint_required(area, coverage):
+    return area * covreage
+
+wall_area = 25
+paint_coverage = 10
+litres = paint_required(wall_area, paint_coverage)
+print(litres)
+</code></pre>
+<p>Debug the code so it still maintains functionality, but does not raise errors.</p>
+<h2>Medium 🌶️🌶️</h2>
+<p>Copy and run the following code.</p>
+<pre><code class="language-python">def trip_cost(distance, fuel_cost):
+    fuel_used = distance
+    return fuel_used * fuel_price
+
+trip_dsitance = 8
+distance_km = trip_distance
+fuel_cost = 1.25
+cost = trip_cost(distance_km, fuel_cost)
+taxes = 0.05
+total = cost + tax
+print(total)
+</code></pre>
+<p>Debug the code so it still maintains functionality, but does not raise errors.</p>
+<h2>Spicy 🌶️🌶️🌶️</h2>
+<p>Copy and run the following code.</p>
+<pre><code class="language-python">def recipe_scaler(original_servings, required_servings, ingredient_amount):
+    factor = servings / original_servings
+    return factor * ingredients
+
+extra_amount = 3
+unit_price = 0.6
+scaled_amount = recipe_scaling(3, 4, 1/2)
+total_needed = scaled_amount + extra_ingredient
+final_price = total_needed * uint_price
+print(total_price)
+</code></pre>
+<p>Debug the code so it still maintains functionality, but does not raise errors.</p>
+</body>
+</html>

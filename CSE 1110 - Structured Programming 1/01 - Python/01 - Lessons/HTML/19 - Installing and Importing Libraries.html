@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>19 - Installing and Importing Libraries</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>In this lesson, you will learn how to import and use <strong>built-in Python modules</strong> such as <code>math</code>, <code>turtle</code>, and <code>tkinter</code>. You will also learn that not all modules come installed with Python, how to recognize built-in libraries versus external ones, and how to find and use documentation to learn new modules effectively.</p>
+<h1>Important Information</h1>
+<p>Python includes many <strong>built-in modules</strong> that add extra functionality without you needing to write everything from scratch.</p>
+<p>A <strong>module</strong> is a file of prewritten code that you can import and use in your program.</p>
+<p>Examples of common built-in modules:</p>
+<ul>
+<li><code>math</code> for mathematical operations</li>
+<li><code>turtle</code> for drawing graphics</li>
+<li><code>tkinter</code> for building simple graphical user interfaces (GUIs)</li>
+</ul>
+<p>These modules are included with most standard Python installations.</p>
+<h2>Importing a Built-in Module</h2>
+<p>To use a built-in module, you must import it.</p>
+<pre><code class="language-python">import math
+</code></pre>
+<p>Once imported, you access its functions using the module name as a namespace.</p>
+<pre><code class="language-python">print(math.sqrt(25))
+</code></pre>
+<p>This keeps your code organized and makes it clear where functions come from.</p>
+<h2>Importing With an Alias</h2>
+<p>Some module names are long or used frequently. You can shorten them using <code>as</code>.</p>
+<pre><code class="language-python">import math as m
+
+print(m.sqrt(16))
+</code></pre>
+<p>This does not change how the module works—it only changes how you refer to it.</p>
+<h2>Importing Specific Tools From a Module</h2>
+<p>You can import only what you need from a module.</p>
+<pre><code class="language-python">from math import sqrt, pi
+
+print(sqrt(9))
+print(pi)
+</code></pre>
+<p>In this case you do not need to use <code>math</code> as a prefix for functions. You also only have access to <code>sqrt()</code> and <code>pi</code>, but not any other functions or variables from the <code>math</code> module.</p>
+<p>This can make code cleaner, but it is less obvious where functions come from.</p>
+<h2>Example: Using the <code>turtle</code> Module</h2>
+<p><code>turtle</code> is a built-in module used for drawing and visual programming.</p>
+<pre><code class="language-python">import turtle
+t = turtle.Turtle()
+t.forward(100)
+t.left(90)
+t.forward(100)
+
+# Keep the window open
+turtle.done()
+</code></pre>
+<h2>Example: Using the <code>tkinter</code> Module</h2>
+<p><code>tkinter</code> is Python’s standard library for creating basic windows.</p>
+<pre><code class="language-python">import tkinter as tk
+
+window = tk.Tk()
+window.title(&quot;My First Window&quot;)
+
+label = tk.Label(window, text=&quot;Hello, tkinter!&quot;)
+label.pack()
+
+window.mainloop()
+</code></pre>
+<h2>Not All Modules Are Installed</h2>
+<p>Important distinction:</p>
+<ul>
+<li><strong>Built-in modules</strong> come with Python</li>
+<li><strong>External libraries</strong> must be installed separately</li>
+</ul>
+<p>Examples of external libraries:</p>
+<ul>
+<li><code>pygame</code></li>
+<li><code>numpy</code></li>
+<li><code>requests</code></li>
+</ul>
+<p>Installing external libraries requires extra tools and commands.
+This is <strong>beyond the scope of this lesson</strong> and will be covered later in the course.</p>
+<p>For now:</p>
+<ul>
+<li>If <code>import</code> works without errors, the module is available</li>
+<li>If Python raises an <code>AttributeError</code> or <code>ModuleNotFoundError</code>, the module is not installed</li>
+</ul>
+<h2>Finding Documentation</h2>
+<p>You will often need to learn how a module works by reading documentation.</p>
+<p>Good places to look:</p>
+<ul>
+<li>The official Python documentation</li>
+<li>Trusted tutorials</li>
+<li>Examples written by other programmers</li>
+</ul>
+<p>A good search habit:</p>
+<ul>
+<li>Start with the module name and the word <code>python</code></li>
+<li>Add the function name if you know it</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li>&ldquo;python math&rdquo;</li>
+<li>&ldquo;python turtle forward&rdquo;</li>
+<li>&ldquo;python tkinter Label&rdquo;</li>
+</ul>
+<h2>Reading Documentation Effectively</h2>
+<p>When reading documentation:</p>
+<ul>
+<li>Look for <strong>examples</strong> first</li>
+<li>Pay attention to required imports</li>
+<li>Note parameter names and expected data types</li>
+<li>Skim headings before reading details</li>
+</ul>
+<p>Good habits:</p>
+<ul>
+<li>Do not copy large blocks of code blindly</li>
+<li>Test small examples first</li>
+<li>Change values to see what happens</li>
+</ul>
+<h2>Common Errors and Fixes</h2>
+<h3>ModuleNotFoundError</h3>
+<p><strong>Cause</strong>: Module is not installed</p>
+<p><strong>Fix</strong>: Confirm whether the module is built-in or external</p>
+<h3>AttributeError</h3>
+<p><strong>Cause</strong>: Function name is incorrect or does not exist</p>
+<p><strong>Fix</strong>: Check spelling and documentation</p>
+<h3>Nothing Happens</h3>
+<p><strong>Cause</strong>: Required setup or loop is missing</p>
+<p><strong>Fix</strong>: Recheck example code carefully</p>
+</body>
+</html>

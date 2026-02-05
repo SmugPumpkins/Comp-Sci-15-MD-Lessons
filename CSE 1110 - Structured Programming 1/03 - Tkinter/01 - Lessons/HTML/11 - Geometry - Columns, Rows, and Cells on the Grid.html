@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>11 - Geometry - Columns, Rows, and Cells on the Grid.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* a11y-dark theme */
+/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
+/* @author: ericwbailey */
+
+/* Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #d4d0ab;
+}
+
+/* Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #ffa07a;
+}
+
+/* Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #f5ab35;
+}
+
+/* Yellow */
+.hljs-attribute {
+  color: #ffd700;
+}
+
+/* Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #abe338;
+}
+
+/* Blue */
+.hljs-title,
+.hljs-section {
+  color: #00e0e0;
+}
+
+/* Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #dcc6e0;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #2b2b2b;
+  color: #f8f8f2;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type,
+  .hljs-quote {
+        color: highlight;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+        font-weight: bold;
+    }
+}
+
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///r%3A/2.Travail/1.Enseignement/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css"><link rel="stylesheet" href="file:///d%3A/rdaros/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="overview">Overview</h1>
+<p>When using the <code>grid</code> geometry manager, every widget is placed into a <strong>cell</strong> that is defined by a row and a column. Understanding how rows, columns, and cells work together is essential for building clean and well-aligned user interfaces.</p>
+<p>This lesson explains how grid positions widgets, how row and column numbering works, and how grid automatically sizes rows and columns based on their contents.</p>
+<h1 id="important-information">Important Information</h1>
+<h2 id="rows-and-columns">Rows and Columns</h2>
+<p>In <code>grid</code>, each widget is given a row number and a column number. These two values determine where the widget appears relative to other widgets in the layout.</p>
+<p>Widgets that share the same <strong>row</strong> are placed next to each other from left to right. Widgets that share the same <strong>column</strong> are stacked above and below one another.</p>
+<pre class="hljs"><code><div>label = ttk.Label(root, text=<span class="hljs-string">"Name:"</span>)
+label.grid(row=<span class="hljs-number">0</span>, column=<span class="hljs-number">0</span>)
+
+entry = ttk.Entry(root)
+entry.grid(row=<span class="hljs-number">0</span>, column=<span class="hljs-number">1</span>)
+</div></code></pre>
+<p>In this example, both widgets are placed in row <code>0</code>. Since they are in different columns, the label appears on the left and the entry appears on the right.</p>
+<h2 id="the-cell-concept">The Cell Concept</h2>
+<p>A <strong>cell</strong> is the space created where a row and a column intersect. By default, each widget occupies exactly one cell in the grid.</p>
+<p>Cells are created automatically as widgets are added. You do not need to define rows or columns ahead of time. Thinking in terms of cells helps when planning a layout, especially when sketching an interface before writing code.</p>
+<h2 id="row-and-column-numbering">Row and Column Numbering</h2>
+<p>Row and column numbers must be <strong>non-negative integers</strong>, which means they start at <code>0</code> and count upward <em>(0, 1, 2, 3, ...)</em>.</p>
+<p>You are not required to start at row <code>0</code> or column <code>0</code>, and the numbers do not need to be consecutive. It is perfectly valid to leave gaps in numbering.</p>
+<pre class="hljs"><code><div>title = ttk.Label(root, text=<span class="hljs-string">"Settings"</span>)
+title.grid(row=<span class="hljs-number">0</span>, column=<span class="hljs-number">0</span>)
+
+save_button = ttk.Button(root, text=<span class="hljs-string">"Save"</span>)
+save_button.grid(row=<span class="hljs-number">10</span>, column=<span class="hljs-number">1</span>)
+</div></code></pre>
+<p>Leaving gaps in row or column numbers can make it easier to insert new widgets later without having to rewrite existing layout code.</p>
+<h2 id="relative-positioning">Relative Positioning</h2>
+<p>Grid placement is <strong>relative</strong>, not based on exact pixel positions. A widget in column <code>2</code> is simply placed to the right of column <code>1</code>. A widget in row <code>5</code> appears below row <code>4</code>.</p>
+<p>Grid handles the exact spacing and alignment automatically. This makes layouts easier to adjust and maintain, especially as the interface grows or changes.</p>
+<h2 id="automatic-sizing-of-rows-and-columns">Automatic Sizing of Rows and Columns</h2>
+<p>Rows and columns do not have fixed sizes by default. Instead, grid sizes them based on the widgets they contain.</p>
+<p>The width of a column is determined by the widest widget in that column. The height of a row is determined by the tallest widget in that row.</p>
+<pre class="hljs"><code><div>short_label = ttk.Label(root, text=<span class="hljs-string">"ID"</span>)
+short_label.grid(row=<span class="hljs-number">0</span>, column=<span class="hljs-number">0</span>)
+
+long_label = ttk.Label(root, text=<span class="hljs-string">"Full Legal Name"</span>)
+long_label.grid(row=<span class="hljs-number">1</span>, column=<span class="hljs-number">0</span>)
+</div></code></pre>
+<p>In this example, column <code>0</code> automatically becomes wide enough to fit <code>&quot;Full Legal Name&quot;</code>. The two rows can also end up with different heights. Rows and columns do not need to be equal in size, which allows the layout to adapt naturally to its content.</p>
+<h2 id="row-and-column-weights">Row and Column Weights</h2>
+<p>Row and column <strong>weights</strong> control how extra space is distributed when a container is larger than the widgets inside it. By default, all rows and columns have a weight of <code>0</code>, which means they <strong>do not expand</strong>.</p>
+<p>A weight is assigned using <code>grid_rowconfigure()</code> and <code>grid_columnconfigure()</code> on the <strong>container</strong>, not on the widget.</p>
+<pre class="hljs"><code><div>root.grid_rowconfigure(<span class="hljs-number">0</span>, weight=<span class="hljs-number">1</span>)
+root.grid_columnconfigure(<span class="hljs-number">0</span>, weight=<span class="hljs-number">1</span>)
+</div></code></pre>
+<p>A row or column with a higher weight gets a larger share of extra space. If multiple rows or columns have weights, the space is divided proportionally.</p>
+<pre class="hljs"><code><div>root.grid_columnconfigure(<span class="hljs-number">0</span>, weight=<span class="hljs-number">1</span>)
+root.grid_columnconfigure(<span class="hljs-number">1</span>, weight=<span class="hljs-number">2</span>)
+</div></code></pre>
+<p>In this example, column <code>1</code> grows twice as fast as column <code>0</code>.</p>
+<p>Weights work together with the <code>sticky</code> option. A widget will only stretch to fill its cell if:</p>
+<ul>
+<li>the row and/or column has a positive weight</li>
+<li>the widget uses <code>sticky</code> (<code>&quot;n&quot;</code>, <code>&quot;s&quot;</code>, <code>&quot;e&quot;</code>, <code>&quot;w&quot;</code>)</li>
+</ul>
+<pre class="hljs"><code><div>frame.grid_rowconfigure(<span class="hljs-number">0</span>, weight=<span class="hljs-number">1</span>)
+frame.grid_columnconfigure(<span class="hljs-number">0</span>, weight=<span class="hljs-number">1</span>)
+
+label.grid(row=<span class="hljs-number">0</span>, column=<span class="hljs-number">0</span>, sticky=<span class="hljs-string">"nsew"</span>)
+</div></code></pre>
+<p>Without row and column weights, <code>sticky</code> has no effect because the cell itself never grows.</p>
+<h2 id="planning-layouts-with-grid">Planning Layouts with Grid</h2>
+<p>When planning a layout, it helps to think in rows and columns rather than pixels. Related widgets should be grouped into shared rows or columns, and unused row or column numbers can be left open for future expansion.</p>
+<p>This approach leads to layouts that are easier to read, easier to modify, and more adaptable as your program grows.</p>
+
+</body>
+
+</html>

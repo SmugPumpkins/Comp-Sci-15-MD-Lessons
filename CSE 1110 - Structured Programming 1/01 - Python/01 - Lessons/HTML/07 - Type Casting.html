@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>07 - Type Casting</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>In a previous lesson, we looked at how some variable types don&rsquo;t play nice with others. This is especially important to know for when you want to use data retrieved from a user&rsquo;s input.</p>
+<p><strong>ALL USER INPUT IS A STRING EVEN IF THEY TYPED NUMBERS!</strong></p>
+<p>However, sometimes you want to do math with the input a user gave you. That&rsquo;s where type caseing comes in.</p>
+<h1>Important Information</h1>
+<p>When we start off with casting, we are going to assume that our users are nice and cooperative. The first time we use casting, we will assume that our user gave us the information we asked for. </p>
+<p>However, users are not nice. Users break code. This lesson on casting is meant only as a demonstration for changing types, but is not robust enough to be considered &ldquo;good code&rdquo;.</p>
+<p>We will learn more about creating more robust code that users <em>can&rsquo;t</em> break in our next module.</p>
+<h1>Set Up</h1>
+<p>Create a new file called <code>typecasting.py</code>.</p>
+<h1>Copy</h1>
+<p>Consider a program where we ask for a user&rsquo;s age to determine what year they were born.</p>
+<pre><code class="language-python">age = input(&quot;What is your age?&quot;)
+
+year_born = 2026 - age
+
+print(&quot;You were born in the year&quot; + year_born)
+</code></pre>
+<p>Immediately when we run it, we get a <code>TypeError</code> because <code>age</code> is treated as a string, and <code>year_born</code> is trying to subtract a number and a string. If I typed <code>27</code> as the input, it is treated like <code>"27"</code> (notice the quotation marks) - a <code>string</code> value and not a number.</p>
+<p>To get rid of this error, we can <code>Type Cast</code>. Type casting is when we change a values type so it is interpreted differently.</p>
+<p>We can use the built in <code>int()</code> method to turn a <code>string</code> that looks like an <code>int</code> into an <code>int</code>.</p>
+<pre><code class="language-python"># Have the user give us an age.
+age = input(&quot;What is your age?&quot;)
+# Turn that age into a number.
+age = int(age)
+</code></pre>
+<p>Our other really common casting methods are <code>float()</code> for turning a value into a <code>float</code> and <code>str()</code> for turning a value into a <code>string</code>.</p>
+<h1>Change</h1>
+<p>If you run the program (which should look like this):</p>
+<pre><code class="language-python"># Have the user give us an age.
+age = input(&quot;What is your age?&quot;)
+# Turn that age into a number.
+age = int(age)
+
+year_born = 2026 - age
+
+print(&quot;You were born in the year&quot; + year_born)
+</code></pre>
+<p>You are still getting a <code>TypeError</code>! Change the <code>year_born</code> variable to a <code>string</code> so it can be added properly to our message.</p>
+<p>Once you have it running with no errors, see what happens if you are a not nice user. Instead of typing a number, type <code>"Hello!"</code> as your input. What happens?</p>
+<p>You just discovered another kind of error! A <code>ValueError</code> occurs when you try to cast a value to a new type that can&rsquo;t work.</p>
+<p>Python has no meaningful way to make <code>"Hello"</code> into an integer, which makes sense. <code>"Hello"</code> is a <code>string</code>. We won&rsquo;t look at dealing with type errors until our next module, but for now you should be aware of them.</p>
+<h1>Challenge</h1>
+<p>Ask the user for their favourite number, add 10 to it, and then tell them what their favourite number is plus 10.</p>
+<h1>Tips and Tricks</h1>
+<p>Any value can be placed between the brackets for type casting. You have to be careful about <code>ValueError</code>s, but you can shorten the process of getting an integer or float from a user by putting it all on one line.</p>
+<pre><code class="language-python">age = int(input(&quot;What is your age? &quot;))
+</code></pre>
+</body>
+</html>

@@ -3,6 +3,7 @@ The object of this challenge is to practice identifying and debugging value erro
 
 ## Mild 🌶️
 Copy and run the following code.
+
 ```python
 def calculate_age(years):
     return int(years)
@@ -10,10 +11,12 @@ def calculate_age(years):
 age = calculate_age("sixteen")
 print(age)
 ```
+
 Debug the code so it still maintains functionality, but does not raise errors.
 
 ## Medium 🌶️🌶️
 Copy and run the following code.
+
 ```python
 def rectangle_dimensions(length, width):
     return float(length), float(width)
@@ -23,10 +26,12 @@ area = l * w
 message = float("Total area") + str(area)
 print(area)
 ```
+
 Debug the code so it still maintains functionality, but does not raise errors.
 
 ## Spicy 🌶️🌶️🌶️
 Copy and run the following code.
+
 ```python
 def budget_calculator(income, expenses):
     return int(income) - int(expenses)
@@ -38,4 +43,5 @@ final_plan = months_needed * savings_goal
 print(final_plan)
 
 ```
+
 Debug the code so it still maintains functionality, but does not raise errors.

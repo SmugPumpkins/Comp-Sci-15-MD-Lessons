@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>06 - Debug Type Errors</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Challenge - Debug Type Errors</h1>
+<p>The object of this challenge is to practice identifying and debugging type errors.</p>
+<h2>Mild 🌶️</h2>
+<p>Copy and run the following code.</p>
+<pre><code class="language-python">def rectangular_prism_volume(length, width, height):
+    return length * width * height
+
+length = 5
+width = &quot;4&quot;
+height = 3
+
+volume = rectangular_prism_volume(length, width, height)
+print(volume)
+</code></pre>
+<p>Debug the code so it still maintains functionality, but does not raise errors.</p>
+<h2>Medium 🌶️🌶️</h2>
+<p>Copy and run the following code.</p>
+<pre><code class="language-python">def rectangular_prism_surface_area(length, width, height):
+    lw = length * width
+    lh = length * height
+    wh = width * height
+    return 2 * (lw + lh + wh)
+
+length = &quot;10&quot;
+width = 4
+height = &quot;2&quot;
+
+area = rectangular_prism_surface_area(length, width, height)
+total = area + &quot; cm^2&quot;
+print(total)
+</code></pre>
+<p>Debug the code so it still maintains functionality, but does not raise errors.</p>
+<h2>Spicy 🌶️🌶️🌶️</h2>
+<p>Copy and run the following code.</p>
+<pre><code class="language-python">def shipping_cost(weight, rate):
+    return weight * rate
+
+box_length = &quot;30&quot;
+box_width = 20
+box_height = &quot;10&quot;
+
+volume = box_length * box_width * box_height
+
+density = 0.5
+mass = volume * density
+
+cost = shipping_cost(mass, &quot;1.25&quot;)
+final_cost = cost + 10
+print(final_cost)
+</code></pre>
+<p>Debug the code so it still maintains functionality, but does not raise errors.</p>
+</body>
+</html>

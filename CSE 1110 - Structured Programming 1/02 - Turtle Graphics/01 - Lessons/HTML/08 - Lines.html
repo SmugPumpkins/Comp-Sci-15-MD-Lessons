@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>08 - Lines.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* a11y-dark theme */
+/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
+/* @author: ericwbailey */
+
+/* Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #d4d0ab;
+}
+
+/* Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #ffa07a;
+}
+
+/* Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #f5ab35;
+}
+
+/* Yellow */
+.hljs-attribute {
+  color: #ffd700;
+}
+
+/* Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #abe338;
+}
+
+/* Blue */
+.hljs-title,
+.hljs-section {
+  color: #00e0e0;
+}
+
+/* Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #dcc6e0;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #2b2b2b;
+  color: #f8f8f2;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type,
+  .hljs-quote {
+        color: highlight;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+        font-weight: bold;
+    }
+}
+
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///r%3A/2.Travail/1.Enseignement/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css"><link rel="stylesheet" href="file:///d%3A/rdaros/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="overview">Overview</h1>
+<p>In this lesson, you will learn how to draw <strong>lines directly on the Tk canvas</strong> using the turtle library. Instead of moving a turtle, you will create lines by specifying exact points. You will also learn how to control the <strong>thickness</strong>, <strong>color</strong>, and several <strong>special line settings</strong>.</p>
+<h1 id="important-information">Important Information</h1>
+<p>When you draw directly on the canvas, you are no longer giving movement commands. Instead, you tell the canvas exactly <strong>where</strong> to draw.</p>
+<h2 id="creating-a-line">Creating a Line</h2>
+<p>Lines are drawn using:</p>
+<pre class="hljs"><code><div>canvas.create_line(x1, y1, x2, y2)
+</div></code></pre>
+<ul>
+<li><code>(x1, y1)</code> is the starting point</li>
+<li><code>(x2, y2)</code> is the ending point</li>
+</ul>
+<p>The coordinates are in <strong>screen pixels</strong>:</p>
+<ul>
+<li><code>(0, 0)</code> is the center of the canvas</li>
+<li>X increases to the right</li>
+<li>Y increases downward</li>
+</ul>
+<h2 id="changing-line-thickness">Changing Line Thickness</h2>
+<p>You can change how thick a line is using the <code>width</code> setting:</p>
+<pre class="hljs"><code><div>canvas.create_line(x1, y1, x2, y2, width=<span class="hljs-number">5</span>)
+</div></code></pre>
+<ul>
+<li>Larger values make thicker lines</li>
+<li>Smaller values make thinner lines</li>
+</ul>
+<h2 id="changing-line-color">Changing Line Color</h2>
+<p>You can change the color of a line using the <code>fill</code> setting:</p>
+<pre class="hljs"><code><div>canvas.create_line(x1, y1, x2, y2, fill=<span class="hljs-string">"red"</span>)
+</div></code></pre>
+<p>Common color names include:</p>
+<ul>
+<li><code>&quot;black&quot;</code></li>
+<li><code>&quot;red&quot;</code></li>
+<li><code>&quot;blue&quot;</code></li>
+<li><code>&quot;green&quot;</code></li>
+<li><code>&quot;purple&quot;</code></li>
+</ul>
+<h2 id="dash-lines">Dash Lines</h2>
+<p>Dashed lines can be created using the <code>dash</code> setting:</p>
+<pre class="hljs"><code><div>canvas.create_line(x1, y1, x2, y2, dash=(<span class="hljs-number">10</span>, <span class="hljs-number">5</span>))
+</div></code></pre>
+<ul>
+<li>The first number is the length of the dash</li>
+<li>The second number is the space between dashes</li>
+</ul>
+<p><strong>NOTE: On some systems the dashes have a limited number of options. Likely your dashes will be preconfigured and the numbers will not behave as expected. Instead, the numbers you input will try to use a predefined dash pattern.</strong></p>
+<h2 id="arrows">Arrows</h2>
+<p>You can add arrows to lines using the <code>arrow</code> setting:</p>
+<pre class="hljs"><code><div>canvas.create_line(x1, y1, x2, y2, arrow=<span class="hljs-string">"last"</span>)
+</div></code></pre>
+<p>Arrow options:</p>
+<ul>
+<li><code>&quot;first&quot;</code> → arrow at the start</li>
+<li><code>&quot;last&quot;</code> → arrow at the end</li>
+<li><code>&quot;both&quot;</code> → arrows at both ends</li>
+</ul>
+<h2 id="arrowhead-size">Arrowhead Size</h2>
+<p>You can control the arrowhead shape using <code>arrowshape</code>:</p>
+<pre class="hljs"><code><div>canvas.create_line(x1, y1, x2, y2, arrow=<span class="hljs-string">"last"</span>, arrowshape=(<span class="hljs-number">16</span>, <span class="hljs-number">20</span>, <span class="hljs-number">6</span>))
+</div></code></pre>
+<p>The three numbers represent:</p>
+<ol>
+<li>Arrowhead length</li>
+<li>Arrowhead width</li>
+<li>Arrow shaft width</li>
+</ol>
+<h2 id="smooth-lines">Smooth Lines</h2>
+<p>You can smooth a line using the <code>smooth</code> setting:</p>
+<pre class="hljs"><code><div>canvas.create_line(x1, y1, x2, y2, smooth=<span class="hljs-literal">True</span>)
+</div></code></pre>
+<p>This is most useful when a line has multiple points, which will be explored in later lessons.</p>
+<h1 id="set-up">Set Up</h1>
+<p>Create a new Python file called <code>canvas_lines.py</code>.</p>
+<h1 id="copy-change-challenge">Copy, Change, Challenge</h1>
+<h2 id="copy">Copy</h2>
+<p>Copy and run the following code.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> turtle
+
+screen = turtle.Screen()
+canvas = screen.getcanvas()
+
+canvas.create_line(<span class="hljs-number">50</span>, <span class="hljs-number">50</span>, <span class="hljs-number">250</span>, <span class="hljs-number">50</span>)
+
+turtle.done()
+</div></code></pre>
+<p>You should see a simple horizontal line drawn on the canvas.</p>
+<h2 id="change">Change</h2>
+<p>Modify the line so that:</p>
+<ul>
+<li>The line is thicker</li>
+<li>The line is a different color</li>
+<li>The line is dashed</li>
+</ul>
+<p>Run the program again and observe how each setting affects the line.</p>
+<h2 id="challenge">Challenge</h2>
+<p>Add additional lines so that:</p>
+<ul>
+<li>One line has an arrow</li>
+<li>One line uses a custom arrowhead size</li>
+<li>One line uses the <code>smooth</code> setting</li>
+</ul>
+
+</body>
+
+</html>

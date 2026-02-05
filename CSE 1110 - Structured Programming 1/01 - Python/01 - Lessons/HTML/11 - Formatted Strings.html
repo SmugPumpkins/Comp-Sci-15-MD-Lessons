@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>11 - Formatted Strings</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>This method of outputting strings will probably be the most common one you use. It is efficient, easy to maintain, and easy to make it look exactly the way you want. This method is called a <code>formatted string</code>.</p>
+<h1>Important Information</h1>
+<p>When it comes to formatted strings, the syntax is always the same. You put the character <code>f</code> outside of your string, and then everything else goes inside the string.</p>
+<h2>Handlebars</h2>
+<p>A common practice in multiple programming languages is using curly braces as &ldquo;handlebars&rdquo; to signify when a the value of a variable should be inserted to the string. In python formatted strings, <code>{</code> and <code>}</code> are used.</p>
+<h2>Strings Within Strings</h2>
+<p>Sometimes in a formatted string, you want to display quotation marks. both <code>'</code> and <code>"</code> can be used to begin a string, but the end of the string must use the same kind of quotation marks. That means if you want to display quotation marks, you just need your string to be enclosed in the other kind.</p>
+<pre><code class="language-python">my_string = &quot;my 'string' inside quotes&quot;
+</code></pre>
+<h2>Escape Charcters</h2>
+<p>Occasionally you will also want a special character that is being interpreted as code to just be part of the string (like the quotation marks or handlebars for example). Escape characters like <code>\</code> can be used to ignore the special properties of these characters.</p>
+<pre><code class="language-python">my_string = &quot;\&quot;hello world!\&quot;&quot;
+print(my_string)
+</code></pre>
+<h1>Set Up</h1>
+<p>Create a new file called <code>formattedstring.py</code>.</p>
+<h1>Copy</h1>
+<p>Run the following code and see what happens.</p>
+<pre><code class="language-python">fav_number = 99
+name = &quot;Mr. Forsyth&quot;
+
+print(f&quot;Hello {name}, {fav_number} is a great favourite number!&quot;)
+
+height_feet = input(&quot;How many feet tall are you?&quot;)
+height_inch = input(&quot;And how many inches?&quot;)
+
+print(f&quot;You must be {height_feet} feet tall and {height_inch} inches.&quot;)
+</code></pre>
+<h1>Change</h1>
+<p>Change the code so that the program asks for their birthday and displays that in the output at some point.</p>
+<h1>Challenge</h1>
+<p>Ask the user for their birth year, and then have the program output their possible age.</p>
+</body>
+</html>

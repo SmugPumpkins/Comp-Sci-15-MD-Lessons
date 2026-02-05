@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>23 - Checking Decimals</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>This lesson introduces <code>approx()</code> from the <code>pytest</code> testing library. You will learn why decimal numbers can behave unexpectedly in programs and how <code>approx()</code> helps you write reliable tests when working with decimal values.</p>
+<h1>Important Information</h1>
+<p>Computers do not store decimal numbers the same way humans write them. Inside a computer, numbers are stored using binary (base 2). Many simple decimals, such as <code>0.1</code> or <code>0.2</code>, cannot be represented exactly in binary. Instead, the computer stores the closest possible approximation.</p>
+<p>Because of this, math that looks simple can produce surprising results. For example, adding <code>0.1</code> and <code>0.2</code> does not result in exactly <code>0.3</code>, but instead <code>0.30000000000000004</code>. This is not a Python bug, it is a limitation of how numbers are stored in hardware.</p>
+<p>When writing tests, this becomes a problem. A direct equality check (<code>==</code>) expects values to match exactly. If two decimal values are only slightly different due to rounding, a test can fail even though the calculation is logically correct.</p>
+<p>The <code>approx()</code> function from <code>pytest</code> solves this by checking whether two values are <em>close enough</em> to each other instead of exactly equal. It allows for a very small margin of error, which is appropriate when testing decimal math.</p>
+<h3>When <code>approx()</code> Is Not Needed</h3>
+<p>If you are comparing integers or decimals that are known to be exact, you can safely use <code>==</code>.</p>
+<pre><code class="language-python">def test_addition():
+    result = 2 + 3
+    assert result == 5
+</code></pre>
+<p>This test is safe because integers are stored exactly in binary.</p>
+<h3>When <code>approx()</code> Is Needed</h3>
+<p>When calculations involve decimals, especially results of division or repeated arithmetic, exact equality is risky.</p>
+<pre><code class="language-python">def test_decimal_math():
+    result = 0.1 + 0.2
+    assert result == 0.3  # This test will fail
+</code></pre>
+<p>Even though this looks correct, the test fails because <code>result</code> is actually something like <code>0.30000000000000004</code>.</p>
+<p>Using <code>approx()</code> fixes this problem.</p>
+<pre><code class="language-python">from pytest import approx
+
+def test_decimal_math():
+    result = 0.1 + 0.2
+    assert result == approx(0.3)
+</code></pre>
+<p>Here, <code>approx(0.3)</code> tells <code>pytest</code> to accept values that are extremely close to <code>0.3</code>, which makes the test both accurate and realistic.</p>
+<p>Testing is about checking correctness, not punishing tiny rounding errors that humans do not care about. When decimals are involved, <code>approx()</code> makes your tests match how computers actually work, rather than how numbers look on paper.</p>
+</body>
+</html>

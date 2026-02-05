@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>22 - Creating Test Files</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>We&rsquo;ve discussed the importance of testing and how to get <code>pytest</code> set up. Now it&rsquo;s time to actually build some test files.</p>
+<h1>Important Information</h1>
+<h2>Project Structure for Testing</h2>
+<p>A common and clear structure for your project is having your main code in one folder and your tests in a separate folder.</p>
+<p>Example:</p>
+<pre><code>project_folder
+│
+├── functions.py
+└── tests
+    └── test_functions.py
+</code></pre>
+<h2>pytest Naming Rules</h2>
+<p><code>pytest</code> relies heavily on <strong>naming conventions</strong>. If these rules are not followed, pytest will not find your tests.</p>
+<h3>Test File Names</h3>
+<ul>
+<li>Test files <strong>must start with</strong> <code>test_</code></li>
+<li>Example:</li>
+<li><code>test_functions.py</code></li>
+<li><code>test_math.py</code></li>
+</ul>
+<h3>Test Function Names</h3>
+<ul>
+<li>Test functions <strong>must start with</strong> <code>test_</code></li>
+<li>Example:</li>
+</ul>
+<pre><code class="language-python">def test_addition():
+    ...
+</code></pre>
+<p><strong>If either the file name or function name does not start with <code>test_</code>, pytest will ignore it.</strong></p>
+<h2>Writing a Simple Test</h2>
+<p>Suppose you have a function in <code>functions.py</code>:</p>
+<pre><code class="language-python">def add(a, b):
+    return a + b
+</code></pre>
+<p>You can test it in <code>test_functions.py</code>:</p>
+<pre><code class="language-python">from functions import add
+
+def test_add():
+    result = add(2, 3)
+    assert result == 5
+</code></pre>
+<h2>The <code>assert</code> Statement</h2>
+<p><code>assert</code> is the core of pytest testing.</p>
+<pre><code class="language-python"># Use the assert keyword, and then follow it by a condition
+assert condition
+</code></pre>
+<p>If the condition is <code>True</code>, the test passes. If the condition is <code>False</code>, the test fails.</p>
+<p>Example:</p>
+<pre><code class="language-python"># 1 + 1 DOES equal 2, which means this condition will be True
+# The test will report as passed
+assert add(1, 1) == 2
+
+# 4 + 13 DOES NOT equal 5, which means this condition will be False
+# The test will report as failed
+assert add(4, 13) == 5
+</code></pre>
+<p>When testing with <code>pytest</code> you are <strong>not printing results</strong>. <code>pytest</code> checks the condition for you and reports if it is <code>True</code> or <code>False</code>.</p>
+<h2>Testing Multiple Cases</h2>
+<p>Good tests often include multiple scenarios. Each test runs independently.</p>
+<pre><code class="language-python">def test_add_with_zero():
+    assert add(5, 0) == 5
+
+def test_add_with_negatives():
+    assert add(-2, -3) == -5
+</code></pre>
+<p>These tests increase confidence that the function works in more situations. </p>
+</body>
+</html>

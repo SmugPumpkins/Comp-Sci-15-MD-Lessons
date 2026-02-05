@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>22 - Eventloop - Event Bindings.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* a11y-dark theme */
+/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
+/* @author: ericwbailey */
+
+/* Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #d4d0ab;
+}
+
+/* Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #ffa07a;
+}
+
+/* Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #f5ab35;
+}
+
+/* Yellow */
+.hljs-attribute {
+  color: #ffd700;
+}
+
+/* Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #abe338;
+}
+
+/* Blue */
+.hljs-title,
+.hljs-section {
+  color: #00e0e0;
+}
+
+/* Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #dcc6e0;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #2b2b2b;
+  color: #f8f8f2;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type,
+  .hljs-quote {
+        color: highlight;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+        font-weight: bold;
+    }
+}
+
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///r%3A/2.Travail/1.Enseignement/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css"><link rel="stylesheet" href="file:///d%3A/rdaros/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="overview">Overview</h1>
+<p>This lesson explains what event bindings are in Tkinter, how they differ from widget commands, and how to write event-handling functions that are safe and responsive.</p>
+<h1 id="important-information">Important Information</h1>
+<h2 id="what-an-event-binding-is">What an Event Binding Is</h2>
+<p>An <strong>event binding</strong> connects a specific type of event to a function. While a command responds to a single built-in action like clicking a button, an event binding lets you respond to many kinds of user input, such as key presses, mouse movement, window resizing, or focus changes.</p>
+<p>Event bindings allow your program to react to <em>how</em> the user interacts with the interface, not just <em>which widget</em> they clicked.</p>
+<p>Examples of events include:</p>
+<ul>
+<li>Pressing a key on the keyboard</li>
+<li>Clicking or moving the mouse</li>
+<li>Entering or leaving a widget with the mouse</li>
+<li>Resizing a window</li>
+</ul>
+<h2 id="how-event-bindings-work">How Event Bindings Work</h2>
+<p>When an event happens, Tkinter:</p>
+<ol>
+<li>Creates an event object describing what occurred</li>
+<li>Places that event into the event queue</li>
+<li>The event loop processes the event</li>
+<li>The event loop calls your bound function and passes it event data</li>
+</ol>
+<p>This function is a callback, just like a command callback, but it receives more information.</p>
+<h2 id="setting-up-an-event-binding">Setting Up an Event Binding</h2>
+<p>Event bindings are created using the <code>bind</code> method. You specify the event type using a special string, and provide a function that should run when that event occurs.</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">on_key_press</span><span class="hljs-params">(event)</span>:</span>
+    print(event.keysym)
+
+root.bind(<span class="hljs-string">"&lt;KeyPress&gt;"</span>, on_key_press)
+</div></code></pre>
+<p>In this example:</p>
+<ul>
+<li><code>&lt;KeyPress&gt;</code> describes the event type</li>
+<li><code>on_key_press</code> is the callback</li>
+<li><code>event</code> contains details about what key was pressed</li>
+</ul>
+<p>Event bindings can be attached to:</p>
+<ul>
+<li>the root window</li>
+<li>a specific widget</li>
+<li>a frame that contains other widgets</li>
+</ul>
+<pre class="hljs"><code><div>entry.bind(<span class="hljs-string">"&lt;Return&gt;"</span>, on_enter_pressed)
+</div></code></pre>
+<h3 id="common-event-bindings">Common Event Bindings</h3>
+<table>
+<thead>
+<tr>
+<th>Event Binding Syntax</th>
+<th>User Interaction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;Button-1&gt;</code></td>
+<td>Left mouse button clicked</td>
+</tr>
+<tr>
+<td><code>&lt;Button-2&gt;</code></td>
+<td>Middle mouse button clicked</td>
+</tr>
+<tr>
+<td><code>&lt;Button-3&gt;</code></td>
+<td>Right mouse button clicked</td>
+</tr>
+<tr>
+<td><code>&lt;Double-Button-1&gt;</code></td>
+<td>Double-click with the left mouse button</td>
+</tr>
+<tr>
+<td><code>&lt;Motion&gt;</code></td>
+<td>Mouse moved within a widget</td>
+</tr>
+<tr>
+<td><code>&lt;Enter&gt;</code></td>
+<td>Mouse pointer enters a widget</td>
+</tr>
+<tr>
+<td><code>&lt;Leave&gt;</code></td>
+<td>Mouse pointer leaves a widget</td>
+</tr>
+<tr>
+<td><code>&lt;KeyPress&gt;</code></td>
+<td>Any key is pressed</td>
+</tr>
+<tr>
+<td><code>&lt;KeyRelease&gt;</code></td>
+<td>Any key is released</td>
+</tr>
+<tr>
+<td><code>&lt;Return&gt;</code></td>
+<td>Enter / Return key pressed</td>
+</tr>
+<tr>
+<td><code>&lt;Escape&gt;</code></td>
+<td>Escape key pressed</td>
+</tr>
+<tr>
+<td><code>&lt;FocusIn&gt;</code></td>
+<td>Widget gains keyboard focus</td>
+</tr>
+<tr>
+<td><code>&lt;FocusOut&gt;</code></td>
+<td>Widget loses keyboard focus</td>
+</tr>
+<tr>
+<td><code>&lt;Configure&gt;</code></td>
+<td>Widget is resized or moved</td>
+</tr>
+<tr>
+<td><code>&lt;MouseWheel&gt;</code></td>
+<td>Mouse wheel scrolled (platform dependent)</td>
+</tr>
+<tr>
+<td><code>&lt;ButtonRelease-1&gt;</code></td>
+<td>Left mouse button released</td>
+</tr>
+<tr>
+<td><code>&lt;B1-Motion&gt;</code></td>
+<td>Mouse moved while left button is held down</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-event-object">The Event Object</h2>
+<p>The event object holds information about what happened. Depending on the event, it may include:</p>
+<ul>
+<li>which key was pressed</li>
+<li>mouse coordinates</li>
+<li>which mouse button was used</li>
+<li>which widget triggered the event</li>
+</ul>
+<p>You do not need to memorize these details now, but it is important to understand that event bindings always pass this object to the callback.</p>
+<h3 id="inspecting-event-details">Inspecting Event Details</h3>
+<p>When an event binding triggers, Tkinter passes an <strong>event object</strong> to the callback function. This object contains details about what happened, such as mouse position, which key was pressed, or which widget received the event. You can inspect these details by accessing attributes on the event object.</p>
+<h4 id="getting-the-mouse-position-on-a-click">Getting the Mouse Position on a Click</h4>
+<p>When a mouse button event occurs, the event object includes the mouse position relative to the widget that received the event.</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">on_mouse_click</span><span class="hljs-params">(event)</span>:</span>
+    x_position = event.x
+    y_position = event.y
+    print(<span class="hljs-string">"Mouse clicked at:"</span>, x_position, y_position)
+
+root.bind(<span class="hljs-string">"&lt;Button-1&gt;"</span>, on_mouse_click)
+</div></code></pre>
+<p>Here, <code>event.x</code> and <code>event.y</code> represent the horizontal and vertical position of the mouse inside the widget at the moment it was clicked.</p>
+<h4 id="checking-which-key-was-pressed">Checking Which Key Was Pressed</h4>
+<p>When a key press event occurs, the event object includes information about the key.</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">on_key_press</span><span class="hljs-params">(event)</span>:</span>
+    print(<span class="hljs-string">"Key pressed:"</span>, event.keysym)
+
+root.bind(<span class="hljs-string">"&lt;KeyPress&gt;"</span>, on_key_press)
+</div></code></pre>
+<p>The <code>event.keysym</code> value is a readable name for the key (such as <code>&quot;a&quot;</code>, <code>&quot;Return&quot;</code>, or <code>&quot;Escape&quot;</code>). This allows your program to react differently depending on which key the user pressed.</p>
+<h2 id="when-and-why-to-use-args">When and Why to Use <code>*args</code></h2>
+<p>Because event bindings always pass an event object, the callback function must be able to accept it. If the function signature does not match, Python raises an error.</p>
+<p>If you need access to the event data, name the parameter:</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">on_click</span><span class="hljs-params">(event)</span>:</span>
+    print(event.x, event.y)
+</div></code></pre>
+<p>If you do not care about the event details, you can use <code>*args</code> instead:</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">on_click</span><span class="hljs-params">(*args)</span>:</span>
+    print(<span class="hljs-string">"Widget clicked"</span>)
+</div></code></pre>
+<p>Using <code>*args</code> tells Python to accept any extra positional arguments. This makes the function more flexible and avoids errors if Tkinter passes information you are not using.</p>
+<h2 id="best-practices-for-safe-event-bindings">Best Practices for Safe Event Bindings</h2>
+<p>Event binding callbacks run inside the event loop, so they must be written carefully.</p>
+<p>Good event bindings:</p>
+<ul>
+<li>Execute quickly</li>
+<li>Do minimal work</li>
+<li>Return control to the event loop immediately</li>
+<li>Schedule longer work using <code>after</code> if needed</li>
+</ul>
+<p>Avoid blocking calls such as long loops, network requests, or <code>sleep</code> inside an event binding.</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">on_click</span><span class="hljs-params">(event)</span>:</span>
+    status_var.set(<span class="hljs-string">"Processing..."</span>)
+    root.after(<span class="hljs-number">100</span>, continue_work)
+</div></code></pre>
+<p>Event bindings should also be focused and predictable. Each binding should handle one type of event and delegate complex logic to helper functions.</p>
+<h2 id="event-bindings-vs-commands">Event Bindings vs Commands</h2>
+<p>Event bindings are more flexible than commands but also more complex. Commands are simpler and do not receive arguments. Event bindings always receive event data and are best used when you need detailed information about user actions.</p>
+<p>Understanding event bindings gives you precise control over how your program responds to user input while keeping the interface responsive and stable.</p>
+
+</body>
+
+</html>

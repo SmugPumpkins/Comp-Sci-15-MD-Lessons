@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>02 - Widgets - Tkinter Style Reference.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* a11y-dark theme */
+/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
+/* @author: ericwbailey */
+
+/* Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #d4d0ab;
+}
+
+/* Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #ffa07a;
+}
+
+/* Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #f5ab35;
+}
+
+/* Yellow */
+.hljs-attribute {
+  color: #ffd700;
+}
+
+/* Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #abe338;
+}
+
+/* Blue */
+.hljs-title,
+.hljs-section {
+  color: #00e0e0;
+}
+
+/* Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #dcc6e0;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #2b2b2b;
+  color: #f8f8f2;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type,
+  .hljs-quote {
+        color: highlight;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+        font-weight: bold;
+    }
+}
+
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///r%3A/2.Travail/1.Enseignement/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css"><link rel="stylesheet" href="file:///d%3A/rdaros/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="overview">Overview</h1>
+<p>This document is part lesson and part reference document. At this point, the code that is shown cannot be used yet, <strong>but</strong> it can be helpful to know about <strong>before</strong> diving into some of the most common widgets that <code>tkinter</code> uses. Then, once you are creating an interface, this page can be helpful to refer back to for different ways to create styles in a GUI.</p>
+<h1 id="important-information">Important Information</h1>
+<h2 id="configuring-a-style">Configuring A Style</h2>
+<p>In <code>tkinter</code>, styles are managed using the <code>ttk.Style</code> class. A style lets you define how a widget should look <strong>once</strong>, and then reuse that look across many widgets.</p>
+<p>Styles are created and configured like this:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Create a Style object</span>
+style = ttk.Style()
+
+<span class="hljs-comment"># Configure a new style</span>
+style.configure(
+    <span class="hljs-string">"My.TButton"</span>,
+    background=<span class="hljs-string">"blue"</span>,
+    foreground=<span class="hljs-string">"white"</span>,
+    padding=<span class="hljs-number">10</span>
+)
+</div></code></pre>
+<p>The name of a style is important. It usually follows this pattern:</p>
+<pre class="hljs"><code><div>CustomName.WidgetType
+</div></code></pre>
+<p>For example:</p>
+<ul>
+<li><code>My.TButton</code></li>
+<li><code>Danger.TFrame</code></li>
+<li><code>Title.TLabel</code></li>
+</ul>
+<p>These are the widget types that you will most commonly use:</p>
+<ul>
+<li><code>TFrame</code></li>
+<li><code>TLabel</code></li>
+<li><code>TButton</code></li>
+<li><code>TCheckbutton</code></li>
+<li><code>TRadiobutton</code></li>
+<li><code>TEntry</code></li>
+<li><code>TCombobox</code></li>
+</ul>
+<h2 id="using-a-style-on-a-widget">Using A Style on a Widget</h2>
+<p>Once a style has been configured, it can be applied to any compatible widget using the <code>style</code> option.</p>
+<pre class="hljs"><code><div>button = ttk.Button(root, text=<span class="hljs-string">"Click Me"</span>, style=<span class="hljs-string">"My.TButton"</span>)
+button.grid()
+</div></code></pre>
+<p>If a widget uses a style, all visual configuration should be done <strong>through the style</strong>, not directly on the widget.</p>
+<h2 id="default-style-names">Default Style Names</h2>
+<p>Every <code>ttk</code> widget already has a default style name. When you do not specify a style, the widget automatically uses its default.</p>
+<p>Common default style names include:</p>
+<ul>
+<li><code>TFrame</code></li>
+<li><code>TLabel</code></li>
+<li><code>TButton</code></li>
+<li><code>TCheckbutton</code></li>
+<li><code>TRadiobutton</code></li>
+<li><code>TEntry</code></li>
+<li><code>TCombobox</code></li>
+</ul>
+<p>Custom styles are created by adding a prefix to these names, such as <code>My.TButton</code>.</p>
+<h2 id="common-style-options">Common Style Options</h2>
+<p>These options work across <strong>most</strong> themed widgets.</p>
+<h3 id="background">Background</h3>
+<p>Controls the background color of the widget.</p>
+<pre class="hljs"><code><div>style.configure(<span class="hljs-string">"My.TFrame"</span>, background=<span class="hljs-string">"lightgray"</span>)
+</div></code></pre>
+<h3 id="foreground">Foreground</h3>
+<p>Controls the text color.</p>
+<pre class="hljs"><code><div>style.configure(<span class="hljs-string">"My.TLabel"</span>, foreground=<span class="hljs-string">"blue"</span>)
+</div></code></pre>
+<h3 id="font">Font</h3>
+<p>Controls the font used for text.</p>
+<p>The first parameter for <code>font</code> is the typeface name.</p>
+<p>The second parameter for <code>font</code> is the text size in points.</p>
+<pre class="hljs"><code><div>style.configure(<span class="hljs-string">"My.TLabel"</span>, font=(<span class="hljs-string">"Arial"</span>, <span class="hljs-number">14</span>))
+</div></code></pre>
+<p>You can specify the font used to display the label's text using the font configuration option. Here are the names of some predefined fonts you can use:</p>
+<table>
+<thead>
+<tr>
+<th>Font</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TkDefaultFont</code></td>
+<td>Default for all GUI items not otherwise specified.</td>
+</tr>
+<tr>
+<td><code>TkTextFont</code></td>
+<td>Used for entry widgets, listboxes, etc.</td>
+</tr>
+<tr>
+<td><code>TkFixedFont</code></td>
+<td>A standard fixed-width font.</td>
+</tr>
+<tr>
+<td><code>TkMenuFont</code></td>
+<td>The font used for menu items.</td>
+</tr>
+<tr>
+<td><code>TkHeadingFont</code></td>
+<td>A font for column headings in lists and tables.</td>
+</tr>
+<tr>
+<td><code>TkCaptionFont</code></td>
+<td>A font for window and dialog caption bars.</td>
+</tr>
+<tr>
+<td><code>TkSmallCaptionFont</code></td>
+<td>Smaller captions for subwindows or tool dialogs.</td>
+</tr>
+<tr>
+<td><code>TkIconFont</code></td>
+<td>A font for icon captions.</td>
+</tr>
+<tr>
+<td><code>TkTooltipFont</code></td>
+<td>A font for tooltips.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="padding">Padding</h3>
+<p>Adds space inside the widget.</p>
+<pre class="hljs"><code><div>style.configure(<span class="hljs-string">"My.TButton"</span>, padding=<span class="hljs-number">10</span>)
+</div></code></pre>
+<h4 id="advanced-padding">Advanced Padding</h4>
+<p>Padding can be defined with multiple values:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Left/right = 5, top/bottom = 10</span>
+style.configure(<span class="hljs-string">"My.TButton"</span>, padding=(<span class="hljs-number">5</span>, <span class="hljs-number">10</span>))
+
+<span class="hljs-comment"># Left, top, right, bottom</span>
+style.configure(<span class="hljs-string">"My.TButton"</span>, padding=(<span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">10</span>, <span class="hljs-number">12</span>))
+</div></code></pre>
+<h3 id="relief">Relief</h3>
+<p>Controls the border appearance.</p>
+<pre class="hljs"><code><div>style.configure(<span class="hljs-string">"My.TFrame"</span>, relief=<span class="hljs-string">"raised"</span>)
+</div></code></pre>
+<p>Common values include:</p>
+<ul>
+<li><code>flat</code></li>
+<li><code>raised</code></li>
+<li><code>sunken</code></li>
+<li><code>groove</code></li>
+<li><code>ridge</code></li>
+</ul>
+<h3 id="border-width">Border Width</h3>
+<p>Controls the thickness of the border.</p>
+<pre class="hljs"><code><div>style.configure(<span class="hljs-string">"My.TFrame"</span>, borderwidth=<span class="hljs-number">5</span>)
+</div></code></pre>
+<h3 id="anchor">Anchor</h3>
+<p>Controls where content is placed inside the widget.</p>
+<pre class="hljs"><code><div>style.configure(<span class="hljs-string">"My.TLabel"</span>, anchor=<span class="hljs-string">"center"</span>)
+</div></code></pre>
+<p>Common values:</p>
+<ul>
+<li><code>n</code>, <code>s</code>, <code>e</code>, <code>w</code></li>
+<li><code>ne</code>, <code>nw</code>, <code>se</code>, <code>sw</code></li>
+<li><code>center</code></li>
+</ul>
+<h3 id="compound">Compound</h3>
+<p>Controls how text and images are combined.</p>
+<pre class="hljs"><code><div>style.configure(<span class="hljs-string">"My.TButton"</span>, compound=<span class="hljs-string">"left"</span>)
+</div></code></pre>
+<p>Common values:</p>
+<ul>
+<li><code>left</code></li>
+<li><code>right</code></li>
+<li><code>top</code></li>
+<li><code>bottom</code></li>
+<li><code>center</code></li>
+</ul>
+<h2 id="uncommon-style-options-usually-specific-to-a-few-types-of-widgets">Uncommon Style Options (Usually Specific to a Few Types of Widgets)</h2>
+<h3 id="button">Button</h3>
+<h4 id="dark-color">Dark Color</h4>
+<p>Used on some platforms to control the darker edge of a button.</p>
+<pre class="hljs"><code><div>style.configure(<span class="hljs-string">"My.TButton"</span>, darkcolor=<span class="hljs-string">"#444444"</span>)
+</div></code></pre>
+<h4 id="highlight-color">Highlight Color</h4>
+<p>Controls highlight accents used by some themes.</p>
+<pre class="hljs"><code><div>style.configure(<span class="hljs-string">"My.TButton"</span>, highlightcolor=<span class="hljs-string">"yellow"</span>)
+</div></code></pre>
+<h3 id="checkbutton">Checkbutton</h3>
+<h4 id="indicator-color">Indicator Color</h4>
+<p>Controls the color of the checkbox indicator.</p>
+<pre class="hljs"><code><div>style.configure(<span class="hljs-string">"My.TCheckbutton"</span>, indicatorcolor=<span class="hljs-string">"green"</span>)
+</div></code></pre>
+<h4 id="indicator-margin">Indicator Margin</h4>
+<p>Controls spacing around the checkbox indicator.</p>
+<pre class="hljs"><code><div>style.configure(<span class="hljs-string">"My.TCheckbutton"</span>, indicatormargin=<span class="hljs-number">5</span>)
+</div></code></pre>
+<h3 id="entry">Entry</h3>
+<h4 id="field-background">Field Background</h4>
+<p>Controls the background color of the entry field.</p>
+<pre class="hljs"><code><div>style.configure(<span class="hljs-string">"My.TEntry"</span>, fieldbackground=<span class="hljs-string">"lightyellow"</span>)
+</div></code></pre>
+<h3 id="combobox">Combobox</h3>
+<h4 id="arrow-color">Arrow Color</h4>
+<p>Controls the dropdown arrow color.</p>
+<pre class="hljs"><code><div>style.configure(<span class="hljs-string">"My.TCombobox"</span>, arrowcolor=<span class="hljs-string">"blue"</span>)
+</div></code></pre>
+<h4 id="focus-fill">Focus Fill</h4>
+<p>Controls the color shown when the combobox has focus.</p>
+<pre class="hljs"><code><div>style.configure(<span class="hljs-string">"My.TCombobox"</span>, focusfill=<span class="hljs-string">"lightblue"</span>)
+</div></code></pre>
+<h4 id="field-background">Field Background</h4>
+<p>Controls the background of the text area.</p>
+<pre class="hljs"><code><div>style.configure(<span class="hljs-string">"My.TCombobox"</span>, fieldbackground=<span class="hljs-string">"white"</span>)
+</div></code></pre>
+
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>18 - Using a Main Function</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>In this lesson, you will learn how to organize programs that use <strong>multiple functions across multiple files</strong>, while preventing code from running when a file is imported as a module. You will learn how and why to use a <code>main</code> function, and how Python decides what code should run.</p>
+<h1>Important Information</h1>
+<p>As programs grow, they often use many different functions. There may be multiple modules that are being imported. Usually you want your program to start at one specifc point, but this can become more difficult as more and more code is added to your projects. This can be solved by structuring your project around a <code>main()</code> function.</p>
+<p>Without structure, importing files can cause code to run when you do <strong>not</strong> want it to.</p>
+<h2>The Problem: Code Running on Import</h2>
+<p>By default, <strong>Python runs every line of code in a file from top to bottom</strong>. That includes <code>print()</code> statements, function calls, variable declaration and intialization, and any code not inside a function.</p>
+<p>Example:</p>
+<p><code>helpers.py</code></p>
+<pre><code class="language-python">def greet():
+    print(&quot;Hello!&quot;)
+
+print(&quot;Helpers file running&quot;)
+</code></pre>
+<p><code>main.py</code></p>
+<pre><code class="language-python">import helpers
+</code></pre>
+<p>When <code>main.py</code> runs, this prints:</p>
+<pre><code>Helpers file running
+</code></pre>
+<p>This happens even though <code>greet()</code> was never called. This is often <strong>not what the programmer intends</strong>.</p>
+<h2>The <code>main</code> Function</h2>
+<p>We want helper files to define functions. We only want code to run <strong>when we tell it to</strong>. We need to create one clear starting point for the program. This is done using a <code>main</code> function.</p>
+<p>A common pattern in python is to put the main logic of a program inside a function called <code>main</code>.</p>
+<p>For example:</p>
+<pre><code class="language-python">def main():
+    print(&quot;Program starting&quot;)
+</code></pre>
+<p>On its own, this function does nothing until it is called.</p>
+<h2>The <code>__name__</code> Check</h2>
+<p>Python keeps track of which file is being run directly. If a file is run directly, Python sets a special variable called <code>__name__</code> to <code>"__main__"</code>. If a file is imported, <code>__name__</code> is set to the file’s name. You do <strong>not</strong> change <code>__name__</code>. Python does this automatically. </p>
+<p>Because the file that is being run directly has the <code>__name__</code> variable set to <code>"__main__"</code>, it means that we can check to see if our file is being run or imported with the following block of code. When the file is run directly, we can call the <code>main()</code> function:</p>
+<pre><code class="language-python">if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<p>With this example, python knows to only run <code>main()</code> if the file is being run directly, and to <strong>not</strong> run <code>main()</code> if the file is an imported module,</p>
+<h2>Complete Example</h2>
+<p><code>helpers.py</code></p>
+<pre><code class="language-python">def greet():
+    print(&quot;Hello from helpers&quot;)
+
+def add(a, b):
+    return a + b
+</code></pre>
+<p>No code runs automatically when this file is imported.</p>
+<p><code>main.py</code></p>
+<pre><code class="language-python">from helpers import greet, add
+
+def main():
+    greet()
+    result = add(3, 4)
+    print(result)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<p>In this example, code does not run accidentally on import. This is because:
+* <code>helpers.py</code> defines functions only
+* <code>main.py</code> controls when the program runs</p>
+<h2>Why Use <code>main()</code> Functions or <code>__name__</code>?</h2>
+<p>Using this pattern in your projects allows you as a programmer to be more intentional with your code. You prevent unexpected output by making your files safer to import. It also makes debugging easier and code easier to read by breaking programs into smaller pieces.</p>
+<h2>Common Errors and Fixes</h2>
+<p>When using this pattern, you may find yourself running into issues sometimes. The following section is intended to help you identify problems and possible solutions. </p>
+<h3>Error: Code Runs When Imported</h3>
+<p><strong>Cause</strong>: Code is written at the top level</p>
+<p><strong>Fix</strong>: Move the code into <code>main()</code> and use the <code>__name__</code> check</p>
+<h3>Error: Nothing Runs</h3>
+<p><strong>Cause</strong>: <code>main()</code> exists but is never called</p>
+<p><strong>Fix</strong>:</p>
+<pre><code class="language-python">if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<h3>Error: NameError for a Function</h3>
+<p><strong>Cause</strong>: Function is called before it is defined or imported</p>
+<p><strong>Fix</strong>:</p>
+<ul>
+<li>Define functions above <code>main()</code></li>
+<li>Import functions before using them</li>
+</ul>
+<h3>Error: Multiple Files Running Code</h3>
+<p><strong>Cause</strong>: More than one file has top-level code</p>
+<p><strong>Fix</strong>:</p>
+<ul>
+<li>Only one file should act as the main program</li>
+<li>Other files should define functions only</li>
+</ul>
+<h1>Set Up</h1>
+<p>Create two Python files:</p>
+<ul>
+<li><code>helpers.py</code></li>
+<li><code>main.py</code></li>
+</ul>
+<h1>Copy, Change, Challenge</h1>
+<h2>Copy</h2>
+<p><code>helpers.py</code></p>
+<pre><code class="language-python">def say_hi():
+    print(&quot;Hi!&quot;)
+</code></pre>
+<p><code>main.py</code></p>
+<pre><code class="language-python">from helpers import say_hi
+
+def main():
+    say_hi()
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<p>Run <code>main.py</code>.</p>
+<h2>Change</h2>
+<p>Add another function to <code>helpers.py</code> and call it from inside <code>main()</code>.</p>
+<h2>Challenge</h2>
+<p>Create a program with:</p>
+<ul>
+<li>At least three helper functions</li>
+<li>A <code>main()</code> function that calls all of them</li>
+<li>No code that runs automatically when files are imported</li>
+</ul>
+</body>
+</html>

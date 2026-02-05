@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>03 - User Input</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>We have now assigned some string variables with literals. What if we wanted the user to give us a value to display instead? We can do this with <code>input</code>. </p>
+<h1>Set Up</h1>
+<p>Create a new python file and call it <code>userinput.py</code>.</p>
+<h1>Important Info</h1>
+<p>When we are asking for user input, usually we want to save it as a variable.</p>
+<p>We can also give a prompt as part of our input code that allows the user to know why we are asking for input.</p>
+<p>Input is received through the terminal. To send input, you just type your message and hit <code>Enter</code>.</p>
+<p>All user input is always processed as a string, even if the user typed in numbers.</p>
+<h1>Copy</h1>
+<p>Copy the following code and run it.</p>
+<pre><code class="language-python">name = input(&quot;What is your name?&quot;)
+print(&quot;Hello&quot;)
+print(name)
+</code></pre>
+<p>What happens when you run this program? What happens if you never provide an input? Did you notice that the input from the user is right next to the prompt with no space in between?</p>
+<h1>Change</h1>
+<p>Try and change the code so there is a space between the prompt and the user&rsquo;s input when they are typing.</p>
+<h1>Challenge</h1>
+<p>Create a program that asks for the user&rsquo;s age, and then prints a message saying how old they are.</p>
+</body>
+</html>

@@ -55,21 +55,25 @@ You can also test a single file by right clicking the specific test file you wan
 ### pytest Not Found
 
 * **Cause**: pytest is not installed in the active environment
+
 * **Fix**: Install pytest using `pip` and confirm the correct interpreter is selected in PyCharm
 
 ### No Tests Are Running
 
 * **Cause**: File name does not start with `test_` or function name does not start with `test_`
+
 * **Fix**: Rename files and functions to follow pytest rules
 
 ### Import Errors
 
 * **Cause**: Incorrect import path
+
 * **Fix**: Check file locations and nsure your project structure matches your imports
 
 ### Using `print()` Instead of `assert`
 
 * **Cause**: Misunderstanding how tests work
+
 * **Fix**: Replace prints with `assert` statements
 
 ## The Importance of Testing

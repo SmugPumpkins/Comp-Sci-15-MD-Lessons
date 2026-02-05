@@ -172,7 +172,7 @@ As a general rule of thumb, `import *` should only be used in **small, controlle
 ## Choosing How to Import
 
 |Import Syntax|Guidelines|
-|-|-|
+|---|---|
 |`import helpers`|Clear structure and namespaces. Requires the full module name as a prefix.|
 |`import helpers as h`|Same clarity and namespace rules as importing the module, but allows shorter or custom prefixes.|
 |`from helpers import add`|Allows you to pick and choose specific functions to import. Best when using a few functions. Does not require a prefix on the functions when called.|

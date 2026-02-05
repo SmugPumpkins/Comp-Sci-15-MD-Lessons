@@ -59,7 +59,7 @@ def test_add_incorrect_expectation():
 This test will fail and provide the programmer with the following information:
 
 |Expected Output|Actual Output|
-|:-:|:-:|
+|:---:|:---:|
 |`6`|`5`|
 
 When the programmer examines the result of the test, they should be able to notice that the expected output of `5` is what `1 + 4` equals. This should indicate to the programmer that the test is incorrect and needs to be fixed.
@@ -87,8 +87,9 @@ def test_subtract_basic():
     assert subtract(10, 3) == 7
 ```
 In this situation, the test fails and provides the programmer with the following information:
+
 |Expected Result|Actual Result|
-|:-:|:-:|
+|:---:|:---:|
 |`7`|`13`|
 
 These results should indicate to the programmer that something is wrong with their function. They _know_ that `10 - 3` equals `7`. The function should _not_ produce an output of `13`. In this case, the programmer needs to go back and fix their function.
@@ -107,6 +108,7 @@ Now the test will pass.
 `pytest` does not know what your function _is supposed to do_ or _what results you are expecting_. Only you can know that. `pytest` is only a tool for checking actual results against expected results.
 
 As the programmer, you are responsible for:
+
 * Making sure *you* know what your function is supposed to do
 * Making sure *you* are covering all the necessary test cases
 * Making sure *you* calculated the expected values of your tests correctly

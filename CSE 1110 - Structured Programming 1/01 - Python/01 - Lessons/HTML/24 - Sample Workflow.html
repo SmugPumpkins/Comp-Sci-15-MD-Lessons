@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>24 - Sample Workflow</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>When it comes to testing, it can be difficult to know exactly where to start, especially as a beginner. This section of the lesson will be a helpful reference point as you continue to write code and test it to know what to do and when to do it. </p>
+<p>Most projects will follow a similar pattern for the work flow:</p>
+<ol>
+<li><strong>Define the problem that needs to be solved.</strong> This includes identifying the Inputs, Process, and Outputs the problem expects to work with in it&rsquo;s solution.</li>
+<li><strong>Create a function that can solve the problem with an IPO approach.</strong> The function should use the inputs you defined for the problem, process those inputs, and then provide an expected output.</li>
+<li><strong>Identify possible test cases.</strong> This comes before writing the actual test file. Using your own critical thinking and problem solving, determine some possible inputs that your function may need to handle. When coming up with test cases, it&rsquo;s important to cover both simple and extreme cases to ensure your function behaves as expected.</li>
+<li><strong>Calculate expected outputs for test cases.</strong> Once you know what inputs you want to test, you need to determine what each of their expected outputs should be. This will involve using your own skills in algorithmic thinking to calculate the expected output for a given input.</li>
+<li><strong>Create the test files.</strong> With test cases determined, and expected outputs calculated, you are now ready to write your test functions in a test file. This is the step you use the <code>assert</code> keyword to verify inputs. </li>
+<li><strong>Run the tests.</strong> Run your tests and check to see if they pass or fail. If any tests fail, it&rsquo;s time to investigate.</li>
+<li><strong>Iterate and test again.</strong> Make any necessary changes to your functions and tests, and keep testing until everything passes.</li>
+</ol>
+<p>Now that we have established an example workflow, let&rsquo;s look at an example of creating and testing a function that converts values from degrees celsius to degrees fahrenheit.</p>
+<h2>1. Define The Problem That Is Being Solved</h2>
+<p>For our example of converting Celsius to Fahrenheit, it&rsquo;s pretty simple to identify our input, process, and output.</p>
+<ul>
+<li><strong>Input:</strong> A number representing the degrees Celsius.</li>
+<li><strong>Process:</strong> Use the formula (°C * 9/5) + 32 = °F to calculate the temperature in degrees Fahrenheit.</li>
+<li><strong>Output:</strong> The number representing the degrees Fahrenheit.</li>
+</ul>
+<h2>2. Create the Function</h2>
+<p>For our example, the function is once again very simple. In your future projects, the complexity and challenge of creating the function in python will be directly proportional to how well you planned your function in step 1.</p>
+<p>Our function might look something like this:</p>
+<p><code>main.py</code></p>
+<pre><code class="language-python">def celsius_to_fahrenheit(celsius : float):
+    fahrenheit = (celsius * (9 / 5)) + 32
+    return fahrenheit
+</code></pre>
+<h2>3. Identify Test Cases</h2>
+<p>When creating test cases, it&rsquo;s important to consider what kinds of inputs you might receive. This is one of the most difficult parts of computer science, because it&rsquo;s up to the programmer&rsquo;s judgement to consider what kinds of cases need to be tested in order to ensure their function works as intended all the time.</p>
+<p>For our example, some possible cases we might want to ensure work could include:</p>
+<ul>
+<li>A positive number (20)</li>
+<li>A negative number (-20)</li>
+<li>0</li>
+<li>A really large number (1000000)</li>
+<li>A really large negative number (-1000000)</li>
+<li>A decimal number (10.05)</li>
+<li>-40 (Celsius and Fahrenheit are the same temperature at -40)</li>
+</ul>
+<h2>4. Calculate Expected Output Values</h2>
+<p>After deciding on some test cases, we need to calculate what these values should output. For our example, we need to use our formula to calculate these values on our own, and then we can set them as our test cases.</p>
+<p><em>For the following table, I used the temperature calculator from Google (which means I didn&rsquo;t use my formula). Before we create and run these tests, consider whether or not you agree with my method of calculating expected values. Should I have done something differently?</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Input Value</th>
+<th style="text-align: center;">Expected Output Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">68</td>
+</tr>
+<tr>
+<td style="text-align: center;">-20</td>
+<td style="text-align: center;">-4</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">32</td>
+</tr>
+<tr>
+<td style="text-align: center;">1000000</td>
+<td style="text-align: center;">1800032</td>
+</tr>
+<tr>
+<td style="text-align: center;">-1000000</td>
+<td style="text-align: center;">-1799968</td>
+</tr>
+<tr>
+<td style="text-align: center;">10.5</td>
+<td style="text-align: center;">50.9</td>
+</tr>
+<tr>
+<td style="text-align: center;">-40</td>
+<td style="text-align: center;">-40</td>
+</tr>
+</tbody>
+</table>
+<h2>5. Create The Test Files</h2>
+<p>For <code>pytest</code> to work, my file with tests in it needs to be named starting with &ldquo;test_&rdquo;.</p>
+<p>All of my test functions also need to start with &ldquo;test_&rdquo;. When naming test functions, the name should describe what sort of case I am trying to test.</p>
+<p><code>test_temperatures.py</code></p>
+<pre><code class="language-python"># Import the function that I want to test
+from main import celsius_to_fahrenheit
+
+# Create the test functions with descriptive names
+def test_positive():
+    assert celsius_to_fahrenheit(20) == 68
+
+def test_negative():
+    assert celsius_to_fahrenheit(-20) == -4
+
+def test_zero():
+    assert celsius_to_fahrenheit(0) == 32
+
+def test_large_positive():
+    assert celsius_to_fahrenheit(1000000) == 1800032
+
+def test_large_negative():
+    assert celsius_to_fahrenheit(-1000000) == (-1799968)
+
+def test_decimal():
+    assert celsius_to_fahrenheit(10.5) == 50.9
+
+def test_same_value():
+    assert celsius_to_fahrenheit(-40) == -40
+</code></pre>
+<h2>6. Run The Tests</h2>
+<p>I would recommend creating your own <code>main.py</code> and <code>test_temperatures.py</code> and running the tests yourself as well, as the results of the tests don&rsquo;t translate well to markdown files (the instruction files of these lessons).</p>
+<p>Once you run the test files, you might be surprised at the result. Almost all of the tests passed! It may be surpsising that all of the sample numbers we used (except the the decimal) result in integers, but they do. In this case, it was okay to use the Google temperature converter for us to get our results.</p>
+<p>One of the tests did fail however. Our test for decimals had the following results:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Expected Result</th>
+<th style="text-align: center;">Actual Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>50.9</code></td>
+<td style="text-align: center;"><code>50.900000000000006</code></td>
+</tr>
+</tbody>
+</table>
+<p>This is one of those math quirks that comes from decimal numbers not playing nice with the binary of machine code. We will discuss this further in step 7.</p>
+<h2>7. Iterate and Test Again</h2>
+<p>In our case, we had one test fail because decimals can&rsquo;t be calculated with perfect precision, but the result was really close to our actual value.</p>
+<p><strong>Option 1:</strong> We could make it so that our results always get rounded to a specific decimal place in the function itself. However, this could result in not being able to calculate values within a certain precision down the line. </p>
+<p><strong>Option 2:</strong> We could use the <code>approx()</code> method from pytest that is intended specifically for working with decimal values in our test function. This option is safer, because we can still calculate temperature conversions to whatever precision we need.</p>
+<p>Let&rsquo;s make the following changes to our <code>test_temperatures.py</code> file:</p>
+<pre><code class="language-python"># Import the function that I want to test
+from main import celsius_to_fahrenheit
+
+# Import the approx() method from pytest
+from pytest import approx
+
+...
+# Add the approx method surrounding our decimal value on the expected output side
+def test_decimal():
+    assert celsius_to_fahrenheit(10.5) == approx(50.9)
+...
+</code></pre>
+<p>After making these small changes, all 7 tests we created now pass!</p>
+</body>
+</html>

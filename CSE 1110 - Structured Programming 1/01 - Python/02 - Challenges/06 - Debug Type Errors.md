@@ -3,6 +3,7 @@ The object of this challenge is to practice identifying and debugging type error
 
 ## Mild 🌶️
 Copy and run the following code.
+
 ```python
 def rectangular_prism_volume(length, width, height):
     return length * width * height
@@ -14,10 +15,12 @@ height = 3
 volume = rectangular_prism_volume(length, width, height)
 print(volume)
 ```
+
 Debug the code so it still maintains functionality, but does not raise errors.
 
 ## Medium 🌶️🌶️
 Copy and run the following code.
+
 ```python
 def rectangular_prism_surface_area(length, width, height):
     lw = length * width
@@ -33,10 +36,12 @@ area = rectangular_prism_surface_area(length, width, height)
 total = area + " cm^2"
 print(total)
 ```
+
 Debug the code so it still maintains functionality, but does not raise errors.
 
 ## Spicy 🌶️🌶️🌶️
 Copy and run the following code.
+
 ```python
 def shipping_cost(weight, rate):
     return weight * rate
@@ -54,4 +59,5 @@ cost = shipping_cost(mass, "1.25")
 final_cost = cost + 10
 print(final_cost)
 ```
+
 Debug the code so it still maintains functionality, but does not raise errors.

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>13 - Function Basics</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>We have now input values, processed values, and output values. That is a large part of the computer science curriculum.</p>
+<p>The other large part comes from breaking the different processes you will program into modules. In this course, the modules we will be focusing on are functions.</p>
+<h1>Important Information</h1>
+<p>A function is a block of code that only runs when it is called.</p>
+<p>Every function has:</p>
+<ul>
+<li>A name</li>
+<li>the <code>def</code> keyword</li>
+<li>a pair of parenthesis <code>()</code></li>
+<li>a colon <code>:</code> to signify where the block of code begins</li>
+<li>an indented block of code beneath it</li>
+</ul>
+<p>Code defined in a function is reusable, and can be added in the program as many times as the user sees fit.</p>
+<h2>Definition</h2>
+<p>Let&rsquo;s look at an example of a function definition.</p>
+<pre><code class="language-python">def greet():
+    print(&quot;Hello, World!&quot;)
+</code></pre>
+<ul>
+<li><code>def</code> tells us this is a function</li>
+<li>the function is named <code>greet</code></li>
+<li>double parenthesis and a colon are required <code>():</code></li>
+<li><code>print("Hello World")</code> is the indented block of code</li>
+</ul>
+<h2>Indentation Is Required</h2>
+<p>In Python, <strong>every function must have an indented block of code</strong> underneath it.</p>
+<p>If a function does not have an indented block, Python will raise an <code>IndentationError</code>.</p>
+<p>This code will cause an error:</p>
+<pre><code class="language-python">def greet():
+</code></pre>
+<p>Python expects at least one indented line after the colon. If it does not find one, the program will not run.</p>
+<h2>The <code>pass</code> Keyword</h2>
+<p>Sometimes you want to define a function before you are ready to write its code. In this case, you can use the <code>pass</code> keyword.</p>
+<p><code>pass</code> tells Python when a function is intentionally left empty.</p>
+<p>Example:</p>
+<pre><code class="language-python">def greet():
+    pass
+</code></pre>
+<p>The above function is valid, and does not cause any errors.</p>
+<p>Using <code>pass</code> is useful when planning your program or writing placeholder functions.</p>
+<h2>Calling Functions</h2>
+<p>If we wanted to call this function later it would look like this:</p>
+<pre><code class="language-python">greet()
+</code></pre>
+<p>Putting it all together we get code that looks like this:</p>
+<pre><code class="language-python"># Define the function here
+def greet():
+    print(&quot;Hello, World!&quot;)
+
+# Call the function here
+greet()
+</code></pre>
+<h2>Order Matters</h2>
+<p>Another thing that is important to note about functions is that in python, functions ALWAYS need to be defined before they are called. In some languages it doesn&rsquo;t matter where you put your functions, but in python your functions need to be written above the place they are called in your code.</p>
+<p>The following code will run just fine:</p>
+<pre><code class="language-python"># Function definition before function is called
+def greet():
+    print(&quot;Hello, World!&quot;)
+
+# Function is called after being defined
+greet()
+</code></pre>
+<p>However, this code will not:</p>
+<pre><code class="language-python"># Function called before being defined, results in a NameError
+greet()
+
+def greet():
+    print(&quot;Hello, World!&quot;)
+</code></pre>
+<p>When a function is called before it is defined, we get a <code>NameError</code> because the function is trying to be called before it is defined. The easiest fix for this is to ensure the function is defined before it is called.</p>
+<h2>Function Scope</h2>
+<p>Sometimes you will want to use variables inside of functions. In python, functions are a special part of the code that treat variables differently than other parts of the code. This is called variable scope.</p>
+<p>At this point, we will focus on local and global scope for variables.</p>
+<p>Variables that are declared inside of functions have a local scope. This means that the only place in your code that the variable can be accessed, assigned, compared, or seen by your code is within the function. Variables from a function cannot be accessed outside of that function.</p>
+<pre><code class="language-python">def greet():
+    # message is a local variable to the greet function
+    message = &quot;Hello, World!&quot;
+    # message can be accessed here because it is in the function
+    print(message)
+
+# message cannot be accessed here because it is outside of the function. This will result in a NameError
+print(message)
+</code></pre>
+<p>Variables that are declared outside of functions have global scope, meaning that they can be accessed anywhere in your code.</p>
+<pre><code class="language-python"># message is declared as a global variable
+message = &quot;Hello, World!&quot;
+
+def greet():
+    print(message)
+
+# message is global so this line does not result in an error
+print(message)
+
+# when greet is called we get a NameError even though message is a global variable...
+greet()
+</code></pre>
+<p>By default, global variables can&rsquo;t be reassigned inside of functions. To reassign a global variable inside of a function, you need to use the <code>global</code> keyword.</p>
+<pre><code class="language-python"># message is declared as a global variable
+message = &quot;Hello, World!&quot;
+
+def greet():
+    # by specifying that we want to use the global message variable, python interprets this variable as intended
+    global message
+    message = &quot;Goodbye now!&quot;
+    print(message)
+
+# message is global so this line does not result in an error
+print(message)
+
+# no more errors!
+greet()
+</code></pre>
+<h1>Copy, Change, Challenge – Defining and Calling Functions</h1>
+<h2>Copy</h2>
+<pre><code class="language-python">def greet():
+    print(&quot;Hello from a function!&quot;)
+
+greet()
+</code></pre>
+<h2>Change</h2>
+<p>Change the message inside the <code>print()</code> statement so the function prints a different greeting.</p>
+<h2>Challenge</h2>
+<p>Create a new function called <code>farewell</code> that prints a goodbye message, and then call it after <code>greet()</code>.</p>
+<h1>Copy, Change, Challenge – Using an Empty Function</h1>
+<h2>Copy</h2>
+<pre><code class="language-python">def not_ready_yet():
+    pass
+
+not_ready_yet()
+</code></pre>
+<h2>Change</h2>
+<p>Replace <code>pass</code> with a <code>print()</code> statement so the function displays a message.</p>
+<h2>Challenge</h2>
+<p>Create a function that initially uses <code>pass</code>, then later add an indented block of code that prints at least two lines when the function is called.</p>
+<h1>Copy, Change, Challenge – Using a Local Variable</h1>
+<h2>Copy</h2>
+<pre><code class="language-python">def show_score():
+    score = 10
+    print(score)
+
+show_score()
+</code></pre>
+<h2>Change</h2>
+<p>Change the value of the <code>score</code> variable to a different number and run the program again.</p>
+<h2>Challenge</h2>
+<p>Add a second local variable inside the function and print both values on separate lines.</p>
+<h1>Copy, Change, Challenge – Using the <code>global</code> Keyword</h1>
+<h2>Copy</h2>
+<pre><code class="language-python">total = 5
+
+def add_to_total():
+    global total
+    total = total + 3
+
+add_to_total()
+print(total)
+</code></pre>
+<h2>Change</h2>
+<p>Change the value being added to <code>total</code> so the final printed value is different.</p>
+<h2>Challenge</h2>
+<p>Create a second function that also uses <code>global total</code> and changes the value in a different way before printing it.</p>
+</body>
+</html>

@@ -50,14 +50,18 @@ In most code editors, there is some kind of "intellisense" that will help you au
 Because of this, any variable can have any name as long as you need, because you should only really be typing the whole thing once. 
 
 These are some best practices that you will be expected to maintain in your code throughout the semester.
+
 1. Use clear and descriptive names for your variables.
-> For example `words` is a worse variable name than `greeting` because `greeting` describes what the text will be.
+    * For example `words` is a worse variable name than `greeting` because `greeting` describes what the text will be.
+
 2. Use `snake_case` for variables in Python.
-> Snake case is the special naming convention of using all lower case letters and separating words with an `_` underscore. 
->
-> All variables in python should use `snake_case`
+    * Snake case is the special naming convention of using all lower case letters and separating words with an `_` underscore. 
+    * All variables in python should use `snake_case`
+
 3. Avoid single letter variable names.
-> `g` is shorter to type than `greeting`, but you only need to type it once the first time you create the variable.
+    * `g` is shorter to type than `greeting`, but you only need to type it once the first time you create the variable.
+
 4. Variable names cannot start with a number.
+
 5. If you are creating a value that will never change, you can identify it as a constant value by naming it with all caps.
-> `CONSTANT_VALUE` would be a variable that isn't supposed to change.
+    * `CONSTANT_VALUE` would be a variable that isn't supposed to change.

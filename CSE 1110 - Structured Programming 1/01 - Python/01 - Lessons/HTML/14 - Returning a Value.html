@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>14 - Returning a Value</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>In this lesson, you will learn how a function can send a value back to the rest of a program using <code>return</code>. You will also learn how <code>return</code> can be used to end a function early, even when no value is being sent back.</p>
+<h1>Important Information</h1>
+<p>So far, the functions you have written only <em>do</em> something, such as printing text. Sometimes, instead of printing a result, we want a function to <strong>give a value back</strong> so it can be used elsewhere in the program.</p>
+<p>This is done using the <code>return</code> keyword.</p>
+<p>When a function uses <code>return</code>:</p>
+<ul>
+<li>The function immediately stops running</li>
+<li>A value can be sent back to where the function was called</li>
+<li>The returned value can be stored in a variable</li>
+</ul>
+<h2>Returning a Value</h2>
+<p>Here is a simple example of a function that returns a value:</p>
+<pre><code class="language-python">def get_number():
+    return 7
+</code></pre>
+<p>When this function is called, it does not print anything. Instead, it sends the value <code>7</code> back to the line where it was called.</p>
+<p>To use the returned value, we usually store it in a variable:</p>
+<pre><code class="language-python">result = get_number()
+print(result)
+</code></pre>
+<p>The variable <code>result</code> now holds the value that was returned by the function.</p>
+<h2>Return vs Print</h2>
+<p>It is important to understand the difference between <code>print</code> and <code>return</code>:
+* <code>print</code> displays something to the terminal
+* <code>return</code> sends a value back to the program</p>
+<p>A function can return a value without printing anything, and a function can print something without returning a value.</p>
+<h2>Ending a Function Early</h2>
+<p>The <code>return</code> keyword can also be used <strong>without a value</strong>.</p>
+<p>When <code>return</code> is used by itself the function stops running immediately, and no value is returned. This is useful when you want to exit a function early and skip the rest of the code.</p>
+<p>Example:</p>
+<pre><code class="language-python">def check_status():
+    print(&quot;Checking status...&quot;)
+    return
+    print(&quot;This line will never run&quot;)
+</code></pre>
+<p>Once <code>return</code> is reached, the function ends, so any code after it is ignored.</p>
+<h1>Set Up</h1>
+<p>Create a new python file called <code>returnvalues.py</code>.</p>
+<h1>Copy, Change, Challenge - Return a Value</h1>
+<h2>Copy</h2>
+<pre><code class="language-python">def get_score():
+    return 100
+
+score = get_score()
+print(score)
+</code></pre>
+<p>Run the program and observe where the number comes from.</p>
+<h2>Change</h2>
+<p>Change the value being returned so that a different number is printed.</p>
+<h2>Challenge</h2>
+<p>Create a new function that returns a string instead of a number. Store the returned value in a variable and print it.</p>
+<h1>Copy, Change, Challenge - Return Early in a Function</h1>
+<h2>Copy</h2>
+<pre><code class="language-python">def early_exit():
+    print(&quot;Start of function&quot;)
+    return
+    print(&quot;End of function&quot;)
+
+early_exit()
+</code></pre>
+<h2>Change</h2>
+<p>Move the <code>return</code> statement so that both print statements run.</p>
+<h2>Challenge</h2>
+<p>Create a function that prints a message, then uses <code>return</code> to stop early based on your own logic. Add at least one line of code after the <code>return</code> that never runs.</p>
+</body>
+</html>

@@ -6,9 +6,11 @@ Create a new python file and call it `helloworld.py`. We will learn more about g
 
 # Copy
 In python, we print to the terminal with the command `print()`. Copy the following code.
+
 ```python
 print("Hello, World!")
 ```
+
 Run your program. Where do you see "Hello, World!" displayed?
 
 This is called your terminal! When working with text based programs in python, your terminal is where your output shows up! We will also learn how to allow user input through the terminal.

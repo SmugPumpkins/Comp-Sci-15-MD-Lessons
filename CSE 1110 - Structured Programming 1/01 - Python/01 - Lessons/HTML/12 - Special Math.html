@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>12 - Special Math</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>Previously we learned how to do some basic math operations. However, there will be times where the math you want to do is not covered with addition, subtraction, multiplication, or division.</p>
+<p>There are some simple math operations included with python that allow for common math to take place without needing to program it all manually.</p>
+<h1>Important Information</h1>
+<p>There are 3 special operations we will look at right now. Hopefully these are tools that make your tool belt a little more useful.</p>
+<h2>Floor Division</h2>
+<p>One thing you might want to do is divide by a number, but only look at the integer value and ignore the decimal. </p>
+<p>This is useful for calculations where you are dealing with objects that can&rsquo;t exist as partial values.</p>
+<p>Consider a situation where you have 28 jelly beans, and 9 friends. The jellybeans can&rsquo;t be cut, and everyone needs the same amount. How many jelly beans should each person have? 3!</p>
+<p>To express floor division in python we use this symbol <code>//</code>. It&rsquo;s like the division symbol but twice (wow, so cool!).</p>
+<h2>Exponential Multiplication</h2>
+<p>Sometimes you want to multiply a value by a power. Instead of writing 3*3*3<em>3 (which would be 3 to the power of 4) we can right 3</em>*4 which represents an exponent.</p>
+<p>To express exponential multiplication we use <code>**</code>, which just like floor division is just two of our multiplication symbols.</p>
+<h2>Modulo Division</h2>
+<p>The last circumstance we might find ourselves in is needing a remainder.</p>
+<p>Remember our 28 jelly beans and 9 friends? When each person gets 3 jelly beans, that only divides 27 of our original 28 jelly beans! We have a remainder of 1!</p>
+<p>Modulo division can give us the remainder of a division. If we did 28%9, we would get 1 because 28/9 is 3, remainder 1.</p>
+<p>Modulo division uses the <code>%</code> symbol. It is really important to remember that in programming <code>%</code> does not represent percent, it represents a remainder.</p>
+<h1>Set Up</h1>
+<p>Create a new file called <code>specialmath.py</code>.</p>
+<h1>Copy</h1>
+<p>Run the following program</p>
+<pre><code class="language-python">friends = 9
+jelly_beans = 28
+each_person_gets = 28 // 9
+remainder = 28 % 9
+print(f&quot;Each person gets {each_person_gets} jelly beans and there are {remainder} left over&quot;)
+</code></pre>
+<h1>Change</h1>
+<p>Change the values so that the remainder jelly beans will be greater than the number of jelly beans each person gets.</p>
+<h1>Challenge</h1>
+<p>Create you own situation where you use floor division and modulo division to determine how some kind of object id divided.</p>
+</body>
+</html>

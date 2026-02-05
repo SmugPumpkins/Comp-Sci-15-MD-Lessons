@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>02 - Arithmetic Functions</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Challenge - Arithmetic Functions</h1>
+<p>The object of this challenge is to create functions that can accept arguments and return values.</p>
+<h2>Mild 🌶️</h2>
+<p>Create 2 functions from the following choices:</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Addition</td>
+<td>2 numbers, <code>a</code> and <code>b</code>.</td>
+<td>The sum of <code>a</code> and <code>b</code>.</td>
+</tr>
+<tr>
+<td>Subtraction</td>
+<td>2 numbers, <code>a</code> and <code>b</code>.</td>
+<td>The difference between <code>a</code> and <code>b</code>.</td>
+</tr>
+<tr>
+<td>Multiplication</td>
+<td>2 numbers, <code>a</code> and <code>b</code>.</td>
+<td>The product of <code>a</code> and <code>b</code>.</td>
+</tr>
+<tr>
+<td>Division</td>
+<td>2 numbers, <code>a</code> and <code>b</code>.</td>
+<td>The quotient of <code>a</code> / <code>b</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Then create a program that satisfies the following requirements:</p>
+<ul>
+<li>The user provides input <code>a</code> and <code>b</code>.</li>
+<li>The program uses your first function to calculate a total.</li>
+<li>The program outputs the total and the operation used to get that total.</li>
+<li>The user provides a second input for <code>a</code> and <code>b</code>.</li>
+<li>The program uses your second function to calculate the total.</li>
+<li>The program outputs the total and the operation used to get that total.</li>
+</ul>
+<h2>Medium 🌶️🌶️</h2>
+<p>Create the 4 following functions:</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Addition</td>
+<td>2 numbers, <code>a</code> and <code>b</code>.</td>
+<td>The sum of <code>a</code> and <code>b</code>.</td>
+</tr>
+<tr>
+<td>Subtraction</td>
+<td>2 numbers, <code>a</code> and <code>b</code>.</td>
+<td>The difference between <code>a</code> and <code>b</code>.</td>
+</tr>
+<tr>
+<td>Multiplication</td>
+<td>2 numbers, <code>a</code> and <code>b</code>.</td>
+<td>The product of <code>a</code> and <code>b</code>.</td>
+</tr>
+<tr>
+<td>Division</td>
+<td>2 numbers, <code>a</code> and <code>b</code>.</td>
+<td>The quotient of <code>a</code> / <code>b</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Then create a program that satisfies the following requirements:</p>
+<ul>
+<li>For each function you created:<ul>
+<li>The user provides input <code>a</code> and <code>b</code>.</li>
+<li>The program uses your first function to calculate a total.</li>
+<li>The program outputs the total and the operation used to get that total.</li>
+</ul>
+</li>
+</ul>
+<h2>Spicy 🌶️🌶️🌶️</h2>
+<p>Create the 4 following functions:</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Addition</td>
+<td>2 numbers, <code>a</code> and <code>b</code>.</td>
+<td>The sum of <code>a</code> and <code>b</code>.</td>
+</tr>
+<tr>
+<td>Subtraction</td>
+<td>2 numbers, <code>a</code> and <code>b</code>.</td>
+<td>The difference between <code>a</code> and <code>b</code>.</td>
+</tr>
+<tr>
+<td>Multiplication</td>
+<td>2 numbers, <code>a</code> and <code>b</code>.</td>
+<td>The product of <code>a</code> and <code>b</code>.</td>
+</tr>
+<tr>
+<td>Division</td>
+<td>2 numbers, <code>a</code> and <code>b</code>.</td>
+<td>The quotient of <code>a</code> / <code>b</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>For each of your functions create 2 tests using <code>pytest</code>:</p>
+<ul>
+<li>Each function must have one test that <code>asserts</code> that 2 values are equal.</li>
+<li>Each function must have one test that <code>asserts</code> that 2 values are not equal.</li>
+</ul>
+<p>Then create a program that satisfies the following requirements:</p>
+<ul>
+<li>For each function you created:<ul>
+<li>The user provides input <code>a</code> and <code>b</code>.</li>
+<li>The program uses your first function to calculate a total.</li>
+<li>The program outputs the total and the operation used to get that total.</li>
+</ul>
+</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>04 - Widgets - Label.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* a11y-dark theme */
+/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
+/* @author: ericwbailey */
+
+/* Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #d4d0ab;
+}
+
+/* Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #ffa07a;
+}
+
+/* Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #f5ab35;
+}
+
+/* Yellow */
+.hljs-attribute {
+  color: #ffd700;
+}
+
+/* Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #abe338;
+}
+
+/* Blue */
+.hljs-title,
+.hljs-section {
+  color: #00e0e0;
+}
+
+/* Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #dcc6e0;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #2b2b2b;
+  color: #f8f8f2;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type,
+  .hljs-quote {
+        color: highlight;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+        font-weight: bold;
+    }
+}
+
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///r%3A/2.Travail/1.Enseignement/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css"><link rel="stylesheet" href="file:///d%3A/rdaros/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="overview">Overview</h1>
+<p>A <code>label</code> is a widget that displays text or images, typically that users will just view but not otherwise interact with. Labels are used to identify controls or other parts of the user interface, provide textual feedback or results, etc.</p>
+<h1 id="important-information">Important Information</h1>
+<h2 id="creating-a-label">Creating a Label</h2>
+<p>Labels are created using the <code>ttk.Label</code> class. Often, the text or image the label will display are specified via configuration options at the same time:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Create a label and text</span>
+<span class="hljs-comment"># parent represents whatever container you want to put it in. This can be the root, or a frame.</span>
+label = ttk.Label(parent, text=<span class="hljs-string">'Full name:'</span>)
+</div></code></pre>
+<p>Like frames, labels can take several different configuration options, which can alter how they are displayed.</p>
+<h2 id="displaying-text">Displaying Text</h2>
+<p>The <code>text</code> configuration option (shown above when creating the label) is the most commonly used, particularly when the label is purely decorative or explanatory. You can change what text is displayed by modifying this configuration option. This can be done at any time, not only when first creating the label.</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Set the label's text</span>
+label[<span class="hljs-string">'text'</span>] = <span class="hljs-string">"Hello World!"</span>
+</div></code></pre>
+<h3 id="setting-text-to-a-variable-that-changes">Setting Text to a Variable that Changes</h3>
+<p>You can also have the widget monitor a variable in your script. Whenever the variable changes, the label will automatically update to display the new value of the variable. This is done with the <code>textvariable</code> configuration option:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Create a variable that is an object of the StringVar class</span>
+resultsContents = StringVar()
+<span class="hljs-comment"># Attach the variable to the label, it will automatically update whenever the value is changed</span>
+label[<span class="hljs-string">'textvariable'</span>] = resultsContents
+<span class="hljs-comment"># Set a string value to the variable that the textvariable updates to</span>
+resultsContents.set(<span class="hljs-string">'Initial value to display'</span>)
+</div></code></pre>
+<p>Tkinter only allows you to attach widgets to an instance of the <code>StringVar</code> class but not arbitrary Python variables. This class contains all the logic to watch for changes and communicate them back and forth between the variable and Tk. Use the get and set methods to read or write the current value of the variable.</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Get the value of the string variable</span>
+current = resultsContents.get()
+<span class="hljs-comment"># Set the value of the string variable</span>
+resultsContents.set(<span class="hljs-string">'New value to display'</span>)
+</div></code></pre>
+<h2 id="displaying-images">Displaying Images</h2>
+<p>Labels can also display an image instead of text. If you just want a static image displayed in your user interface, this is normally the way to do it. We'll go into images in more detail in a later chapter, but for now, let's assume you want to display a PNG stored in a file on disk. This is a two-step process. First, create an image &quot;object.&quot; Then, tell the label to display that object via its image configuration option:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Create a variable to store the image</span>
+image = PhotoImage(file=<span class="hljs-string">'myimage.png'</span>)
+<span class="hljs-comment"># Set the label's image to the variable</span>
+label[<span class="hljs-string">'image'</span>] = image
+</div></code></pre>
+<h3 id="text-and-images">Text and Images</h3>
+<p>Labels can also display both an image and text at the same time. You'll often see this in toolbar buttons. To do so, use the <code>compound</code> configuration option, which accepts the following values:</p>
+<table>
+<thead>
+<tr>
+<th>Configuration Option</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>none</code> <em>(default)</em></td>
+<td>display only the image if present; if there is no image, display the text specified by the <code>text</code> or <code>textvariable</code> options</td>
+</tr>
+<tr>
+<td><code>text</code></td>
+<td>text only (ignore any image provided)</td>
+</tr>
+<tr>
+<td><code>image</code></td>
+<td>image only (ignore any text provided)</td>
+</tr>
+<tr>
+<td><code>center</code></td>
+<td>text in the center of the image</td>
+</tr>
+<tr>
+<td><code>top</code></td>
+<td>image above text</td>
+</tr>
+<tr>
+<td><code>bottom</code></td>
+<td>image below text</td>
+</tr>
+<tr>
+<td><code>left</code></td>
+<td>image to left of text</td>
+</tr>
+<tr>
+<td><code>right</code></td>
+<td>image to right of text</td>
+</tr>
+</tbody>
+</table>
+<p>For example:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Create the label</span>
+label = Label(root)
+<span class="hljs-comment"># Create a variable to store the image</span>
+image = PhotoImage(file=<span class="hljs-string">"smile.png"</span>)
+<span class="hljs-comment"># Add the image to the label</span>
+label[<span class="hljs-string">'image'</span>] = image
+<span class="hljs-comment"># Add text to the label (this can also be a textvariable instead of just text)</span>
+label[<span class="hljs-string">'text'</span>] = <span class="hljs-string">'Smile'</span>
+<span class="hljs-comment"># Set the compound configuration to choose how to display the image and text in relation to each other</span>
+label[<span class="hljs-string">'compound'</span>] = <span class="hljs-string">'center'</span>
+<span class="hljs-comment"># Add the label to the grid</span>
+label.grid()
+</div></code></pre>
+<h3 id="images-and-resizing">Images and Resizing</h3>
+<p>An important part to understand about the <code>tkinter</code> library is that images <strong>cannot</strong> be resized. The image file you access and display will always display as its full resoultion. If you want the image to display as a different size, you will need to do some of your own research into libraries that will allow you to do this.</p>
+<p>A good place to start your research is by looking into the <code>Pillow</code> library.</p>
+<h2 id="fonts">Fonts</h2>
+<p>As with frames, you normally don't want to change things like fonts and colors directly. If you need to change them (e.g., to create a special type of label), the preferred method would be to create a new style, which is then assigned to the widget with its <code>style</code> option.</p>
+<p>Unlike most themed widgets, the label widget also provides explicit widget-specific configuration options for fonts and colors as an alternative. Again, you should use these only in special one-off cases when using a style doesn't necessarily make sense.</p>
+<p>You can specify the font used to display the label's text using the font configuration option. Here are the names of some predefined fonts you can use:</p>
+<table>
+<thead>
+<tr>
+<th>Font</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TkDefaultFont</code></td>
+<td>Default for all GUI items not otherwise specified.</td>
+</tr>
+<tr>
+<td><code>TkTextFont</code></td>
+<td>Used for entry widgets, listboxes, etc.</td>
+</tr>
+<tr>
+<td><code>TkFixedFont</code></td>
+<td>A standard fixed-width font.</td>
+</tr>
+<tr>
+<td><code>TkMenuFont</code></td>
+<td>The font used for menu items.</td>
+</tr>
+<tr>
+<td><code>TkHeadingFont</code></td>
+<td>A font for column headings in lists and tables.</td>
+</tr>
+<tr>
+<td><code>TkCaptionFont</code></td>
+<td>A font for window and dialog caption bars.</td>
+</tr>
+<tr>
+<td><code>TkSmallCaptionFont</code></td>
+<td>Smaller captions for subwindows or tool dialogs.</td>
+</tr>
+<tr>
+<td><code>TkIconFont</code></td>
+<td>A font for icon captions.</td>
+</tr>
+<tr>
+<td><code>TkTooltipFont</code></td>
+<td>A font for tooltips.</td>
+</tr>
+</tbody>
+</table>
+<p>For example:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Set the font of the label</span>
+label[<span class="hljs-string">'font'</span>] = <span class="hljs-string">"TkDefaultFont"</span>
+</div></code></pre>
+<h2 id="colors">Colors</h2>
+<p>The foreground (text) and background color of the label can also be changed via the <code>foreground</code> and <code>background</code> configuration options. You can specify colors as either color names (e.g., <code>red</code>) or hex RGB codes (e.g., <code>#ff340a</code>).</p>
+<p>For example:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Set the text color of the label</span>
+label[<span class="hljs-string">'foreground'</span>] = <span class="hljs-string">"red"</span>
+<span class="hljs-comment"># Set the background color of the label</span>
+label[<span class="hljs-string">'background'</span>] = <span class="hljs-string">"#00340a"</span>
+</div></code></pre>
+<h2 id="layout">Layout</h2>
+<p>The geometry manager determines the overall layout of the label (i.e., where it is positioned within the user interface and how large it is). Yet, several options can help you control how the label is displayed within the rectangle the geometry manager gives it.</p>
+<p>If the box given to the label is larger than the label requires for its contents, you can use the <code>anchor</code> option to specify what edge or corner the label should be attached to, which would leave any empty space in the opposite edge or corner. Possible values are specified as compass directions: '<code>n</code>' (north, or top edge), '<code>ne</code>', (north-east, or top right corner), '<code>e</code>', '<code>se</code>', '<code>s</code>', '<code>sw</code>', '<code>w</code>', '<code>nw</code>' or '<code>center</code>'.</p>
+<p>For example:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Set the label's anchor the the top left corner of the rectangle it is in</span>
+label[<span class="hljs-string">'anchor'</span>] = <span class="hljs-string">"nw"</span>
+</div></code></pre>
+<h2 id="multi-line-labels">Multi-line Labels</h2>
+<p>Labels can display more than one line of text. To do so, embed carriage returns (<code>\n</code>) in the <code>text</code> (or <code>textvariable</code>) string.</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Add text to the label (this can also be a textvariable instead of just text)</span>
+label[<span class="hljs-string">'text'</span>] = <span class="hljs-string">'This will be on the first line!\nThis will be on the second line!'</span>
+</div></code></pre>
+<p>Labels can also automatically wrap your text into multiple lines via the <code>wraplength</code> option, which specifies the maximum length of a line (in pixels, centimeters, etc.).</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Wrap the text if it goes over 100 pixels</span>
+label[<span class="hljs-string">'wraplength'</span>] = <span class="hljs-string">'100'</span>
+</div></code></pre>
+<p>You can also control how multi-line text is justified via the <code>justify</code> option. It can have the values <code>left</code>, <code>center</code>, or <code>right</code>. If you have only a single line of text, you probably want the <code>anchor</code> option instead.</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Justify the text of a multiline label to the center</span>
+label[<span class="hljs-string">'justify'</span>] = <span class="hljs-string">'center'</span>
+</div></code></pre>
+<h1 id="copy-change-challenge">Copy, Change, Challenge</h1>
+<h2 id="copy">Copy</h2>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> *
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> ttk
+
+root = Tk()
+root.title(<span class="hljs-string">"Label Copy Example"</span>)
+
+<span class="hljs-comment"># Create a StringVar to control the label text</span>
+message = StringVar()
+message.set(<span class="hljs-string">"Hello, world!"</span>)
+
+<span class="hljs-comment"># Create the label</span>
+label = ttk.Label(root, textvariable=message)
+
+<span class="hljs-comment"># Add the label to the window</span>
+label.grid()
+
+root.mainloop()
+</div></code></pre>
+<h2 id="change">Change</h2>
+<p>Modify the program so that:</p>
+<ul>
+<li>The label text is set using <code>text</code> instead of <code>textvariable</code></li>
+<li>The font is changed to <code>TkHeadingFont</code></li>
+<li>The text color is changed to <strong>blue</strong></li>
+<li>The label is anchored to the <strong>top-left</strong> of the space given to it</li>
+</ul>
+<h2 id="challenge">Challenge</h2>
+<p>Create a program that includes <strong>two labels</strong>:</p>
+<ul>
+<li>The first label should:
+<ul>
+<li>Display <strong>multiple lines of text</strong></li>
+<li>Use <code>wraplength</code> to limit the width of the text</li>
+<li>Center the text using <code>justify</code></li>
+</ul>
+</li>
+<li>The second label should:
+<ul>
+<li>Use a <code>StringVar</code></li>
+<li>Start with one message</li>
+<li>Change to a different message after the program starts (hint: update the <code>StringVar</code>)</li>
+</ul>
+</li>
+</ul>
+
+</body>
+
+</html>

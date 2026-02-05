@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>05 - Widgets - Button.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* a11y-dark theme */
+/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
+/* @author: ericwbailey */
+
+/* Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #d4d0ab;
+}
+
+/* Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #ffa07a;
+}
+
+/* Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #f5ab35;
+}
+
+/* Yellow */
+.hljs-attribute {
+  color: #ffd700;
+}
+
+/* Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #abe338;
+}
+
+/* Blue */
+.hljs-title,
+.hljs-section {
+  color: #00e0e0;
+}
+
+/* Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #dcc6e0;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #2b2b2b;
+  color: #f8f8f2;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type,
+  .hljs-quote {
+        color: highlight;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+        font-weight: bold;
+    }
+}
+
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///r%3A/2.Travail/1.Enseignement/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css"><link rel="stylesheet" href="file:///d%3A/rdaros/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="overview">Overview</h1>
+<p>A <code>button</code>, unlike a frame or label, is very much there to interact with. Users press a button to perform an action. Like labels, they can display text or images, but accept additional options to change their behavior.</p>
+<h1 id="important-information">Important Information</h1>
+<h2 id="creating-a-button">Creating a Button</h2>
+<p>Buttons are created using the <code>ttk.Button</code> class:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Create a button using the button class</span>
+<span class="hljs-comment"># parent represents whatever container you want to put it in. This can be the root, or a frame.</span>
+button = ttk.Button(parent, text=<span class="hljs-string">'Okay'</span>, command=submitForm)
+</div></code></pre>
+<p>Typically, their <strong>contents</strong> <em>(the text to diaplay)</em> and <strong>command callback</strong> <em>(the function the button will run)</em> are specified at the same time the button is created. As with other widgets, buttons accept several configuration options to alter their appearance and behavior, including the standard <code>style</code> option.</p>
+<h2 id="text-or-image">Text or Image</h2>
+<p>Buttons take the same <code>text</code>, <code>textvariable</code> <em>(less commonly used)</em>, <code>image</code>, and <code>compound</code> configuration options as labels. These control whether the button displays text and/or an image.</p>
+<p>For example:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Create the button</span>
+button = ttk.Button(root, command=<span class="hljs-string">'my_function'</span>)
+<span class="hljs-comment"># Set the text of the button</span>
+button[<span class="hljs-string">'text'</span>] = <span class="hljs-string">"Click Me!"</span>
+<span class="hljs-comment"># Create an image variable to store the image</span>
+image = PhotoImage(file=<span class="hljs-string">'picture.png'</span>)
+<span class="hljs-comment"># Set the button's image to the image variable</span>
+button[<span class="hljs-string">'image'</span>] = image
+<span class="hljs-comment"># Set the compound configuration for how the text and image appear together</span>
+button[<span class="hljs-string">'compound'</span>] = <span class="hljs-string">'center'</span>
+<span class="hljs-comment"># Display the button</span>
+button.grid()
+</div></code></pre>
+<p><em>In the above example, it includes image and text, but you can choose to only use one or the other instead as well.</em></p>
+<p>Buttons have a <code>default</code> configuration option. If specified as <code>active</code>, this tells Tk that the button is the default button in the user interface; otherwise, it is <code>normal</code>. Default buttons are invoked if users hit the <code>Return</code> or <code>Enter</code> key. Some platforms and styles will draw this default button with a different border or highlight.</p>
+<p>For example:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Setting defualt to "active" makes it so that pressing Enter or Return counts as pressing the button</span>
+button[<span class="hljs-string">'default'</span>] = <span class="hljs-string">'active'</span>
+</div></code></pre>
+<p><em>Note that setting this configuration option doesn't create an event binding that will make the &quot;Return&quot; or &quot;Enter&quot; key activate the button; you have to do that yourself.</em></p>
+<h2 id="the-command-callback">The Command Callback</h2>
+<p>The <code>command</code> option connects the button's action and your application. When a user presses the button, the script or function provided by the option is evaluated by the interpreter.</p>
+<p>For example:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Set the command callback of the button</span>
+button[<span class="hljs-string">'command'</span>] = my_function
+</div></code></pre>
+<h2 id="button-state">Button State</h2>
+<p>Buttons and many other widgets start off in a <em>normal</em> state. A button in its normal state will respond to mouse movements, can be pressed, and will invoke its command callback. Buttons can also be put into a <em>disabled</em> state, where the button is greyed out, does not respond to mouse movements, and cannot be pressed. Your program would disable the button when its command is not applicable based on the state of the application at a given point in time.</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Disable the button</span>
+button.state([<span class="hljs-string">'disabled'</span>])
+<span class="hljs-comment"># Clear the disabled flag (enable the button again)</span>
+button.state([<span class="hljs-string">'!disabled'</span>])
+</div></code></pre>
+<p>All themed widgets maintain an internal state, represented as a series of binary flags. Each flag can either be set <em>(on)</em> or cleared <em>(off)</em>. You can set or clear these different flags, and check the current setting using the state and instate methods. Buttons make use of the disabled flag to control whether or not users can press the button. For example:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Checks if the button is disabled</span>
+<span class="hljs-comment"># Returns True if the button is disabled</span>
+<span class="hljs-comment"># Returns False if the button is not disabled</span>
+button.instate([<span class="hljs-string">'disabled'</span>])
+<span class="hljs-comment"># Checks if the button is not disabled</span>
+<span class="hljs-comment"># Returns True if the button is not disabled</span>
+<span class="hljs-comment"># Returns False if the button is disabled</span>
+button.instate([<span class="hljs-string">'!disabled'</span>])
+</div></code></pre>
+<p>The full list of state flags available to themed widgets is: <code>active</code>, <code>disabled</code>, <code>focus</code>, <code>pressed</code>, <code>selected</code>, <code>background</code>, <code>readonly</code>, <code>alternate</code>, and <code>invalid</code>. These are described in the <a href="https://www.tcl-lang.org/man/tcl8.6/TkCmd/ttk_widget.htm">themed widget reference</a>. While all widgets have the same set of state flags, <strong>not all states are meaningful for all widgets</strong>.</p>
+<h1 id="copy-change-challenge">Copy, Change, Challenge</h1>
+<h2 id="copy">Copy</h2>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> *
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> ttk
+
+root = Tk()
+root.title(<span class="hljs-string">"Button Copy Example"</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">on_button_click</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">"Button was clicked!"</span>)
+
+<span class="hljs-comment"># Create the button</span>
+button = ttk.Button(root, text=<span class="hljs-string">"Click Me"</span>, command=on_button_click)
+
+<span class="hljs-comment"># Add the button to the window</span>
+button.grid()
+
+root.mainloop()
+</div></code></pre>
+<h2 id="change">Change</h2>
+<p>Modify the program so that:</p>
+<ul>
+<li>The button text is changed to <strong>&quot;Submit&quot;</strong></li>
+<li>The button is set as the <strong>default button</strong></li>
+<li>The button is <strong>disabled</strong> when the program starts</li>
+<li>After you confirm the program runs, <strong>re-enable</strong> the button by removing the disabled state</li>
+</ul>
+<h2 id="challenge">Challenge</h2>
+<p>Create a program with <strong>two buttons</strong>:</p>
+<ul>
+<li>
+<p>The first button should:</p>
+<ul>
+<li>Display <strong>text and an image</strong> using the <code>compound</code> option</li>
+<li>Print a message to the terminal when clicked</li>
+</ul>
+</li>
+<li>
+<p>The second button should:</p>
+<ul>
+<li>Start in a <strong>disabled</strong> state</li>
+<li>Become <strong>enabled</strong> only after the first button has been clicked</li>
+</ul>
+</li>
+<li>
+<p>Place both buttons using <code>grid</code> in different rows</p>
+</li>
+</ul>
+
+</body>
+
+</html>

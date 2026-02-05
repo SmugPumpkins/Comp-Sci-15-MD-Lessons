@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>10 - Debug Logic Errors</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Challenge - Debug Logic Errors</h1>
+<p>The object of this challenge is to practice identifying and debugging logic errors. The code will not raise any errors, but it will produce incorrect results.</p>
+<h2>Mild 🌶️</h2>
+<p>This program is intended to calculate the area of a circle using a given diameter.</p>
+<pre><code class="language-python">def circle_area(diameter):
+    radius = diameter * 2
+    return 3.14 * radius * radius
+
+diameter = 10
+area = circle_area(diameter)
+print(area)
+</code></pre>
+<p>Debug the code so it still maintains functionality, but provides the correct results.</p>
+<h2>Medium 🌶️🌶️</h2>
+<p>This program is intended to provide students with their final score.</p>
+<ul>
+<li>Tests make up <code>50%</code> of their final score</li>
+<li>Projects make up <code>30%</code> of their final score</li>
+<li>Homework makes up <code>20%</code> of their final score</li>
+<li>Students also get a participation bonus added to their grade equal to 10% of their calculated score (for example, if they had a 90% in the class, they would get 9 bonus points)</li>
+</ul>
+<pre><code class="language-python">def weighted_score(test_score, project_score, homework_score):
+    total = test_score + project_score + homework_score
+    weighted_test_score = test_score * 0.5
+    weighted_project_score = project_score * 0.3
+    weighted_homework_score = homework_score * 0.2
+    return total
+
+test_score = 70
+project_score = 85
+homework_score = 90
+
+score = weighted_score(test_score, project_score, homework_score)
+
+bonus = score / 0.1
+final_mark = score + bonus
+print(final_mark)
+</code></pre>
+<p>Debug the code so it still maintains functionality, but provides the correct results.</p>
+<h2>Spicy 🌶️🌶️🌶️</h2>
+<p>This program is intended to calculate a triangular prism&rsquo;s surface area.</p>
+<pre><code class="language-python">def triangle_area(base, height):
+    area = base + height + 0.5
+    return area
+
+def rectangle_area(length, width):
+    area = length
+    area = width
+    return area
+
+def triangular_prism_surface_area(side_a, side_b, side_c, base, height, length):
+    area = triangle_area(height, base)
+    area = area + rectangle_area(side_a, length)
+    area = area + rectangle_area(side_b, length)
+    area = area + rectangle_area(side_c, length)
+    area = area * 2
+    return area
+
+side_a = 5
+side_b = 4
+side_c = 3
+base = 3
+height = 4
+length = 10
+surface_area = triangular_prism_surface_area(side_a, side_b, side_c, base, height, length)
+print(surface_area)
+</code></pre>
+<p>Debug the code so it still maintains functionality, but provides the correct results.</p>
+</body>
+</html>

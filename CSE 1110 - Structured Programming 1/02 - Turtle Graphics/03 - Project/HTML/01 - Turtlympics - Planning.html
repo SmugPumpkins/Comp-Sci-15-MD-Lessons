@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>01 - Turtlympics - Planning.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* a11y-dark theme */
+/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
+/* @author: ericwbailey */
+
+/* Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #d4d0ab;
+}
+
+/* Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #ffa07a;
+}
+
+/* Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #f5ab35;
+}
+
+/* Yellow */
+.hljs-attribute {
+  color: #ffd700;
+}
+
+/* Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #abe338;
+}
+
+/* Blue */
+.hljs-title,
+.hljs-section {
+  color: #00e0e0;
+}
+
+/* Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #dcc6e0;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #2b2b2b;
+  color: #f8f8f2;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type,
+  .hljs-quote {
+        color: highlight;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+        font-weight: bold;
+    }
+}
+
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///r%3A/2.Travail/1.Enseignement/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css"><link rel="stylesheet" href="file:///d%3A/rdaros/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="python---turtlympics---planning">Python - Turtlympics - Planning</h1>
+<h2 id="overview">Overview</h2>
+<p>The semi-annual Turtlympics are upon us and we need some mazes for the turtles to race through. As programmers, you will be competing to create the most incredible mazes. The categories that you can compete for are:</p>
+<ul>
+<li>Best Theme</li>
+<li>Best Aesthetics</li>
+<li>Most Complex</li>
+</ul>
+<p>Before creating your maze however, you must plan it following these guidelines.</p>
+<h2 id="project-criteria">Project Criteria</h2>
+<p>Your task is to create a program that creates a maze for the Turtlympics. Your program must satisfy the following criteria:</p>
+<ul>
+<li><strong>Define</strong> and <strong>use</strong> at least 2 functions that can accept parameters.</li>
+<li><strong>Define</strong> and <strong>use</strong> at least 2 functions that can return a value.</li>
+<li>In total you should <strong>define</strong> and <strong>use</strong> at least 4 functions when creating your maze.</li>
+</ul>
+<p>In your planning for this project, you should include the following:</p>
+<ul>
+<li>A <strong>2 sentence description about what an algorithm is and how you can use it</strong> to draw a maze for a turtle.</li>
+<li>Create an <strong>IPO chart for each function</strong> you will be implementing.</li>
+<li><strong>Pseudocode</strong> or a <strong>flow chart</strong> demonstrating the control flow of how your maze will be drawn.</li>
+<li><strong>Diagrams and/or sketches of the maze</strong> you intend to create.</li>
+</ul>
+<h2 id="outcome-criteria">Outcome Criteria</h2>
+<ul>
+<li><strong>1 Demonstrate introductory structured programming skills by planning and writing sequential algorithms.</strong>
+<ul>
+<li><strong>1.1</strong> Explain what an algorithm is and why it is used.</li>
+<li><strong>1.2</strong> Analyze simple algorithms and describe the task or tasks they perform.</li>
+<li><strong>1.3</strong> Determine whether a problem can be solved using an input–process–output (IPO) approach.</li>
+<li><strong>1.4</strong> Break a problem into input, processing, and output components.</li>
+<li><strong>1.5</strong> Identify which data is already available to the program and which data must be provided as input.</li>
+<li><strong>1.6</strong> Arrange inputs, processing steps, and outputs in the correct order so that:
+<ul>
+<li><strong>1.6.1</strong> processing occurs only after all required input is available</li>
+<li><strong>1.6.2</strong> output occurs only after processing is complete</li>
+</ul>
+</li>
+<li><strong>1.7</strong> Write algorithms in a clear, standard format.</li>
+<li><strong>1.8</strong> Test algorithms using appropriate data.</li>
+<li><strong>1.9</strong> Revise and improve algorithms based on testing results.</li>
+</ul>
+</li>
+</ul>
+<h2 id="mastery-rubric">Mastery Rubric</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>5 – Mastery of Skill</th>
+<th>4 – Excellence in Skill</th>
+<th>3 – Proficiency in Skill</th>
+<th>2 – Attempting Skill</th>
+<th>1 – Starting to Attempt Skill</th>
+<th>0 – Refusal to Engage with Skill</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1.1 Explain what an algorithm is and why it is used.</strong></td>
+<td>Clearly and precisely explains what an algorithm is using correct terminology, with a strong connection to maze drawing and turtle behavior; explanation shows depth and insight beyond examples discussed in class.</td>
+<td>Accurately explains what an algorithm is and why it is useful, with a clear and relevant connection to drawing a maze.</td>
+<td>Provides a basic, correct explanation of what an algorithm is and a general reason for using one.</td>
+<td>Gives a vague or partially correct explanation; purpose of an algorithm is unclear or loosely connected to the task.</td>
+<td>Shows very limited understanding; explanation is inaccurate or incomplete.</td>
+<td>No explanation provided.</td>
+</tr>
+<tr>
+<td><strong>1.2 Analyze and describe the tasks of simple algorithms.</strong></td>
+<td>Thoroughly analyzes algorithms by clearly describing each task and how they work together to draw the maze.</td>
+<td>Correctly describes the tasks performed by simple algorithms with clear reasoning.</td>
+<td>Identifies the main tasks an algorithm performs, with limited detail.</td>
+<td>Describes some tasks, but analysis is incomplete or unclear.</td>
+<td>Shows minimal ability to describe what the algorithm does.</td>
+<td>No attempt to analyze or describe tasks.</td>
+</tr>
+<tr>
+<td><strong>1.3 Determine whether a problem can be solved with an IPO approach.</strong></td>
+<td>Independently and correctly identifies that the problem fits an IPO model, with strong justification tied to the maze program.</td>
+<td>Correctly identifies that the problem can be solved using IPO and explains why.</td>
+<td>Correctly identifies IPO as a suitable approach, with minimal explanation.</td>
+<td>Attempts to identify IPO use, but reasoning is weak or partially incorrect.</td>
+<td>Shows little understanding of IPO as a problem-solving approach.</td>
+<td>No attempt to address IPO.</td>
+</tr>
+<tr>
+<td><strong>1.4 Break a problem down into IPO components.</strong></td>
+<td>Breaks the maze problem into clear, complete, and well-justified input, processing, and output components for all functions.</td>
+<td>Correctly identifies inputs, processes, and outputs for most parts of the problem.</td>
+<td>Identifies basic IPO components, though some may be missing or unclear.</td>
+<td>Partially breaks the problem into IPO components with noticeable gaps.</td>
+<td>Shows very limited ability to separate input, process, and output.</td>
+<td>No IPO breakdown provided.</td>
+</tr>
+<tr>
+<td><strong>1.5 Identify data used for inputs.</strong></td>
+<td>Clearly and completely identifies all required inputs, including parameters, constants, and user-provided data, with justification.</td>
+<td>Correctly identifies all major inputs used in the program.</td>
+<td>Identifies some inputs correctly, but misses others.</td>
+<td>Identifies few inputs or confuses inputs with processing.</td>
+<td>Shows minimal understanding of what counts as input data.</td>
+<td>No inputs identified.</td>
+</tr>
+<tr>
+<td><strong>1.6 Order the steps of the IPO modules correctly.</strong></td>
+<td>All steps are logically ordered so inputs are gathered first, processing is complete before output, and dependencies are handled correctly throughout.</td>
+<td>Steps are correctly ordered with no major logical errors.</td>
+<td>Steps are mostly in the correct order, with minor issues.</td>
+<td>Some ordering is correct, but several steps are misplaced.</td>
+<td>Shows little understanding of correct sequencing.</td>
+<td>No meaningful ordering shown.</td>
+</tr>
+<tr>
+<td><strong>1.7 Write algorithms in a clear standard format (pseudocode or flow charts).</strong></td>
+<td>Uses a clear, consistent, and professional standard format; algorithms are easy to follow and could be implemented directly.</td>
+<td>Uses an appropriate standard format with clear structure and labels.</td>
+<td>Uses pseudocode or a flow chart that is mostly clear, but may lack consistency.</td>
+<td>Attempts a standard format, but clarity or structure is weak.</td>
+<td>Format is unclear or inconsistent; difficult to follow.</td>
+<td>No algorithm representation provided.</td>
+</tr>
+<tr>
+<td><strong>1.8 Test algorithms using appropriate data.</strong></td>
+<td>Systematically tests algorithms with varied and meaningful data; clearly documents results and observations.</td>
+<td>Tests algorithms with appropriate data and notes outcomes.</td>
+<td>Tests algorithms in a basic way with limited documentation.</td>
+<td>Attempts testing, but data or results are unclear or incomplete.</td>
+<td>Minimal or ineffective testing evident.</td>
+<td>No testing performed.</td>
+</tr>
+<tr>
+<td><strong>1.9 Revise and improve algorithms based on testing results.</strong></td>
+<td>Thoughtfully revises algorithms based on test results, clearly explaining improvements and reasoning.</td>
+<td>Makes clear improvements based on testing feedback.</td>
+<td>Makes some revisions after testing, with limited explanation.</td>
+<td>Attempts revisions, but changes are minimal or unfocused.</td>
+<td>Very little evidence of revision or improvement.</td>
+<td>No revisions made.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="submission">Submission</h2>
+<p>The following are <em>required</em> submissions:</p>
+<ul>
+<li>A word document with the following:
+<ul>
+<li>Description of what and algorithm is and why it is being used.</li>
+<li>IPO charts for each function.</li>
+<li>Pseudocode or flow chart.</li>
+<li>Photos of maze sketches (upload photos to word document).</li>
+</ul>
+</li>
+</ul>
+
+</body>
+
+</html>

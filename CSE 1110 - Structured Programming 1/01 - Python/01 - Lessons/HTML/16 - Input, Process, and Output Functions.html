@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>16 - Input, Process, and Output Functions</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>In this lesson, you will learn how to write functions that <strong>input</strong>, <strong>process</strong>, and <strong>output</strong> data. These three steps are often called <strong>IPO</strong>. Thinking about functions in terms of IPO helps make it clear what information goes into a function, what the function does with that information, and what comes back out.</p>
+<h1>Important Information</h1>
+<p>Many problems in computer science can be broken down into three clear steps:</p>
+<ul>
+<li><strong>Input</strong>: What information does the program need?</li>
+<li><strong>Process</strong>: What work is done with that information?</li>
+<li><strong>Output</strong>: What result is produced?</li>
+</ul>
+<p>Functions are a natural way to organize code using IPO.</p>
+<h2>IPO and Functions</h2>
+<p>When working with functions:</p>
+<ul>
+<li><strong>Input</strong> is handled using function parameters</li>
+<li><strong>Process</strong> is the code inside the function</li>
+<li><strong>Output</strong> is handled using <code>return</code></li>
+</ul>
+<p>A function that follows IPO does not need to print anything. Instead, it returns a value so the rest of the program can decide what to do with the result.</p>
+<h2>Example: IPO in a Function</h2>
+<pre><code class="language-python">def double_number(number):
+    result = number * 2
+    return result
+
+</code></pre>
+<p>Breaking this down:</p>
+<ul>
+<li><strong>Input</strong>: <code>number</code></li>
+<li><strong>Process</strong>: <code>number * 2</code></li>
+<li><strong>Output</strong>: the returned value stored in <code>result</code></li>
+</ul>
+<p>When the function is called:</p>
+<pre><code class="language-python">answer = double_number(5)
+print(answer)
+
+</code></pre>
+<p>The function:</p>
+<ol>
+<li>Receives <code>5</code> as input</li>
+<li>Processes it by doubling it</li>
+<li>Outputs <code>10</code> back to the program</li>
+</ol>
+<h2>Why Return Is Important</h2>
+<p>Using <code>return</code> allows the output of the process to be stored as a variable to be used by other code. By returning a variable, the function can be tested to see if it produces the expected output. The <code>return</code> keyword on it&rsquo;s own doesn&rsquo;t provide any additional feedback to the user, it only provides data to the program itself.</p>
+<p>When the user does require feedback, the program needs to <code>print()</code> the result. Printing is something the <strong>main program</strong> should usually handle, not the function itself.</p>
+<h2>Multiple Steps of Processing</h2>
+<p>Functions can have more than one processing step before returning a value.</p>
+<pre><code class="language-python">def calculate_score(points):
+    bonus = 5
+    total = points + bonus
+    return total 
+
+</code></pre>
+<p>IPO breakdown:</p>
+<ul>
+<li><strong>Input</strong>: <code>points</code></li>
+<li><strong>Process</strong>: add a bonus</li>
+<li><strong>Output</strong>: the final total</li>
+</ul>
+<h2>Using Returned Values</h2>
+<p>Returned values can be stored in a variable, used again later, or printed.</p>
+<pre><code class="language-python">score = calculate_score(10)
+final_score = score * 2
+print(final_score)
+
+</code></pre>
+<p>The function does the processing, and the rest of the program decides what to do with the output.</p>
+<h1>Set Up</h1>
+<p>Create a new python file called <code>functions_ipo.py</code>.</p>
+<h1>Copy, Change, Challenge - Square a Number</h1>
+<h2>Copy</h2>
+<pre><code class="language-python">def square(number):
+    result = number * number
+    return result 
+
+answer = square(4)
+print(answer)
+
+</code></pre>
+<p>Identify the input, process, and output in this function.</p>
+<h2>Change</h2>
+<p>Change the function so it cubes the number instead of squaring it.</p>
+<h2>Challenge</h2>
+<p>Create a function that takes a number as input, adds 10 to it, and returns the result. Store the returned value in a variable and print it.</p>
+<h1>Copy, Change, Challenge - Converting Numbers</h1>
+<h2>Copy</h2>
+<pre><code class="language-python">def convert_minutes(minutes):
+    seconds = minutes * 60
+    return seconds 
+
+time_in_seconds = convert_minutes(3)
+print(time_in_seconds)
+
+</code></pre>
+<h2>Change</h2>
+<p>Change the input value so the output is different.</p>
+<h2>Challenge</h2>
+<p>Write a new function that:</p>
+<ul>
+<li>Takes one number as degrees celsius as input</li>
+<li>Converts the number to fahrenheit</li>
+<li>Returns the final result</li>
+</ul>
+</body>
+</html>

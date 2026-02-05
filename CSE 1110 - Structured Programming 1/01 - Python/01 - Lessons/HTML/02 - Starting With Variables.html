@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>02 - Starting With Variables</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>So far we have printed &ldquo;Hello, World!&rdquo; and a few other things to our terminal using <em>literals</em>. A literal is any time you write the literal value in your program. We literally wrote &ldquo;hello world&rdquo;. One of the most useful tools for programmers is using varaibles instead.</p>
+<h1>Set Up</h1>
+<p>Create a new python file and call it <code>stringvariable.py</code>.</p>
+<h1>Important Info</h1>
+<p>Variables in computer science work differently from variables in math.
+- In math, typically a variable represents an unknown value.
+- In computer science, a variable is used to store data we want to keep track of.</p>
+<p>Variables in computer science are useful because we can:
+- Change the value of a variable
+- Use the value of the variable when out code executes</p>
+<p>When we create a variable, we give it a name and a value. This process is called <strong>declaring</strong> a variable. A variable cannot be used until it has been declared. At the bottom of this lesson is some best practices for naming variables.</p>
+<p>Different variables can store different types of data, which we will learn more about later. For now, we will focus on String variables.</p>
+<p>A String variable has a value that contains a string of characters. It can be an empty pair of quotes, a single letter, a word, a phrase, a sentence, or even an entire novel!</p>
+<h1>Copy</h1>
+<p>Copy the following code. In this code, we create a variable called <code>greeting</code> and set the value to <code>"Hello, World!"</code>. When creating a variable, you can choose any name you want. Below we will learn about common naming conventions in python.</p>
+<pre><code class="language-python">greeting = &quot;Hello, World!&quot;
+print(greeting)
+</code></pre>
+<p>What happens when you run the code?</p>
+<p>Notice that our <code>=</code> sign acts as a way to set the value of our variable. Instead of a mathematical expression that is asserting the equality of 2 values, the <code>=</code> sign in code allows you to set the value of a variable.</p>
+<h1>Change</h1>
+<p>Change the greeting variable so that it greets you by name rather than <code>"Hello, World!"</code>.</p>
+<p>Run the program again to verify that it works.</p>
+<h1>Challenge</h1>
+<p>Once again, you will print multiple messages. Create 3 different variables to store these 3 messages, and print them to the terminal.</p>
+<p><code>Hello, World!</code></p>
+<p><code>Hello,</code> followed by your name</p>
+<p><code>I love computer science!</code></p>
+<h1>Best Practices</h1>
+<p>In most code editors, there is some kind of &ldquo;intellisense&rdquo; that will help you autocomplete variable names that have already been created in your program. </p>
+<p>Because of this, any variable can have any name as long as you need, because you should only really be typing the whole thing once. </p>
+<p>These are some best practices that you will be expected to maintain in your code throughout the semester.</p>
+<ol>
+<li>
+<p>Use clear and descriptive names for your variables.</p>
+<ul>
+<li>For example <code>words</code> is a worse variable name than <code>greeting</code> because <code>greeting</code> describes what the text will be.</li>
+</ul>
+</li>
+<li>
+<p>Use <code>snake_case</code> for variables in Python.</p>
+<ul>
+<li>Snake case is the special naming convention of using all lower case letters and separating words with an <code>_</code> underscore. </li>
+<li>All variables in python should use <code>snake_case</code></li>
+</ul>
+</li>
+<li>
+<p>Avoid single letter variable names.</p>
+<ul>
+<li><code>g</code> is shorter to type than <code>greeting</code>, but you only need to type it once the first time you create the variable.</li>
+</ul>
+</li>
+<li>
+<p>Variable names cannot start with a number.</p>
+</li>
+<li>
+<p>If you are creating a value that will never change, you can identify it as a constant value by naming it with all caps.</p>
+<ul>
+<li><code>CONSTANT_VALUE</code> would be a variable that isn&rsquo;t supposed to change.</li>
+</ul>
+</li>
+</ol>
+</body>
+</html>

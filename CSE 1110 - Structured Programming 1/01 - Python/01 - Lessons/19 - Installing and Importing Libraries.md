@@ -152,15 +152,18 @@ Good habits:
 ### ModuleNotFoundError
 
 **Cause**: Module is not installed
+
 **Fix**: Confirm whether the module is built-in or external
 
 ### AttributeError
 
 **Cause**: Function name is incorrect or does not exist
+
 **Fix**: Check spelling and documentation
 
 ### Nothing Happens
 
 **Cause**: Required setup or loop is missing
+
 **Fix**: Recheck example code carefully
 

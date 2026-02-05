@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>09 - String Concatenation</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>Now that we have some experience with taking input and a little bit of processing our data, the next 3 lessons will focus on formatting out output when we print to the Terminal.</p>
+<h1>Important Information</h1>
+<p>This first technique is called string concatenation (kon-kat-uh-NAY-shun). It is as simple as jamming strings together.</p>
+<p>The big benefit to concatenation is that the programmer has full control of the way the string comes out.</p>
+<p>The downside is that it&rsquo;s inefficient to code and leads to code that is challenging to maintain. Every value you concatenate needs to be turned into a string, and that takes a lot of work.</p>
+<p>This technique is also the hackiest way to do it. It technically works, but it&rsquo;s a very brute force way to do it.</p>
+<h1>Set Up</h1>
+<p>Create a new file called <code>stringconcatenation.py</code>.</p>
+<h1>Copy</h1>
+<p>Run the following code and see what happens.</p>
+<pre><code class="language-python">message = &quot;Hello&quot;
+name = &quot;Mr. Forsyth&quot;
+print(message + name)
+</code></pre>
+<p>Does the message display the way you think the user intended it to?</p>
+<h1>Change</h1>
+<p>Add another variable called <code>space</code> and concatenate it into the print function so the message displays properly.</p>
+<h1>Challenge</h1>
+<p>Write a haiku where each syllable is it&rsquo;s own string variable. Add the syllables together and print your haiku.</p>
+</body>
+</html>

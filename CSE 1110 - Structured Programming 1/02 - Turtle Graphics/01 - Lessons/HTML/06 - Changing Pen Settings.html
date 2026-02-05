@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>06 - Changing Pen Settings.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* a11y-dark theme */
+/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
+/* @author: ericwbailey */
+
+/* Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #d4d0ab;
+}
+
+/* Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #ffa07a;
+}
+
+/* Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #f5ab35;
+}
+
+/* Yellow */
+.hljs-attribute {
+  color: #ffd700;
+}
+
+/* Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #abe338;
+}
+
+/* Blue */
+.hljs-title,
+.hljs-section {
+  color: #00e0e0;
+}
+
+/* Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #dcc6e0;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #2b2b2b;
+  color: #f8f8f2;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type,
+  .hljs-quote {
+        color: highlight;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+        font-weight: bold;
+    }
+}
+
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///r%3A/2.Travail/1.Enseignement/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css"><link rel="stylesheet" href="file:///d%3A/rdaros/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="overview">Overview</h1>
+<p>In this lesson, you will learn how to control <strong>pen settings</strong> for the turtle. Pen settings determine how lines are drawn on the screen, including their <strong>thickness</strong>, their <strong>color</strong>, and how to <strong>fill in shapes</strong>. This lesson avoids loops and focuses only on direct turtle commands.</p>
+<h1 id="important-information">Important Information</h1>
+<p>The turtle’s pen is responsible for drawing lines as the turtle moves. Changing pen settings affects the drawing, not how the turtle moves or looks.</p>
+<h2 id="changing-the-pen-size">Changing the Pen Size</h2>
+<p>You can control how thick the turtle’s lines are using:</p>
+<pre class="hljs"><code><div>t.pensize(size)
+</div></code></pre>
+<p>or</p>
+<pre class="hljs"><code><div>t.width(size)
+</div></code></pre>
+<ul>
+<li><code>size</code> is a number</li>
+<li>Larger numbers make thicker lines</li>
+<li>Smaller numbers make thinner lines</li>
+</ul>
+<p>Example:</p>
+<ul>
+<li><code>t.pensize(1)</code> draws a thin line</li>
+<li><code>t.pensize(6)</code> draws a thick line</li>
+</ul>
+<h2 id="changing-the-pen-color">Changing the Pen Color</h2>
+<p>You can change the color of the lines using:</p>
+<pre class="hljs"><code><div>t.pencolor(<span class="hljs-string">"color_name"</span>)
+</div></code></pre>
+<p>Examples of color names include:</p>
+<ul>
+<li><code>&quot;black&quot;</code></li>
+<li><code>&quot;red&quot;</code></li>
+<li><code>&quot;blue&quot;</code></li>
+<li><code>&quot;green&quot;</code></li>
+<li><code>&quot;purple&quot;</code></li>
+<li><code>&quot;orange&quot;</code></li>
+</ul>
+<p>This only affects the lines drawn by the turtle.</p>
+<h2 id="filling-shapes">Filling Shapes</h2>
+<p>The turtle can fill in closed shapes with color.</p>
+<p>Filling always follows this process:</p>
+<ol>
+<li>Set the fill color</li>
+<li>Start the fill</li>
+<li>Draw a <strong>closed shape</strong></li>
+<li>End the fill</li>
+</ol>
+<h3 id="setting-the-fill-color">Setting the Fill Color</h3>
+<pre class="hljs"><code><div>t.fillcolor(<span class="hljs-string">"color_name"</span>)
+</div></code></pre>
+<h3 id="starting-and-ending-the-fill">Starting and Ending the Fill</h3>
+<pre class="hljs"><code><div>t.begin_fill()
+<span class="hljs-comment"># draw the shape here</span>
+t.end_fill()
+</div></code></pre>
+<p>Important rules:</p>
+<ul>
+<li>The shape must be closed for the fill to work</li>
+<li>Everything drawn between <code>begin_fill()</code> and <code>end_fill()</code> is filled</li>
+<li>The fill appears when <code>end_fill()</code> is called</li>
+</ul>
+<h1 id="set-up">Set Up</h1>
+<p>Create a new Python file called <code>turtle_pen_settings.py</code>.</p>
+<h1 id="copy-change-challenge">Copy, Change, Challenge</h1>
+<h2 id="copy">Copy</h2>
+<p>Copy and run the following code.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> turtle
+
+t = turtle.Turtle()
+
+t.pensize(<span class="hljs-number">5</span>)
+t.pencolor(<span class="hljs-string">"blue"</span>)
+t.fillcolor(<span class="hljs-string">"yellow"</span>)
+
+t.begin_fill()
+t.forward(<span class="hljs-number">100</span>)
+t.right(<span class="hljs-number">90</span>)
+t.forward(<span class="hljs-number">100</span>)
+t.right(<span class="hljs-number">90</span>)
+t.forward(<span class="hljs-number">100</span>)
+t.right(<span class="hljs-number">90</span>)
+t.forward(<span class="hljs-number">100</span>)
+t.right(<span class="hljs-number">90</span>)
+t.end_fill()
+
+turtle.done()
+</div></code></pre>
+<p>Observe:</p>
+<ul>
+<li>The thickness of the lines</li>
+<li>The outline color</li>
+<li>The filled color inside the shape</li>
+</ul>
+<h2 id="change">Change</h2>
+<p>Modify the program so that:</p>
+<ul>
+<li>The pen size is different</li>
+<li>The outline color changes</li>
+<li>The fill color changes</li>
+</ul>
+<p>Run the program again and observe the differences.</p>
+<h2 id="challenge">Challenge</h2>
+<p>Create a filled shape that:</p>
+<ul>
+<li>Uses a thick pen</li>
+<li>Uses different colors for the outline and the fill</li>
+<li>Is clearly a closed shape</li>
+</ul>
+<p>Do not use loops. Use only direct movement and turn commands.</p>
+
+</body>
+
+</html>

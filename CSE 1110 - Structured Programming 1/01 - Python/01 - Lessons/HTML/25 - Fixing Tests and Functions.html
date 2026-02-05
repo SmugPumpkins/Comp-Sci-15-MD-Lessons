@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>25 - Fixing Tests and Functions</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>Now that you know how to write and run pytest tests, the next step is learning how to <strong>design good tests</strong> and how to <strong>interpret failures correctly</strong>.</p>
+<p>When testing, it is very important to understand this rule:</p>
+<p><strong>A failing test does not always mean the test is wrong.</strong></p>
+<p>Sometimes the test is correct, and the function being tested is wrong. Other times the function is correct, and the test is written incorrectly. As the programmer, <strong>you must know the expected result</strong> before writing a test.</p>
+<h2>Thinking Like a Tester</h2>
+<p>Before writing a test, ask yourself:</p>
+<ul>
+<li>What is this function supposed to do?</li>
+<li>What result should I get for specific inputs?</li>
+<li>Can I verify that result without running the code?</li>
+</ul>
+<p>Testing is about certainty, not guessing.</p>
+<h2>Creating Simple Math Functions</h2>
+<p>Let’s start by creating a file called <code>math_functions.py</code>.</p>
+<pre><code class="language-python">def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+</code></pre>
+<p>These functions are simple enough that we clearly know the expected results.</p>
+<h2>Writing Correct Tests</h2>
+<p>Create a test file called <code>test_math_functions.py</code>.</p>
+<pre><code class="language-python">from math_functions import add, subtract
+
+def test_add_basic():
+    assert add(1, 4) == 5
+
+def test_subtract_basic():
+    assert subtract(10, 3) == 7
+</code></pre>
+<p>These tests use known inputs and correct outputs. These tests should pass if the function is written correctly.</p>
+<h2>Example of an Incorrect Test</h2>
+<p>Now let’s look at a test that is written <strong>incorrectly</strong>, even though the function is correct.</p>
+<pre><code class="language-python">def test_add_incorrect_expectation():
+    assert add(1, 4) == 6
+</code></pre>
+<p>This test will fail and provide the programmer with the following information:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Expected Output</th>
+<th style="text-align: center;">Actual Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>6</code></td>
+<td style="text-align: center;"><code>5</code></td>
+</tr>
+</tbody>
+</table>
+<p>When the programmer examines the result of the test, they should be able to notice that the expected output of <code>5</code> is what <code>1 + 4</code> equals. This should indicate to the programmer that the test is incorrect and needs to be fixed.</p>
+<p>Correct the test to:</p>
+<pre><code class="language-python">def test_add_incorrect_expectation():
+    assert add(1, 4) == 5
+</code></pre>
+<p>Now the test will pass.</p>
+<h2>Example of an Incorrect Function</h2>
+<p>Now let’s flip the situation.</p>
+<p>Change the <code>subtract</code> function so it is wrong:</p>
+<pre><code class="language-python">def subtract(a, b):
+    return a + b
+</code></pre>
+<p>The test is correct (<code>10 - 3</code> DOES equal <code>7</code>):</p>
+<pre><code class="language-python">def test_subtract_basic():
+    assert subtract(10, 3) == 7
+</code></pre>
+<p>In this situation, the test fails and provides the programmer with the following information:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Expected Result</th>
+<th style="text-align: center;">Actual Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>7</code></td>
+<td style="text-align: center;"><code>13</code></td>
+</tr>
+</tbody>
+</table>
+<p>These results should indicate to the programmer that something is wrong with their function. They <em>know</em> that <code>10 - 3</code> equals <code>7</code>. The function should <em>not</em> produce an output of <code>13</code>. In this case, the programmer needs to go back and fix their function.</p>
+<p>Correct the function back to:</p>
+<pre><code class="language-python">def subtract(a, b):
+    return a - b
+</code></pre>
+<p>Now the test will pass.</p>
+<h2>Responsible Testing</h2>
+<p><code>pytest</code> does not know what your function <em>is supposed to do</em> or <em>what results you are expecting</em>. Only you can know that. <code>pytest</code> is only a tool for checking actual results against expected results.</p>
+<p>As the programmer, you are responsible for:</p>
+<ul>
+<li>Making sure <em>you</em> know what your function is supposed to do</li>
+<li>Making sure <em>you</em> are covering all the necessary test cases</li>
+<li>Making sure <em>you</em> calculated the expected values of your tests correctly</li>
+<li>Identifying when <em>you</em> need to fix the test or fix the function.</li>
+</ul>
+<p>Testing with <code>pytest</code> is only as effective as the functions and tests you make. If you make ineffective tests, you will get ineffective results.</p>
+<p><strong>Never change code blindly just to make tests pass.</strong></p>
+</body>
+</html>

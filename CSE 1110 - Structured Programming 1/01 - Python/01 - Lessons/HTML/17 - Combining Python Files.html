@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>17 - Combining Python Files</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>In this lesson, you will learn how to use <strong>multiple Python files together</strong> in a single program. You will learn how to organize code using helper files, different ways to import code, how naming works when importing, and why importing files can sometimes cause unexpected behavior.</p>
+<h1>Important Information</h1>
+<p>As programs grow larger, keeping all code in one file becomes difficult to manage. A common solution is to split code across multiple Python files.</p>
+<p>Each Python file is called a <strong>module</strong>.</p>
+<p>By separating code into different files (or <strong>modules</strong>), it becomes easier to group related code together. You may also find yourself reusing the same kinds of functions over and over again. By storing these &ldquo;helper&rdquo; functions in a module, you cna import them into any other program you need. Separating code into different modules also makes debugging easier. If you know what function or module has a bug, you only need to focus on fixing that area.</p>
+<h2>Helper Files</h2>
+<p>A helper file is a Python file that contains functions meant to be used by another file.</p>
+<p>For example:</p>
+<ul>
+<li>One file might handle calculations</li>
+<li>Another file might handle text output</li>
+<li>The main file connects everything together</li>
+</ul>
+<p>Helper files usually contain <strong>function definitions only</strong>, not code that runs automatically.</p>
+<h2>Importing an Entire File</h2>
+<p>You can import an entire Python file using the <code>import</code> keyword.</p>
+<p>Example file structure:</p>
+<ul>
+<li><code>helpers.py</code></li>
+<li><code>main.py</code></li>
+</ul>
+<p><code>helpers.py</code></p>
+<pre><code class="language-python">def say_hello():
+    print(&quot;Hello from helpers!&quot;)
+</code></pre>
+<p><code>main.py</code></p>
+<pre><code class="language-python">import helpers
+
+helpers.say_hello()
+</code></pre>
+<p>When you import the whole file you must use the file name as a prefix (in the above example <code>helpers</code> is used a prefix for the <code>say_hello()</code> function). This prefix is called a namespace, and it helps avoid name conflicts. If you had a <code>say_hello()</code> function defined in both your main program and your helper module, prefixing the one from the module with <code>helpers</code> clarifies which function should be used to the interpreter.</p>
+<h2>Importing a File With an Alias</h2>
+<p>Sometimes file names are long or awkward to type. Python allows you to rename a module when importing it using <code>as</code>.</p>
+<pre><code class="language-python">import helpers as h
+
+h.say_hello()
+</code></pre>
+<p>This shortens the namespace so you can just write <code>h</code> instead of <code>helpers</code> everytime, while maintaining the protection of using different namespaces. Aliases are especiall useful when module names are long or multiple modules have similar names.</p>
+<h2>Code Runs on Import</h2>
+<p>A very important rule in Python:</p>
+<p><strong>When a file is imported, all top-level code in that file runs immediately.</strong></p>
+<p>Example:</p>
+<p><code>helpers.py</code></p>
+<pre><code class="language-python">print(&quot;Helpers file is running&quot;)
+
+def add(a, b):
+    return a + b
+</code></pre>
+<p><code>main.py</code></p>
+<pre><code class="language-python">import helpers
+
+print(&quot;Main file is running&quot;)
+</code></pre>
+<p>Output:</p>
+<pre><code>Helpers file is running
+Main file is running
+</code></pre>
+<p>Even though <code>add()</code> was never called, the <code>print()</code> statement ran because it was not inside a function.</p>
+<p>For now, the safest rule is helper modules should only (or mostly) contain function defintions. This avoids code that runs automatically at the top level when a module is imported.</p>
+<h2>Importing Specific Functions</h2>
+<p>Instead of importing an entire file, you can import only the functions you need.</p>
+<pre><code class="language-python">from helpers import add
+</code></pre>
+<p>Now you can call the function directly:</p>
+<pre><code class="language-python">result = add(3, 4)
+print(result)
+</code></pre>
+<p>Notice that no file name prefix is needed. This is because all of the functions you import like this are placed directly into you program&rsquo;s namespace rather than being protected in their own namespace.</p>
+<h2>Importing Multiple Specific Functions</h2>
+<p>You can import more than one function at a time.</p>
+<pre><code class="language-python">from helpers import add, subtract
+</code></pre>
+<p>Calling the functions:</p>
+<pre><code class="language-python">total = add(5, 2)
+difference = subtract(5, 2)
+print(total)
+print(difference)
+</code></pre>
+<p>This is useful when you only need a handful of functions or want to avoid retyping namespaces over and over again.</p>
+<h2>Importing Everything With <code>*</code></h2>
+<p>Python also allows importing <strong>everything</strong> from a file.</p>
+<pre><code class="language-python">from helpers import *
+</code></pre>
+<p>When you import <code>*</code> all functions and variables from the module you import are available. In the above example, everything from <code>helpers.py</code> is added to the program&rsquo;s namespace. This allows all functions from <code>helpers.py</code> to be used directly without a prefix.</p>
+<p>Example:</p>
+<p><code>helpers.py</code></p>
+<pre><code class="language-python">def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+</code></pre>
+<p><code>main.py</code></p>
+<pre><code class="language-python">from helpers import *
+
+print(add(4, 2))
+print(subtract(4, 2))
+</code></pre>
+<h3>Use With Caution</h3>
+<p>While <code>import *</code> can be convenient, it has drawbacks. Importing everything makes it unclear where functions come from which can make debugging more difficult. It also increases the likelyhood of naming conflicts (like accidentally redefining a function by using the same name in your main program). Code can also be more difficult to read in terms of identifying where functions are defined because imported functions aren&rsquo;t labeled with a prefix anymore.</p>
+<p>As a general rule of thumb, <code>import *</code> should only be used in <strong>small, controlled programs</strong>. Whenever possible, it&rsquo;s preferred that you import a handful of specific functions instead.</p>
+<h2>Choosing How to Import</h2>
+<table>
+<thead>
+<tr>
+<th>Import Syntax</th>
+<th>Guidelines</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>import helpers</code></td>
+<td>Clear structure and namespaces. Requires the full module name as a prefix.</td>
+</tr>
+<tr>
+<td><code>import helpers as h</code></td>
+<td>Same clarity and namespace rules as importing the module, but allows shorter or custom prefixes.</td>
+</tr>
+<tr>
+<td><code>from helpers import add</code></td>
+<td>Allows you to pick and choose specific functions to import. Best when using a few functions. Does not require a prefix on the functions when called.</td>
+</tr>
+<tr>
+<td><code>from helpers import *</code></td>
+<td>Imports all functions from the module and uses the main program&rsquo;s namespace. Convenient for smaller projects, but has the risk of muddling the namespace by not using prefixes on functions. Use sparingly and carefully.</td>
+</tr>
+</tbody>
+</table>
+<h1>Set Up</h1>
+<p>Create two Python files:</p>
+<ul>
+<li><code>helpers.py</code></li>
+<li><code>main.py</code></li>
+</ul>
+<h1>Copy, Change, Challenge - Importing Helpers</h1>
+<h2>Copy</h2>
+<p><code>helpers.py</code></p>
+<pre><code class="language-python">def multiply(a, b):
+    return a * b
+</code></pre>
+<p><code>main.py</code></p>
+<pre><code class="language-python">import helpers as h
+
+result = h.multiply(4, 5)
+print(result)
+</code></pre>
+<h2>Change</h2>
+<p>Rename the alias <code>h</code> to something else and update the function call.</p>
+<h2>Challenge</h2>
+<p>Add two more functions to <code>helpers.py</code> and call all of them using the alias.</p>
+<h1>Copy, Change, Challenge - Importing  Functions Directly</h1>
+<h2>Copy</h2>
+<p><code>helpers.py</code></p>
+<pre><code class="language-python">def greet():
+    print(&quot;Hello!&quot;)
+
+print(&quot;Helpers loaded&quot;)
+</code></pre>
+<p><code>main.py</code></p>
+<pre><code class="language-python">from helpers import greet
+
+greet()
+</code></pre>
+<p>Run <code>main.py</code> and observe what prints.</p>
+<h2>Change</h2>
+<p>Move the <code>print("Helpers loaded")</code> line into a function so it no longer runs automatically.</p>
+<h2>Challenge</h2>
+<p>Rewrite the program using <code>from helpers import *</code> and call at least two functions directly.</p>
+</body>
+</html>

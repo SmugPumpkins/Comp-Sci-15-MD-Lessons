@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>08 - Basic Math on Variables</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>So now we know how to get the user to input variables, and we&rsquo;ve learned some basic math for python. To make our variables more useful, we can look at how to change them.</p>
+<h1>Important Information</h1>
+<p>To do math with a variable in python, the variable always needs to be declared. When we give a variable a name and a value, this is called declaring the variable. A variable cannot be used until it has been declared.</p>
+<p>Later, when we want to change the value of the variable, we call it <strong>assigning</strong> a value to the variable. A variable can be assigned a new value as often as needed and as many times as needed.</p>
+<h2>Assigning with a Literal</h2>
+<p>When we want to assign a new value to a variable, we can always just use a literal (when we literally type the value).</p>
+<pre><code class="language-python"># Declare the variable.
+my_variable = 7
+
+# Assign a new value with a literal
+my_variable = 100
+</code></pre>
+<h2>Assigning with an Expression</h2>
+<p>We can also use an expression to assign the value of a variable. The expression can use literals or other variables.</p>
+<pre><code class="language-python"># Assigning with a literal expression
+my_variable = 50 + 40
+
+# Assigning with a variable as part of the expression
+my_second_variable = my_variable + 10
+
+# Assigning with just a variable as the expression
+my_third_variable = my_second_variable
+</code></pre>
+<h2>Assigning By Changing The Variable</h2>
+<p>Sometimes we want to change the variable by a certain amount. A common case for this is incrementing the variable (increasing it by 1) or decrementing the variable (decreasing it by 1).</p>
+<p>To change a variable by a particular amount, you need to use the variable you want to change as part of the expression.</p>
+<pre><code class="language-python"># Declaring the variable with a starting value of 0
+my_variable = 0
+
+# Increase my_variable by 10
+my_variable = my_variable + 10 # new value is 10
+
+# Decrease my_variable by 3
+my_variable = my_variable - 3 # new value is 7
+
+# Multiply my variable by 5
+my_variable = my_variable * 5 # new value is 35
+
+# Divide my variable by 7
+my_variable = my_variable / 7 # new value is 5
+</code></pre>
+<h2>Assigning with Shorthand</h2>
+<p>Changing a variable by a specific amount is a very common thing to do in programming. Because of this, programmers will often use shorthand to program when a value is changing by a specific amount.</p>
+<pre><code class="language-python"># Declaring the variable with a starting value of 0
+my_variable = 0
+
+# Increase my_variable by 10
+my_variable += 10 # new value is 10
+
+# Decrease my_variable by 3
+my_variable -= 3 # new value is 7
+
+# Multiply my variable by 5
+my_variable *= 5 # new value is 35
+
+# Divide my variable by 7
+my_variable /= 7 # new value is 5
+</code></pre>
+<h1>Set Up</h1>
+<p>Create a new file called <code>basicmathvariables.py</code>.</p>
+<h1>Copy</h1>
+<p>Let&rsquo;s start with a variable that we will add to and then print.</p>
+<pre><code class="language-python">my_number = 100
+my_number = my_number + 200
+print(my_number)
+</code></pre>
+<h1>Change</h1>
+<p>Make it so that <code>200</code> is added to <code>my_number</code> with shorthand.</p>
+<h1>Challenge</h1>
+<p>Start with a number.
+Add <code>0</code> to it and print it.
+Subtract <code>50</code> from it and print it.
+Multiply it by <code>17</code> and print it.
+Divide it by <code>20</code> and print it.</p>
+<h1>Copy</h1>
+<p>Let&rsquo;s try one more thing. Run the following code and see what happens (even if you have a red line, try running the code).</p>
+<pre><code class="language-python">my_number = 100
+my_number += another_number
+print(my_number)
+</code></pre>
+<p>You just discovered a new kind of error! A <code>NameError</code> happens when a variable (or function, which we will learn about later) is used in the code without being declared.</p>
+<p>To fix a <code>NameError</code>, all you need to do is make sure the variable is declared before being used in the code.</p>
+<h1>Change</h1>
+<p>Fix the error so that <code>another_number</code> is declared.</p>
+</body>
+</html>

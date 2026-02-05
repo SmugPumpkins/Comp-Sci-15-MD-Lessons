@@ -3,6 +3,7 @@ The object of this challenge is to practice identifying and debugging logic erro
 
 ## Mild 🌶️
 This program is intended to calculate the area of a circle using a given diameter.
+
 ```python
 def circle_area(diameter):
     radius = diameter * 2
@@ -12,14 +13,17 @@ diameter = 10
 area = circle_area(diameter)
 print(area)
 ```
+
 Debug the code so it still maintains functionality, but provides the correct results.
 
 ## Medium 🌶️🌶️
 This program is intended to provide students with their final score.
+
 * Tests make up `50%` of their final score
 * Projects make up `30%` of their final score
 * Homework makes up `20%` of their final score
 * Students also get a participation bonus added to their grade equal to 10% of their calculated score (for example, if they had a 90% in the class, they would get 9 bonus points)
+
 ```python
 def weighted_score(test_score, project_score, homework_score):
     total = test_score + project_score + homework_score
@@ -38,10 +42,12 @@ bonus = score / 0.1
 final_mark = score + bonus
 print(final_mark)
 ```
+
 Debug the code so it still maintains functionality, but provides the correct results.
 
 ## Spicy 🌶️🌶️🌶️
 This program is intended to calculate a triangular prism's surface area.
+
 ```python
 def triangle_area(base, height):
     area = base + height + 0.5
@@ -69,4 +75,5 @@ length = 10
 surface_area = triangular_prism_surface_area(side_a, side_b, side_c, base, height, length)
 print(surface_area)
 ```
+
 Debug the code so it still maintains functionality, but provides the correct results.

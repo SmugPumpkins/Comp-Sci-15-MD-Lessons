@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>20 - Documentation and Docstrings</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>This lesson explains how to write <strong>Sphinx-style docstrings</strong> for Python files and functions. You will learn how to write short descriptions, document parameters and return values, and use type hints directly in function definitions.</p>
+<h1>Important Information</h1>
+<p>A <strong>docstring</strong> is a multi-line string written directly under a file header or a function definition. It explains what the code does in clear, simple language.</p>
+<p>Every docstring starts with a <strong>short description</strong>. This is one sentence that explains the purpose of the file or function.</p>
+<p>Sphinx docstrings use special tags that begin with a colon. The most common tags used in this course are <code>:param:</code>, <code>:return:</code>, <code>:raises:</code>, <code>:note:</code>, and <code>:warning:</code>.</p>
+<h2>File-Level (Module) Docstring</h2>
+<p>A file-level docstring appears at the very top of a Python file and describes the entire file.</p>
+<pre><code class="language-python">&quot;&quot;&quot;
+simple_math.py
+
+Provides basic math functions for integers and decimals.
+
+Author: Alex Student
+Date: 2026-01-25
+Version: 1.0
+Description: Used for small math operations in beginner programs.
+&quot;&quot;&quot;
+</code></pre>
+<p>This docstring explains the purpose of the file and includes useful background information.</p>
+<h2>Using Type Hints in Function Definitions</h2>
+<p>Type hints are written directly in the function definition. They show what type of data each parameter expects and what type of value is returned.</p>
+<pre><code class="language-python">def multiply(a: int, b: int) -&gt; int:
+    return a * b
+</code></pre>
+<p>The types are written after each parameter name, and the return type is written after <code>-&gt;</code>.</p>
+<h2>Basic Function Docstring</h2>
+<p>A function docstring is written directly under the function definition.</p>
+<pre><code class="language-python">def is_positive(number: int) -&gt; bool:
+    &quot;&quot;&quot;
+    Checks if a number is positive.
+    &quot;&quot;&quot;
+    return number &gt; 0
+</code></pre>
+<p>The first line should always be a short description.</p>
+<h2>Documenting Parameters With <code>:param</code></h2>
+<p>Each parameter is documented using <code>:param</code>.</p>
+<pre><code class="language-python">def is_even(number: int) -&gt; bool:
+    &quot;&quot;&quot;
+    Checks if a number is even.
+
+    :param number: The number to check.
+    &quot;&quot;&quot;
+    return number % 2 == 0
+</code></pre>
+<p>The parameter name must match the function definition exactly.</p>
+<h2>Documenting Return Values With <code>:return:</code></h2>
+<p>If a function returns a value, document what that value represents.</p>
+<pre><code class="language-python">def square(number: int) -&gt; int:
+    &quot;&quot;&quot;
+    Squares a number.
+
+    :param number: The number to square.
+    :return: The squared value.
+    &quot;&quot;&quot;
+    return number * number
+</code></pre>
+<h2>Multiple Parameters</h2>
+<p>Each parameter gets its own <code>:param</code> entry.</p>
+<pre><code class="language-python">def add_numbers(a: int, b: int) -&gt; int:
+    &quot;&quot;&quot;
+    Adds two numbers together.
+
+    :param a: The first number.
+    :param b: The second number.
+    :return: The sum of the two numbers.
+    &quot;&quot;&quot;
+    return a + b
+</code></pre>
+<h2>Functions With No Return Value</h2>
+<p>If a function does not return anything, do not include a return tag.</p>
+<pre><code class="language-python">def print_message(message: str) -&gt; None:
+    &quot;&quot;&quot;
+    Prints a message to the screen.
+
+    :param message: The message to display.
+    &quot;&quot;&quot;
+    print(message)
+</code></pre>
+<h2>Documenting Errors With <code>:raises:</code></h2>
+<p>Use <code>:raises:</code> when a function can cause an error.</p>
+<pre><code class="language-python">def divide(a: float, b: float) -&gt; float:
+    &quot;&quot;&quot;
+    Divides one number by another.
+
+    :param a: The number being divided.
+    :param b: The number to divide by.
+    :return: The result of the division.
+    :raises ZeroDivisionError: If b is zero.
+    &quot;&quot;&quot;
+    return a / b
+</code></pre>
+<h1>If You Have Been Working Ahead</h1>
+<p>Hello! Mr. Forsyth here. The next sections of these lessons will start covering some libraries that we will use for projects. For Structured Programming 1, these first 20 lessons have covered most of the important things you need to understand in terms of general programming. If you understand these concepts well, you <strong>do not</strong> need any additional general python knowledge&hellip;</p>
+<p>&hellip;however&hellip;</p>
+<p>&hellip;you have been working ahead&hellip;</p>
+<p>&hellip;which probably means that you find this course at least <em>somewhat</em> interesting. </p>
+<p><em>Again, what we have covered so far is enough to get you full marks for Structured Programming 1.</em> But you have shown yourself to be someone who has taken an interest in computer science. If you are still ahead, you may find it interesting to cover the Structured Programming 2 Python Lessons starting with <a href="/CSE%201120%20-%20Structured%20Programming%202/01%20-%20Python/Lessons/01%20-%20Selection%20-%20If%20Statements.md">Lesson 01 - Selection - If Statements</a> and continuing through until <a href="/CSE%201120%20-%20Structured%20Programming%202/01%20-%20Python/Lessons/15%20-%20Iteration%20-%20Nesting%20Loops.md">15 - Iteration - Nesting Loops</a>. </p>
+<p>So far in this course we have covered general python syntax and <strong>sequence</strong> control structures (the concept that code runs in order). The Structured Programming 2 Lessons cover <strong>selection</strong> (being able to run code based on conditions) and <strong>iteration</strong> (looping over code to have it repeat).</p>
+<p>These control structures <strong>are not necessary</strong> for Structured Programming 1, <em>but</em> they will let you write code that can do more. A lot more. So much more that you can pretty much do whatever you want with code.</p>
+<p>If you are interested in creating projects that go above and beyond, my recommendation is that you skip ahead to those lessons, and then come back after to make your projects. Hopefully, <em>hopefully</em>, you&rsquo;ll thank me later.</p>
+</body>
+</html>

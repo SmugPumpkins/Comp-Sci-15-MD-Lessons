@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>15 - Geometry - Nesting Widgets.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* a11y-dark theme */
+/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
+/* @author: ericwbailey */
+
+/* Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #d4d0ab;
+}
+
+/* Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #ffa07a;
+}
+
+/* Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #f5ab35;
+}
+
+/* Yellow */
+.hljs-attribute {
+  color: #ffd700;
+}
+
+/* Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #abe338;
+}
+
+/* Blue */
+.hljs-title,
+.hljs-section {
+  color: #00e0e0;
+}
+
+/* Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #dcc6e0;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #2b2b2b;
+  color: #f8f8f2;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type,
+  .hljs-quote {
+        color: highlight;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+        font-weight: bold;
+    }
+}
+
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///r%3A/2.Travail/1.Enseignement/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css"><link rel="stylesheet" href="file:///d%3A/rdaros/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="overview">Overview</h1>
+<p>This lesson explains how to organize complex Tkinter user interfaces by nesting widgets inside other widgets. You will learn why nesting is important, how frames make nesting possible, and how nested layouts help keep programs easier to change and maintain.</p>
+<h1 id="important-information">Important Information</h1>
+<h2 id="the-problem-with-one-large-grid">The Problem with One Large Grid</h2>
+<p>As a user interface grows, placing every widget into a single grid can quickly become confusing. Rows and columns multiply, spacing becomes harder to manage, and small layout changes can require editing many unrelated parts of the code.</p>
+<p>When one section of the interface changes and it forces changes elsewhere, that is often a sign that the layout is doing too much in one place.</p>
+<h2 id="using-frames-to-group-widgets">Using Frames to Group Widgets</h2>
+<p>Tkinter does not require you to manage your entire interface with a single grid. Instead, you can divide the interface into sections using frames. Each frame can have its own grid that manages only the widgets inside that frame.</p>
+<p>A frame acts as a container. From the outside, it behaves like a single widget. On the inside, it can contain many widgets arranged however you like.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> *
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> ttk
+
+root = Tk()
+
+content_frame = ttk.Frame(root, padding=<span class="hljs-number">10</span>)
+content_frame.grid(row=<span class="hljs-number">0</span>, column=<span class="hljs-number">0</span>)
+</div></code></pre>
+<p>Here, the main window only needs to know about <code>content_frame</code>. Everything else can be placed inside it.</p>
+<h2 id="gridding-widgets-inside-a-frame">Gridding Widgets Inside a Frame</h2>
+<p>Once a frame exists, widgets can be gridded inside that frame instead of directly into the main window.</p>
+<pre class="hljs"><code><div>label = ttk.Label(content_frame, text=<span class="hljs-string">"Username"</span>)
+label.grid(row=<span class="hljs-number">0</span>, column=<span class="hljs-number">0</span>)
+
+entry = ttk.Entry(content_frame)
+entry.grid(row=<span class="hljs-number">0</span>, column=<span class="hljs-number">1</span>)
+</div></code></pre>
+<p>This grid belongs only to <code>content_frame</code>. It does not affect any other grids in the program.</p>
+<h2 id="nesting-frames-inside-other-frames">Nesting Frames Inside Other Frames</h2>
+<p>Frames can be nested inside other frames, each with their own grid. This allows layouts to be broken into logical sections.</p>
+<pre class="hljs"><code><div>toolbar_frame = ttk.Frame(content_frame, padding=<span class="hljs-number">5</span>)
+toolbar_frame.grid(row=<span class="hljs-number">0</span>, column=<span class="hljs-number">0</span>, columnspan=<span class="hljs-number">2</span>)
+
+button1 = ttk.Button(toolbar_frame, text=<span class="hljs-string">"Select"</span>)
+button1.grid(row=<span class="hljs-number">0</span>, column=<span class="hljs-number">0</span>)
+
+button2 = ttk.Button(toolbar_frame, text=<span class="hljs-string">"Draw"</span>)
+button2.grid(row=<span class="hljs-number">0</span>, column=<span class="hljs-number">1</span>)
+</div></code></pre>
+<p>In this example, the toolbar is its own frame with its own grid, nested inside the main content frame. From the perspective of the main grid, the toolbar is just one widget.</p>
+<h2 id="nesting-depth-and-practical-use">Nesting Depth and Practical Use</h2>
+<p>In theory, frames can be nested many levels deep. In practice, most programs only need a few levels. Too much nesting can become just as hard to understand as one giant grid.</p>
+<p>The goal is clarity. Each frame should represent a meaningful section of the interface, such as a toolbar, a settings panel, or a group of related inputs.</p>
+<h2 id="modularizing-interface-sections">Modularizing Interface Sections</h2>
+<p>Nested layouts make it easier to separate parts of the interface into reusable pieces. A complex section, such as a palette of tools, can be created inside its own function or class.</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">create_tool_palette</span><span class="hljs-params">(parent)</span>:</span>
+    palette = ttk.Frame(parent, padding=<span class="hljs-number">5</span>)
+
+    select_btn = ttk.Button(palette, text=<span class="hljs-string">"Select"</span>)
+    select_btn.grid(row=<span class="hljs-number">0</span>, column=<span class="hljs-number">0</span>)
+
+    erase_btn = ttk.Button(palette, text=<span class="hljs-string">"Erase"</span>)
+    erase_btn.grid(row=<span class="hljs-number">1</span>, column=<span class="hljs-number">0</span>)
+
+    <span class="hljs-keyword">return</span> palette
+</div></code></pre>
+<p>The main program does not need to know how the palette is laid out. It only needs to place the returned frame where it belongs.</p>
+<pre class="hljs"><code><div>palette_frame = create_tool_palette(content_frame)
+palette_frame.grid(row=<span class="hljs-number">1</span>, column=<span class="hljs-number">0</span>)
+</div></code></pre>
+<h2 id="recognizing-when-to-nest">Recognizing When to Nest</h2>
+<p>If changing the layout of one part of your interface forces you to rewrite layout code in another part, that is often a sign that those sections should be separated into different frames.</p>
+<p>Nesting widgets using frames helps keep layouts independent, code easier to reason about, and interfaces easier to expand as programs grow.</p>
+
+</body>
+
+</html>

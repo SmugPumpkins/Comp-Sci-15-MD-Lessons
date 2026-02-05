@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>12 - Geometry - Having Widgets Span Multiple Cells.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* a11y-dark theme */
+/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
+/* @author: ericwbailey */
+
+/* Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #d4d0ab;
+}
+
+/* Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #ffa07a;
+}
+
+/* Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #f5ab35;
+}
+
+/* Yellow */
+.hljs-attribute {
+  color: #ffd700;
+}
+
+/* Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #abe338;
+}
+
+/* Blue */
+.hljs-title,
+.hljs-section {
+  color: #00e0e0;
+}
+
+/* Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #dcc6e0;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #2b2b2b;
+  color: #f8f8f2;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type,
+  .hljs-quote {
+        color: highlight;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+        font-weight: bold;
+    }
+}
+
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///r%3A/2.Travail/1.Enseignement/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css"><link rel="stylesheet" href="file:///d%3A/rdaros/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="overview">Overview</h1>
+<p>By default, widgets placed using the <code>grid</code> geometry manager occupy a single cell. Many real user interfaces, however, require certain widgets—such as titles, wide input fields, or large buttons—to take up more space than a single row or column.</p>
+<p>This lesson explains how widgets can span multiple grid cells using <code>columnspan</code> and <code>rowspan</code>, and how this idea closely matches table-based layouts you may already be familiar with.</p>
+<h1 id="important-information">Important Information</h1>
+<h2 id="spanning-multiple-cells">Spanning Multiple Cells</h2>
+<p>When placing a widget with <code>grid</code>, you can tell it to occupy more than one cell by specifying how many rows or columns it should cover. This is done using the <code>columnspan</code> and <code>rowspan</code> options.</p>
+<p>The <code>columnspan</code> option controls how many columns a widget stretches across, while <code>rowspan</code> controls how many rows it stretches across. These options work in a very similar way to the <code>colspan</code> and <code>rowspan</code> attributes used in HTML tables.</p>
+<pre class="hljs"><code><div>label = ttk.Label(root, text=<span class="hljs-string">"Title"</span>)
+label.grid(row=<span class="hljs-number">0</span>, column=<span class="hljs-number">0</span>, columnspan=<span class="hljs-number">2</span>)
+</div></code></pre>
+<p>In this example, the label begins in column <code>0</code> and stretches across two columns. Grid treats both of those columns as occupied by the label, so other widgets in the same row must be placed outside that span.</p>
+<h2 id="column-spanning">Column Spanning</h2>
+<p>Column spanning allows a widget to stretch horizontally across multiple columns. This is commonly used when a widget needs more horizontal space than a single column provides.</p>
+<pre class="hljs"><code><div>entry = ttk.Entry(root)
+entry.grid(row=<span class="hljs-number">1</span>, column=<span class="hljs-number">0</span>, columnspan=<span class="hljs-number">3</span>)
+</div></code></pre>
+<p>Wide text entry fields, section headers, and buttons that should align with several columns of content are all good candidates for column spanning. Using <code>columnspan</code> helps maintain alignment while keeping the layout simple and readable.</p>
+<h2 id="row-spanning">Row Spanning</h2>
+<p>Row spanning allows a widget to stretch vertically across multiple rows.</p>
+<pre class="hljs"><code><div>image_label = ttk.Label(root, text=<span class="hljs-string">"Image"</span>)
+image_label.grid(row=<span class="hljs-number">1</span>, column=<span class="hljs-number">0</span>, rowspan=<span class="hljs-number">2</span>)
+</div></code></pre>
+<p>This technique is often used for icons, side panels, or visual elements that relate to more than one row of content. Row spanning can help group related information without duplicating widgets.</p>
+<h2 id="combining-columnspan-and-rowspan">Combining Columnspan and Rowspan</h2>
+<p>A widget can span both rows and columns at the same time.</p>
+<pre class="hljs"><code><div>frame = ttk.Frame(root)
+frame.grid(row=<span class="hljs-number">0</span>, column=<span class="hljs-number">0</span>, rowspan=<span class="hljs-number">2</span>, columnspan=<span class="hljs-number">2</span>)
+</div></code></pre>
+<p>This approach is useful when placing a frame that contains its own internal layout. The frame acts as a larger cell that can hold a more complex arrangement of widgets.</p>
+<h2 id="example-layout-with-spanning-widgets">Example Layout with Spanning Widgets</h2>
+<p>The following example demonstrates a small interface where some widgets span multiple cells.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> *
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> ttk
+
+root = Tk()
+root.title(<span class="hljs-string">"Grid Span Example"</span>)
+
+<span class="hljs-comment"># Title spanning two columns</span>
+title = ttk.Label(root, text=<span class="hljs-string">"User Information"</span>)
+title.grid(row=<span class="hljs-number">0</span>, column=<span class="hljs-number">0</span>, columnspan=<span class="hljs-number">2</span>)
+
+<span class="hljs-comment"># Labels and entries</span>
+name_label = ttk.Label(root, text=<span class="hljs-string">"Name:"</span>)
+name_label.grid(row=<span class="hljs-number">1</span>, column=<span class="hljs-number">0</span>)
+
+name_entry = ttk.Entry(root)
+name_entry.grid(row=<span class="hljs-number">1</span>, column=<span class="hljs-number">1</span>)
+
+email_label = ttk.Label(root, text=<span class="hljs-string">"Email:"</span>)
+email_label.grid(row=<span class="hljs-number">2</span>, column=<span class="hljs-number">0</span>)
+
+email_entry = ttk.Entry(root)
+email_entry.grid(row=<span class="hljs-number">2</span>, column=<span class="hljs-number">1</span>)
+
+<span class="hljs-comment"># Button spanning two columns</span>
+submit_button = ttk.Button(root, text=<span class="hljs-string">"Submit"</span>)
+submit_button.grid(row=<span class="hljs-number">3</span>, column=<span class="hljs-number">0</span>, columnspan=<span class="hljs-number">2</span>)
+
+root.mainloop()
+</div></code></pre>
+<p>In this layout, the title spans across two columns at the top, the form fields are aligned neatly in rows beneath it, and the submit button stretches across the full width of the form. The result is a clean and well-structured interface without relying on exact pixel placement.</p>
+<h2 id="how-grid-handles-spanned-cells">How Grid Handles Spanned Cells</h2>
+<p>When a widget spans multiple cells, grid treats the spanned area as a single logical space. The cells covered by the span are considered occupied, and other widgets must be placed outside that range. Grid also adjusts row heights and column widths automatically based on the size of the widgets involved.</p>
+<p>Grid does not visually merge cells. Instead, it uses the span information to manage layout behind the scenes.</p>
+<h2 id="designing-with-spans-in-mind">Designing with Spans in Mind</h2>
+<p>When planning layouts that use <code>rowspan</code> and <code>columnspan</code>, it helps to sketch the grid structure ahead of time. Identifying which elements need extra space early on makes the layout easier to build and modify later. Leaving gaps in row or column numbering can also make future changes simpler.</p>
+<p>Used thoughtfully, spanning allows you to create clear, professional interfaces while keeping your layout logic straightforward and flexible.</p>
+
+</body>
+
+</html>

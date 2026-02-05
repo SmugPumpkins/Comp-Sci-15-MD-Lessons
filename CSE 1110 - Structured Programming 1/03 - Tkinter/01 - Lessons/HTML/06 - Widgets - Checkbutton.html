@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>06 - Widgets - Checkbutton.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* a11y-dark theme */
+/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
+/* @author: ericwbailey */
+
+/* Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #d4d0ab;
+}
+
+/* Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #ffa07a;
+}
+
+/* Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #f5ab35;
+}
+
+/* Yellow */
+.hljs-attribute {
+  color: #ffd700;
+}
+
+/* Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #abe338;
+}
+
+/* Blue */
+.hljs-title,
+.hljs-section {
+  color: #00e0e0;
+}
+
+/* Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #dcc6e0;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #2b2b2b;
+  color: #f8f8f2;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type,
+  .hljs-quote {
+        color: highlight;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+        font-weight: bold;
+    }
+}
+
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///r%3A/2.Travail/1.Enseignement/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css"><link rel="stylesheet" href="file:///d%3A/rdaros/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="overview">Overview</h1>
+<p>A <code>checkbutton</code> widget is like a regular button that also holds a binary value of some kind (i.e., a toggle). When pressed, a checkbutton flips the toggle and then invokes its callback. Checkbutton widgets are frequently used to allow users to turn an option on or off.</p>
+<h1 id="important-information">Important Information</h1>
+<h2 id="creating-a-checkbutton">Creating a Checkbutton</h2>
+<p>Checkbuttons are created using the <code>ttk.Checkbutton</code> class. Typically, their contents (text or textvariable) and behavior (a number of configurations that will be covered more in depth throughout this lesson) are specified at the same time.</p>
+<p>The following example is a <code>CheckButton</code> that toggles whether a metric system or imperial system should be used for measurement:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Create a variable to track which measurment system is selected</span>
+measureSystem = StringVar()
+<span class="hljs-comment"># Create a checkbutton with multiple settings</span>
+<span class="hljs-comment"># parent represents whatever container you want to put it in. This can be the root, or a frame.</span>
+check = ttk.Checkbutton(parent, text=<span class="hljs-string">'Use Metric'</span>, command=metricChanged, variable=measureSystem, onvalue=<span class="hljs-string">'metric'</span>, offvalue=<span class="hljs-string">'imperial'</span>)
+</div></code></pre>
+<p>Checkbuttons use many of the same options as regular buttons but add a few more. The <code>text</code>, <code>textvariable</code>, <code>image</code>, and <code>compound</code> configuration options control the display of the label (next to the checkbox itself).</p>
+<p>Similarly, the <code>command</code> option lets you specify a command to be called every time a user toggles the checkbutton; and the <code>invoke</code> method will also execute the same command.</p>
+<p>The <code>state</code> and <code>instate</code> methods allow you to manipulate the <code>disabled</code> state flag to enable or disable the checkbutton.</p>
+<h2 id="checkbutton-value">Checkbutton Value</h2>
+<p>Unlike regular buttons, checkbuttons also hold a value. We've seen how the <code>textvariable</code> option links the label of a widget to a variable. The <code>variable</code> option for checkbuttons behaves similarly, except it links a variable to the widget's current value. The variable is updated whenever the widget is toggled.</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Create the checkbutton</span>
+check = ttk.Checkbutton(root, text=<span class="hljs-string">'Check box:'</span>)
+<span class="hljs-comment"># Create a variable to track the value of the checkbutton</span>
+check_var = IntVar()
+<span class="hljs-comment"># Assign the variable to the checkbutton</span>
+check[<span class="hljs-string">'variable'</span>] = check_var
+<span class="hljs-comment"># Get the value of check_var (the current value of the checkbutton)</span>
+value = check_var.get()
+<span class="hljs-comment"># Set the checkbutton value</span>
+check_var.set(<span class="hljs-number">1</span>)  <span class="hljs-comment"># check the box</span>
+check_var.set(<span class="hljs-number">0</span>)  <span class="hljs-comment"># uncheck the box</span>
+</div></code></pre>
+<p>By default, checkbuttons use a value of <code>1</code> when checked and <code>0</code> when not checked. These can be changed to something else using the <code>onvalue</code> and <code>offvalue</code> options.</p>
+<p>For example:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Create the checkbutton</span>
+check = ttk.Checkbutton(root, text=<span class="hljs-string">'Check box:'</span>)
+<span class="hljs-comment"># Normally the checkbutton onvalue is equal to 1</span>
+<span class="hljs-comment"># However, we have changed the value of the checkbutton to 'checked' when the checkbox is clicked</span>
+check[<span class="hljs-string">'onvalue'</span>] = <span class="hljs-string">'checked'</span>
+<span class="hljs-comment"># Normally the checkbutton offvalue is equal to 0</span>
+<span class="hljs-comment"># However, we have changed the value of the checkbutton to 'unchecked' when the checkbox is not clicked</span>
+check[<span class="hljs-string">'offvalue'</span>] = <span class="hljs-string">'unchecked'</span>
+</div></code></pre>
+<p><em>Note: When changing the</em> <code>onvalue</code> <em>and</em> <code>offvalue</code> <em>of a checkbutton, the variable that tracks the value will need to be changed to match. In the above example, instead of being an</em> <code>IntVar()</code><em>, it will need to be changed to a</em> <code>StringVar()</code><em>.</em></p>
+<p>A checkbutton doesn't automatically set (or create) the linked variable. Therefore, your program needs to initialize it to the appropriate starting value.</p>
+<p>What happens when the linked variable contains neither the <code>onvalue</code> or the <code>offvalue</code> (or even doesn't exist)? In that case, the checkbutton is put into a special &quot;tristate&quot; or indeterminate mode. The checkbox might display a single dash in this mode instead of being empty or holding a checkmark. Internally, the state flag alternate is set, which you can inspect via the <code>instate</code> method:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Check the current state of the button to see if the checkbutton is in an intermediate state</span>
+<span class="hljs-comment"># Returns True if the button is in an alternate state</span>
+<span class="hljs-comment"># Returns False if the button is not in an alternate state</span>
+check.instate([<span class="hljs-string">'alternate'</span>])
+</div></code></pre>
+<h2 id="other-variable-types-for-variables-attached-to-widgets">Other Variable Types For Variables Attached to Widgets</h2>
+<p>So far, we've been using an instance of the <code>StringVar</code> class to attach variables to widgets. Tkinter provides other variable classes that can hold booleans, integers, or floating-point numbers. You can always use a <code>StringVar</code> (because the Tcl API that Tkinter uses is string-based) but can choose one of the others if the data stored in it fits the type. All are subclasses of the base class <code>Variable</code>.</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Create a string variable</span>
+s = StringVar()
+<span class="hljs-comment"># Create a boolean variable</span>
+b = BooleanVar()
+<span class="hljs-comment"># Create an integer variable</span>
+i = IntVar()
+<span class="hljs-comment"># Create a decimal variable</span>
+d = DoubleVar()
+</div></code></pre>
+<p><em>Note: Normally when working with decimals in python we have used</em> <code>float</code> <em>as a data type. In the</em> <code>tkinter</code> <em>library, it is instead called a</em> <code>double</code><em>, but it still represents a decimal number.</em></p>
+<p>We can also declare these variables with a starting value:</p>
+<pre class="hljs"><code><div>s = StringVar(value=<span class="hljs-string">"abc"</span>)   <span class="hljs-comment"># default value is ''</span>
+b = BooleanVar(value=<span class="hljs-literal">True</span>)   <span class="hljs-comment"># default is False</span>
+i = IntVar(value=<span class="hljs-number">10</span>)         <span class="hljs-comment"># default is 0</span>
+d = DoubleVar(value=<span class="hljs-number">10.5</span>)    <span class="hljs-comment"># default is 0.0</span>
+</div></code></pre>
+<h1 id="copy-change-challenge">Copy, Change, Challenge</h1>
+<h2 id="copy">Copy</h2>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> *
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> ttk
+
+root = Tk()
+root.title(<span class="hljs-string">"Checkbutton Copy Example"</span>)
+
+<span class="hljs-comment"># Create a variable to track the checkbutton state</span>
+check_var = IntVar(value=<span class="hljs-number">0</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">on_toggle</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">"Checkbutton value:"</span>, check_var.get())
+
+<span class="hljs-comment"># Create the checkbutton</span>
+check = ttk.Checkbutton(
+    root,
+    text=<span class="hljs-string">"Enable option"</span>,
+    variable=check_var,
+    command=on_toggle
+)
+
+<span class="hljs-comment"># Add the checkbutton to the window</span>
+check.grid()
+
+root.mainloop()
+</div></code></pre>
+<h2 id="change">Change</h2>
+<p>Modify the program so that:</p>
+<ul>
+<li>The checkbutton starts <strong>checked</strong> when the program launches</li>
+<li>The text of the checkbutton is changed to <strong>&quot;Use metric system&quot;</strong></li>
+<li>The value printed to the terminal clearly states whether the option is <strong>ON</strong> or <strong>OFF</strong> instead of just printing <code>0</code> or <code>1</code></li>
+</ul>
+<h2 id="challenge">Challenge</h2>
+<p>Create a program with <strong>two checkbuttons</strong>:</p>
+<ul>
+<li>
+<p>The first checkbutton should:</p>
+<ul>
+<li>Use a <code>BooleanVar</code></li>
+<li>Control an option such as <strong>&quot;Enable sound&quot;</strong></li>
+</ul>
+</li>
+<li>
+<p>The second checkbutton should:</p>
+<ul>
+<li>Use a <code>StringVar</code></li>
+<li>Have custom <code>onvalue</code> and <code>offvalue</code> (for example <code>&quot;enabled&quot;</code> and <code>&quot;disabled&quot;</code>)</li>
+</ul>
+</li>
+<li>
+<p>When either checkbutton is toggled:</p>
+<ul>
+<li>Print the current values of <strong>both</strong> variables to the terminal</li>
+</ul>
+</li>
+</ul>
+
+</body>
+
+</html>

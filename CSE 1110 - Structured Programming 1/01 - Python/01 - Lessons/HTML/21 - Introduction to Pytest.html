@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>21 - Introduction to Pytest</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>In this lesson, you will learn how to <strong>test functions using pytest</strong>. Testing allows you to automatically check that your functions work correctly and continue working as your program grows. This lesson will focus on setting up pytest, writing test files, following pytest’s naming rules, using <code>assert</code> statements, and running tests inside <strong>PyCharm</strong>.</p>
+<h1>Important Information</h1>
+<p>Testing is a core skill in computer science. Instead of manually running your program and checking output every time, tests allow you to verify that functions behave as expected and catch mistakes early.</p>
+<p>In this course, we will use <strong>pytest</strong>, a popular Python testing framework.</p>
+<h2>What Is pytest?</h2>
+<p><code>pytest</code> is an external library that allows you to automatically test code after some short set up. <code>pytest</code> automatically finds test files in your project folders, runs the test functions that you create, and reports back which tests passed and which tests failed.</p>
+<p><code>pytest</code> is not included with Python by default, so it must be installed.</p>
+<h2>Installing pytest</h2>
+<p>pytest is installed using <code>pip</code>, Python’s package manager.</p>
+<pre><code class="language-bash">pip install pytest
+</code></pre>
+<p>After installation, pytest becomes available to your Python environment.</p>
+<p>If pytest is installed correctly, running the following command will display the installed version number:</p>
+<pre><code class="language-bash">pytest --version
+</code></pre>
+<h2>What Happens When a Test Fails</h2>
+<p>If a test fails, pytest will show which test failed, show the user the expected value <em>(the one that the user defined in the condition of the <code>assert</code>)</em>, and show the user the actual value <em>(the value that the function actually output)</em>.</p>
+<h2>Running Tests in PyCharm</h2>
+<p>PyCharm has built-in support for pytest.</p>
+<p>To run tests:</p>
+<ol>
+<li>Open the project in PyCharm</li>
+<li>Locate the <code>tests</code> folder</li>
+<li><strong>Right-click</strong> on the <code>tests</code> folder</li>
+<li>Select <strong>“Run tests”</strong></li>
+</ol>
+<p>Then PyCharm will run all test files inside the folder, show the results to the user in the terminal, and output key information for any tests that failed.</p>
+<p>You can also test a single file by right clicking the specific test file you want to check and run just those tests with the <strong>&ldquo;Run tests&rdquo;</strong> menu option.</p>
+<h2>Common Errors and Fixes</h2>
+<h3>pytest Not Found</h3>
+<ul>
+<li>
+<p><strong>Cause</strong>: pytest is not installed in the active environment</p>
+</li>
+<li>
+<p><strong>Fix</strong>: Install pytest using <code>pip</code> and confirm the correct interpreter is selected in PyCharm</p>
+</li>
+</ul>
+<h3>No Tests Are Running</h3>
+<ul>
+<li>
+<p><strong>Cause</strong>: File name does not start with <code>test_</code> or function name does not start with <code>test_</code></p>
+</li>
+<li>
+<p><strong>Fix</strong>: Rename files and functions to follow pytest rules</p>
+</li>
+</ul>
+<h3>Import Errors</h3>
+<ul>
+<li>
+<p><strong>Cause</strong>: Incorrect import path</p>
+</li>
+<li>
+<p><strong>Fix</strong>: Check file locations and nsure your project structure matches your imports</p>
+</li>
+</ul>
+<h3>Using <code>print()</code> Instead of <code>assert</code></h3>
+<ul>
+<li>
+<p><strong>Cause</strong>: Misunderstanding how tests work</p>
+</li>
+<li>
+<p><strong>Fix</strong>: Replace prints with <code>assert</code> statements</p>
+</li>
+</ul>
+<h2>The Importance of Testing</h2>
+<p>Creating and running tests on your code is crucial to developing problem solving skills. It helps you to think clearly about what your function should do and write more reliable programs. Testing often will also allow you to catch bugs earlier in development. These skills will prepare you for larger projects throughout this course, as well as software development as a career. Testing may feel slower at first, but it saves time and frustration as programs become more complex.</p>
+</body>
+</html>

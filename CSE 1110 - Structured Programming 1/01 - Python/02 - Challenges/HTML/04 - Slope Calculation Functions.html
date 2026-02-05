@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>04 - Slope Calculation Functions</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Challenge - Slope Calculator</h1>
+<p>The object of this challenge is to create functions that can accept arguments and return values.</p>
+<h2>Mild 🌶️</h2>
+<p>Create a function for calculating slope with the following inputs and output:</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Calculate <code>m</code> (slope)</td>
+<td><code>Δx</code><br><code>Δy</code></td>
+<td><code>m</code> (slope)</td>
+</tr>
+</tbody>
+</table>
+<p>Then create a program that satisfies the following requirements:</p>
+<ul>
+<li>The user provides input.</li>
+<li>The program uses your function to calculate slope.</li>
+<li>The program outputs a message displaying the calculated slope of the line.</li>
+</ul>
+<h2>Medium 🌶️🌶️</h2>
+<p>Create the following 3 functions for calculating slope with the following inputs and outputs:</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Calculate <code>m</code> (slope)</td>
+<td><code>Δx</code><br><code>Δy</code></td>
+<td><code>m</code> (slope)</td>
+</tr>
+<tr>
+<td>Calculate <code>Δx</code></td>
+<td><code>m</code> (slope)<br><code>Δy</code></td>
+<td><code>Δx</code></td>
+</tr>
+<tr>
+<td>Calculate <code>Δy</code></td>
+<td><code>Δx</code><br><code>m</code> (slope)</td>
+<td><code>Δy</code></td>
+</tr>
+</tbody>
+</table>
+<p>Then create a program that satisfies the following requirements:</p>
+<ul>
+<li>For each function you created:<ul>
+<li>The user provides input.</li>
+<li>The program uses your function to calculate slope.</li>
+<li>The program outputs a message displaying the calculated value and what the value is <em>(for example, the change in x)</em>.</li>
+</ul>
+</li>
+</ul>
+<h2>Spicy 🌶️🌶️🌶️</h2>
+<p>Create a function for calculating the y-intercept of a slope:</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Calculate <code>b</code> (y-intercept)</td>
+<td><code>x</code><br><code>y</code><br><code>m</code> (slope)</td>
+<td><code>b</code> (y-intercept)</td>
+</tr>
+</tbody>
+</table>
+<p>For your function create 3 tests using <code>pytest</code>:</p>
+<ul>
+<li>The function must have at least one test that <code>asserts</code> that 2 values are equal.</li>
+<li>The function must have at least one test that <code>asserts</code> that 2 values are not equal.</li>
+</ul>
+<p>Then create a program that satisfies the following requirements:</p>
+<ul>
+<li>The user provides input.</li>
+<li>The program uses your function to calculate the y-intercept of the slope.</li>
+<li>The program outputs a message displaying the y-intercept of the slope.</li>
+</ul>
+</body>
+</html>

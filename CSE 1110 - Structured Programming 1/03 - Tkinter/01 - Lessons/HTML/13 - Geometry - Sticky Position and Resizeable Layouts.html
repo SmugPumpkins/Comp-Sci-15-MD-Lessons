@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>13 - Geometry - Sticky Position and Resizeable Layouts.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* a11y-dark theme */
+/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
+/* @author: ericwbailey */
+
+/* Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #d4d0ab;
+}
+
+/* Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #ffa07a;
+}
+
+/* Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #f5ab35;
+}
+
+/* Yellow */
+.hljs-attribute {
+  color: #ffd700;
+}
+
+/* Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #abe338;
+}
+
+/* Blue */
+.hljs-title,
+.hljs-section {
+  color: #00e0e0;
+}
+
+/* Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #dcc6e0;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #2b2b2b;
+  color: #f8f8f2;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type,
+  .hljs-quote {
+        color: highlight;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+        font-weight: bold;
+    }
+}
+
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///r%3A/2.Travail/1.Enseignement/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css"><link rel="stylesheet" href="file:///d%3A/rdaros/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="overview">Overview</h1>
+<p>When using the <code>grid</code> geometry manager, widgets are placed into cells formed by rows and columns. In many layouts, a widget ends up being <strong>smaller than the cell it is placed in</strong>, which leads to an important question: where inside the cell should the widget appear?</p>
+<p>This lesson introduces the <code>sticky</code> option, which controls how widgets are positioned and stretched within their grid cells. It also explains how <code>sticky</code> works together with <strong>row and column weights</strong> to allow windows and widgets to resize correctly.</p>
+<h1 id="important-information">Important Information</h1>
+<h2 id="default-widget-placement-in-a-cell">Default Widget Placement in a Cell</h2>
+<p>By default, when a widget is smaller than the grid cell it occupies, grid centers the widget both horizontally and vertically within that cell. Any extra space around the widget shows the background of the parent container.</p>
+<p>This default behavior is fine for simple layouts, but it often causes alignment problems in forms and structured interfaces where widgets need to line up along edges.</p>
+<h2 id="the-sticky-option">The Sticky Option</h2>
+<p>The <code>sticky</code> option changes how a widget is positioned <strong>inside its grid cell</strong>. Instead of always centering the widget, <code>sticky</code> allows you to attach the widget to one or more sides of the cell.</p>
+<p>Sticky uses compass directions to describe positioning:</p>
+<ul>
+<li><code>n</code> for top (north)</li>
+<li><code>s</code> for bottom (south)</li>
+<li><code>e</code> for right (east)</li>
+<li><code>w</code> for left (west)</li>
+</ul>
+<pre class="hljs"><code><div>label.grid(row=<span class="hljs-number">0</span>, column=<span class="hljs-number">0</span>, sticky=<span class="hljs-string">"n"</span>)
+</div></code></pre>
+<p>In this example, the widget is pushed to the top of the cell while remaining centered horizontally.</p>
+<h2 id="combining-sticky-directions">Combining Sticky Directions</h2>
+<p>Sticky directions can be combined to achieve more precise positioning. For example, using <code>&quot;nw&quot;</code> sticks the widget to the top-left corner of the cell. Any extra space remains on the bottom and right sides.</p>
+<pre class="hljs"><code><div>button.grid(row=<span class="hljs-number">1</span>, column=<span class="hljs-number">0</span>, sticky=<span class="hljs-string">"nw"</span>)
+</div></code></pre>
+<p>Using combinations like this is common when aligning labels, buttons, or icons in a structured layout.</p>
+<h2 id="stretching-widgets-with-sticky">Stretching Widgets with Sticky</h2>
+<p>Sticky can also be used to stretch widgets. When opposite directions are specified, grid stretches the widget to fill the space between those edges.</p>
+<p>Using <code>&quot;we&quot;</code> stretches a widget horizontally, while <code>&quot;ns&quot;</code> stretches it vertically.</p>
+<pre class="hljs"><code><div>entry.grid(row=<span class="hljs-number">0</span>, column=<span class="hljs-number">1</span>, sticky=<span class="hljs-string">"we"</span>)
+</div></code></pre>
+<p>This is especially useful for entry widgets, which often need to expand to match the width of their column.</p>
+<h2 id="filling-the-entire-cell">Filling the Entire Cell</h2>
+<p>To make a widget expand in all directions and completely fill its cell, use all four compass directions.</p>
+<pre class="hljs"><code><div>frame.grid(row=<span class="hljs-number">0</span>, column=<span class="hljs-number">0</span>, sticky=<span class="hljs-string">"nsew"</span>)
+</div></code></pre>
+<p>This causes the widget to stick to every side of the cell and occupy all available space. This pattern is extremely common when placing frames inside a window, since frames are often used as containers for other widgets.</p>
+<h2 id="sticky-vs-widget-content-alignment">Sticky vs Widget Content Alignment</h2>
+<p>It is important to distinguish between how a widget is positioned inside a cell and how content is positioned inside the widget itself.</p>
+<p>The <code>sticky</code> option controls <strong>where the widget sits inside the grid cell</strong>. Widget-specific options, such as <code>anchor</code> on a label, control <strong>where the widget’s content is placed inside the widget</strong>.</p>
+<pre class="hljs"><code><div>label = ttk.Label(root, text=<span class="hljs-string">"Hello"</span>, anchor=<span class="hljs-string">"w"</span>)
+label.grid(row=<span class="hljs-number">0</span>, column=<span class="hljs-number">0</span>, sticky=<span class="hljs-string">"nsew"</span>)
+</div></code></pre>
+<p>Here, <code>sticky=&quot;nsew&quot;</code> stretches the label to fill the entire cell, while <code>anchor=&quot;w&quot;</code> aligns the text to the left within the label.</p>
+<h1 id="resizing-widgets-with-the-window">Resizing Widgets with the Window</h1>
+<p>You may notice that even when using <code>sticky=&quot;nsew&quot;</code>, widgets do not resize when the window itself is resized. This happens because grid rows and columns do not expand by default.</p>
+<p>Each row and column has a <code>weight</code> value that controls whether it can grow when extra space is available. The default weight is <code>0</code>, which means no expansion occurs. Sticky only tells grid how to behave <em>if</em> a cell grows; it does not cause the cell to grow.</p>
+<h2 id="row-and-column-weights">Row and Column Weights</h2>
+<p>Row and column weights determine how extra space is distributed. A weight of <code>0</code> prevents expansion, while any positive value allows expansion. Larger values cause a row or column to grow faster relative to others.</p>
+<p>Weights are assigned using the <code>columnconfigure</code> and <code>rowconfigure</code> methods.</p>
+<p>The following example assumes all widgets are placed inside a frame called <code>content</code>. The weights are applied to that frame’s grid.</p>
+<pre class="hljs"><code><div>content.columnconfigure(<span class="hljs-number">0</span>, weight=<span class="hljs-number">3</span>)
+content.columnconfigure(<span class="hljs-number">1</span>, weight=<span class="hljs-number">3</span>)
+content.columnconfigure(<span class="hljs-number">2</span>, weight=<span class="hljs-number">3</span>)
+content.columnconfigure(<span class="hljs-number">3</span>, weight=<span class="hljs-number">1</span>)
+content.columnconfigure(<span class="hljs-number">4</span>, weight=<span class="hljs-number">1</span>)
+
+content.rowconfigure(<span class="hljs-number">1</span>, weight=<span class="hljs-number">1</span>)
+</div></code></pre>
+<p>In this layout, columns 0 through 2 grow three times faster than columns 3 and 4. Row 1 is allowed to grow vertically. These values are relative, not absolute.</p>
+<p>For this to work correctly, the root window must also allow the frame to expand.</p>
+<pre class="hljs"><code><div>root.columnconfigure(<span class="hljs-number">0</span>, weight=<span class="hljs-number">1</span>)
+root.rowconfigure(<span class="hljs-number">0</span>, weight=<span class="hljs-number">1</span>)
+</div></code></pre>
+<p>Without this step, the frame itself will not receive extra space, even if its internal grid is configured properly.</p>
+<h2 id="minimum-size-for-rows-and-columns">Minimum Size for Rows and Columns</h2>
+<p>Grid also allows you to enforce a minimum size for rows and columns using the <code>minsize</code> option.</p>
+<pre class="hljs"><code><div>root.columnconfigure(<span class="hljs-number">0</span>, weight=<span class="hljs-number">1</span>, minsize=<span class="hljs-number">200</span>)
+</div></code></pre>
+<p>This ensures that the column never shrinks below 200 pixels, even when the window is resized smaller.</p>
+<h2 id="disabling-window-resizing">Disabling Window Resizing</h2>
+<p>In some cases, you may want to prevent the user from resizing the window entirely. This can be done by disabling resizing on the root window.</p>
+<pre class="hljs"><code><div>root.resizable(<span class="hljs-literal">False</span>, <span class="hljs-literal">False</span>)
+</div></code></pre>
+<p>This locks both horizontal and vertical resizing.</p>
+
+</body>
+
+</html>

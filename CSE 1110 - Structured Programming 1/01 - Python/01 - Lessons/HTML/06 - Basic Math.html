@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>06 - Basic Math</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Overview</h1>
+<p>We&rsquo;ve taken a brief look at how different variables can have different types, but variables are only really useful to us when we can do something with them.</p>
+<p>In this lesson, we will take a closer look at how to do some basic math in python.</p>
+<p>We won&rsquo;t do math on variables yet, but this lesson should give you a basic understanding of addition, subtraction, multiplication, and division in python.</p>
+<h2>Addition</h2>
+<p>When we want to add values in python, we use <code>+</code>.</p>
+<h2>Subtraction</h2>
+<p>When we want to subtract values in python, we use <code>-</code>.</p>
+<h2>Multiplication</h2>
+<p>When we want to multiply a value in python, we use <code>*</code>.</p>
+<h2>Division</h2>
+<p>When we want to divide a value in python, we use <code>/</code>.</p>
+<h1>Set Up</h1>
+<p>Create a new python file called <code>basicmath.py</code>.</p>
+<h1>Copy</h1>
+<pre><code class="language-python">print(2+2)
+</code></pre>
+<p>What do you think will print to the Terminal?</p>
+<h1>Change</h1>
+<p>Alter the value being printed to print a subtraction, multiplication, and a division statement (one at a time).</p>
+<h1>Copy</h1>
+<pre><code class="language-python">print(0.1+0.2)
+</code></pre>
+<p>What do you think will print?</p>
+<p>Whoa, that was weird. Why did it add an extra 0.00000000000000004? </p>
+<p>Computers operate in binary, which is a base 2 number system. For integers, this doesn&rsquo;t really matter. However, sometimes decimal values don&rsquo;t behave as expected because the computer approximates the values to the best of it&rsquo;s ability.</p>
+<p>This is just a quirk of programming that is important to be aware of.</p>
+<p>What do you think will print here?</p>
+<pre><code class="language-python">print(2 + 4 * 2)
+</code></pre>
+<p>Will it be 12 or 10? Why do you think that?</p>
+<p>What about here?</p>
+<pre><code class="language-python">print(6 / 3 * 2)
+</code></pre>
+<p>Will this produce the same outcome?</p>
+<pre><code class="language-python">print(6 / (3 * 2))
+</code></pre>
+<p>Brackets can help clarify math, even if they aren&rsquo;t technically needed to get the desired result.</p>
+</body>
+</html>

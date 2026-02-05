@@ -100,14 +100,17 @@ Using this pattern in your projects allows you as a programmer to be more intent
 
 ## Common Errors and Fixes
 When using this pattern, you may find yourself running into issues sometimes. The following section is intended to help you identify problems and possible solutions. 
+
 ### Error: Code Runs When Imported
 
 **Cause**: Code is written at the top level
+
 **Fix**: Move the code into `main()` and use the `__name__` check
 
 ### Error: Nothing Runs
 
 **Cause**: `main()` exists but is never called
+
 **Fix**:
 
 ```python
@@ -118,6 +121,7 @@ if __name__ == "__main__":
 ### Error: NameError for a Function
 
 **Cause**: Function is called before it is defined or imported
+
 **Fix**:
 
 * Define functions above `main()`
@@ -126,6 +130,7 @@ if __name__ == "__main__":
 ### Error: Multiple Files Running Code
 
 **Cause**: More than one file has top-level code
+
 **Fix**:
 
 * Only one file should act as the main program

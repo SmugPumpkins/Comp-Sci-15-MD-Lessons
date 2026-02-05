@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>01 - Introduction to Tkinter.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* a11y-dark theme */
+/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
+/* @author: ericwbailey */
+
+/* Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #d4d0ab;
+}
+
+/* Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #ffa07a;
+}
+
+/* Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #f5ab35;
+}
+
+/* Yellow */
+.hljs-attribute {
+  color: #ffd700;
+}
+
+/* Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #abe338;
+}
+
+/* Blue */
+.hljs-title,
+.hljs-section {
+  color: #00e0e0;
+}
+
+/* Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #dcc6e0;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #2b2b2b;
+  color: #f8f8f2;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type,
+  .hljs-quote {
+        color: highlight;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+        font-weight: bold;
+    }
+}
+
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///r%3A/2.Travail/1.Enseignement/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css"><link rel="stylesheet" href="file:///d%3A/rdaros/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="overview">Overview</h1>
+<p>This lesson introduces <strong>tkinter</strong>, Python’s built-in library for creating graphical applications. You will learn what a <strong>GUI</strong> is, how humans interact with computers through GUIs, why both <strong>tk</strong> and <strong>ttk</strong> are used together in modern tkinter programs, and the three core pillars that every tkinter app is built on.</p>
+<h1 id="important-information">Important Information</h1>
+<h2 id="what-is-a-gui">What Is a GUI?</h2>
+<p>A <strong>GUI (Graphical User Interface)</strong> is a way for people to interact with a computer using visual elements instead of typed commands.</p>
+<p>Examples of GUI elements include:</p>
+<ul>
+<li>Windows</li>
+<li>Buttons</li>
+<li>Text boxes</li>
+<li>Menus</li>
+<li>Sliders</li>
+</ul>
+<p>Instead of typing instructions into a terminal, users <strong>click</strong>, <strong>type</strong>, and <strong>drag</strong>. This makes programs easier and more natural for humans to use.</p>
+<h3 id="guis-and-human%E2%80%93machine-interaction">GUIs and Human–Machine Interaction</h3>
+<p>Human–machine interaction is about how people communicate with computers. A GUI acts as a <strong>bridge</strong> between human thinking and computer logic:</p>
+<ul>
+<li>Humans think visually and spatially</li>
+<li>Computers process instructions step by step</li>
+<li>A GUI translates user actions (like clicking a button) into code the computer can understand</li>
+</ul>
+<p>tkinter allows Python programs to create this bridge.</p>
+<h2 id="what-is-tkinter">What Is tkinter?</h2>
+<p><strong>tkinter</strong> is Python’s standard GUI library. It lets you:</p>
+<ul>
+<li>Create windows</li>
+<li>Add buttons, labels, and input fields</li>
+<li>Respond to user actions like clicks and typing</li>
+</ul>
+<p>tkinter is included with most Python installations, which makes it beginner-friendly.</p>
+<h2 id="tk-vs-ttk-and-why-you-use-both">tk vs ttk (and Why You Use Both)</h2>
+<p>tkinter is built on top of an older toolkit called <strong>tk</strong>. Over time, a newer system called <strong>ttk (themed tk)</strong> was added.</p>
+<ul>
+<li>
+<p><strong>tk</strong></p>
+<ul>
+<li>The original widget system</li>
+<li>Simple and reliable</li>
+<li>Some widgets look outdated</li>
+</ul>
+</li>
+<li>
+<p><strong>ttk</strong></p>
+<ul>
+<li>Modern, themed widgets</li>
+<li>Better appearance</li>
+<li>Adapts to the operating system’s look (Windows, macOS, Linux)</li>
+</ul>
+</li>
+</ul>
+<h3 id="why-import-both">Why Import Both?</h3>
+<p>In most real tkinter programs, you import <strong>tk</strong> and <strong>ttk</strong> together:</p>
+<ul>
+<li>tk handles the main window and core functionality</li>
+<li>ttk provides modern widgets like buttons, labels, and input fields</li>
+</ul>
+<p>Using both simplifies development because:</p>
+<ul>
+<li>You get access to <strong>all widgets</strong></li>
+<li>Your app looks more modern</li>
+<li>You don’t need to worry about which system does what</li>
+</ul>
+<p>This is why you will often see both imported at the start of a tkinter program.</p>
+<h2 id="the-3-core-pillars-of-tkinter-development">The 3 Core Pillars of tkinter Development</h2>
+<p>Every tkinter application is built on three fundamental ideas.</p>
+<h3 id="1-widgets">1. Widgets</h3>
+<p><strong>Widgets</strong> are the building blocks of a GUI.</p>
+<p>Common widgets include:</p>
+<ul>
+<li>Labels (display text)</li>
+<li>Buttons (trigger actions)</li>
+<li>Entry fields (user input)</li>
+<li>Checkboxes and dropdowns</li>
+</ul>
+<p>If you can see it or interact with it, it is a widget.</p>
+<h3 id="2-geometry-layout">2. Geometry (Layout)</h3>
+<p>Geometry controls <strong>where widgets go</strong> inside a window.</p>
+<p>tkinter uses layout managers to:</p>
+<ul>
+<li>Position widgets</li>
+<li>Control spacing</li>
+<li>Adjust when the window resizes</li>
+</ul>
+<p>Without geometry management, widgets would not appear in usable locations.</p>
+<h3 id="3-the-event-loop">3. The Event Loop</h3>
+<p>The <strong>event loop</strong> is what keeps a GUI running.</p>
+<p>It:</p>
+<ul>
+<li>Waits for user actions (clicks, typing, resizing)</li>
+<li>Responds when something happens</li>
+<li>Keeps the window open</li>
+</ul>
+<p>Without the event loop:</p>
+<ul>
+<li>The window would appear and immediately close</li>
+<li>Buttons would not work</li>
+<li>The program would not respond to the user</li>
+</ul>
+<p>All interactive GUI programs rely on an event loop.</p>
+<h1 id="set-up">Set Up</h1>
+<h2 id="installing-tkinter-tk-and-ttk">Installing tkinter, tk, and ttk</h2>
+<p>In most standard Python installations:</p>
+<ul>
+<li>tkinter is already installed</li>
+<li>tk and ttk come with it</li>
+</ul>
+<h2 id="importing-tkinter">Importing tkinter</h2>
+<p>To import both <code>tk</code> and <code>ttk</code>, use the following code:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> *
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> ttk
+</div></code></pre>
+<h2 id="creating-a-named-window">Creating A Named Window</h2>
+<p>Before we can add widgets to our tkinter app, we need to ensure that a window is created as a base. It is usually best practice to also name the window.</p>
+<p>Our window will be called our <code>root</code>. You can technically create a window with any variable name, but the standard practice is to call it <code>root</code>.</p>
+<pre class="hljs"><code><div>root = Tk()
+</div></code></pre>
+<p>We can also give the window a name to make it clearer to users what the intent of the application is.</p>
+<pre class="hljs"><code><div>root.title(<span class="hljs-string">"This Is The Title Of The Window"</span>)
+</div></code></pre>
+<h2 id="add-a-mainloop">Add a Mainloop</h2>
+<p>We won't discuss in depth at this point what adding the <code>mainloop()</code> does. Right now adding the <code>mainloop()</code> will make it so that the window stays open when the program runs.</p>
+<pre class="hljs"><code><div>root.mainloop()
+</div></code></pre>
+<p>For the lessons on widgets, make sure the <code>mainloop()</code> is at the end of your code.</p>
+<p>Once you have a window and <code>tkinter</code> has been imported, you are ready to start adding widgets to create a GUI!</p>
+
+</body>
+
+</html>

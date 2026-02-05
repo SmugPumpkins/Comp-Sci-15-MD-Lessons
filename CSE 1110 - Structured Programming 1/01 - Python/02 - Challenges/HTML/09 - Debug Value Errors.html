@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>09 - Debug Value Errors</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #14012b;
+    color: white;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+code {
+    padding: 3px;
+    background: #413a4a;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #2b1a4a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1d1235;
+}
+</style>
+</head>
+<body>
+<h1>Challenge - Debug Value Errors</h1>
+<p>The object of this challenge is to practice identifying and debugging value errors.</p>
+<h2>Mild 🌶️</h2>
+<p>Copy and run the following code.</p>
+<pre><code class="language-python">def calculate_age(years):
+    return int(years)
+
+age = calculate_age(&quot;sixteen&quot;)
+print(age)
+</code></pre>
+<p>Debug the code so it still maintains functionality, but does not raise errors.</p>
+<h2>Medium 🌶️🌶️</h2>
+<p>Copy and run the following code.</p>
+<pre><code class="language-python">def rectangle_dimensions(length, width):
+    return float(length), float(width)
+
+l, w = rectangle_dimensions(&quot;12.5&quot;, &quot;four&quot;)
+area = l * w
+message = float(&quot;Total area&quot;) + str(area)
+print(area)
+</code></pre>
+<p>Debug the code so it still maintains functionality, but does not raise errors.</p>
+<h2>Spicy 🌶️🌶️🌶️</h2>
+<p>Copy and run the following code.</p>
+<pre><code class="language-python">def budget_calculator(income, expenses):
+    return int(income) - int(expenses)
+
+monthly_balance = budget_calculator(&quot;3000&quot;, &quot;200,000&quot;)
+savings_goal = float(&quot;one thousand&quot;)
+months_needed = int(&quot;12.5&quot;)
+final_plan = months_needed * savings_goal
+print(final_plan)
+
+</code></pre>
+<p>Debug the code so it still maintains functionality, but does not raise errors.</p>
+</body>
+</html>
