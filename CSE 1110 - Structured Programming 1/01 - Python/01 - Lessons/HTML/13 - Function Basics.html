@@ -6,69 +6,266 @@
 
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+    * {
+        box-sizing: border-box;
+    }
 
-body {
-    max-width: 900px;
-    margin: 40px auto;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    line-height: 1.6;
-    background-color: #14012b;
-    color: white;
-}
+    body {
+        max-width: 900px;
+        margin: 40px auto;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        background-color: #100120;
+        color: rgb(238, 238, 238);
+    }
 
-pre {
-    margin: 1em 0;
-    padding: 12px;
-    overflow-x: auto;
-}
+    h1 {
+        font-size: 2.25rem;
+    }
 
-pre code {
-    padding: 0;
-    background: transparent;
-    border: 2px solid white;
-    border-radius: 5px;
-}
+    h1::after {
+        content: "";
+        display: block;
+        height: 4px;
+        background: rgb(238, 238, 238);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-code {
-    padding: 3px;
-    background: #413a4a;
-    border-radius: 3px;
-}
+    h2 {
+        font-size: 2rem;
+        color: rgb(252, 204, 141);
+        margin: 1.5rem 0.25rem;
+    }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5em 0;
-}
+    h2::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: rgb(252, 204, 141);
+        width: 100%;
+        margin-top: 0.1rem;
+    }
 
-th, td {
-    border: 1px solid white;
-    padding: 8px 10px;
-    text-align: left;
-    vertical-align: top;
-}
+    h3 {
+        font-weight: 300;
+        font-size: 1.75rem;
+        color: rgb(250, 249, 202);
+        margin: 1.25rem 0.75rem;
+    }
 
-thead {
-    background-color: #2b1a4a;
-}
+    h3::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(250, 249, 202);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-tbody tr:nth-child(even) {
-    background-color: #1d1235;
-}
+    h4 {
+        font-weight: 300;
+        font-size: 1.5rem;
+        color: rgb(201, 245, 248);
+        margin: 1rem 1.25rem;
+    }
+
+    h4::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(201, 245, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h5 {
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: rgb(239, 201, 248);
+        margin: 1rem 1.5rem;
+    }
+
+    h5::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(239, 201, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h6 {
+        font-weight: 300;
+        font-size: 1rem;
+        color: rgb(248, 210, 201);
+        margin: 1rem 1.75rem;
+    }
+
+    h6::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(248, 210, 201);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    a,
+    a:visited {
+        color: rgb(233, 157, 157);
+        text-decoration: underline;
+        font-weight: 400;
+    }
+
+    a:hover {
+        font-weight: 600;
+    }
+
+    body>p,
+    body>ul,
+    body>ol {
+        margin: 1rem 2rem;
+    }
+
+    p,
+    ul,
+    ol {
+        margin-bottom: 1rem;
+        text-align: justify;
+        text-align-last: left;
+    }
+
+    pre {
+        margin: 1em 0;
+        padding: 12px;
+        overflow-x: auto;
+    }
+
+    pre code {
+        padding: 0;
+        background: transparent;
+        border: 2px solid white;
+        border-radius: 5px;
+    }
+
+    code {
+        padding: 3px;
+        background: #413a4a;
+        border-radius: 3px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5em 0;
+    }
+
+    th,
+    td {
+        border: 1px solid white;
+        padding: 8px 10px;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    thead {
+        background-color: #2b1a4a;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #1d1235;
+    }
+
+    #end-message {
+        text-align: center;
+        text-align-last: center;
+        font-size: 1rem;
+        font-weight: 300;
+        margin: 0;
+        color: rgb(250, 249, 202);
+    }
+
+    footer {
+        margin-top: 7rem;
+    }
+
+    #spacer {
+        height: 1rem;
+        background: transparent;
+    }
+
+    #copy {
+        text-align: center;
+        text-align-last: center;
+        color: #100120;
+        color: #403150;
+    }
+
+    .flourish::before {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    .flourish::after {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    #ducky {
+        line-height: 2.65rem;
+        font-family: "Google Sans Code", monospace;
+        font-weight: 600;
+        font-size: 2.5rem;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .yellow {
+        color: #f7ec52;
+    }
+
+    .orange {
+        color: #fcac00;
+    }
+
+    .eye {
+        color: #BCFAF2;
+    }
+
+    .water {
+        color: #008dd5;
+    }
+
+    .grass {
+        color: #96f58e;
+    }
+
+    #rubric {
+        margin-left: -0.5in;
+        margin-right: -0.5in;
+        width: calc(100% + 1.0in);
+        font-size: 0.6rem;
+    }
+    #rubric th{
+    font-size: 0.8rem;
+    }
 </style>
 </head>
 <body>
-<h1>Overview</h1>
+<h1>Lesson 13 - Function Basics</h1>
+<h2>Overview</h2>
 <p>We have now input values, processed values, and output values. That is a large part of the computer science curriculum.</p>
 <p>The other large part comes from breaking the different processes you will program into modules. In this course, the modules we will be focusing on are functions.</p>
-<h1>Important Information</h1>
+<h2>Important Information</h2>
 <p>A function is a block of code that only runs when it is called.</p>
 <p>Every function has:</p>
 <ul>
@@ -79,10 +276,10 @@ tbody tr:nth-child(even) {
 <li>an indented block of code beneath it</li>
 </ul>
 <p>Code defined in a function is reusable, and can be added in the program as many times as the user sees fit.</p>
-<h2>Definition</h2>
-<p>Let&rsquo;s look at an example of a function definition.</p>
+<h3>Definition</h3>
+<p>Let’s look at an example of a function definition.</p>
 <pre><code class="language-python">def greet():
-    print(&quot;Hello, World!&quot;)
+    print("Hello, World!")
 </code></pre>
 <ul>
 <li><code>def</code> tells us this is a function</li>
@@ -90,14 +287,14 @@ tbody tr:nth-child(even) {
 <li>double parenthesis and a colon are required <code>():</code></li>
 <li><code>print("Hello World")</code> is the indented block of code</li>
 </ul>
-<h2>Indentation Is Required</h2>
+<h3>Indentation Is Required</h3>
 <p>In Python, <strong>every function must have an indented block of code</strong> underneath it.</p>
 <p>If a function does not have an indented block, Python will raise an <code>IndentationError</code>.</p>
 <p>This code will cause an error:</p>
 <pre><code class="language-python">def greet():
 </code></pre>
 <p>Python expects at least one indented line after the colon. If it does not find one, the program will not run.</p>
-<h2>The <code>pass</code> Keyword</h2>
+<h3>The <code>pass</code> Keyword</h3>
 <p>Sometimes you want to define a function before you are ready to write its code. In this case, you can use the <code>pass</code> keyword.</p>
 <p><code>pass</code> tells Python when a function is intentionally left empty.</p>
 <p>Example:</p>
@@ -106,24 +303,24 @@ tbody tr:nth-child(even) {
 </code></pre>
 <p>The above function is valid, and does not cause any errors.</p>
 <p>Using <code>pass</code> is useful when planning your program or writing placeholder functions.</p>
-<h2>Calling Functions</h2>
+<h3>Calling Functions</h3>
 <p>If we wanted to call this function later it would look like this:</p>
 <pre><code class="language-python">greet()
 </code></pre>
 <p>Putting it all together we get code that looks like this:</p>
 <pre><code class="language-python"># Define the function here
 def greet():
-    print(&quot;Hello, World!&quot;)
+    print("Hello, World!")
 
 # Call the function here
 greet()
 </code></pre>
-<h2>Order Matters</h2>
-<p>Another thing that is important to note about functions is that in python, functions ALWAYS need to be defined before they are called. In some languages it doesn&rsquo;t matter where you put your functions, but in python your functions need to be written above the place they are called in your code.</p>
+<h3>Order Matters</h3>
+<p>Another thing that is important to note about functions is that in python, functions ALWAYS need to be defined before they are called. In some languages it doesn’t matter where you put your functions, but in python your functions need to be written above the place they are called in your code.</p>
 <p>The following code will run just fine:</p>
 <pre><code class="language-python"># Function definition before function is called
 def greet():
-    print(&quot;Hello, World!&quot;)
+    print("Hello, World!")
 
 # Function is called after being defined
 greet()
@@ -133,16 +330,16 @@ greet()
 greet()
 
 def greet():
-    print(&quot;Hello, World!&quot;)
+    print("Hello, World!")
 </code></pre>
 <p>When a function is called before it is defined, we get a <code>NameError</code> because the function is trying to be called before it is defined. The easiest fix for this is to ensure the function is defined before it is called.</p>
-<h2>Function Scope</h2>
+<h3>Function Scope</h3>
 <p>Sometimes you will want to use variables inside of functions. In python, functions are a special part of the code that treat variables differently than other parts of the code. This is called variable scope.</p>
 <p>At this point, we will focus on local and global scope for variables.</p>
 <p>Variables that are declared inside of functions have a local scope. This means that the only place in your code that the variable can be accessed, assigned, compared, or seen by your code is within the function. Variables from a function cannot be accessed outside of that function.</p>
 <pre><code class="language-python">def greet():
     # message is a local variable to the greet function
-    message = &quot;Hello, World!&quot;
+    message = "Hello, World!"
     # message can be accessed here because it is in the function
     print(message)
 
@@ -151,7 +348,7 @@ print(message)
 </code></pre>
 <p>Variables that are declared outside of functions have global scope, meaning that they can be accessed anywhere in your code.</p>
 <pre><code class="language-python"># message is declared as a global variable
-message = &quot;Hello, World!&quot;
+message = "Hello, World!"
 
 def greet():
     print(message)
@@ -162,14 +359,14 @@ print(message)
 # when greet is called we get a NameError even though message is a global variable...
 greet()
 </code></pre>
-<p>By default, global variables can&rsquo;t be reassigned inside of functions. To reassign a global variable inside of a function, you need to use the <code>global</code> keyword.</p>
+<p>By default, global variables can’t be reassigned inside of functions. To reassign a global variable inside of a function, you need to use the <code>global</code> keyword.</p>
 <pre><code class="language-python"># message is declared as a global variable
-message = &quot;Hello, World!&quot;
+message = "Hello, World!"
 
 def greet():
     # by specifying that we want to use the global message variable, python interprets this variable as intended
     global message
-    message = &quot;Goodbye now!&quot;
+    message = "Goodbye now!"
     print(message)
 
 # message is global so this line does not result in an error
@@ -178,42 +375,42 @@ print(message)
 # no more errors!
 greet()
 </code></pre>
-<h1>Copy, Change, Challenge – Defining and Calling Functions</h1>
-<h2>Copy</h2>
+<h2>Copy, Change, Challenge – Defining and Calling Functions</h2>
+<h3>Copy</h3>
 <pre><code class="language-python">def greet():
-    print(&quot;Hello from a function!&quot;)
+    print("Hello from a function!")
 
 greet()
 </code></pre>
-<h2>Change</h2>
+<h3>Change</h3>
 <p>Change the message inside the <code>print()</code> statement so the function prints a different greeting.</p>
-<h2>Challenge</h2>
+<h3>Challenge</h3>
 <p>Create a new function called <code>farewell</code> that prints a goodbye message, and then call it after <code>greet()</code>.</p>
-<h1>Copy, Change, Challenge – Using an Empty Function</h1>
-<h2>Copy</h2>
+<h2>Copy, Change, Challenge – Using an Empty Function</h2>
+<h3>Copy</h3>
 <pre><code class="language-python">def not_ready_yet():
     pass
 
 not_ready_yet()
 </code></pre>
-<h2>Change</h2>
+<h3>Change</h3>
 <p>Replace <code>pass</code> with a <code>print()</code> statement so the function displays a message.</p>
-<h2>Challenge</h2>
+<h3>Challenge</h3>
 <p>Create a function that initially uses <code>pass</code>, then later add an indented block of code that prints at least two lines when the function is called.</p>
-<h1>Copy, Change, Challenge – Using a Local Variable</h1>
-<h2>Copy</h2>
+<h2>Copy, Change, Challenge – Using a Local Variable</h2>
+<h3>Copy</h3>
 <pre><code class="language-python">def show_score():
     score = 10
     print(score)
 
 show_score()
 </code></pre>
-<h2>Change</h2>
+<h3>Change</h3>
 <p>Change the value of the <code>score</code> variable to a different number and run the program again.</p>
-<h2>Challenge</h2>
+<h3>Challenge</h3>
 <p>Add a second local variable inside the function and print both values on separate lines.</p>
-<h1>Copy, Change, Challenge – Using the <code>global</code> Keyword</h1>
-<h2>Copy</h2>
+<h2>Copy, Change, Challenge – Using the <code>global</code> Keyword</h2>
+<h3>Copy</h3>
 <pre><code class="language-python">total = 5
 
 def add_to_total():
@@ -223,9 +420,19 @@ def add_to_total():
 add_to_total()
 print(total)
 </code></pre>
-<h2>Change</h2>
+<h3>Change</h3>
 <p>Change the value being added to <code>total</code> so the final printed value is different.</p>
-<h2>Challenge</h2>
+<h3>Challenge</h3>
 <p>Create a second function that also uses <code>global total</code> and changes the value in a different way before printing it.</p>
+<footer>
+<pre id="ducky">
+    <span class="yellow">_</span>
+ <span class="yellow">__(</span><span class="eye">o</span><span class="yellow">)</span><span class="orange">=</span>
+ <span class="yellow">\___)</span>
+<span class="grass">&gt;</span><span class="water">~~~~~</span><span class="grass">&lt;</span></pre>
+<p id="end-message" class="flourish"><em>Make something worth making.</em></p>
+<div id="spacer"></div>
+<p id="copy">© Nathan Forsyth</p>
+</footer>
 </body>
 </html>

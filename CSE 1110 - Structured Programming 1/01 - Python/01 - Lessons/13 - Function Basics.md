@@ -1,10 +1,12 @@
-# Overview
+# Lesson 13 - Function Basics
+
+## Overview
 
 We have now input values, processed values, and output values. That is a large part of the computer science curriculum.
 
 The other large part comes from breaking the different processes you will program into modules. In this course, the modules we will be focusing on are functions.
 
-# Important Information
+## Important Information
 
 A function is a block of code that only runs when it is called.
 
@@ -18,7 +20,7 @@ Every function has:
 
 Code defined in a function is reusable, and can be added in the program as many times as the user sees fit.
 
-## Definition
+### Definition
 
 Let's look at an example of a function definition.
 
@@ -32,7 +34,7 @@ def greet():
 * double parenthesis and a colon are required `():`
 * `print("Hello World")` is the indented block of code
 
-## Indentation Is Required
+### Indentation Is Required
 
 In Python, **every function must have an indented block of code** underneath it.
 
@@ -46,7 +48,7 @@ def greet():
 
 Python expects at least one indented line after the colon. If it does not find one, the program will not run.
 
-## The `pass` Keyword
+### The `pass` Keyword
 
 Sometimes you want to define a function before you are ready to write its code. In this case, you can use the `pass` keyword.
 
@@ -63,7 +65,7 @@ The above function is valid, and does not cause any errors.
 
 Using `pass` is useful when planning your program or writing placeholder functions.
 
-## Calling Functions
+### Calling Functions
 
 If we wanted to call this function later it would look like this:
 
@@ -82,7 +84,7 @@ def greet():
 greet()
 ```
 
-## Order Matters
+### Order Matters
 
 Another thing that is important to note about functions is that in python, functions ALWAYS need to be defined before they are called. In some languages it doesn't matter where you put your functions, but in python your functions need to be written above the place they are called in your code.
 
@@ -109,7 +111,7 @@ def greet():
 
 When a function is called before it is defined, we get a `NameError` because the function is trying to be called before it is defined. The easiest fix for this is to ensure the function is defined before it is called.
 
-## Function Scope
+### Function Scope
 
 Sometimes you will want to use variables inside of functions. In python, functions are a special part of the code that treat variables differently than other parts of the code. This is called variable scope.
 
@@ -163,9 +165,9 @@ print(message)
 greet()
 ```
 
-# Copy, Change, Challenge – Defining and Calling Functions
+## Copy, Change, Challenge – Defining and Calling Functions
 
-## Copy
+### Copy
 
 ```python
 def greet():
@@ -174,17 +176,17 @@ def greet():
 greet()
 ```
 
-## Change
+### Change
 
 Change the message inside the `print()` statement so the function prints a different greeting.
 
-## Challenge
+### Challenge
 
 Create a new function called `farewell` that prints a goodbye message, and then call it after `greet()`.
 
-# Copy, Change, Challenge – Using an Empty Function
+## Copy, Change, Challenge – Using an Empty Function
 
-## Copy
+### Copy
 
 ```python
 def not_ready_yet():
@@ -193,17 +195,17 @@ def not_ready_yet():
 not_ready_yet()
 ```
 
-## Change
+### Change
 
 Replace `pass` with a `print()` statement so the function displays a message.
 
-## Challenge
+### Challenge
 
 Create a function that initially uses `pass`, then later add an indented block of code that prints at least two lines when the function is called.
 
-# Copy, Change, Challenge – Using a Local Variable
+## Copy, Change, Challenge – Using a Local Variable
 
-## Copy
+### Copy
 
 ```python
 def show_score():
@@ -213,17 +215,17 @@ def show_score():
 show_score()
 ```
 
-## Change
+### Change
 
 Change the value of the `score` variable to a different number and run the program again.
 
-## Challenge
+### Challenge
 
 Add a second local variable inside the function and print both values on separate lines.
 
-# Copy, Change, Challenge – Using the `global` Keyword
+## Copy, Change, Challenge – Using the `global` Keyword
 
-## Copy
+### Copy
 
 ```python
 total = 5
@@ -236,10 +238,10 @@ add_to_total()
 print(total)
 ```
 
-## Change
+### Change
 
 Change the value being added to `total` so the final printed value is different.
 
-## Challenge
+### Challenge
 
 Create a second function that also uses `global total` and changes the value in a different way before printing it.

@@ -1,8 +1,10 @@
-# Overview
+# Lesson 19 - Installing and Importing Libraries
+
+## Overview
 
 In this lesson, you will learn how to import and use **built-in Python modules** such as `math`, `turtle`, and `tkinter`. You will also learn that not all modules come installed with Python, how to recognize built-in libraries versus external ones, and how to find and use documentation to learn new modules effectively.
 
-# Important Information
+## Important Information
 
 Python includes many **built-in modules** that add extra functionality without you needing to write everything from scratch.
 
@@ -16,7 +18,7 @@ Examples of common built-in modules:
 
 These modules are included with most standard Python installations.
 
-## Importing a Built-in Module
+### Importing a Built-in Module
 
 To use a built-in module, you must import it.
 
@@ -32,7 +34,7 @@ print(math.sqrt(25))
 
 This keeps your code organized and makes it clear where functions come from.
 
-## Importing With an Alias
+### Importing With an Alias
 
 Some module names are long or used frequently. You can shorten them using `as`.
 
@@ -44,7 +46,7 @@ print(m.sqrt(16))
 
 This does not change how the module works—it only changes how you refer to it.
 
-## Importing Specific Tools From a Module
+### Importing Specific Tools From a Module
 
 You can import only what you need from a module.
 
@@ -59,7 +61,7 @@ In this case you do not need to use `math` as a prefix for functions. You also o
 
 This can make code cleaner, but it is less obvious where functions come from.
 
-## Example: Using the `turtle` Module
+### Example: Using the `turtle` Module
 
 `turtle` is a built-in module used for drawing and visual programming.
 
@@ -74,7 +76,7 @@ t.forward(100)
 turtle.done()
 ```
 
-## Example: Using the `tkinter` Module
+### Example: Using the `tkinter` Module
 
 `tkinter` is Python’s standard library for creating basic windows.
 
@@ -90,7 +92,7 @@ label.pack()
 window.mainloop()
 ```
 
-## Not All Modules Are Installed
+### Not All Modules Are Installed
 
 Important distinction:
 
@@ -111,7 +113,7 @@ For now:
 * If `import` works without errors, the module is available
 * If Python raises an `AttributeError` or `ModuleNotFoundError`, the module is not installed
 
-## Finding Documentation
+### Finding Documentation
 
 You will often need to learn how a module works by reading documentation.
 
@@ -132,7 +134,7 @@ Examples:
 * "python turtle forward"
 * "python tkinter Label"
 
-## Reading Documentation Effectively
+### Reading Documentation Effectively
 
 When reading documentation:
 
@@ -147,21 +149,21 @@ Good habits:
 * Test small examples first
 * Change values to see what happens
 
-## Common Errors and Fixes
+### Common Errors and Fixes
 
-### ModuleNotFoundError
+#### ModuleNotFoundError
 
 **Cause**: Module is not installed
 
 **Fix**: Confirm whether the module is built-in or external
 
-### AttributeError
+#### AttributeError
 
 **Cause**: Function name is incorrect or does not exist
 
 **Fix**: Check spelling and documentation
 
-### Nothing Happens
+#### Nothing Happens
 
 **Cause**: Required setup or loop is missing
 

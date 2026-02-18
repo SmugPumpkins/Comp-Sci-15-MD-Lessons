@@ -6,74 +6,271 @@
 
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+    * {
+        box-sizing: border-box;
+    }
 
-body {
-    max-width: 900px;
-    margin: 40px auto;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    line-height: 1.6;
-    background-color: #14012b;
-    color: white;
-}
+    body {
+        max-width: 900px;
+        margin: 40px auto;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        background-color: #100120;
+        color: rgb(238, 238, 238);
+    }
 
-pre {
-    margin: 1em 0;
-    padding: 12px;
-    overflow-x: auto;
-}
+    h1 {
+        font-size: 2.25rem;
+    }
 
-pre code {
-    padding: 0;
-    background: transparent;
-    border: 2px solid white;
-    border-radius: 5px;
-}
+    h1::after {
+        content: "";
+        display: block;
+        height: 4px;
+        background: rgb(238, 238, 238);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-code {
-    padding: 3px;
-    background: #413a4a;
-    border-radius: 3px;
-}
+    h2 {
+        font-size: 2rem;
+        color: rgb(252, 204, 141);
+        margin: 1.5rem 0.25rem;
+    }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5em 0;
-}
+    h2::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: rgb(252, 204, 141);
+        width: 100%;
+        margin-top: 0.1rem;
+    }
 
-th, td {
-    border: 1px solid white;
-    padding: 8px 10px;
-    text-align: left;
-    vertical-align: top;
-}
+    h3 {
+        font-weight: 300;
+        font-size: 1.75rem;
+        color: rgb(250, 249, 202);
+        margin: 1.25rem 0.75rem;
+    }
 
-thead {
-    background-color: #2b1a4a;
-}
+    h3::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(250, 249, 202);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-tbody tr:nth-child(even) {
-    background-color: #1d1235;
-}
+    h4 {
+        font-weight: 300;
+        font-size: 1.5rem;
+        color: rgb(201, 245, 248);
+        margin: 1rem 1.25rem;
+    }
+
+    h4::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(201, 245, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h5 {
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: rgb(239, 201, 248);
+        margin: 1rem 1.5rem;
+    }
+
+    h5::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(239, 201, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h6 {
+        font-weight: 300;
+        font-size: 1rem;
+        color: rgb(248, 210, 201);
+        margin: 1rem 1.75rem;
+    }
+
+    h6::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(248, 210, 201);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    a,
+    a:visited {
+        color: rgb(233, 157, 157);
+        text-decoration: underline;
+        font-weight: 400;
+    }
+
+    a:hover {
+        font-weight: 600;
+    }
+
+    body>p,
+    body>ul,
+    body>ol {
+        margin: 1rem 2rem;
+    }
+
+    p,
+    ul,
+    ol {
+        margin-bottom: 1rem;
+        text-align: justify;
+        text-align-last: left;
+    }
+
+    pre {
+        margin: 1em 0;
+        padding: 12px;
+        overflow-x: auto;
+    }
+
+    pre code {
+        padding: 0;
+        background: transparent;
+        border: 2px solid white;
+        border-radius: 5px;
+    }
+
+    code {
+        padding: 3px;
+        background: #413a4a;
+        border-radius: 3px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5em 0;
+    }
+
+    th,
+    td {
+        border: 1px solid white;
+        padding: 8px 10px;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    thead {
+        background-color: #2b1a4a;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #1d1235;
+    }
+
+    #end-message {
+        text-align: center;
+        text-align-last: center;
+        font-size: 1rem;
+        font-weight: 300;
+        margin: 0;
+        color: rgb(250, 249, 202);
+    }
+
+    footer {
+        margin-top: 7rem;
+    }
+
+    #spacer {
+        height: 1rem;
+        background: transparent;
+    }
+
+    #copy {
+        text-align: center;
+        text-align-last: center;
+        color: #100120;
+        color: #403150;
+    }
+
+    .flourish::before {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    .flourish::after {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    #ducky {
+        line-height: 2.65rem;
+        font-family: "Google Sans Code", monospace;
+        font-weight: 600;
+        font-size: 2.5rem;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .yellow {
+        color: #f7ec52;
+    }
+
+    .orange {
+        color: #fcac00;
+    }
+
+    .eye {
+        color: #BCFAF2;
+    }
+
+    .water {
+        color: #008dd5;
+    }
+
+    .grass {
+        color: #96f58e;
+    }
+
+    #rubric {
+        margin-left: -0.5in;
+        margin-right: -0.5in;
+        width: calc(100% + 1.0in);
+        font-size: 0.6rem;
+    }
+    #rubric th{
+    font-size: 0.8rem;
+    }
 </style>
 </head>
 <body>
-<h1>Overview</h1>
+<h1>Lesson 21 - Introduction to Pytest</h1>
+<h2>Overview</h2>
 <p>In this lesson, you will learn how to <strong>test functions using pytest</strong>. Testing allows you to automatically check that your functions work correctly and continue working as your program grows. This lesson will focus on setting up pytest, writing test files, following pytest’s naming rules, using <code>assert</code> statements, and running tests inside <strong>PyCharm</strong>.</p>
-<h1>Important Information</h1>
+<h2>Important Information</h2>
 <p>Testing is a core skill in computer science. Instead of manually running your program and checking output every time, tests allow you to verify that functions behave as expected and catch mistakes early.</p>
 <p>In this course, we will use <strong>pytest</strong>, a popular Python testing framework.</p>
-<h2>What Is pytest?</h2>
+<h3>What Is pytest?</h3>
 <p><code>pytest</code> is an external library that allows you to automatically test code after some short set up. <code>pytest</code> automatically finds test files in your project folders, runs the test functions that you create, and reports back which tests passed and which tests failed.</p>
 <p><code>pytest</code> is not included with Python by default, so it must be installed.</p>
-<h2>Installing pytest</h2>
+<h3>Installing pytest</h3>
 <p>pytest is installed using <code>pip</code>, Python’s package manager.</p>
 <pre><code class="language-bash">pip install pytest
 </code></pre>
@@ -81,9 +278,9 @@ tbody tr:nth-child(even) {
 <p>If pytest is installed correctly, running the following command will display the installed version number:</p>
 <pre><code class="language-bash">pytest --version
 </code></pre>
-<h2>What Happens When a Test Fails</h2>
+<h3>What Happens When a Test Fails</h3>
 <p>If a test fails, pytest will show which test failed, show the user the expected value <em>(the one that the user defined in the condition of the <code>assert</code>)</em>, and show the user the actual value <em>(the value that the function actually output)</em>.</p>
-<h2>Running Tests in PyCharm</h2>
+<h3>Running Tests in PyCharm</h3>
 <p>PyCharm has built-in support for pytest.</p>
 <p>To run tests:</p>
 <ol>
@@ -93,9 +290,9 @@ tbody tr:nth-child(even) {
 <li>Select <strong>“Run tests”</strong></li>
 </ol>
 <p>Then PyCharm will run all test files inside the folder, show the results to the user in the terminal, and output key information for any tests that failed.</p>
-<p>You can also test a single file by right clicking the specific test file you want to check and run just those tests with the <strong>&ldquo;Run tests&rdquo;</strong> menu option.</p>
-<h2>Common Errors and Fixes</h2>
-<h3>pytest Not Found</h3>
+<p>You can also test a single file by right clicking the specific test file you want to check and run just those tests with the <strong>“Run tests”</strong> menu option.</p>
+<h3>Common Errors and Fixes</h3>
+<h4>pytest Not Found</h4>
 <ul>
 <li>
 <p><strong>Cause</strong>: pytest is not installed in the active environment</p>
@@ -104,7 +301,7 @@ tbody tr:nth-child(even) {
 <p><strong>Fix</strong>: Install pytest using <code>pip</code> and confirm the correct interpreter is selected in PyCharm</p>
 </li>
 </ul>
-<h3>No Tests Are Running</h3>
+<h4>No Tests Are Running</h4>
 <ul>
 <li>
 <p><strong>Cause</strong>: File name does not start with <code>test_</code> or function name does not start with <code>test_</code></p>
@@ -113,7 +310,7 @@ tbody tr:nth-child(even) {
 <p><strong>Fix</strong>: Rename files and functions to follow pytest rules</p>
 </li>
 </ul>
-<h3>Import Errors</h3>
+<h4>Import Errors</h4>
 <ul>
 <li>
 <p><strong>Cause</strong>: Incorrect import path</p>
@@ -122,7 +319,7 @@ tbody tr:nth-child(even) {
 <p><strong>Fix</strong>: Check file locations and nsure your project structure matches your imports</p>
 </li>
 </ul>
-<h3>Using <code>print()</code> Instead of <code>assert</code></h3>
+<h4>Using <code>print()</code> Instead of <code>assert</code></h4>
 <ul>
 <li>
 <p><strong>Cause</strong>: Misunderstanding how tests work</p>
@@ -131,7 +328,17 @@ tbody tr:nth-child(even) {
 <p><strong>Fix</strong>: Replace prints with <code>assert</code> statements</p>
 </li>
 </ul>
-<h2>The Importance of Testing</h2>
+<h3>The Importance of Testing</h3>
 <p>Creating and running tests on your code is crucial to developing problem solving skills. It helps you to think clearly about what your function should do and write more reliable programs. Testing often will also allow you to catch bugs earlier in development. These skills will prepare you for larger projects throughout this course, as well as software development as a career. Testing may feel slower at first, but it saves time and frustration as programs become more complex.</p>
+<footer>
+<pre id="ducky">
+    <span class="yellow">_</span>
+ <span class="yellow">__(</span><span class="eye">o</span><span class="yellow">)</span><span class="orange">=</span>
+ <span class="yellow">\___)</span>
+<span class="grass">&gt;</span><span class="water">~~~~~</span><span class="grass">&lt;</span></pre>
+<p id="end-message" class="flourish"><em>Make something worth making.</em></p>
+<div id="spacer"></div>
+<p id="copy">© Nathan Forsyth</p>
+</footer>
 </body>
 </html>

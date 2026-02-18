@@ -1,8 +1,10 @@
-# Overview
+# Lesson 16 - IPO Functions
+
+## Overview
 
 In this lesson, you will learn how to write functions that **input**, **process**, and **output** data. These three steps are often called **IPO**. Thinking about functions in terms of IPO helps make it clear what information goes into a function, what the function does with that information, and what comes back out.
 
-# Important Information
+## Important Information
 
 Many problems in computer science can be broken down into three clear steps:
 
@@ -12,7 +14,7 @@ Many problems in computer science can be broken down into three clear steps:
 
 Functions are a natural way to organize code using IPO.
 
-## IPO and Functions
+### IPO and Functions
 
 When working with functions:
 
@@ -22,7 +24,7 @@ When working with functions:
 
 A function that follows IPO does not need to print anything. Instead, it returns a value so the rest of the program can decide what to do with the result.
 
-## Example: IPO in a Function
+### Example: IPO in a Function
 
 ```python
 def double_number(number):
@@ -51,13 +53,13 @@ The function:
 2. Processes it by doubling it
 3. Outputs `10` back to the program
 
-## Why Return Is Important
+### Why Return Is Important
 
 Using `return` allows the output of the process to be stored as a variable to be used by other code. By returning a variable, the function can be tested to see if it produces the expected output. The `return` keyword on it's own doesn't provide any additional feedback to the user, it only provides data to the program itself.
 
 When the user does require feedback, the program needs to `print()` the result. Printing is something the **main program** should usually handle, not the function itself.
 
-## Multiple Steps of Processing
+### Multiple Steps of Processing
 
 Functions can have more than one processing step before returning a value.
 
@@ -75,7 +77,7 @@ IPO breakdown:
 * **Process**: add a bonus
 * **Output**: the final total
 
-## Using Returned Values
+### Using Returned Values
 
 Returned values can be stored in a variable, used again later, or printed.
 
@@ -88,13 +90,13 @@ print(final_score)
 
 The function does the processing, and the rest of the program decides what to do with the output.
 
-# Set Up
+## Set Up
 
 Create a new python file called `functions_ipo.py`.
 
-# Copy, Change, Challenge - Square a Number
+## Copy, Change, Challenge - Square a Number
 
-## Copy
+### Copy
 
 ```python
 def square(number):
@@ -108,16 +110,16 @@ print(answer)
 
 Identify the input, process, and output in this function.
 
-## Change
+### Change
 
 Change the function so it cubes the number instead of squaring it.
 
-## Challenge
+### Challenge
 
 Create a function that takes a number as input, adds 10 to it, and returns the result. Store the returned value in a variable and print it.
 
-# Copy, Change, Challenge - Converting Numbers
-## Copy
+## Copy, Change, Challenge - Converting Numbers
+### Copy
 
 ```python
 def convert_minutes(minutes):
@@ -129,11 +131,11 @@ print(time_in_seconds)
 
 ```
 
-## Change
+### Change
 
 Change the input value so the output is different.
 
-## Challenge
+### Challenge
 
 Write a new function that:
 

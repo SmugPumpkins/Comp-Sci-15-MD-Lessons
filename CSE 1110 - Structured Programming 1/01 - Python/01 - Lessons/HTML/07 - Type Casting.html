@@ -6,112 +6,319 @@
 
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+    * {
+        box-sizing: border-box;
+    }
 
-body {
-    max-width: 900px;
-    margin: 40px auto;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    line-height: 1.6;
-    background-color: #14012b;
-    color: white;
-}
+    body {
+        max-width: 900px;
+        margin: 40px auto;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        background-color: #100120;
+        color: rgb(238, 238, 238);
+    }
 
-pre {
-    margin: 1em 0;
-    padding: 12px;
-    overflow-x: auto;
-}
+    h1 {
+        font-size: 2.25rem;
+    }
 
-pre code {
-    padding: 0;
-    background: transparent;
-    border: 2px solid white;
-    border-radius: 5px;
-}
+    h1::after {
+        content: "";
+        display: block;
+        height: 4px;
+        background: rgb(238, 238, 238);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-code {
-    padding: 3px;
-    background: #413a4a;
-    border-radius: 3px;
-}
+    h2 {
+        font-size: 2rem;
+        color: rgb(252, 204, 141);
+        margin: 1.5rem 0.25rem;
+    }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5em 0;
-}
+    h2::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: rgb(252, 204, 141);
+        width: 100%;
+        margin-top: 0.1rem;
+    }
 
-th, td {
-    border: 1px solid white;
-    padding: 8px 10px;
-    text-align: left;
-    vertical-align: top;
-}
+    h3 {
+        font-weight: 300;
+        font-size: 1.75rem;
+        color: rgb(250, 249, 202);
+        margin: 1.25rem 0.75rem;
+    }
 
-thead {
-    background-color: #2b1a4a;
-}
+    h3::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(250, 249, 202);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-tbody tr:nth-child(even) {
-    background-color: #1d1235;
-}
+    h4 {
+        font-weight: 300;
+        font-size: 1.5rem;
+        color: rgb(201, 245, 248);
+        margin: 1rem 1.25rem;
+    }
+
+    h4::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(201, 245, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h5 {
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: rgb(239, 201, 248);
+        margin: 1rem 1.5rem;
+    }
+
+    h5::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(239, 201, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h6 {
+        font-weight: 300;
+        font-size: 1rem;
+        color: rgb(248, 210, 201);
+        margin: 1rem 1.75rem;
+    }
+
+    h6::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(248, 210, 201);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    a,
+    a:visited {
+        color: rgb(233, 157, 157);
+        text-decoration: underline;
+        font-weight: 400;
+    }
+
+    a:hover {
+        font-weight: 600;
+    }
+
+    body>p,
+    body>ul,
+    body>ol {
+        margin: 1rem 2rem;
+    }
+
+    p,
+    ul,
+    ol {
+        margin-bottom: 1rem;
+        text-align: justify;
+        text-align-last: left;
+    }
+
+    pre {
+        margin: 1em 0;
+        padding: 12px;
+        overflow-x: auto;
+    }
+
+    pre code {
+        padding: 0;
+        background: transparent;
+        border: 2px solid white;
+        border-radius: 5px;
+    }
+
+    code {
+        padding: 3px;
+        background: #413a4a;
+        border-radius: 3px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5em 0;
+    }
+
+    th,
+    td {
+        border: 1px solid white;
+        padding: 8px 10px;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    thead {
+        background-color: #2b1a4a;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #1d1235;
+    }
+
+    #end-message {
+        text-align: center;
+        text-align-last: center;
+        font-size: 1rem;
+        font-weight: 300;
+        margin: 0;
+        color: rgb(250, 249, 202);
+    }
+
+    footer {
+        margin-top: 7rem;
+    }
+
+    #spacer {
+        height: 1rem;
+        background: transparent;
+    }
+
+    #copy {
+        text-align: center;
+        text-align-last: center;
+        color: #100120;
+        color: #403150;
+    }
+
+    .flourish::before {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    .flourish::after {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    #ducky {
+        line-height: 2.65rem;
+        font-family: "Google Sans Code", monospace;
+        font-weight: 600;
+        font-size: 2.5rem;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .yellow {
+        color: #f7ec52;
+    }
+
+    .orange {
+        color: #fcac00;
+    }
+
+    .eye {
+        color: #BCFAF2;
+    }
+
+    .water {
+        color: #008dd5;
+    }
+
+    .grass {
+        color: #96f58e;
+    }
+
+    #rubric {
+        margin-left: -0.5in;
+        margin-right: -0.5in;
+        width: calc(100% + 1.0in);
+        font-size: 0.6rem;
+    }
+    #rubric th{
+    font-size: 0.8rem;
+    }
 </style>
 </head>
 <body>
-<h1>Overview</h1>
-<p>In a previous lesson, we looked at how some variable types don&rsquo;t play nice with others. This is especially important to know for when you want to use data retrieved from a user&rsquo;s input.</p>
+<h1>Lesson 7 - Type Casting</h1>
+<h2>Overview</h2>
+<p>In a previous lesson, we looked at how some variable types don’t play nice with others. This is especially important to know for when you want to use data retrieved from a user’s input.</p>
 <p><strong>ALL USER INPUT IS A STRING EVEN IF THEY TYPED NUMBERS!</strong></p>
-<p>However, sometimes you want to do math with the input a user gave you. That&rsquo;s where type caseing comes in.</p>
-<h1>Important Information</h1>
+<p>However, sometimes you want to do math with the input a user gave you. That’s where type caseing comes in.</p>
+<h2>Important Information</h2>
 <p>When we start off with casting, we are going to assume that our users are nice and cooperative. The first time we use casting, we will assume that our user gave us the information we asked for. </p>
-<p>However, users are not nice. Users break code. This lesson on casting is meant only as a demonstration for changing types, but is not robust enough to be considered &ldquo;good code&rdquo;.</p>
-<p>We will learn more about creating more robust code that users <em>can&rsquo;t</em> break in our next module.</p>
-<h1>Set Up</h1>
+<p>However, users are not nice. Users break code. This lesson on casting is meant only as a demonstration for changing types, but is not robust enough to be considered “good code”.</p>
+<p>We will learn more about creating more robust code that users <em>can’t</em> break in our next module.</p>
+<h2>Set Up</h2>
 <p>Create a new file called <code>typecasting.py</code>.</p>
-<h1>Copy</h1>
-<p>Consider a program where we ask for a user&rsquo;s age to determine what year they were born.</p>
-<pre><code class="language-python">age = input(&quot;What is your age?&quot;)
+<h2>Copy</h2>
+<p>Consider a program where we ask for a user’s age to determine what year they were born.</p>
+<pre><code class="language-python">age = input("What is your age?")
 
 year_born = 2026 - age
 
-print(&quot;You were born in the year&quot; + year_born)
+print("You were born in the year" + year_born)
 </code></pre>
 <p>Immediately when we run it, we get a <code>TypeError</code> because <code>age</code> is treated as a string, and <code>year_born</code> is trying to subtract a number and a string. If I typed <code>27</code> as the input, it is treated like <code>"27"</code> (notice the quotation marks) - a <code>string</code> value and not a number.</p>
 <p>To get rid of this error, we can <code>Type Cast</code>. Type casting is when we change a values type so it is interpreted differently.</p>
 <p>We can use the built in <code>int()</code> method to turn a <code>string</code> that looks like an <code>int</code> into an <code>int</code>.</p>
 <pre><code class="language-python"># Have the user give us an age.
-age = input(&quot;What is your age?&quot;)
+age = input("What is your age?")
 # Turn that age into a number.
 age = int(age)
 </code></pre>
 <p>Our other really common casting methods are <code>float()</code> for turning a value into a <code>float</code> and <code>str()</code> for turning a value into a <code>string</code>.</p>
-<h1>Change</h1>
+<h2>Change</h2>
 <p>If you run the program (which should look like this):</p>
 <pre><code class="language-python"># Have the user give us an age.
-age = input(&quot;What is your age?&quot;)
+age = input("What is your age?")
 # Turn that age into a number.
 age = int(age)
 
 year_born = 2026 - age
 
-print(&quot;You were born in the year&quot; + year_born)
+print("You were born in the year" + year_born)
 </code></pre>
 <p>You are still getting a <code>TypeError</code>! Change the <code>year_born</code> variable to a <code>string</code> so it can be added properly to our message.</p>
 <p>Once you have it running with no errors, see what happens if you are a not nice user. Instead of typing a number, type <code>"Hello!"</code> as your input. What happens?</p>
-<p>You just discovered another kind of error! A <code>ValueError</code> occurs when you try to cast a value to a new type that can&rsquo;t work.</p>
-<p>Python has no meaningful way to make <code>"Hello"</code> into an integer, which makes sense. <code>"Hello"</code> is a <code>string</code>. We won&rsquo;t look at dealing with type errors until our next module, but for now you should be aware of them.</p>
-<h1>Challenge</h1>
+<p>You just discovered another kind of error! A <code>ValueError</code> occurs when you try to cast a value to a new type that can’t work.</p>
+<p>Python has no meaningful way to make <code>"Hello"</code> into an integer, which makes sense. <code>"Hello"</code> is a <code>string</code>. We won’t look at dealing with type errors until our next module, but for now you should be aware of them.</p>
+<h2>Challenge</h2>
 <p>Ask the user for their favourite number, add 10 to it, and then tell them what their favourite number is plus 10.</p>
-<h1>Tips and Tricks</h1>
+<h2>Tips and Tricks</h2>
 <p>Any value can be placed between the brackets for type casting. You have to be careful about <code>ValueError</code>s, but you can shorten the process of getting an integer or float from a user by putting it all on one line.</p>
-<pre><code class="language-python">age = int(input(&quot;What is your age? &quot;))
+<pre><code class="language-python">age = int(input("What is your age? "))
 </code></pre>
+<footer>
+<pre id="ducky">
+    <span class="yellow">_</span>
+ <span class="yellow">__(</span><span class="eye">o</span><span class="yellow">)</span><span class="orange">=</span>
+ <span class="yellow">\___)</span>
+<span class="grass">&gt;</span><span class="water">~~~~~</span><span class="grass">&lt;</span></pre>
+<p id="end-message" class="flourish"><em>Make something worth making.</em></p>
+<div id="spacer"></div>
+<p id="copy">© Nathan Forsyth</p>
+</footer>
 </body>
 </html>

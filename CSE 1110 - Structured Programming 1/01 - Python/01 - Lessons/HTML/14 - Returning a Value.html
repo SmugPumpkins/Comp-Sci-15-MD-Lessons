@@ -6,68 +6,265 @@
 
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+    * {
+        box-sizing: border-box;
+    }
 
-body {
-    max-width: 900px;
-    margin: 40px auto;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    line-height: 1.6;
-    background-color: #14012b;
-    color: white;
-}
+    body {
+        max-width: 900px;
+        margin: 40px auto;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        background-color: #100120;
+        color: rgb(238, 238, 238);
+    }
 
-pre {
-    margin: 1em 0;
-    padding: 12px;
-    overflow-x: auto;
-}
+    h1 {
+        font-size: 2.25rem;
+    }
 
-pre code {
-    padding: 0;
-    background: transparent;
-    border: 2px solid white;
-    border-radius: 5px;
-}
+    h1::after {
+        content: "";
+        display: block;
+        height: 4px;
+        background: rgb(238, 238, 238);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-code {
-    padding: 3px;
-    background: #413a4a;
-    border-radius: 3px;
-}
+    h2 {
+        font-size: 2rem;
+        color: rgb(252, 204, 141);
+        margin: 1.5rem 0.25rem;
+    }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5em 0;
-}
+    h2::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: rgb(252, 204, 141);
+        width: 100%;
+        margin-top: 0.1rem;
+    }
 
-th, td {
-    border: 1px solid white;
-    padding: 8px 10px;
-    text-align: left;
-    vertical-align: top;
-}
+    h3 {
+        font-weight: 300;
+        font-size: 1.75rem;
+        color: rgb(250, 249, 202);
+        margin: 1.25rem 0.75rem;
+    }
 
-thead {
-    background-color: #2b1a4a;
-}
+    h3::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(250, 249, 202);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-tbody tr:nth-child(even) {
-    background-color: #1d1235;
-}
+    h4 {
+        font-weight: 300;
+        font-size: 1.5rem;
+        color: rgb(201, 245, 248);
+        margin: 1rem 1.25rem;
+    }
+
+    h4::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(201, 245, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h5 {
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: rgb(239, 201, 248);
+        margin: 1rem 1.5rem;
+    }
+
+    h5::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(239, 201, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h6 {
+        font-weight: 300;
+        font-size: 1rem;
+        color: rgb(248, 210, 201);
+        margin: 1rem 1.75rem;
+    }
+
+    h6::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(248, 210, 201);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    a,
+    a:visited {
+        color: rgb(233, 157, 157);
+        text-decoration: underline;
+        font-weight: 400;
+    }
+
+    a:hover {
+        font-weight: 600;
+    }
+
+    body>p,
+    body>ul,
+    body>ol {
+        margin: 1rem 2rem;
+    }
+
+    p,
+    ul,
+    ol {
+        margin-bottom: 1rem;
+        text-align: justify;
+        text-align-last: left;
+    }
+
+    pre {
+        margin: 1em 0;
+        padding: 12px;
+        overflow-x: auto;
+    }
+
+    pre code {
+        padding: 0;
+        background: transparent;
+        border: 2px solid white;
+        border-radius: 5px;
+    }
+
+    code {
+        padding: 3px;
+        background: #413a4a;
+        border-radius: 3px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5em 0;
+    }
+
+    th,
+    td {
+        border: 1px solid white;
+        padding: 8px 10px;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    thead {
+        background-color: #2b1a4a;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #1d1235;
+    }
+
+    #end-message {
+        text-align: center;
+        text-align-last: center;
+        font-size: 1rem;
+        font-weight: 300;
+        margin: 0;
+        color: rgb(250, 249, 202);
+    }
+
+    footer {
+        margin-top: 7rem;
+    }
+
+    #spacer {
+        height: 1rem;
+        background: transparent;
+    }
+
+    #copy {
+        text-align: center;
+        text-align-last: center;
+        color: #100120;
+        color: #403150;
+    }
+
+    .flourish::before {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    .flourish::after {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    #ducky {
+        line-height: 2.65rem;
+        font-family: "Google Sans Code", monospace;
+        font-weight: 600;
+        font-size: 2.5rem;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .yellow {
+        color: #f7ec52;
+    }
+
+    .orange {
+        color: #fcac00;
+    }
+
+    .eye {
+        color: #BCFAF2;
+    }
+
+    .water {
+        color: #008dd5;
+    }
+
+    .grass {
+        color: #96f58e;
+    }
+
+    #rubric {
+        margin-left: -0.5in;
+        margin-right: -0.5in;
+        width: calc(100% + 1.0in);
+        font-size: 0.6rem;
+    }
+    #rubric th{
+    font-size: 0.8rem;
+    }
 </style>
 </head>
 <body>
-<h1>Overview</h1>
+<h1>Lesson 14 - Returning a Value</h1>
+<h2>Overview</h2>
 <p>In this lesson, you will learn how a function can send a value back to the rest of a program using <code>return</code>. You will also learn how <code>return</code> can be used to end a function early, even when no value is being sent back.</p>
-<h1>Important Information</h1>
+<h2>Important Information</h2>
 <p>So far, the functions you have written only <em>do</em> something, such as printing text. Sometimes, instead of printing a result, we want a function to <strong>give a value back</strong> so it can be used elsewhere in the program.</p>
 <p>This is done using the <code>return</code> keyword.</p>
 <p>When a function uses <code>return</code>:</p>
@@ -76,7 +273,7 @@ tbody tr:nth-child(even) {
 <li>A value can be sent back to where the function was called</li>
 <li>The returned value can be stored in a variable</li>
 </ul>
-<h2>Returning a Value</h2>
+<h3>Returning a Value</h3>
 <p>Here is a simple example of a function that returns a value:</p>
 <pre><code class="language-python">def get_number():
     return 7
@@ -87,25 +284,25 @@ tbody tr:nth-child(even) {
 print(result)
 </code></pre>
 <p>The variable <code>result</code> now holds the value that was returned by the function.</p>
-<h2>Return vs Print</h2>
+<h3>Return vs Print</h3>
 <p>It is important to understand the difference between <code>print</code> and <code>return</code>:
 * <code>print</code> displays something to the terminal
 * <code>return</code> sends a value back to the program</p>
 <p>A function can return a value without printing anything, and a function can print something without returning a value.</p>
-<h2>Ending a Function Early</h2>
+<h3>Ending a Function Early</h3>
 <p>The <code>return</code> keyword can also be used <strong>without a value</strong>.</p>
 <p>When <code>return</code> is used by itself the function stops running immediately, and no value is returned. This is useful when you want to exit a function early and skip the rest of the code.</p>
 <p>Example:</p>
 <pre><code class="language-python">def check_status():
-    print(&quot;Checking status...&quot;)
+    print("Checking status...")
     return
-    print(&quot;This line will never run&quot;)
+    print("This line will never run")
 </code></pre>
 <p>Once <code>return</code> is reached, the function ends, so any code after it is ignored.</p>
-<h1>Set Up</h1>
+<h2>Set Up</h2>
 <p>Create a new python file called <code>returnvalues.py</code>.</p>
-<h1>Copy, Change, Challenge - Return a Value</h1>
-<h2>Copy</h2>
+<h2>Copy, Change, Challenge - Return a Value</h2>
+<h3>Copy</h3>
 <pre><code class="language-python">def get_score():
     return 100
 
@@ -113,22 +310,32 @@ score = get_score()
 print(score)
 </code></pre>
 <p>Run the program and observe where the number comes from.</p>
-<h2>Change</h2>
+<h3>Change</h3>
 <p>Change the value being returned so that a different number is printed.</p>
-<h2>Challenge</h2>
+<h3>Challenge</h3>
 <p>Create a new function that returns a string instead of a number. Store the returned value in a variable and print it.</p>
-<h1>Copy, Change, Challenge - Return Early in a Function</h1>
-<h2>Copy</h2>
+<h2>Copy, Change, Challenge - Return Early in a Function</h2>
+<h3>Copy</h3>
 <pre><code class="language-python">def early_exit():
-    print(&quot;Start of function&quot;)
+    print("Start of function")
     return
-    print(&quot;End of function&quot;)
+    print("End of function")
 
 early_exit()
 </code></pre>
-<h2>Change</h2>
+<h3>Change</h3>
 <p>Move the <code>return</code> statement so that both print statements run.</p>
-<h2>Challenge</h2>
+<h3>Challenge</h3>
 <p>Create a function that prints a message, then uses <code>return</code> to stop early based on your own logic. Add at least one line of code after the <code>return</code> that never runs.</p>
+<footer>
+<pre id="ducky">
+    <span class="yellow">_</span>
+ <span class="yellow">__(</span><span class="eye">o</span><span class="yellow">)</span><span class="orange">=</span>
+ <span class="yellow">\___)</span>
+<span class="grass">&gt;</span><span class="water">~~~~~</span><span class="grass">&lt;</span></pre>
+<p id="end-message" class="flourish"><em>Make something worth making.</em></p>
+<div id="spacer"></div>
+<p id="copy">© Nathan Forsyth</p>
+</footer>
 </body>
 </html>

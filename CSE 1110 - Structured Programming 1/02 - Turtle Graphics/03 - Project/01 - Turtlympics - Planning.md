@@ -1,6 +1,7 @@
 # Python - Turtlympics - Planning
 ## Overview
 The semi-annual Turtlympics are upon us and we need some mazes for the turtles to race through. As programmers, you will be competing to create the most incredible mazes. The categories that you can compete for are:
+
 * Best Theme
 * Best Aesthetics
 * Most Complex
@@ -9,17 +10,20 @@ Before creating your maze however, you must plan it following these guidelines.
 
 ## Project Criteria
 Your task is to create a program that creates a maze for the Turtlympics. Your program must satisfy the following criteria:
+
 * **Define** and **use** at least 2 functions that can accept parameters.
 * **Define** and **use** at least 2 functions that can return a value.
 * In total you should **define** and **use** at least 4 functions when creating your maze.
 
 In your planning for this project, you should include the following:
+
 * A **2 sentence description about what an algorithm is and how you can use it** to draw a maze for a turtle.
 * Create an **IPO chart for each function** you will be implementing.
 * **Pseudocode** or a **flow chart** demonstrating the control flow of how your maze will be drawn.
 * **Diagrams and/or sketches of the maze** you intend to create.
 
 ## Outcome Criteria
+
 * **1 Demonstrate introductory structured programming skills by planning and writing sequential algorithms.**
   * **1.1** Explain what an algorithm is and why it is used.
   * **1.2** Analyze simple algorithms and describe the task or tasks they perform.
@@ -32,7 +36,9 @@ In your planning for this project, you should include the following:
   * **1.7** Write algorithms in a clear, standard format.
   * **1.8** Test algorithms using appropriate data.
   * **1.9** Revise and improve algorithms based on testing results.
+
 ## Mastery Rubric
+
 |                                                                                  | 5 – Mastery of Skill                                                                                                                                                                                                 | 4 – Excellence in Skill                                                                                                | 3 – Proficiency in Skill                                                                          | 2 – Attempting Skill                                                                                                 | 1 – Starting to Attempt Skill                                              | 0 – Refusal to Engage with Skill         |
 | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------- |
 | **1.1 Explain what an algorithm is and why it is used.**                         | Clearly and precisely explains what an algorithm is using correct terminology, with a strong connection to maze drawing and turtle behavior; explanation shows depth and insight beyond examples discussed in class. | Accurately explains what an algorithm is and why it is useful, with a clear and relevant connection to drawing a maze. | Provides a basic, correct explanation of what an algorithm is and a general reason for using one. | Gives a vague or partially correct explanation; purpose of an algorithm is unclear or loosely connected to the task. | Shows very limited understanding; explanation is inaccurate or incomplete. | No explanation provided.                 |
@@ -48,6 +54,7 @@ In your planning for this project, you should include the following:
 
 ## Submission
 The following are *required* submissions:
+
 * A word document with the following:
   * Description of what and algorithm is and why it is being used.
   * IPO charts for each function.

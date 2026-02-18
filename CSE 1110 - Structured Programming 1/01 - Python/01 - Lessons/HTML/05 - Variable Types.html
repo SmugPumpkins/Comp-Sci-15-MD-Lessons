@@ -6,83 +6,280 @@
 
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+    * {
+        box-sizing: border-box;
+    }
 
-body {
-    max-width: 900px;
-    margin: 40px auto;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    line-height: 1.6;
-    background-color: #14012b;
-    color: white;
-}
+    body {
+        max-width: 900px;
+        margin: 40px auto;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        background-color: #100120;
+        color: rgb(238, 238, 238);
+    }
 
-pre {
-    margin: 1em 0;
-    padding: 12px;
-    overflow-x: auto;
-}
+    h1 {
+        font-size: 2.25rem;
+    }
 
-pre code {
-    padding: 0;
-    background: transparent;
-    border: 2px solid white;
-    border-radius: 5px;
-}
+    h1::after {
+        content: "";
+        display: block;
+        height: 4px;
+        background: rgb(238, 238, 238);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-code {
-    padding: 3px;
-    background: #413a4a;
-    border-radius: 3px;
-}
+    h2 {
+        font-size: 2rem;
+        color: rgb(252, 204, 141);
+        margin: 1.5rem 0.25rem;
+    }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5em 0;
-}
+    h2::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: rgb(252, 204, 141);
+        width: 100%;
+        margin-top: 0.1rem;
+    }
 
-th, td {
-    border: 1px solid white;
-    padding: 8px 10px;
-    text-align: left;
-    vertical-align: top;
-}
+    h3 {
+        font-weight: 300;
+        font-size: 1.75rem;
+        color: rgb(250, 249, 202);
+        margin: 1.25rem 0.75rem;
+    }
 
-thead {
-    background-color: #2b1a4a;
-}
+    h3::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(250, 249, 202);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-tbody tr:nth-child(even) {
-    background-color: #1d1235;
-}
+    h4 {
+        font-weight: 300;
+        font-size: 1.5rem;
+        color: rgb(201, 245, 248);
+        margin: 1rem 1.25rem;
+    }
+
+    h4::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(201, 245, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h5 {
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: rgb(239, 201, 248);
+        margin: 1rem 1.5rem;
+    }
+
+    h5::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(239, 201, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h6 {
+        font-weight: 300;
+        font-size: 1rem;
+        color: rgb(248, 210, 201);
+        margin: 1rem 1.75rem;
+    }
+
+    h6::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(248, 210, 201);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    a,
+    a:visited {
+        color: rgb(233, 157, 157);
+        text-decoration: underline;
+        font-weight: 400;
+    }
+
+    a:hover {
+        font-weight: 600;
+    }
+
+    body>p,
+    body>ul,
+    body>ol {
+        margin: 1rem 2rem;
+    }
+
+    p,
+    ul,
+    ol {
+        margin-bottom: 1rem;
+        text-align: justify;
+        text-align-last: left;
+    }
+
+    pre {
+        margin: 1em 0;
+        padding: 12px;
+        overflow-x: auto;
+    }
+
+    pre code {
+        padding: 0;
+        background: transparent;
+        border: 2px solid white;
+        border-radius: 5px;
+    }
+
+    code {
+        padding: 3px;
+        background: #413a4a;
+        border-radius: 3px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5em 0;
+    }
+
+    th,
+    td {
+        border: 1px solid white;
+        padding: 8px 10px;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    thead {
+        background-color: #2b1a4a;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #1d1235;
+    }
+
+    #end-message {
+        text-align: center;
+        text-align-last: center;
+        font-size: 1rem;
+        font-weight: 300;
+        margin: 0;
+        color: rgb(250, 249, 202);
+    }
+
+    footer {
+        margin-top: 7rem;
+    }
+
+    #spacer {
+        height: 1rem;
+        background: transparent;
+    }
+
+    #copy {
+        text-align: center;
+        text-align-last: center;
+        color: #100120;
+        color: #403150;
+    }
+
+    .flourish::before {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    .flourish::after {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    #ducky {
+        line-height: 2.65rem;
+        font-family: "Google Sans Code", monospace;
+        font-weight: 600;
+        font-size: 2.5rem;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .yellow {
+        color: #f7ec52;
+    }
+
+    .orange {
+        color: #fcac00;
+    }
+
+    .eye {
+        color: #BCFAF2;
+    }
+
+    .water {
+        color: #008dd5;
+    }
+
+    .grass {
+        color: #96f58e;
+    }
+
+    #rubric {
+        margin-left: -0.5in;
+        margin-right: -0.5in;
+        width: calc(100% + 1.0in);
+        font-size: 0.6rem;
+    }
+    #rubric th{
+    font-size: 0.8rem;
+    }
 </style>
 </head>
 <body>
-<h1>Overview</h1>
-<p>Python has a feature called &ldquo;dynamic typing&rdquo; which means that variables aren&rsquo;t created with a specific data type in mind. A variable could start out as a number, and then change to a String, and then become equal to nothing.</p>
-<p>The largest benefit to dynamic typing is also one of it&rsquo;s largest weaknesses. By being generaous with allowing different types of data to be stored in variables, writing code is beginner friendly because your code will always compile. However, some data types don&rsquo;t play nice together, which can make it challenging to identify bugs. </p>
+<h1>Lesson 5 - Variable Types</h1>
+<h2>Overview</h2>
+<p>Python has a feature called “dynamic typing” which means that variables aren’t created with a specific data type in mind. A variable could start out as a number, and then change to a String, and then become equal to nothing.</p>
+<p>The largest benefit to dynamic typing is also one of it’s largest weaknesses. By being generaous with allowing different types of data to be stored in variables, writing code is beginner friendly because your code will always compile. However, some data types don’t play nice together, which can make it challenging to identify bugs. </p>
 <p>The next few lessons will introduce different variable types and give you some frameworks for using them.</p>
-<h1>Important Information</h1>
+<h2>Important Information</h2>
 <p>When we create a variable we always give it a name and a value. This is called <strong>declaring</strong> the variable. A variable cannot be used until it has been declared.</p>
 <p>Below are variables that use 4 primitive data types in python. A primitive data type in any programming language is a basic data type. Complex data types and data structures are beyond the scope of this course, but can be useful if you take the initiative to learn them.</p>
-<h2>Boolean</h2>
+<h3>Boolean</h3>
 <p>A boolean variable (called just a <code>bool</code> in python) is a variable that is either <code>True</code> or <code>False</code>. It is the basis for how all math is done in computers, because it is another way of expressing binary code. With boolean values it is either <code>True</code> or <code>False</code>, and with binary it is either <code>1</code> or <code>0</code>.</p>
-<h2>Integer</h2>
+<h3>Integer</h3>
 <p>An integer variable (called just an <code>int</code> in python) is a variable that stores a whole number. It can be either positive or negative.</p>
-<h2>Float</h2>
-<p>A float variable (called a <code>float</code> in python) is a variable that stores a real number (a real number is a decimal number). Float is short for &ldquo;floating point&rdquo; because the value of the variable is floating between 2 integers.</p>
-<h2>String</h2>
+<h3>Float</h3>
+<p>A float variable (called a <code>float</code> in python) is a variable that stores a real number (a real number is a decimal number). Float is short for “floating point” because the value of the variable is floating between 2 integers.</p>
+<h3>String</h3>
 <p>A String variable (called a str in python) is a string of characters or letters. All user input is always processed as a string, even if the user typed in numbers.</p>
-<h1>Set Up</h1>
+<h2>Set Up</h2>
 <p>Create a new python file called <code>variabletypes.py</code>.</p>
-<h1>Copy</h1>
+<h2>Copy</h2>
 <pre><code class="language-python"># Boolean variables are always True or False
 boolean_variable = True
 
@@ -93,47 +290,47 @@ integer_variable = 27
 float_variable = 3.14
 
 # String variables are always strings of text
-string_variable = &quot;Hello, World!&quot;
+string_variable = "Hello, World!"
 </code></pre>
-<p>Let&rsquo;s see what happens if we try and make these values interact with each other. Do each of the following one at a time, and see if any errors pop up. </p>
-<h2>Experiment 1: Integer + Integer</h2>
+<p>Let’s see what happens if we try and make these values interact with each other. Do each of the following one at a time, and see if any errors pop up. </p>
+<h3>Experiment 1: Integer + Integer</h3>
 <pre><code class="language-python"># Add 2 integers together.
 print(integer_variable + integer_variable)
 </code></pre>
-<h2>Experiment 2: Float + Float</h2>
+<h3>Experiment 2: Float + Float</h3>
 <pre><code class="language-python"># Add 2 floats together.
 print(float_variable + float_variable)
 </code></pre>
-<p>So far so good&hellip;</p>
-<h2>Experiment 3: Float + Integer</h2>
+<p>So far so good…</p>
+<h3>Experiment 3: Float + Integer</h3>
 <pre><code class="language-python"># Add a float and an integer together.
 print(float_variable + integer_variable)
 </code></pre>
-<p>&hellip;as you can see, number variables do play nice with one another.</p>
-<h2>Experiment 4: Boolean + Boolean</h2>
+<p>…as you can see, number variables do play nice with one another.</p>
+<h3>Experiment 4: Boolean + Boolean</h3>
 <pre><code class="language-python"># Add a boolean and a boolean together.
 print(boolean_variable + boolean_variable)
 </code></pre>
 <p>Not what you expected? </p>
-<p>When we created <code>boolean_variable</code> we set the value to <code>True</code>. When we add <code>True</code> + <code>True</code> we get&hellip; <code>2</code>? What does this tell you about the way <code>True</code> is stored as a value? Try and figure out what number <code>False</code> represents.</p>
-<h2>Experiment 5: String + String</h2>
+<p>When we created <code>boolean_variable</code> we set the value to <code>True</code>. When we add <code>True</code> + <code>True</code> we get… <code>2</code>? What does this tell you about the way <code>True</code> is stored as a value? Try and figure out what number <code>False</code> represents.</p>
+<h3>Experiment 5: String + String</h3>
 <pre><code class="language-python"># Add a string and a string together.
 print(string_variable + string_variable)
 </code></pre>
-<p>This one hopefully wasn&rsquo;t too surprising, but what happened when we added the strings together?</p>
-<h2>Experiment 6: Number + Boolean</h2>
+<p>This one hopefully wasn’t too surprising, but what happened when we added the strings together?</p>
+<h3>Experiment 6: Number + Boolean</h3>
 <pre><code class="language-python"># Add a boolean and an integer together.
 print(boolean_variable + integer_variable)
 </code></pre>
-<h2>Experiment 7: Number + String</h2>
+<h3>Experiment 7: Number + String</h3>
 <pre><code class="language-python"># Add an integer and a string together.
 print(integer_variable + string_variable)
 </code></pre>
 <p>Would you look at that! A <code>TypeError</code>! Most code editors are super helpful at telling you exactly what is wrong. It will show you something called a <code>Traceback</code> of the most recent call the program made before the error occured.</p>
 <p>Here we can see that integer + string is not allowed in python and it will tell you that the operation of addition <code>+</code> is not allowed between these 2 types. You will get the same result if you try and add our boolean, float, or integer to a string.</p>
-<h1>Best Practices</h1>
-<p>Some code editors, like PyCharm, have built in type checking, which means you can use type hints. Type hints allow you to tell your coding environemnt that you want to keep a variable as the same type for the entire program. However, your code will still run even if you don&rsquo;t follow your hints. </p>
-<p>If I&rsquo;m being honest, using type hints in python is a personal preference of mine. I believe that it clarifies code and makes it easer to work with, so you will also have to use type hints. </p>
+<h2>Best Practices</h2>
+<p>Some code editors, like PyCharm, have built in type checking, which means you can use type hints. Type hints allow you to tell your coding environemnt that you want to keep a variable as the same type for the entire program. However, your code will still run even if you don’t follow your hints. </p>
+<p>If I’m being honest, using type hints in python is a personal preference of mine. I believe that it clarifies code and makes it easer to work with, so you will also have to use type hints. </p>
 <p>Type hints use a <code>:</code> followed by the type to help the editor know what type the variable is meant to be.</p>
 <pre><code class="language-python"># bool is used for booleans.
 my_boolean : bool = True
@@ -145,7 +342,17 @@ my_integer : int = 5
 my_float : float = 3.14
 
 # str is used for strings.
-my_string : str = &quot;Hello, World!&quot;
+my_string : str = "Hello, World!"
 </code></pre>
+<footer>
+<pre id="ducky">
+    <span class="yellow">_</span>
+ <span class="yellow">__(</span><span class="eye">o</span><span class="yellow">)</span><span class="orange">=</span>
+ <span class="yellow">\___)</span>
+<span class="grass">&gt;</span><span class="water">~~~~~</span><span class="grass">&lt;</span></pre>
+<p id="end-message" class="flourish"><em>Make something worth making.</em></p>
+<div id="spacer"></div>
+<p id="copy">© Nathan Forsyth</p>
+</footer>
 </body>
 </html>

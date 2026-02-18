@@ -6,71 +6,268 @@
 
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+    * {
+        box-sizing: border-box;
+    }
 
-body {
-    max-width: 900px;
-    margin: 40px auto;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    line-height: 1.6;
-    background-color: #14012b;
-    color: white;
-}
+    body {
+        max-width: 900px;
+        margin: 40px auto;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        background-color: #100120;
+        color: rgb(238, 238, 238);
+    }
 
-pre {
-    margin: 1em 0;
-    padding: 12px;
-    overflow-x: auto;
-}
+    h1 {
+        font-size: 2.25rem;
+    }
 
-pre code {
-    padding: 0;
-    background: transparent;
-    border: 2px solid white;
-    border-radius: 5px;
-}
+    h1::after {
+        content: "";
+        display: block;
+        height: 4px;
+        background: rgb(238, 238, 238);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-code {
-    padding: 3px;
-    background: #413a4a;
-    border-radius: 3px;
-}
+    h2 {
+        font-size: 2rem;
+        color: rgb(252, 204, 141);
+        margin: 1.5rem 0.25rem;
+    }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5em 0;
-}
+    h2::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: rgb(252, 204, 141);
+        width: 100%;
+        margin-top: 0.1rem;
+    }
 
-th, td {
-    border: 1px solid white;
-    padding: 8px 10px;
-    text-align: left;
-    vertical-align: top;
-}
+    h3 {
+        font-weight: 300;
+        font-size: 1.75rem;
+        color: rgb(250, 249, 202);
+        margin: 1.25rem 0.75rem;
+    }
 
-thead {
-    background-color: #2b1a4a;
-}
+    h3::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(250, 249, 202);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-tbody tr:nth-child(even) {
-    background-color: #1d1235;
-}
+    h4 {
+        font-weight: 300;
+        font-size: 1.5rem;
+        color: rgb(201, 245, 248);
+        margin: 1rem 1.25rem;
+    }
+
+    h4::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(201, 245, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h5 {
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: rgb(239, 201, 248);
+        margin: 1rem 1.5rem;
+    }
+
+    h5::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(239, 201, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h6 {
+        font-weight: 300;
+        font-size: 1rem;
+        color: rgb(248, 210, 201);
+        margin: 1rem 1.75rem;
+    }
+
+    h6::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(248, 210, 201);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    a,
+    a:visited {
+        color: rgb(233, 157, 157);
+        text-decoration: underline;
+        font-weight: 400;
+    }
+
+    a:hover {
+        font-weight: 600;
+    }
+
+    body>p,
+    body>ul,
+    body>ol {
+        margin: 1rem 2rem;
+    }
+
+    p,
+    ul,
+    ol {
+        margin-bottom: 1rem;
+        text-align: justify;
+        text-align-last: left;
+    }
+
+    pre {
+        margin: 1em 0;
+        padding: 12px;
+        overflow-x: auto;
+    }
+
+    pre code {
+        padding: 0;
+        background: transparent;
+        border: 2px solid white;
+        border-radius: 5px;
+    }
+
+    code {
+        padding: 3px;
+        background: #413a4a;
+        border-radius: 3px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5em 0;
+    }
+
+    th,
+    td {
+        border: 1px solid white;
+        padding: 8px 10px;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    thead {
+        background-color: #2b1a4a;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #1d1235;
+    }
+
+    #end-message {
+        text-align: center;
+        text-align-last: center;
+        font-size: 1rem;
+        font-weight: 300;
+        margin: 0;
+        color: rgb(250, 249, 202);
+    }
+
+    footer {
+        margin-top: 7rem;
+    }
+
+    #spacer {
+        height: 1rem;
+        background: transparent;
+    }
+
+    #copy {
+        text-align: center;
+        text-align-last: center;
+        color: #100120;
+        color: #403150;
+    }
+
+    .flourish::before {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    .flourish::after {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    #ducky {
+        line-height: 2.65rem;
+        font-family: "Google Sans Code", monospace;
+        font-weight: 600;
+        font-size: 2.5rem;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .yellow {
+        color: #f7ec52;
+    }
+
+    .orange {
+        color: #fcac00;
+    }
+
+    .eye {
+        color: #BCFAF2;
+    }
+
+    .water {
+        color: #008dd5;
+    }
+
+    .grass {
+        color: #96f58e;
+    }
+
+    #rubric {
+        margin-left: -0.5in;
+        margin-right: -0.5in;
+        width: calc(100% + 1.0in);
+        font-size: 0.6rem;
+    }
+    #rubric th{
+    font-size: 0.8rem;
+    }
 </style>
 </head>
 <body>
-<h1>Overview</h1>
-<p>So now we know how to get the user to input variables, and we&rsquo;ve learned some basic math for python. To make our variables more useful, we can look at how to change them.</p>
-<h1>Important Information</h1>
+<h1>Lesson 8 - Basic Math and Variables</h1>
+<h2>Overview</h2>
+<p>So now we know how to get the user to input variables, and we’ve learned some basic math for python. To make our variables more useful, we can look at how to change them.</p>
+<h2>Important Information</h2>
 <p>To do math with a variable in python, the variable always needs to be declared. When we give a variable a name and a value, this is called declaring the variable. A variable cannot be used until it has been declared.</p>
 <p>Later, when we want to change the value of the variable, we call it <strong>assigning</strong> a value to the variable. A variable can be assigned a new value as often as needed and as many times as needed.</p>
-<h2>Assigning with a Literal</h2>
+<h3>Assigning with a Literal</h3>
 <p>When we want to assign a new value to a variable, we can always just use a literal (when we literally type the value).</p>
 <pre><code class="language-python"># Declare the variable.
 my_variable = 7
@@ -78,7 +275,7 @@ my_variable = 7
 # Assign a new value with a literal
 my_variable = 100
 </code></pre>
-<h2>Assigning with an Expression</h2>
+<h3>Assigning with an Expression</h3>
 <p>We can also use an expression to assign the value of a variable. The expression can use literals or other variables.</p>
 <pre><code class="language-python"># Assigning with a literal expression
 my_variable = 50 + 40
@@ -89,7 +286,7 @@ my_second_variable = my_variable + 10
 # Assigning with just a variable as the expression
 my_third_variable = my_second_variable
 </code></pre>
-<h2>Assigning By Changing The Variable</h2>
+<h3>Assigning By Changing The Variable</h3>
 <p>Sometimes we want to change the variable by a certain amount. A common case for this is incrementing the variable (increasing it by 1) or decrementing the variable (decreasing it by 1).</p>
 <p>To change a variable by a particular amount, you need to use the variable you want to change as part of the expression.</p>
 <pre><code class="language-python"># Declaring the variable with a starting value of 0
@@ -107,7 +304,7 @@ my_variable = my_variable * 5 # new value is 35
 # Divide my variable by 7
 my_variable = my_variable / 7 # new value is 5
 </code></pre>
-<h2>Assigning with Shorthand</h2>
+<h3>Assigning with Shorthand</h3>
 <p>Changing a variable by a specific amount is a very common thing to do in programming. Because of this, programmers will often use shorthand to program when a value is changing by a specific amount.</p>
 <pre><code class="language-python"># Declaring the variable with a starting value of 0
 my_variable = 0
@@ -124,31 +321,41 @@ my_variable *= 5 # new value is 35
 # Divide my variable by 7
 my_variable /= 7 # new value is 5
 </code></pre>
-<h1>Set Up</h1>
+<h2>Set Up</h2>
 <p>Create a new file called <code>basicmathvariables.py</code>.</p>
-<h1>Copy</h1>
-<p>Let&rsquo;s start with a variable that we will add to and then print.</p>
+<h2>Copy</h2>
+<p>Let’s start with a variable that we will add to and then print.</p>
 <pre><code class="language-python">my_number = 100
 my_number = my_number + 200
 print(my_number)
 </code></pre>
-<h1>Change</h1>
+<h2>Change</h2>
 <p>Make it so that <code>200</code> is added to <code>my_number</code> with shorthand.</p>
-<h1>Challenge</h1>
+<h2>Challenge</h2>
 <p>Start with a number.
 Add <code>0</code> to it and print it.
 Subtract <code>50</code> from it and print it.
 Multiply it by <code>17</code> and print it.
 Divide it by <code>20</code> and print it.</p>
-<h1>Copy</h1>
-<p>Let&rsquo;s try one more thing. Run the following code and see what happens (even if you have a red line, try running the code).</p>
+<h2>Copy</h2>
+<p>Let’s try one more thing. Run the following code and see what happens (even if you have a red line, try running the code).</p>
 <pre><code class="language-python">my_number = 100
 my_number += another_number
 print(my_number)
 </code></pre>
 <p>You just discovered a new kind of error! A <code>NameError</code> happens when a variable (or function, which we will learn about later) is used in the code without being declared.</p>
 <p>To fix a <code>NameError</code>, all you need to do is make sure the variable is declared before being used in the code.</p>
-<h1>Change</h1>
+<h2>Change</h2>
 <p>Fix the error so that <code>another_number</code> is declared.</p>
+<footer>
+<pre id="ducky">
+    <span class="yellow">_</span>
+ <span class="yellow">__(</span><span class="eye">o</span><span class="yellow">)</span><span class="orange">=</span>
+ <span class="yellow">\___)</span>
+<span class="grass">&gt;</span><span class="water">~~~~~</span><span class="grass">&lt;</span></pre>
+<p id="end-message" class="flourish"><em>Make something worth making.</em></p>
+<div id="spacer"></div>
+<p id="copy">© Nathan Forsyth</p>
+</footer>
 </body>
 </html>

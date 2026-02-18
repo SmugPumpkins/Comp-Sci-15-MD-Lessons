@@ -1,9 +1,11 @@
-# Overview
+# Lesson 22 - Creating Test Files
+
+## Overview
 We've discussed the importance of testing and how to get `pytest` set up. Now it's time to actually build some test files.
 
-# Important Information
+## Important Information
 
-## Project Structure for Testing
+### Project Structure for Testing
 
 A common and clear structure for your project is having your main code in one folder and your tests in a separate folder.
 
@@ -17,18 +19,18 @@ project_folder
     └── test_functions.py
 ```
 
-## pytest Naming Rules
+### pytest Naming Rules
 
 `pytest` relies heavily on **naming conventions**. If these rules are not followed, pytest will not find your tests.
 
-### Test File Names
+#### Test File Names
 
 * Test files **must start with** `test_`
 * Example:
   * `test_functions.py`
   * `test_math.py`
 
-### Test Function Names
+#### Test Function Names
 
 * Test functions **must start with** `test_`
 * Example:
@@ -40,7 +42,7 @@ def test_addition():
 
 __If either the file name or function name does not start with `test_`, pytest will ignore it.__
 
-## Writing a Simple Test
+### Writing a Simple Test
 
 Suppose you have a function in `functions.py`:
 
@@ -59,7 +61,7 @@ def test_add():
     assert result == 5
 ```
 
-## The `assert` Statement
+### The `assert` Statement
 
 `assert` is the core of pytest testing.
 
@@ -83,7 +85,7 @@ assert add(4, 13) == 5
 
 When testing with `pytest` you are **not printing results**. `pytest` checks the condition for you and reports if it is `True` or `False`.
 
-## Testing Multiple Cases
+### Testing Multiple Cases
 
 Good tests often include multiple scenarios. Each test runs independently.
 

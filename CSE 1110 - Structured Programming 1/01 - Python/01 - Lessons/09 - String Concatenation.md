@@ -1,7 +1,9 @@
-# Overview
+# Lesson 9 - String Concatenation
+
+## Overview
 Now that we have some experience with taking input and a little bit of processing our data, the next 3 lessons will focus on formatting out output when we print to the Terminal.
 
-# Important Information
+## Important Information
 This first technique is called string concatenation (kon-kat-uh-NAY-shun). It is as simple as jamming strings together.
 
 The big benefit to concatenation is that the programmer has full control of the way the string comes out.
@@ -10,10 +12,10 @@ The downside is that it's inefficient to code and leads to code that is challeng
 
 This technique is also the hackiest way to do it. It technically works, but it's a very brute force way to do it.
 
-# Set Up
+## Set Up
 Create a new file called `stringconcatenation.py`.
 
-# Copy
+## Copy
 Run the following code and see what happens.
 ```python
 message = "Hello"
@@ -22,8 +24,8 @@ print(message + name)
 ```
 Does the message display the way you think the user intended it to?
 
-# Change
+## Change
 Add another variable called `space` and concatenate it into the print function so the message displays properly.
 
-# Challenge
+## Challenge
 Write a haiku where each syllable is it's own string variable. Add the syllables together and print your haiku.

@@ -3,18 +3,23 @@
 Now that you have planned how your maze will be constructed, it is time to implement it by programming it in Python. Use the IPO charts and sketches you have created to program an amazing maze.
 
 Remember, the categories you are competing for are:
+
 * Best Theme
 * Best Aesthetics
 * Most Complex
+
 ## Project Criteria
 Your task is to create a program that creates a maze for the Turtlympics. Your program must satisfy the following criteria:
+
 * **Define** and **use** at least 2 functions that can accept parameters.
 * **Define** and **use** at least 2 functions that can return a value.
 * In total you should **define** and **use** at least 4 functions when creating your maze.
 * Use **docstrings at the top of the program and for each function** you have created to effectively document your code.
 * The maze must have a definite **start** and **end** point defined.
 * Program a turtle navigating the maze from start to finish.
+
 ## Outcome Criteria
+
 * **2 Demonstrate the ability to translate algorithms into working programs.**
   * **2.1** Describe the purpose of key parts of a programming development environment.
   * **2.3** Use the key components of a programming development environment to write and run programs.
@@ -34,7 +39,9 @@ Your task is to create a program that creates a maze for the Turtlympics. Your p
     * **3.2.1** run-time and syntax errors
     * **3.2.2** logic errors
   * **3.3** Modify algorithms or code to improve accuracy.
+
 ## Mastery Rubric
+
 |                                                          | 5 – Mastery of Skill                                                                                                                                                                                                 | 4 – Excellence in Skill                                                                                             | 3 – Proficiency in Skill                                                                        | 2 – Attempting Skill                                                                           | 1 – Starting to Attempt Skill                              | 0 – Refusal to Engage with Skill |
 | -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | -------------------------------- |
 | **2.1 Use a programming IDE.**                           | Independently and efficiently uses an IDE to manage files, write code, run programs, and resolve issues without assistance.                                                                                          | Uses an IDE confidently to write, run, and manage the project with minimal guidance.                                | Uses an IDE to write and run code, but may rely on guidance for some features.                  | Uses an IDE inconsistently or incorrectly; basic functionality is partially used.              | Shows minimal ability to use an IDE.                       | Does not use an IDE.             |
@@ -48,10 +55,11 @@ Your task is to create a program that creates a maze for the Turtlympics. Your p
 
 ## Submission
 The following are *required* submissions:
+
 * Python file titled `firstname_lastinitial_turtlympics.py`.
     * *For example, Mr. Forsyth's file would be named `Nathan_F_turtlympics.py`*
   * *Please **DO NOT zip** your python file.*
 * Reference log including AI usage and all other links to websites you have used throughout the project.
 
-*To be considered for the maze competition, your assignment **MUST** be handed in **ON TIME!***
+*To be considered for the maze competition, your assignment* ***MUST*** *be handed in* ***ON TIME!***
 

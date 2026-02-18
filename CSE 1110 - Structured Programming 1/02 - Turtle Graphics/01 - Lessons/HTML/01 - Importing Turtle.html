@@ -1,390 +1,269 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>01 - Importing Turtle.md</title>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<meta charset="utf-8">
+<title>01 - Importing Turtle</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 
 <style>
-/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
+    * {
+        box-sizing: border-box;
+    }
 
-body {
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
-	padding: 0 26px;
-	line-height: var(--vscode-markdown-line-height, 22px);
-	word-wrap: break-word;
-}
+    body {
+        max-width: 900px;
+        margin: 40px auto;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        background-color: #100120;
+        color: rgb(238, 238, 238);
+    }
 
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
-}
+    h1 {
+        font-size: 2.25rem;
+    }
 
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
-}
+    h1::after {
+        content: "";
+        display: block;
+        height: 4px;
+        background: rgb(238, 238, 238);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
-}
+    h2 {
+        font-size: 2rem;
+        color: rgb(252, 204, 141);
+        margin: 1.5rem 0.25rem;
+    }
 
-body.showEditorSelection .code-line {
-	position: relative;
-}
+    h2::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: rgb(252, 204, 141);
+        width: 100%;
+        margin-top: 0.1rem;
+    }
 
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
-}
+    h3 {
+        font-weight: 300;
+        font-size: 1.75rem;
+        color: rgb(250, 249, 202);
+        margin: 1.25rem 0.75rem;
+    }
 
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
+    h3::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(250, 249, 202);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
+    h4 {
+        font-weight: 300;
+        font-size: 1.5rem;
+        color: rgb(201, 245, 248);
+        margin: 1rem 1.25rem;
+    }
 
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
+    h4::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(201, 245, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-.vscode-light.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
+    h5 {
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: rgb(239, 201, 248);
+        margin: 1rem 1.5rem;
+    }
 
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
+    h5::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(239, 201, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
+    h6 {
+        font-weight: 300;
+        font-size: 1rem;
+        color: rgb(248, 210, 201);
+        margin: 1rem 1.75rem;
+    }
 
-.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
+    h6::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(248, 210, 201);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
+    a,
+    a:visited {
+        color: rgb(233, 157, 157);
+        text-decoration: underline;
+        font-weight: 400;
+    }
 
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
+    a:hover {
+        font-weight: 600;
+    }
 
-.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
+    body>p,
+    body>ul,
+    body>ol {
+        margin: 1rem 2rem;
+    }
 
-img {
-	max-width: 100%;
-	max-height: 100%;
-}
+    p,
+    ul,
+    ol {
+        margin-bottom: 1rem;
+        text-align: justify;
+        text-align-last: left;
+    }
 
-a {
-	text-decoration: none;
-}
+    pre {
+        margin: 1em 0;
+        padding: 12px;
+        overflow-x: auto;
+    }
 
-a:hover {
-	text-decoration: underline;
-}
+    pre code {
+        padding: 0;
+        background: transparent;
+        border: 2px solid white;
+        border-radius: 5px;
+    }
 
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
-}
+    code {
+        padding: 3px;
+        background: #413a4a;
+        border-radius: 3px;
+    }
 
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-}
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5em 0;
+    }
 
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
+    th,
+    td {
+        border: 1px solid white;
+        padding: 8px 10px;
+        text-align: left;
+        vertical-align: top;
+    }
 
-h1, h2, h3 {
-	font-weight: normal;
-}
+    thead {
+        background-color: #2b1a4a;
+    }
 
-table {
-	border-collapse: collapse;
-}
+    tbody tr:nth-child(even) {
+        background-color: #1d1235;
+    }
 
-table > thead > tr > th {
-	text-align: left;
-	border-bottom: 1px solid;
-}
+    #end-message {
+        text-align: center;
+        text-align-last: center;
+        font-size: 1rem;
+        font-weight: 300;
+        margin: 0;
+        color: rgb(250, 249, 202);
+    }
 
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
-}
+    footer {
+        margin-top: 7rem;
+    }
 
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
-}
+    #spacer {
+        height: 7rem;
+        background: transparent;
+    }
 
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left-width: 5px;
-	border-left-style: solid;
-}
+    #copy {
+        text-align: center;
+        text-align-last: center;
+        color: #100120;
+        color: #403150;
+    }
 
-code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 1em;
-	line-height: 1.357em;
-}
+    .flourish::before {
+        content: "——";
+        margin: 0 0.5rem;
+    }
 
-body.wordWrap pre {
-	white-space: pre-wrap;
-}
+    .flourish::after {
+        content: "——";
+        margin: 0 0.5rem;
+    }
 
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
-}
+    #ducky {
+        line-height: 2.65rem;
+        font-family: "Google Sans Code", monospace;
+        font-weight: 600;
+        font-size: 2.5rem;
+        width: fit-content;
+        margin: 0 auto;
+    }
 
-pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
-}
+    .yellow {
+        color: #f7ec52;
+    }
 
-/** Theming */
+    .orange {
+        color: #fcac00;
+    }
 
-.vscode-light pre {
-	background-color: rgba(220, 220, 220, 0.4);
-}
+    .eye {
+        color: #BCFAF2;
+    }
 
-.vscode-dark pre {
-	background-color: rgba(10, 10, 10, 0.4);
-}
+    .water {
+        color: #008dd5;
+    }
 
-.vscode-high-contrast pre {
-	background-color: rgb(0, 0, 0);
-}
+    .grass {
+        color: #96f58e;
+    }
 
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
-}
-
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
-}
-
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
-}
-
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
-}
-
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
-}
-
+    #rubric {
+        margin-left: -0.5in;
+        margin-right: -0.5in;
+        width: calc(100% + 1.0in);
+        font-size: 0.6rem;
+    }
+    #rubric th{
+    font-size: 0.8rem;
+    }
 </style>
-
-<style>
-/* 
-
-An Old Hope â Star Wars Syntax (c) Gustavo Costa <gusbemacbe@gmail.com>
-Original theme - Ocean Dark Theme â by https://github.com/gavsiu
-Based on Jesse Leite's Atom syntax theme 'An Old Hope' â https://github.com/JesseLeite/an-old-hope-syntax-atom
-
-*/
-
-/* Death Star Comment */
-.hljs-comment,
-.hljs-quote 
-{
-  color: #B6B18B;
-}
-
-/* Darth Vader */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion 
-{
-  color: #EB3C54;
-}
-
-/* Threepio */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link 
-{
-  color: #E7CE56;
-}
-
-/* Luke Skywalker */
-.hljs-attribute 
-{
-  color: #EE7C2B;
-}
-
-/* Obi Wan Kenobi */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition 
-{
-  color: #4FB4D7;
-}
-
-/* Yoda */
-.hljs-title,
-.hljs-section 
-{
-  color: #78BB65;
-}
-
-/* Mace Windu */
-.hljs-keyword,
-.hljs-selector-tag 
-{
-  color: #B45EA4;
-}
-
-/* Millenium Falcon */
-.hljs 
-{
-  display: block;
-  overflow-x: auto;
-  background: #1C1D21;
-  color: #c0c5ce;
-  padding: 0.5em;
-}
-
-.hljs-emphasis 
-{
-  font-style: italic;
-}
-
-.hljs-strong 
-{
-  font-weight: bold;
-}
-
-</style>
-
-<style>
-/*
- * Markdown PDF CSS
- */
-
- body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-	padding: 0 12px;
-}
-
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
-
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
-}
-
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
-
-.emoji {
-	height: 1.4em;
-}
-
-code {
-	font-size: 14px;
-	line-height: 19px;
-}
-
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
-}
-
-/* Page Break : use <div class="page"/> to insert page break
--------------------------------------------------------- */
-.page {
-	page-break-after: always;
-}
-
-</style>
-
-<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
 </head>
 <body>
-  <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
-          ? 'dark'
-          : 'default'
-    });
-  </script>
-<h1 id="overview">Overview</h1>
+<h1>Overview</h1>
 <p>In this lesson, you will be introduced to Python’s built-in <code>turtle</code> library. The turtle library allows programmers to create drawings and animations by controlling a virtual turtle that moves around the screen. This first lesson is exploratory and focuses on setting up turtle and exploring what it can do before writing any turtle programs.</p>
-<h1 id="important-information">Important Information</h1>
+<h1>Important Information</h1>
 <p>The <code>turtle</code> library comes bundled with Python, so no additional installation is required. It is designed to help beginners learn programming concepts by providing immediate visual feedback.</p>
 <p>Key ideas to understand before moving forward:</p>
 <ul>
@@ -394,13 +273,13 @@ code {
 <li>Python includes built-in turtle demo programs that showcase what turtle graphics can do.</li>
 </ul>
 <p>Exploring demos first helps you build curiosity and gives you a mental model of what you will later create with your own code.</p>
-<h1 id="set-up">Set Up</h1>
+<h1>Set Up</h1>
 <ol>
 <li>Make sure Python is installed and working on your computer.</li>
 <li>Create a new folder for your work.</li>
 <li>Inside that folder, create a new Python file named <code>turtle_intro.py</code>.</li>
 </ol>
-<h1 id="instructions">Instructions</h1>
+<h1>Instructions</h1>
 <p>Follow the steps below in order.</p>
 <ol>
 <li>
@@ -408,27 +287,29 @@ code {
 </li>
 <li>
 <p>Add the following line to the file:</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">import</span> turtle
-</div></code></pre>
 </li>
-<li>
-<p>Run the file to confirm there are no errors.</p>
+</ol>
+<p><code>python
+   import turtle</code></p>
+<ol start="3">
+<li>Run the file to confirm there are no errors.</li>
+</ol>
 <ul>
 <li>You should not see anything happen yet. This is normal.</li>
 <li>This step confirms that the turtle library is available and working.</li>
 </ul>
-</li>
+<ol start="4">
 <li>
 <p>Open your command line or terminal.</p>
 </li>
 <li>
 <p>Run the following command:</p>
-<pre class="hljs"><code><div>python -m turtle
-</div></code></pre>
 </li>
-<li>
-<p>Explore and run the different demo modes that are available to see what kinds of things turtle can do!</p>
-</li>
+</ol>
+<p><code>bash
+   python -m turtle</code></p>
+<ol start="6">
+<li>Explore and run the different demo modes that are available to see what kinds of things turtle can do!</li>
 </ol>
 <p>As you explore the demos, pay attention to:</p>
 <ul>
@@ -437,6 +318,15 @@ code {
 <li>How repetition creates complex designs from simple movements.</li>
 </ul>
 <p>You are not expected to understand the code behind the demos yet. The goal is to explore, observe, and become familiar with what is possible using turtle graphics.</p>
-
+<footer>
+<pre id="ducky">
+    <span class="yellow">_</span>
+ <span class="yellow">__(</span><span class="eye">o</span><span class="yellow">)</span><span class="orange">=</span>
+ <span class="yellow">\___)</span>
+<span class="grass">&gt;</span><span class="water">~~~~~</span><span class="grass">&lt;</span></pre>
+<p id="end-message" class="flourish"><em>Make something worth making.</em></p>
+<div id="spacer"></div>
+<p id="copy">© Nathan Forsyth</p>
+</footer>
 </body>
 </html>

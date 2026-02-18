@@ -1,10 +1,12 @@
-# Overview
+# Lesson 2 - Introduction to Variables
+
+## Overview
 So far we have printed "Hello, World!" and a few other things to our terminal using _literals_. A literal is any time you write the literal value in your program. We literally wrote "hello world". One of the most useful tools for programmers is using varaibles instead.
 
-# Set Up
+## Set Up
 Create a new python file and call it `stringvariable.py`.
 
-# Important Info
+## Important Info
 Variables in computer science work differently from variables in math.
 - In math, typically a variable represents an unknown value.
 - In computer science, a variable is used to store data we want to keep track of.
@@ -19,7 +21,7 @@ Different variables can store different types of data, which we will learn more 
 
 A String variable has a value that contains a string of characters. It can be an empty pair of quotes, a single letter, a word, a phrase, a sentence, or even an entire novel!
 
-# Copy
+## Copy
 Copy the following code. In this code, we create a variable called `greeting` and set the value to `"Hello, World!"`. When creating a variable, you can choose any name you want. Below we will learn about common naming conventions in python.
 ```python
 greeting = "Hello, World!"
@@ -30,12 +32,12 @@ What happens when you run the code?
 
 Notice that our `=` sign acts as a way to set the value of our variable. Instead of a mathematical expression that is asserting the equality of 2 values, the `=` sign in code allows you to set the value of a variable.
 
-# Change
+## Change
 Change the greeting variable so that it greets you by name rather than `"Hello, World!"`.
 
 Run the program again to verify that it works.
 
-# Challenge
+## Challenge
 Once again, you will print multiple messages. Create 3 different variables to store these 3 messages, and print them to the terminal.
 
 `Hello, World!`

@@ -6,74 +6,271 @@
 
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+    * {
+        box-sizing: border-box;
+    }
 
-body {
-    max-width: 900px;
-    margin: 40px auto;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    line-height: 1.6;
-    background-color: #14012b;
-    color: white;
-}
+    body {
+        max-width: 900px;
+        margin: 40px auto;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        background-color: #100120;
+        color: rgb(238, 238, 238);
+    }
 
-pre {
-    margin: 1em 0;
-    padding: 12px;
-    overflow-x: auto;
-}
+    h1 {
+        font-size: 2.25rem;
+    }
 
-pre code {
-    padding: 0;
-    background: transparent;
-    border: 2px solid white;
-    border-radius: 5px;
-}
+    h1::after {
+        content: "";
+        display: block;
+        height: 4px;
+        background: rgb(238, 238, 238);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-code {
-    padding: 3px;
-    background: #413a4a;
-    border-radius: 3px;
-}
+    h2 {
+        font-size: 2rem;
+        color: rgb(252, 204, 141);
+        margin: 1.5rem 0.25rem;
+    }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5em 0;
-}
+    h2::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: rgb(252, 204, 141);
+        width: 100%;
+        margin-top: 0.1rem;
+    }
 
-th, td {
-    border: 1px solid white;
-    padding: 8px 10px;
-    text-align: left;
-    vertical-align: top;
-}
+    h3 {
+        font-weight: 300;
+        font-size: 1.75rem;
+        color: rgb(250, 249, 202);
+        margin: 1.25rem 0.75rem;
+    }
 
-thead {
-    background-color: #2b1a4a;
-}
+    h3::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(250, 249, 202);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-tbody tr:nth-child(even) {
-    background-color: #1d1235;
-}
+    h4 {
+        font-weight: 300;
+        font-size: 1.5rem;
+        color: rgb(201, 245, 248);
+        margin: 1rem 1.25rem;
+    }
+
+    h4::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(201, 245, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h5 {
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: rgb(239, 201, 248);
+        margin: 1rem 1.5rem;
+    }
+
+    h5::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(239, 201, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h6 {
+        font-weight: 300;
+        font-size: 1rem;
+        color: rgb(248, 210, 201);
+        margin: 1rem 1.75rem;
+    }
+
+    h6::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(248, 210, 201);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    a,
+    a:visited {
+        color: rgb(233, 157, 157);
+        text-decoration: underline;
+        font-weight: 400;
+    }
+
+    a:hover {
+        font-weight: 600;
+    }
+
+    body>p,
+    body>ul,
+    body>ol {
+        margin: 1rem 2rem;
+    }
+
+    p,
+    ul,
+    ol {
+        margin-bottom: 1rem;
+        text-align: justify;
+        text-align-last: left;
+    }
+
+    pre {
+        margin: 1em 0;
+        padding: 12px;
+        overflow-x: auto;
+    }
+
+    pre code {
+        padding: 0;
+        background: transparent;
+        border: 2px solid white;
+        border-radius: 5px;
+    }
+
+    code {
+        padding: 3px;
+        background: #413a4a;
+        border-radius: 3px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5em 0;
+    }
+
+    th,
+    td {
+        border: 1px solid white;
+        padding: 8px 10px;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    thead {
+        background-color: #2b1a4a;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #1d1235;
+    }
+
+    #end-message {
+        text-align: center;
+        text-align-last: center;
+        font-size: 1rem;
+        font-weight: 300;
+        margin: 0;
+        color: rgb(250, 249, 202);
+    }
+
+    footer {
+        margin-top: 7rem;
+    }
+
+    #spacer {
+        height: 1rem;
+        background: transparent;
+    }
+
+    #copy {
+        text-align: center;
+        text-align-last: center;
+        color: #100120;
+        color: #403150;
+    }
+
+    .flourish::before {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    .flourish::after {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    #ducky {
+        line-height: 2.65rem;
+        font-family: "Google Sans Code", monospace;
+        font-weight: 600;
+        font-size: 2.5rem;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .yellow {
+        color: #f7ec52;
+    }
+
+    .orange {
+        color: #fcac00;
+    }
+
+    .eye {
+        color: #BCFAF2;
+    }
+
+    .water {
+        color: #008dd5;
+    }
+
+    .grass {
+        color: #96f58e;
+    }
+
+    #rubric {
+        margin-left: -0.5in;
+        margin-right: -0.5in;
+        width: calc(100% + 1.0in);
+        font-size: 0.6rem;
+    }
+    #rubric th{
+    font-size: 0.8rem;
+    }
 </style>
 </head>
 <body>
-<h1>Overview</h1>
+<h1>Lesson 20 - Documentation and Docstrings</h1>
+<h2>Overview</h2>
 <p>This lesson explains how to write <strong>Sphinx-style docstrings</strong> for Python files and functions. You will learn how to write short descriptions, document parameters and return values, and use type hints directly in function definitions.</p>
-<h1>Important Information</h1>
+<h2>Important Information</h2>
 <p>A <strong>docstring</strong> is a multi-line string written directly under a file header or a function definition. It explains what the code does in clear, simple language.</p>
 <p>Every docstring starts with a <strong>short description</strong>. This is one sentence that explains the purpose of the file or function.</p>
 <p>Sphinx docstrings use special tags that begin with a colon. The most common tags used in this course are <code>:param:</code>, <code>:return:</code>, <code>:raises:</code>, <code>:note:</code>, and <code>:warning:</code>.</p>
-<h2>File-Level (Module) Docstring</h2>
+<h3>File-Level (Module) Docstring</h3>
 <p>A file-level docstring appears at the very top of a Python file and describes the entire file.</p>
-<pre><code class="language-python">&quot;&quot;&quot;
+<pre><code class="language-python">"""
 simple_math.py
 
 Provides basic math functions for integers and decimals.
@@ -82,89 +279,90 @@ Author: Alex Student
 Date: 2026-01-25
 Version: 1.0
 Description: Used for small math operations in beginner programs.
-&quot;&quot;&quot;
+"""
 </code></pre>
 <p>This docstring explains the purpose of the file and includes useful background information.</p>
-<h2>Using Type Hints in Function Definitions</h2>
+<h3>Using Type Hints in Function Definitions</h3>
 <p>Type hints are written directly in the function definition. They show what type of data each parameter expects and what type of value is returned.</p>
 <pre><code class="language-python">def multiply(a: int, b: int) -&gt; int:
     return a * b
 </code></pre>
 <p>The types are written after each parameter name, and the return type is written after <code>-&gt;</code>.</p>
-<h2>Basic Function Docstring</h2>
+<h3>Basic Function Docstring</h3>
 <p>A function docstring is written directly under the function definition.</p>
 <pre><code class="language-python">def is_positive(number: int) -&gt; bool:
-    &quot;&quot;&quot;
+    """
     Checks if a number is positive.
-    &quot;&quot;&quot;
+    """
     return number &gt; 0
 </code></pre>
 <p>The first line should always be a short description.</p>
-<h2>Documenting Parameters With <code>:param</code></h2>
+<h3>Documenting Parameters With <code>:param</code></h3>
 <p>Each parameter is documented using <code>:param</code>.</p>
 <pre><code class="language-python">def is_even(number: int) -&gt; bool:
-    &quot;&quot;&quot;
+    """
     Checks if a number is even.
 
     :param number: The number to check.
-    &quot;&quot;&quot;
+    """
     return number % 2 == 0
 </code></pre>
 <p>The parameter name must match the function definition exactly.</p>
-<h2>Documenting Return Values With <code>:return:</code></h2>
+<h3>Documenting Return Values With <code>:return:</code></h3>
 <p>If a function returns a value, document what that value represents.</p>
 <pre><code class="language-python">def square(number: int) -&gt; int:
-    &quot;&quot;&quot;
+    """
     Squares a number.
 
     :param number: The number to square.
     :return: The squared value.
-    &quot;&quot;&quot;
+    """
     return number * number
 </code></pre>
-<h2>Multiple Parameters</h2>
+<h3>Multiple Parameters</h3>
 <p>Each parameter gets its own <code>:param</code> entry.</p>
 <pre><code class="language-python">def add_numbers(a: int, b: int) -&gt; int:
-    &quot;&quot;&quot;
+    """
     Adds two numbers together.
 
     :param a: The first number.
     :param b: The second number.
     :return: The sum of the two numbers.
-    &quot;&quot;&quot;
+    """
     return a + b
 </code></pre>
-<h2>Functions With No Return Value</h2>
+<h3>Functions With No Return Value</h3>
 <p>If a function does not return anything, do not include a return tag.</p>
 <pre><code class="language-python">def print_message(message: str) -&gt; None:
-    &quot;&quot;&quot;
+    """
     Prints a message to the screen.
 
     :param message: The message to display.
-    &quot;&quot;&quot;
+    """
     print(message)
 </code></pre>
-<h2>Documenting Errors With <code>:raises:</code></h2>
+<h3>Documenting Errors With <code>:raises:</code></h3>
 <p>Use <code>:raises:</code> when a function can cause an error.</p>
 <pre><code class="language-python">def divide(a: float, b: float) -&gt; float:
-    &quot;&quot;&quot;
+    """
     Divides one number by another.
 
     :param a: The number being divided.
     :param b: The number to divide by.
     :return: The result of the division.
     :raises ZeroDivisionError: If b is zero.
-    &quot;&quot;&quot;
+    """
     return a / b
 </code></pre>
-<h1>If You Have Been Working Ahead</h1>
-<p>Hello! Mr. Forsyth here. The next sections of these lessons will start covering some libraries that we will use for projects. For Structured Programming 1, these first 20 lessons have covered most of the important things you need to understand in terms of general programming. If you understand these concepts well, you <strong>do not</strong> need any additional general python knowledge&hellip;</p>
-<p>&hellip;however&hellip;</p>
-<p>&hellip;you have been working ahead&hellip;</p>
-<p>&hellip;which probably means that you find this course at least <em>somewhat</em> interesting. </p>
-<p><em>Again, what we have covered so far is enough to get you full marks for Structured Programming 1.</em> But you have shown yourself to be someone who has taken an interest in computer science. If you are still ahead, you may find it interesting to cover the Structured Programming 2 Python Lessons starting with <a href="/CSE%201120%20-%20Structured%20Programming%202/01%20-%20Python/Lessons/01%20-%20Selection%20-%20If%20Statements.md">Lesson 01 - Selection - If Statements</a> and continuing through until <a href="/CSE%201120%20-%20Structured%20Programming%202/01%20-%20Python/Lessons/15%20-%20Iteration%20-%20Nesting%20Loops.md">15 - Iteration - Nesting Loops</a>. </p>
-<p>So far in this course we have covered general python syntax and <strong>sequence</strong> control structures (the concept that code runs in order). The Structured Programming 2 Lessons cover <strong>selection</strong> (being able to run code based on conditions) and <strong>iteration</strong> (looping over code to have it repeat).</p>
-<p>These control structures <strong>are not necessary</strong> for Structured Programming 1, <em>but</em> they will let you write code that can do more. A lot more. So much more that you can pretty much do whatever you want with code.</p>
-<p>If you are interested in creating projects that go above and beyond, my recommendation is that you skip ahead to those lessons, and then come back after to make your projects. Hopefully, <em>hopefully</em>, you&rsquo;ll thank me later.</p>
+<footer>
+<pre id="ducky">
+    <span class="yellow">_</span>
+ <span class="yellow">__(</span><span class="eye">o</span><span class="yellow">)</span><span class="orange">=</span>
+ <span class="yellow">\___)</span>
+<span class="grass">&gt;</span><span class="water">~~~~~</span><span class="grass">&lt;</span></pre>
+<p id="end-message" class="flourish"><em>Make something worth making.</em></p>
+<div id="spacer"></div>
+<p id="copy">© Nathan Forsyth</p>
+</footer>
 </body>
 </html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Debugging Common Errors</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        max-width: 900px;
+        margin: 40px auto;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        background-color: #100120;
+        color: rgb(238, 238, 238);
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h1::after {
+        content: "";
+        display: block;
+        height: 4px;
+        background: rgb(238, 238, 238);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+        color: rgb(252, 204, 141);
+        margin: 1.5rem 0.25rem;
+    }
+
+    h2::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: rgb(252, 204, 141);
+        width: 100%;
+        margin-top: 0.1rem;
+    }
+
+    h3 {
+        font-weight: 300;
+        font-size: 1.75rem;
+        color: rgb(250, 249, 202);
+        margin: 1.25rem 0.75rem;
+    }
+
+    h3::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(250, 249, 202);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h4 {
+        font-weight: 300;
+        font-size: 1.5rem;
+        color: rgb(201, 245, 248);
+        margin: 1rem 1.25rem;
+    }
+
+    h4::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(201, 245, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h5 {
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: rgb(239, 201, 248);
+        margin: 1rem 1.5rem;
+    }
+
+    h5::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(239, 201, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h6 {
+        font-weight: 300;
+        font-size: 1rem;
+        color: rgb(248, 210, 201);
+        margin: 1rem 1.75rem;
+    }
+
+    h6::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(248, 210, 201);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    a,
+    a:visited {
+        color: rgb(233, 157, 157);
+        text-decoration: underline;
+        font-weight: 400;
+    }
+
+    a:hover {
+        font-weight: 600;
+    }
+
+    body>p,
+    body>ul,
+    body>ol {
+        margin: 1rem 2rem;
+    }
+
+    p,
+    ul,
+    ol {
+        margin-bottom: 1rem;
+        text-align: justify;
+        text-align-last: left;
+    }
+
+    pre {
+        margin: 1em 0;
+        padding: 12px;
+        overflow-x: auto;
+    }
+
+    pre code {
+        padding: 0;
+        background: transparent;
+        border: 2px solid white;
+        border-radius: 5px;
+    }
+
+    code {
+        padding: 3px;
+        background: #413a4a;
+        border-radius: 3px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5em 0;
+    }
+
+    th,
+    td {
+        border: 1px solid white;
+        padding: 8px 10px;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    thead {
+        background-color: #2b1a4a;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #1d1235;
+    }
+
+    #end-message {
+        text-align: center;
+        text-align-last: center;
+        font-size: 1rem;
+        font-weight: 300;
+        margin: 0;
+        color: rgb(250, 249, 202);
+    }
+
+    footer {
+        margin-top: 7rem;
+    }
+
+    #spacer {
+        height: 7rem;
+        background: transparent;
+    }
+
+    #copy {
+        text-align: center;
+        text-align-last: center;
+        color: #100120;
+        color: #403150;
+    }
+
+    .flourish::before {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    .flourish::after {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    #ducky {
+        line-height: 2.65rem;
+        font-family: "Google Sans Code", monospace;
+        font-weight: 600;
+        font-size: 2.5rem;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .yellow {
+        color: #f7ec52;
+    }
+
+    .orange {
+        color: #fcac00;
+    }
+
+    .eye {
+        color: #BCFAF2;
+    }
+
+    .water {
+        color: #008dd5;
+    }
+
+    .grass {
+        color: #96f58e;
+    }
+</style>
+</head>
+<body>
+<h1>Debugging Common Errors</h1>
+<h2>How To Read Python Error Messages</h2>
+<p>When Python finds a problem in your program, it <strong>stops immediately</strong> and prints an error message in the terminal. This message is not there to punish you — it is Python explaining <strong>why it could not continue</strong>.</p>
+<p>A Python error message almost always contains the same key parts:</p>
+<p><strong>The error type</strong>
+This is the name of the error, such as <code>SyntaxError</code>, <code>NameError</code>, or <code>TypeError</code>. The error type tells you <em>what kind</em> of problem Python detected. Start here so you know which section of this document to read.</p>
+<p><strong>The traceback</strong>
+Below the error type, Python often prints a traceback. A traceback is a list of lines showing <strong>how Python got to the error</strong>. In beginner programs, this usually only shows one file and a few lines. The <strong>last line of the traceback</strong> is usually the most important, because it points to where Python finally got stuck.</p>
+<p><strong>The line number and code line</strong>
+Python will show the line number and often reprint the exact line of code that caused the error. This is Python saying, “I had a problem right here.” For beginner code, the mistake is almost always <strong>on that line or the line right above it</strong>.</p>
+<p><strong>The pointer or highlight</strong>
+Sometimes Python adds a small arrow or caret (<code>^</code>) under part of the line. This is Python pointing to the exact character or area where it noticed something wrong. This does not always mean that exact character is the problem, but it is very close.</p>
+<p>When debugging, always follow this rule:</p>
+<ol>
+<li>Read the error type.</li>
+<li>Go to the line number Python shows.</li>
+<li>Assume the mistake is small.</li>
+<li>Fix one thing.</li>
+<li>Run the program again.</li>
+</ol>
+<p>For a full list of possible errors that you might encounter, visit <a href="https://docs.python.org/3/library/exceptions.html">the python documentation that outlines all of the built in error types</a>.</p>
+<hr />
+<h2>Code Structure (Code Is Invalid Before Running)</h2>
+<h3><code>SyntaxError</code></h3>
+<p><strong>What it means:</strong>
+Python cannot understand the way the code is written. This usually means a symbol is missing or in the wrong place.</p>
+<h4>Check the exact line Python points to</h4>
+<ol>
+<li>Go to the line number shown in the error.</li>
+<li>Look carefully for missing <code>)</code>, <code>]</code>, <code>"</code>, <code>'</code>, or <code>:</code>.</li>
+<li>Make sure strings start and end with the same quote.</li>
+<li>If the line has <code>if</code>, <code>def</code>, <code>for</code>, or <code>while</code>, make sure it ends with <code>:</code>.</li>
+<li>Ensure that variable names do not have spaces in them.</li>
+<li>Run the program again.</li>
+</ol>
+<h4>Check the line above</h4>
+<ol>
+<li>Look at the line directly above the one Python points to.</li>
+<li>Look for an opening symbol that never closes.</li>
+<li>Add the missing symbol.</li>
+<li>Run the program again.</li>
+</ol>
+<hr />
+<h3><code>IndentationError</code></h3>
+<p><strong>What it means:</strong>
+Python expected a line to line up with nearby code, but it doesn’t. One line is indented differently than Python expects.</p>
+<h4>Line up the spacing</h4>
+<ol>
+<li>Go to the line Python points to.</li>
+<li>Look at the lines directly above it.</li>
+<li>Make sure this line starts at the same position.</li>
+<li>If the line above ends with <code>:</code>, indent this line once.</li>
+<li>Run the program again.</li>
+</ol>
+<hr />
+<h3><code>TabError</code></h3>
+<p><strong>What it means:</strong>
+One line starts with different spacing than nearby lines. You likely added or removed a space or tab by accident.</p>
+<h4>Fix the spacing on the problem line</h4>
+<ol>
+<li>Go to the line number shown in the error.</li>
+<li>Look only at the very start of that line.</li>
+<li>Compare it to the lines above and below.</li>
+<li>Remove or add spaces so it lines up.</li>
+<li>Run the program again.</li>
+</ol>
+<hr />
+<h2>Names and Imports (Python Can’t Find Something)</h2>
+<h3><code>NameError</code></h3>
+<p><strong>What it means:</strong>
+Python does not know the name you are using. This usually means a spelling mistake or using something before it exists.</p>
+<h4>Make sure the name exists</h4>
+<ol>
+<li>Look at the variable or function causing the name error.</li>
+<li>Ensure that that variable or name is defined somewhere else in the code.<ul>
+<li>For <strong>functions</strong> this will be the line where the function is defined with the <code>def</code> keyword.</li>
+<li>For <strong>variables</strong> this will be the line where the variable is intitialized with a starting value.</li>
+</ul>
+</li>
+<li>If the function or variable does not exist anywhere, add it somewhere above the line the error occired.</li>
+<li>Run the program again.</li>
+</ol>
+<h4>Check spelling</h4>
+<ol>
+<li>Find the unknown name in the error message.</li>
+<li>Look for that name in your code.</li>
+<li>Compare spelling and capitalization.</li>
+<li>Make all versions match exactly.</li>
+<li>Run the program again.</li>
+</ol>
+<h4>Check order</h4>
+<ol>
+<li>Find where the name is first used.</li>
+<li>Scroll up and look for where it should be created.</li>
+<li>If it isn’t created yet, create it above.</li>
+<li>Run the program again.</li>
+</ol>
+<hr />
+<h3><code>ImportError</code></h3>
+<p><strong>What it means:</strong>
+Python found the module, but not the specific thing you tried to import from it.</p>
+<h4>Simplify the import</h4>
+<ol>
+<li>Look at the import line.</li>
+<li>Change <code>from module import thing</code> to <code>import module</code>.</li>
+<li>Run the program.</li>
+<li>If this works, the problem was the <code>thing</code> name.</li>
+<li>Fix the name and try again.</li>
+</ol>
+<hr />
+<h3><code>ModuleNotFoundError</code></h3>
+<p><strong>What it means:</strong>
+Python cannot find the module at all. It is either not installed or Python is using the wrong version.</p>
+<h4>Assume it isn’t installed</h4>
+<ol>
+<li>Look at the module name in the error.</li>
+<li>Install the module the same way you were shown in class.</li>
+<li>Run the program again.</li>
+</ol>
+<h4>Check the Python version</h4>
+<ol>
+<li>Check which Python interpreter your editor is using.</li>
+<li>Switch to the correct Python version for the project.</li>
+<li>Run the program again.</li>
+</ol>
+<hr />
+<h3><code>AttributeError</code></h3>
+<p><strong>What it means:</strong>
+You tried to use something that doesn’t exist inside an object or module. This often happens when the wrong Python version or missing module is being used.</p>
+<h4>Check the Python version</h4>
+<ol>
+<li>Check which Python interpreter is selected.</li>
+<li>Make sure it matches the project you are working on.</li>
+<li>Run the program again.</li>
+</ol>
+<h4>Check the module</h4>
+<ol>
+<li>Confirm the module is installed for this Python version.</li>
+<li>Reinstall it if you are unsure.</li>
+<li>Run the program again.</li>
+</ol>
+<h4>Check the name</h4>
+<ol>
+<li>Look at the part after the dot (<code>object.attribute</code>).</li>
+<li>Check spelling and capitalization.</li>
+<li>Fix it and run the program again.</li>
+</ol>
+<hr />
+<h2>Types and Values (Data Doesn’t Match)</h2>
+<h3><code>TypeError</code></h3>
+<p><strong>What it means:</strong>
+Python received the wrong type of data. This often happens when mixing numbers and strings.</p>
+<h4>Check the data types</h4>
+<ol>
+<li>Find the line Python points to.</li>
+<li>Identify the values being used together.</li>
+<li>Decide whether they should be numbers or strings.</li>
+<li>Convert them using <code>int()</code>, <code>float()</code>, or <code>str()</code>.</li>
+<li>Run the program again.</li>
+</ol>
+<hr />
+<h3><code>ValueError</code></h3>
+<p><strong>What it means:</strong>
+The type is correct, but the value itself cannot be used. This often happens with user input.</p>
+<h4>Check the actual value</h4>
+<ol>
+<li>Print the value right before the error line.</li>
+<li>Run the program and see what the value really is.</li>
+<li>Fix the input or clean it (for example, remove extra spaces).</li>
+<li>Run the program again.</li>
+</ol>
+<hr />
+<h2>Indexes and Keys (Data Doesn’t Exist)</h2>
+<h3><code>IndexError</code></h3>
+<p><strong>What it means:</strong>
+You tried to access a position that doesn’t exist in a list or string.</p>
+<h4>Check the size</h4>
+<ol>
+<li>Print the list or string.</li>
+<li>Print its length using <code>len(...)</code>.</li>
+<li>Make sure your index is smaller than the length.</li>
+<li>Fix the index.</li>
+<li>Run the program again.</li>
+</ol>
+<hr />
+<h3><code>KeyError</code></h3>
+<p><strong>What it means:</strong>
+You tried to access a dictionary key that doesn’t exist.</p>
+<h4>Check the keys</h4>
+<ol>
+<li>Print the dictionary.</li>
+<li>Look at the keys that actually exist.</li>
+<li>Fix spelling or capitalization.</li>
+<li>Run the program again.</li>
+</ol>
+<hr />
+<h2>Math Errors (Invalid Math)</h2>
+<h3><code>ZeroDivisionError</code></h3>
+<p><strong>What it means:</strong>
+Your code tried to divide by zero.</p>
+<h4>Prevent zero</h4>
+<ol>
+<li>Find the division line.</li>
+<li>Identify the value being divided by.</li>
+<li>Check if it is zero before dividing.</li>
+<li>Handle that case.</li>
+<li>Run the program again.</li>
+</ol>
+<hr />
+<h3><code>OverflowError</code></h3>
+<p><strong>What it means:</strong>
+A number became too large.</p>
+<h4>Find runaway math</h4>
+<ol>
+<li>Locate the line that creates the large number.</li>
+<li>Print the value before it crashes.</li>
+<li>Add a limit or stop condition.</li>
+<li>Run the program again.</li>
+</ol>
+<hr />
+<h2>Resources and Limits (Program Won’t Stop)</h2>
+<h3><code>MemoryError</code></h3>
+<p><strong>What it means:</strong>
+Your program tried to store too much data.</p>
+<h4>Look for growing data</h4>
+<ol>
+<li>Find loops that add to lists or strings.</li>
+<li>Print the size as the program runs.</li>
+<li>Add a stopping condition.</li>
+<li>Run the program again.</li>
+</ol>
+<hr />
+<h3><code>RecursionError</code></h3>
+<p><strong>What it means:</strong>
+A function called itself too many times.</p>
+<h4>Check the stopping rule</h4>
+<ol>
+<li>Find where the function calls itself.</li>
+<li>Find the condition that should stop it.</li>
+<li>Make sure the condition can actually happen.</li>
+<li>Run the program again.</li>
+</ol>
+<hr />
+<p><strong>Debugging rule to remember:</strong>
+If Python points at a line, <strong>start there</strong>.
+Most beginner bugs are caused by <strong>one character, one space, or one missing line</strong>.</p>
+<footer>
+<pre id="ducky">
+    <span class="yellow">_</span>
+ <span class="yellow">__(</span><span class="eye">o</span><span class="yellow">)</span><span class="orange">=</span>
+ <span class="yellow">\___)</span>
+<span class="grass">&gt;</span><span class="water">~~~~~</span><span class="grass">&lt;</span></pre>
+<p id="end-message" class="flourish"><em>Make something worth making.</em></p>
+<div id="spacer"></div>
+<p id="copy">© Nathan Forsyth</p>
+</footer>
+</body>
+</html>

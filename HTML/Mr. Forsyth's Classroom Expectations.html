@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mr. Forsyth's Classroom Expectations</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        max-width: 900px;
+        margin: 40px auto;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        background-color: #100120;
+        color: rgb(238, 238, 238);
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h1::after {
+        content: "";
+        display: block;
+        height: 4px;
+        background: rgb(238, 238, 238);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+        color: rgb(252, 204, 141);
+        margin: 1.5rem 0.25rem;
+    }
+
+    h2::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: rgb(252, 204, 141);
+        width: 100%;
+        margin-top: 0.1rem;
+    }
+
+    h3 {
+        font-weight: 300;
+        font-size: 1.75rem;
+        color: rgb(250, 249, 202);
+        margin: 1.25rem 0.75rem;
+    }
+
+    h3::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(250, 249, 202);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h4 {
+        font-weight: 300;
+        font-size: 1.5rem;
+        color: rgb(201, 245, 248);
+        margin: 1rem 1.25rem;
+    }
+
+    h4::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(201, 245, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h5 {
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: rgb(239, 201, 248);
+        margin: 1rem 1.5rem;
+    }
+
+    h5::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(239, 201, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h6 {
+        font-weight: 300;
+        font-size: 1rem;
+        color: rgb(248, 210, 201);
+        margin: 1rem 1.75rem;
+    }
+
+    h6::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(248, 210, 201);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    a,
+    a:visited {
+        color: rgb(233, 157, 157);
+        text-decoration: underline;
+        font-weight: 400;
+    }
+
+    a:hover {
+        font-weight: 600;
+    }
+
+    body>p,
+    body>ul,
+    body>ol {
+        margin: 1rem 2rem;
+    }
+
+    p,
+    ul,
+    ol {
+        margin-bottom: 1rem;
+        text-align: justify;
+        text-align-last: left;
+    }
+
+    pre {
+        margin: 1em 0;
+        padding: 12px;
+        overflow-x: auto;
+    }
+
+    pre code {
+        padding: 0;
+        background: transparent;
+        border: 2px solid white;
+        border-radius: 5px;
+    }
+
+    code {
+        padding: 3px;
+        background: #413a4a;
+        border-radius: 3px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5em 0;
+    }
+
+    th,
+    td {
+        border: 1px solid white;
+        padding: 8px 10px;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    thead {
+        background-color: #2b1a4a;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #1d1235;
+    }
+
+    #end-message {
+        text-align: center;
+        text-align-last: center;
+        font-size: 1rem;
+        font-weight: 300;
+        margin: 0;
+        color: rgb(250, 249, 202);
+    }
+
+    footer {
+        margin-top: 7rem;
+    }
+
+    #spacer {
+        height: 7rem;
+        background: transparent;
+    }
+
+    #copy {
+        text-align: center;
+        text-align-last: center;
+        color: #100120;
+        color: #403150;
+    }
+
+    .flourish::before {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    .flourish::after {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    #ducky {
+        line-height: 2.65rem;
+        font-family: "Google Sans Code", monospace;
+        font-weight: 600;
+        font-size: 2.5rem;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .yellow {
+        color: #f7ec52;
+    }
+
+    .orange {
+        color: #fcac00;
+    }
+
+    .eye {
+        color: #BCFAF2;
+    }
+
+    .water {
+        color: #008dd5;
+    }
+
+    .grass {
+        color: #96f58e;
+    }
+</style>
+</head>
+<body>
+<h1>Entering and Exiting the Classroom</h1>
+<h2>Start of Class</h2>
+<p>At the start of class, you should be prepared with the following supplies <strong>everyday</strong> when entering the classroom.</p>
+<ul>
+<li>Pencil / Pen</li>
+<li>Laptop</li>
+<li>Charger</li>
+<li>STEM wear</li>
+<li><strong>NO BACKPACKS / COATS</strong></li>
+</ul>
+<p>At the start of class you should also be sure to <strong>pick up the notes/question page</strong> for the start of that day.</p>
+<p>Sometimes there will be instructions on the board. If there are, follow them.</p>
+<h2>Coming in Late</h2>
+<p>When coming in late, the most respectful thing you can do is <strong>quietly grab the materials you need and find your seat</strong>. Please don&rsquo;t disrupt your classmates or me.</p>
+<p>If I am teaching, try to find where we are in the questions and follow along from there. If you have any questions about what you missed, <strong>you can ask me once the lesson portion of class is over</strong>.</p>
+<p>If you are <strong>late first period because of the buses</strong>, the office will ensure that you have the <strong>proper attendance code put in</strong>.</p>
+<p>If you are late for any other reason, you will be <strong>marked as tardy</strong>.</p>
+<h2>Seating</h2>
+<p>Generally I like to trust my students by allowing them to sit wherever they want.</p>
+<p>If the seating arrangement of the class as a whole isn&rsquo;t working, <strong>I&rsquo;ll make a seating plan</strong> (yes, even for highschool). </p>
+<p>If the place that an individual is sitting or the people they are sitting with aren&rsquo;t helping them learn, <strong>I get to move them</strong>.</p>
+<p>The first time I move you, it will be to <strong>another seat in the classroom</strong>.</p>
+<p>The second time I move you, it will be to <strong>the &ldquo;BFF&rdquo; seat</strong> <em>(that&rsquo;s the chair next to my desk where you get to be my BFF)</em>.</p>
+<p>The third time I move you, it will be to <strong>a special hallway seat</strong>.</p>
+<p>The fourth time I move you, it will be to <strong>the &ldquo;Mr. Chute&rsquo;s BFF&rdquo; seat</strong> <em>(I&rsquo;ll let you guess where that is)</em>.</p>
+<h2>Leaving During Class</h2>
+<p><strong>During the lesson at the start of class, don&rsquo;t ask to leave the classroom.</strong> The lessons are usually short, and you should be able to wait until after I am done teaching to leave the classroom.</p>
+<p><strong>I don&rsquo;t let students leave during the last 20 minutes of class.</strong> You can hold it until the bell.</p>
+<p>If you are leaving the classroom, write <strong>your name</strong> and the <strong>time that you left</strong> on the board. This is for 2 reasons:</p>
+<ol>
+<li>As your teacher, I am legally responsible for knowing where you are in the case of an emergency. Having your name on the board helps me remember this.</li>
+<li>Writing the time on the board also helps me realize how long you&rsquo;ve been gone for.</li>
+</ol>
+<p>If you aren&rsquo;t doing what you are supposed to be doing when you leave the classroom, <strong>you&rsquo;ll be put on my &ldquo;no fly&rdquo; list and won&rsquo;t be allowed to leave the classroom during class time</strong>.</p>
+<h2>Dismissal</h2>
+<p>I don&rsquo;t want you to be late for your next class, but please don&rsquo;t pack up until the last 5 minutes of class.</p>
+<p>You also may not leave the classroom until the bell has gone. Leaving the classroom early often disrupts other classes whose bells aren&rsquo;t aligned with ours.</p>
+<h2>Absence</h2>
+<p>All course work and content will be posted on schoology. It is likely that if you miss class that the content is there.</p>
+<p>If you have questions about what you missed, <strong>you will be responsible for reaching out</strong>. I am going to assume that because you have the resources posted for you, you are good to go.</p>
+<p>If you are missing class for an extended period of time, <strong>you may have to catch up when you get back rather than working ahead</strong>. This is my first year teaching most of my courses, so I don&rsquo;t have premade material yet.</p>
+<h1>Class Time Structure</h1>
+<h2>Instructional Time</h2>
+<p>At the start of class most days there will be instructional time. With instructional time there will be slides and questions for you to answer. </p>
+<p><strong>The questions are for mark</strong>s, and I try and mark them <em>generously</em>. Most questions don&rsquo;t have a right or wrong answer and instead are giving you an opportunity to <strong>demonstrate your understanding</strong>. Because of this, the expectation is that your answers are <strong>in your own words</strong>.</p>
+<p>I have questions written on paper so that students just get them done in class and <em>hopefully</em> I can just quickly mark them while students are working. However, I will accept them up <strong>until start of class the next day</strong>.</p>
+<p>Slides are posted for reference and can be accessed by students.</p>
+<h2>Work Time</h2>
+<h3>Snacks and Food</h3>
+<p>If you need to eat in class, I am okay with you bringing snacks into class. <strong>You can&rsquo;t bring your entire meal into class.</strong> </p>
+<p>I have 3 rules for snacks in my classroom:</p>
+<ul>
+<li><em>I don&rsquo;t </em><em>hear</em><em> them</em></li>
+<li><em>I don&rsquo;t </em><em>smell</em><em> them</em></li>
+<li><em>I don&rsquo;t </em><em>see any evidence</em><em> of them when the bell goes</em></li>
+</ul>
+<h3>Headphones &amp; Music</h3>
+<p>During <strong>work time</strong>, you may listen to your own music or have something going on in the background. However, <strong>you must use headphones</strong>. I don&rsquo;t want to hear your music / minecraft streamer.</p>
+<p>During instructional time and presentation time, <strong>headphones are not on your head and ear buds are not in your ears</strong>.</p>
+<h3>Breakout Room</h3>
+<p><strong>I don&rsquo;t let students use the breakout room.</strong> This is for 2 reasons.</p>
+<ol>
+<li>Often, other teachers have students they need to assess and need the breakout rooms.</li>
+<li>When I have let students use the breakout rooms, their work has always been worse and less, and has not been more or better. I just don&rsquo;t believe that in this class the breakout room provides any benefits that being in the classroom doesn&rsquo;t.</li>
+</ol>
+<h2>Presentation Time</h2>
+<p>At the end of projects, typically we will have a class period to present to one another.</p>
+<p>When you are presenting, <em>please</em> take it <strong>seriously</strong> and have some <strong><em>dignity</em></strong>.</p>
+<p>When you are not presenting, <em>literally nothing grinds my gears like students interupting other students</em>. I have a 0 tolerance policy for disrespecting presenters, and we will have a short reminder of that on presentation days.</p>
+<h1>Technology</h1>
+<h2>Appropriate Technology Use</h2>
+<p>You may be surprised by this, but there are times in both Computer Science and Marketing and Media that I don&rsquo;t want students to have their devices open. </p>
+<p>During instructional time at the start of class, I expect laptops to be fully shut, or <strong>they will be on my desk</strong>.</p>
+<p>During presentation time, I expect laptops to be fully shut, or <strong>they will be on my desk</strong>.</p>
+<p>Otherwise, generally you will be needing to use your devices in my class. When you are using your device, <strong>it should be on task for the task at hand</strong>. <em>Even though you have other classes, when you are in CTS you are working on CTS</em>.</p>
+<p>The only time you can be using your technology for something else, whether it be for another class or for free time, <strong>is if all of your currently pending assignments are submitted</strong>.</p>
+<p><strong>If you work ahead and produce quality work, I think free time is a fair reward.</strong> However, it is not fair to me or yourself to misuse technology before you are ahead on your work.</p>
+<h2>Technology Issues</h2>
+<p>Even though I teach computer science and digital media, <em>I am not an IT expert.</em> There are some minor things I can figure out quick, especially if it&rsquo;s something to do with your code editor or graphic design software. But again, I am not an expert. If your computer starts doing something really weird, you should really just go see <strong>Mr. Ali</strong>.</p>
+<h2>Dead Device</h2>
+<p>If your device is dead you should <strong>charge it</strong>.</p>
+<p>If you don&rsquo;t have your charger, then you will have to <strong>use one of the spare laptops</strong> I have access to. This is your one warning, <strong><em>you don&rsquo;t want to use the spare laptops</em></strong>.</p>
+<p><strong>Bring. Your. Charger.</strong></p>
+<h2>No Device</h2>
+<p>Again, it&rsquo;s a bad idea to not bring your device. You will have to use one of the spare laptops I have access to. This is your one warning, <strong><em>you don&rsquo;t want to use the spare laptops.</em></strong></p>
+<h1>Respect and Order</h1>
+<h2>Hands Go Up, Mouths Stay Shut</h2>
+<p>During instructional time it is just so much easier to teach without interruption. If you have something to add or a question, <strong>please raise your hand and wait to be called on.</strong></p>
+<h2>Class Discussions</h2>
+<p>For class discussions, it is just too chaotic to have students calling out over top of one another. </p>
+<p>Again, <strong>please raise your hand and wait to be called on.</strong></p>
+<h2>Language</h2>
+<p>Don&rsquo;t <em>swear</em> in my class. Don&rsquo;t use <em>slurs</em> in my class. Don&rsquo;t make <em>dirty jokes</em> in my class. Don&rsquo;t make <em>racist jokes</em> in my class.</p>
+<h1>Assignments</h1>
+<h2>Submission</h2>
+<p>Submission details are added to assignments in a section called <strong>&ldquo;Submission&rdquo;</strong>.</p>
+<p>This will always specify:</p>
+<ul>
+<li>The <strong>format</strong> to submit files in.</li>
+<li>The <strong>location</strong> to submit files.</li>
+<li>The way to <strong>name</strong> files.</li>
+</ul>
+<p>Submitting files properly helps me not get grumpy when I mark. <em>And you don&rsquo;t want me to be grumpy when I mark.</em></p>
+<p>Nothing makes me grumpier than <strong>not having access to an assignment</strong>. When you submit something through a shared link, please make sure that I have access to the document. </p>
+<p><strong><em>Documents I do not have access to will be considered late.</em></strong></p>
+<h2>Due Dates</h2>
+<p>Just like the rest of STEM collegiate, you have <strong>5 business days to submit assignments</strong>.</p>
+<p>Every day that an assignment is late, <strong>it loses 5%</strong>.</p>
+<p>If an assignment is more than 5 days late, <strong>it receives a 0</strong>.</p>
+<p>I put due dates on Thursdays so that I can mark things over the weekend. I also give an appropriate amount of time to finish assignments in class if you are using your time appropriately. <strong>Do not expect a due date to be moved if you have had time to complete it in class.</strong></p>
+<h2>Extensions</h2>
+<p>If you require an extension on an assignment, <strong>you must request that extension <em>MORE than 48 hours before</em> the due date</strong>. Whether or not you do receive an extension will be up to my discretion.</p>
+<p>In <em>extreme</em> cases, an extension can be granted <em>within 48 hours</em> of the due date <strong>if a parent or guardian emails me</strong>.</p>
+<p>If the due date has passed, <strong>you will not be granted an extension</strong>.</p>
+<h1>Asking for Help</h1>
+<h2>During Class</h2>
+<p>During class there are 2 main times I am available to help answer questions.</p>
+<p>The first is any time <strong>during work time</strong>. I am usually at my desk, and you can come to my desk and get help.</p>
+<p>Every week or so, I also do <strong>one on one check ins</strong>, where I see how your work is coming and have you walk me through what you are working on.</p>
+<h2>Outside of School Hours</h2>
+<p>I&rsquo;ll make you a deal. I won&rsquo;t contact you on weekends if you don&rsquo;t contact me on weekends. <strong>I will not respond over the weekend or over breaks.</strong></p>
+<p>I am more than happy to respond to emails with questions on school days. If you must contact me over the weekend, <em>please use the &ldquo;scheduled send&rdquo; feature to have the email reach me Monday morning</em>.</p>
+<p>Please allow me up to 2 business days to respond to an email if it doesn&rsquo;t get addressed in person.</p>
+<p>If you must email me, please just cut to the chase. I know that you&rsquo;ve learned how to do business emails and that I&rsquo;m a teacher and blah blah blah. I like helping students, really I do, <strong>but I don&rsquo;t want an 800 word essay when really all you&rsquo;re trying to ask is &ldquo;I need help getting this software to work.&rdquo;</strong></p>
+<h2>Seeking Teacher Feedback</h2>
+<p>When you are seeking feedback prior to submitting an assignment there is a right way and a wrong way to ask.</p>
+<p>My goal as a teacher is to help <strong><em>learn</em></strong> the skills and concepts you need to succeed. Really, I just care about your <strong><em>learning</em></strong>. I don&rsquo;t care about your grade. If you are <strong><em>learning</em></strong> and <strong><em>demonstrating it</em></strong>, you will get a <strong><em>good grade</em></strong>. If you are <strong><em>not learning</em></strong> or <strong><em>not demonstrating it</em></strong>, you <strong><em>won&rsquo;t get a good grade</em></strong>.</p>
+<h3>Wrong Way of Asking For Feedback</h3>
+<p>The following questions are questions I consider <strong>nonsense</strong>. I consider them nonsense, because their purpose isn&rsquo;t rooted in actually receiving feedback to <strong><em>learn</em></strong> more, but instead a student has a number in their head and they want me to say that number. They aren&rsquo;t trying to <strong><em>learn</em></strong>, they are <strong><em>trying to see if they can stop learning</em></strong>. <strong>Nonsense</strong>.</p>
+<ul>
+<li>&ldquo;Will this get me 100?&rdquo;</li>
+<li>&ldquo;What would I get on this?&rdquo;</li>
+<li>&ldquo;What grade would you give this?&rdquo;</li>
+<li>&ldquo;Is this good?&rdquo;</li>
+<li>&ldquo;Am I done?&rdquo;</li>
+</ul>
+<p><em>If you ask me a nonsense question, I will give you a nonsense answer and say</em> <strong><em>&ldquo;purple monkey dishwasher&rdquo;</em></strong>.</p>
+<p>If you think you&rsquo;re done an assignment, <strong>you can just be done</strong>. But I&rsquo;m not going to encourage you to perform less than your best by feeding into nonsense.</p>
+<h3>Right Way of Asking For Feedback</h3>
+<p>If you got the impression that I don&rsquo;t like giving feedback, you&rsquo;d be wrong. I love giving feedback! But meaningful feedback is intended to help improve and enhance your learning. If you want feedback on an assignment, there are <strong>3 key things</strong> you need to include in your question:</p>
+<ol>
+<li><strong>What part of the assignment do you want feedback on?</strong> <em>Pick one thing to ask about so you can be specific.</em></li>
+<li><strong>What outcome are you trying to improve?</strong> <em>Pick an outcome from the rubric that you feel you want to improve on.</em></li>
+<li><strong>Ask about what you can add/enhance/improve on.</strong> <em>Keep the learning going - feedback should be an opportunity for growth not the stopping point.</em></li>
+</ol>
+<p>If you have multiple parts of a project you want feedback on, that&rsquo;s great! Make sure you have all 3 key things ready to go when asking for feedback. It might even be helpful to write it down before you come and see me.</p>
+<h2>Seeking Help From Peers</h2>
+<p>When you are getting help from peers, my general rule of thumb is that by the end of getting help, <strong>both people should understand the concept</strong>.</p>
+<p>Basically what I mean by this is that if you prefer to get help from your friends, they should be helping you with your understanding and process, and not just providing you the final product.</p>
+<p><strong>No copying files from one another</strong> - everyone should be doing their own independent work.</p>
+<h1>AI Usage</h1>
+<p>There are acceptable and unacceptable uses for AI.</p>
+<h2>Acceptable AI Usage</h2>
+<h3>Quick Look Up</h3>
+<p>Basically using AI as a faster version of the google search engine. This can sometimes be faster than manually searching documentation, but not always.</p>
+<ul>
+<li><em>Example: Can you show me for loop syntax in python?</em></li>
+</ul>
+<h3>Minimal Working Example</h3>
+<p>Sometimes it can be helpful to see how a bunch of code works together. AI can provide a basic minimal working example to demonstrate how different parts of a program work together. This is not code you copy and paste, but rather use as a reference point.</p>
+<ul>
+<li><em>Example: This is my first time using OpenCV. Can you show me a minimal working example of what it looks like to open and display a live camera feed in python?</em></li>
+</ul>
+<h3>Explaining Example Code / Documentation</h3>
+<p>Sometimes you will find example code or documentation that doesn&rsquo;t make sense when you first read it. It can be helpful to have AI explain how example code works and answer questions about it.</p>
+<ul>
+<li><em>Example: I found this example of a match / case on the python website. Can you help me understand what is going on here? *paste code here*</em></li>
+</ul>
+<h3>Practicing a Concept</h3>
+<p>Sometimes you might want to practice a concept in a low stakes environment. AI can both instruct and quiz you with concepts you want a better understanding of.</p>
+<ul>
+<li><em>Example: I&rsquo;d like to practice using if statements in python. Can you give me some short challenges that would require an if statement, I try and complete that challenge, and then you give me feedback on my code?</em></li>
+</ul>
+<h3>Explaining Debug Errors</h3>
+<p>You may encounter errors you haven&rsquo;t seen before or learned about. If the official documentation on these errors doesn&rsquo;t help your understanding, AI can help explain it for you.</p>
+<ul>
+<li><em>Example: I got a NameError in my python code, what causes that kind of error? What should I be looking at in my code so I can find where to fix it?</em></li>
+</ul>
+<h2>Unnacceptable AI Usage</h2>
+<h3>Solving the Problem For You</h3>
+<p>When you are working on a challenge or a project, I want to see your critical thinking, creativity, and problem solving skills at work. Having an AI hold your hand throughout the problem solving process will seriously hinder your learning. </p>
+<ul>
+<li><em>Example: Can you show me how to make an algorithm for converting binary numbers into decimal numbers?</em></li>
+</ul>
+<p>Remember, computer science isn&rsquo;t just about the coding, its about the problem solving. <strong>Even if you write your own code, having the AI walk you through a solution is cheating.</strong></p>
+<h3>Generating Code For You</h3>
+<p><strong>Obviously if you just tell AI to do the assignment for you, that&rsquo;s cheating.</strong></p>
+<ul>
+<li><em>Example: Create me a python project that satisfies the needs of this assignment.</em></li>
+</ul>
+<h3>Doing Your Debugging For You</h3>
+<p>While AI can help you understand error messages, it should still be you who does the problem solving. <strong>When your code doesn&rsquo;t work, pasting it (or the error message) into AI and having it fix it for you is cheating.</strong></p>
+<ul>
+<li><em>Example: *pastes error message* *pastes buggy code* What&rsquo;s wrong with my code? Please fix it.</em></li>
+</ul>
+<h3>Creating Documentation</h3>
+<p>When it comes to adding comments and documentation to your code, again you should be the one to do it. If you don&rsquo;t understand your own code well enough to comment it, then you haven&rsquo;t demonstrated your learning. <strong>Having AI create your documentation or comments is cheating.</strong></p>
+<ul>
+<li><em>Example: Please create the docstrings and comments for this python file. *paste code here*</em></li>
+</ul>
+<h3>Planning and Idea Generation</h3>
+<p>When it comes to planning and idea generation, you are ruining your learning in two ways if you use AI. </p>
+<p>First, you aren&rsquo;t exercising your own creativity and problem solving. If you don&rsquo;t practice it now, its a skill that will be challenging to develop down the line. </p>
+<p>Second, AI is just bad at creative ideas. Consider the ginger bread house story.</p>
+<p><strong>Using AI for idea generation and planning is cheating.</strong></p>
+<ul>
+<li><em>Example: Help me come up with an idea for what I can make with Tkinter and python for my project.</em></li>
+</ul>
+<h2>Academic Integrity with AI</h2>
+<p>In every assignment you do, one of the optional submissions will be an AI log. This is a <strong>word document</strong> that <strong>you MUST submit if you used AI</strong> (for either acceptable or unacceptable purposes). The AI log is just a word document that you <strong>copy and paste your entire AI conversation into for the AI that you used for the project</strong>.</p>
+<p>This allows you to use AI guilt free for its acceptable uses and keeps you honest about not using it for its unacceptable purposes.</p>
+<footer>
+<pre id="ducky">
+    <span class="yellow">_</span>
+ <span class="yellow">__(</span><span class="eye">o</span><span class="yellow">)</span><span class="orange">=</span>
+ <span class="yellow">\___)</span>
+<span class="grass">&gt;</span><span class="water">~~~~~</span><span class="grass">&lt;</span></pre>
+<p id="end-message" class="flourish"><em>Make something worth making.</em></p>
+<div id="spacer"></div>
+<p id="copy">© Nathan Forsyth</p>
+</footer>
+</body>
+</html>

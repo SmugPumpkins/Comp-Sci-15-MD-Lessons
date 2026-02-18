@@ -1,403 +1,271 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>12 - Arcs.md</title>
-    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-    
-<style>
-/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
+<meta charset="utf-8">
+<title>12 - Arcs</title>
 
-body {
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
-	padding: 0 26px;
-	line-height: var(--vscode-markdown-line-height, 22px);
-	word-wrap: break-word;
-}
-
-html,footer,header{
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
-}
-
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
-}
-
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
-}
-
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
-}
-
-body.showEditorSelection .code-line {
-	position: relative;
-}
-
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
-}
-
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
-
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
-
-.vscode-light.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
-
-.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-img {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-a {
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
-}
-
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-}
-
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
-
-h1, h2, h3 {
-	font-weight: normal;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-table > thead > tr > th {
-	text-align: left;
-	border-bottom: 1px solid;
-}
-
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
-}
-
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
-}
-
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left-width: 5px;
-	border-left-style: solid;
-}
-
-code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 1em;
-	line-height: 1.357em;
-}
-
-body.wordWrap pre {
-	white-space: pre-wrap;
-}
-
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
-}
-
-pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
-}
-
-/** Theming */
-
-.vscode-light pre {
-	background-color: rgba(220, 220, 220, 0.4);
-}
-
-.vscode-dark pre {
-	background-color: rgba(10, 10, 10, 0.4);
-}
-
-.vscode-high-contrast pre {
-	background-color: rgb(0, 0, 0);
-}
-
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
-}
-
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
-}
-
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
-}
-
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
-}
-
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
-}
-
-</style>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 
 <style>
-/* a11y-dark theme */
-/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
-/* @author: ericwbailey */
-
-/* Comment */
-.hljs-comment,
-.hljs-quote {
-  color: #d4d0ab;
-}
-
-/* Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-  color: #ffa07a;
-}
-
-/* Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-  color: #f5ab35;
-}
-
-/* Yellow */
-.hljs-attribute {
-  color: #ffd700;
-}
-
-/* Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-  color: #abe338;
-}
-
-/* Blue */
-.hljs-title,
-.hljs-section {
-  color: #00e0e0;
-}
-
-/* Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-  color: #dcc6e0;
-}
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: #2b2b2b;
-  color: #f8f8f2;
-  padding: 0.5em;
-}
-
-.hljs-emphasis {
-  font-style: italic;
-}
-
-.hljs-strong {
-  font-weight: bold;
-}
-
-@media screen and (-ms-high-contrast: active) {
-  .hljs-addition,
-  .hljs-attribute,
-  .hljs-built_in,
-  .hljs-builtin-name,
-  .hljs-bullet,
-  .hljs-comment,
-  .hljs-link,
-  .hljs-literal,
-  .hljs-meta,
-  .hljs-number,
-  .hljs-params,
-  .hljs-string,
-  .hljs-symbol,
-  .hljs-type,
-  .hljs-quote {
-        color: highlight;
+    * {
+        box-sizing: border-box;
     }
 
-    .hljs-keyword,
-    .hljs-selector-tag {
-        font-weight: bold;
+    body {
+        max-width: 900px;
+        margin: 40px auto;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        background-color: #100120;
+        color: rgb(238, 238, 238);
     }
-}
 
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    h1::after {
+        content: "";
+        display: block;
+        height: 4px;
+        background: rgb(238, 238, 238);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+        color: rgb(252, 204, 141);
+        margin: 1.5rem 0.25rem;
+    }
+
+    h2::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: rgb(252, 204, 141);
+        width: 100%;
+        margin-top: 0.1rem;
+    }
+
+    h3 {
+        font-weight: 300;
+        font-size: 1.75rem;
+        color: rgb(250, 249, 202);
+        margin: 1.25rem 0.75rem;
+    }
+
+    h3::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(250, 249, 202);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h4 {
+        font-weight: 300;
+        font-size: 1.5rem;
+        color: rgb(201, 245, 248);
+        margin: 1rem 1.25rem;
+    }
+
+    h4::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(201, 245, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h5 {
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: rgb(239, 201, 248);
+        margin: 1rem 1.5rem;
+    }
+
+    h5::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(239, 201, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h6 {
+        font-weight: 300;
+        font-size: 1rem;
+        color: rgb(248, 210, 201);
+        margin: 1rem 1.75rem;
+    }
+
+    h6::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(248, 210, 201);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    a,
+    a:visited {
+        color: rgb(233, 157, 157);
+        text-decoration: underline;
+        font-weight: 400;
+    }
+
+    a:hover {
+        font-weight: 600;
+    }
+
+    body>p,
+    body>ul,
+    body>ol {
+        margin: 1rem 2rem;
+    }
+
+    p,
+    ul,
+    ol {
+        margin-bottom: 1rem;
+        text-align: justify;
+        text-align-last: left;
+    }
+
+    pre {
+        margin: 1em 0;
+        padding: 12px;
+        overflow-x: auto;
+    }
+
+    pre code {
+        padding: 0;
+        background: transparent;
+        border: 2px solid white;
+        border-radius: 5px;
+    }
+
+    code {
+        padding: 3px;
+        background: #413a4a;
+        border-radius: 3px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5em 0;
+    }
+
+    th,
+    td {
+        border: 1px solid white;
+        padding: 8px 10px;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    thead {
+        background-color: #2b1a4a;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #1d1235;
+    }
+
+    #end-message {
+        text-align: center;
+        text-align-last: center;
+        font-size: 1rem;
+        font-weight: 300;
+        margin: 0;
+        color: rgb(250, 249, 202);
+    }
+
+    footer {
+        margin-top: 7rem;
+    }
+
+    #spacer {
+        height: 7rem;
+        background: transparent;
+    }
+
+    #copy {
+        text-align: center;
+        text-align-last: center;
+        color: #100120;
+        color: #403150;
+    }
+
+    .flourish::before {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    .flourish::after {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    #ducky {
+        line-height: 2.65rem;
+        font-family: "Google Sans Code", monospace;
+        font-weight: 600;
+        font-size: 2.5rem;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .yellow {
+        color: #f7ec52;
+    }
+
+    .orange {
+        color: #fcac00;
+    }
+
+    .eye {
+        color: #BCFAF2;
+    }
+
+    .water {
+        color: #008dd5;
+    }
+
+    .grass {
+        color: #96f58e;
+    }
+
+    #rubric {
+        margin-left: -0.5in;
+        margin-right: -0.5in;
+        width: calc(100% + 1.0in);
+        font-size: 0.6rem;
+    }
+    #rubric th{
+    font-size: 0.8rem;
+    }
 </style>
-
-<style>
-/*
- * Custom MD PDF CSS
- */
-html,footer,header{
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-
- }
-body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-	padding: 0 12px;
-}
-
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
-
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
-}
-
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
-
-.emoji {
-	height: 1.4em;
-}
-
-code {
-	font-size: 14px;
-	line-height: 19px;
-}
-
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
-}
-
-/* Page Break : use <div class="page"/> to insert page break
--------------------------------------------------------- */
-.page {
-	page-break-after: always;
-}
-
-</style>
-<link rel="stylesheet" href="file:///r%3A/2.Travail/1.Enseignement/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css"><link rel="stylesheet" href="file:///d%3A/rdaros/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css">
 </head>
-
 <body>
-    <h1 id="overview">Overview</h1>
+<h1>Overview</h1>
 <p>In this lesson, you will learn how to draw <strong>arcs directly on the Tk canvas</strong> using the turtle library. Arcs are curved shapes that are drawn inside a bounding box and can be used to create curves, partial circles, and pie-like shapes.</p>
-<h1 id="important-information">Important Information</h1>
+<h1>Important Information</h1>
 <p>Arcs are created on the canvas in a similar way to ovals, but instead of drawing the entire oval, you draw <strong>only part of it</strong>.</p>
-<h2 id="canvas-coordinates-reminder">Canvas Coordinates Reminder</h2>
+<h2>Canvas Coordinates Reminder</h2>
 <p>When using the turtle canvas:</p>
 <ul>
 <li><code>(0, 0)</code> is the <strong>center of the canvas</strong></li>
@@ -406,19 +274,19 @@ code {
 <li>Positive <strong>y</strong> moves down</li>
 <li>Negative <strong>y</strong> moves up</li>
 </ul>
-<h2 id="creating-an-arc">Creating an Arc</h2>
+<h2>Creating an Arc</h2>
 <p>Arcs are created using:</p>
-<pre class="hljs"><code><div>canvas.create_arc(x1, y1, x2, y2)
-</div></code></pre>
+<pre><code class="language-python">canvas.create_arc(x1, y1, x2, y2)
+</code></pre>
 <ul>
 <li><code>(x1, y1)</code> and <code>(x2, y2)</code> define a <strong>bounding rectangle</strong></li>
 <li>The arc is drawn along the edge of an invisible oval that fits inside that rectangle</li>
 </ul>
 <p>By default, the arc will not be visible unless additional settings are applied.</p>
-<h2 id="start-angle">Start Angle</h2>
+<h2>Start Angle</h2>
 <p>The <code>start</code> setting controls <strong>where the arc begins</strong>, measured in degrees.</p>
-<pre class="hljs"><code><div>canvas.create_arc(x1, y1, x2, y2, start=<span class="hljs-number">0</span>)
-</div></code></pre>
+<pre><code class="language-python">canvas.create_arc(x1, y1, x2, y2, start=0)
+</code></pre>
 <p>Angle rules:</p>
 <ul>
 <li>Angles are measured in <strong>degrees</strong></li>
@@ -432,94 +300,94 @@ code {
 <li><code>start=180</code> → left</li>
 <li><code>start=270</code> → down</li>
 </ul>
-<h2 id="extent-arc-length">Extent (Arc Length)</h2>
+<h2>Extent (Arc Length)</h2>
 <p>The <code>extent</code> setting controls <strong>how far the arc goes</strong> from the start angle.</p>
-<pre class="hljs"><code><div>canvas.create_arc(x1, y1, x2, y2, start=<span class="hljs-number">0</span>, extent=<span class="hljs-number">90</span>)
-</div></code></pre>
+<pre><code class="language-python">canvas.create_arc(x1, y1, x2, y2, start=0, extent=90)
+</code></pre>
 <ul>
 <li><code>extent</code> is measured in degrees</li>
 <li><code>90</code> draws a quarter circle</li>
 <li><code>180</code> draws a half circle</li>
 <li><code>360</code> draws a full circle</li>
 </ul>
-<h2 id="arc-style">Arc Style</h2>
+<h2>Arc Style</h2>
 <p>The <code>style</code> setting controls <strong>how the arc is drawn</strong>.</p>
-<h3 id="arc">ARC</h3>
-<pre class="hljs"><code><div>style=<span class="hljs-string">"arc"</span>
-</div></code></pre>
+<h3>ARC</h3>
+<pre><code class="language-python">style="arc"
+</code></pre>
 <ul>
 <li>Draws only the curved outline</li>
 <li>No lines to the center</li>
 <li>No fill</li>
 </ul>
-<h3 id="pieslice">PIESLICE</h3>
-<pre class="hljs"><code><div>style=<span class="hljs-string">"pieslice"</span>
-</div></code></pre>
+<h3>PIESLICE</h3>
+<pre><code class="language-python">style="pieslice"
+</code></pre>
 <ul>
 <li>Draws a curved edge plus two lines to the center</li>
 <li>Can be filled</li>
 <li>Looks like a slice of pie</li>
 </ul>
-<h3 id="chord">CHORD</h3>
-<pre class="hljs"><code><div>style=<span class="hljs-string">"chord"</span>
-</div></code></pre>
+<h3>CHORD</h3>
+<pre><code class="language-python">style="chord"
+</code></pre>
 <ul>
 <li>Draws a curved edge and a straight line connecting the ends</li>
 <li>Can be filled</li>
 <li>Does not connect to the center</li>
 </ul>
-<h2 id="outline-color">Outline Color</h2>
+<h2>Outline Color</h2>
 <p>You can change the arc’s outline color using:</p>
-<pre class="hljs"><code><div>outline=<span class="hljs-string">"blue"</span>
-</div></code></pre>
-<h2 id="fill-color">Fill Color</h2>
+<pre><code class="language-python">outline="blue"
+</code></pre>
+<h2>Fill Color</h2>
 <p>Fill works only with <code>pieslice</code> and <code>chord</code> styles:</p>
-<pre class="hljs"><code><div>fill=<span class="hljs-string">"yellow"</span>
-</div></code></pre>
-<h2 id="border-thickness">Border Thickness</h2>
+<pre><code class="language-python">fill="yellow"
+</code></pre>
+<h2>Border Thickness</h2>
 <p>You can control how thick the arc outline is using:</p>
-<pre class="hljs"><code><div>width=<span class="hljs-number">4</span>
-</div></code></pre>
-<h2 id="dashed-arcs">Dashed Arcs</h2>
+<pre><code class="language-python">width=4
+</code></pre>
+<h2>Dashed Arcs</h2>
 <p>You can create dashed arc outlines using:</p>
-<pre class="hljs"><code><div>dash=(<span class="hljs-number">8</span>, <span class="hljs-number">4</span>)
-</div></code></pre>
+<pre><code class="language-python">dash=(8, 4)
+</code></pre>
 <p>This affects only the outline.</p>
-<h2 id="combining-arc-settings">Combining Arc Settings</h2>
+<h2>Combining Arc Settings</h2>
 <p>All arc settings can be combined in a single call:</p>
-<pre class="hljs"><code><div>canvas.create_arc(
-    <span class="hljs-number">-100</span>, <span class="hljs-number">-100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>,
-    start=<span class="hljs-number">0</span>,
-    extent=<span class="hljs-number">120</span>,
-    style=<span class="hljs-string">"pieslice"</span>,
-    outline=<span class="hljs-string">"blue"</span>,
-    fill=<span class="hljs-string">"lightblue"</span>,
-    width=<span class="hljs-number">3</span>
+<pre><code class="language-python">canvas.create_arc(
+    -100, -100, 100, 100,
+    start=0,
+    extent=120,
+    style="pieslice",
+    outline="blue",
+    fill="lightblue",
+    width=3
 )
-</div></code></pre>
-<h1 id="set-up">Set Up</h1>
+</code></pre>
+<h1>Set Up</h1>
 <p>Create a new Python file called <code>canvas_arcs.py</code>.</p>
-<h1 id="copy-change-challenge">Copy, Change, Challenge</h1>
-<h2 id="copy">Copy</h2>
+<h1>Copy, Change, Challenge</h1>
+<h2>Copy</h2>
 <p>Copy and run the following code.</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">import</span> turtle
+<pre><code class="language-python">import turtle
 
 screen = turtle.Screen()
 canvas = screen.getcanvas()
 
 canvas.create_arc(
-    <span class="hljs-number">-100</span>, <span class="hljs-number">-100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>,
-    start=<span class="hljs-number">0</span>,
-    extent=<span class="hljs-number">180</span>,
-    style=<span class="hljs-string">"arc"</span>,
-    outline=<span class="hljs-string">"black"</span>,
-    width=<span class="hljs-number">3</span>
+    -100, -100, 100, 100,
+    start=0,
+    extent=180,
+    style="arc",
+    outline="black",
+    width=3
 )
 
 turtle.done()
-</div></code></pre>
+</code></pre>
 <p>You should see a curved arc drawn on the canvas.</p>
-<h2 id="change">Change</h2>
+<h2>Change</h2>
 <p>Modify the arc so that:</p>
 <ul>
 <li>The arc starts at a different angle</li>
@@ -528,7 +396,7 @@ turtle.done()
 <li>The arc is dashed</li>
 </ul>
 <p>Run the program again and observe the differences.</p>
-<h2 id="challenge">Challenge</h2>
+<h2>Challenge</h2>
 <p>Add multiple arcs so that:</p>
 <ul>
 <li>One arc uses <code>pieslice</code> style with a fill color</li>
@@ -536,7 +404,15 @@ turtle.done()
 <li>One arc forms a half circle</li>
 <li>One arc forms a quarter circle</li>
 </ul>
-
+<footer>
+<pre id="ducky">
+    <span class="yellow">_</span>
+ <span class="yellow">__(</span><span class="eye">o</span><span class="yellow">)</span><span class="orange">=</span>
+ <span class="yellow">\___)</span>
+<span class="grass">&gt;</span><span class="water">~~~~~</span><span class="grass">&lt;</span></pre>
+<p id="end-message" class="flourish"><em>Make something worth making.</em></p>
+<div id="spacer"></div>
+<p id="copy">© Nathan Forsyth</p>
+</footer>
 </body>
-
 </html>

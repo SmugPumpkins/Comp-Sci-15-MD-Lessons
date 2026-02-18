@@ -1,4 +1,6 @@
-# Overview
+# Lesson 24 - Sample Workflow
+
+## Overview
 When it comes to testing, it can be difficult to know exactly where to start, especially as a beginner. This section of the lesson will be a helpful reference point as you continue to write code and test it to know what to do and when to do it. 
 
 Most projects will follow a similar pattern for the work flow:
@@ -13,14 +15,14 @@ Most projects will follow a similar pattern for the work flow:
 
 Now that we have established an example workflow, let's look at an example of creating and testing a function that converts values from degrees celsius to degrees fahrenheit.
 
-## 1. Define The Problem That Is Being Solved
+### 1. Define The Problem That Is Being Solved
 For our example of converting Celsius to Fahrenheit, it's pretty simple to identify our input, process, and output.
 
 * **Input:** A number representing the degrees Celsius.
 * **Process:** Use the formula (°C * 9/5) + 32 = °F to calculate the temperature in degrees Fahrenheit.
 * **Output:** The number representing the degrees Fahrenheit.
 
-## 2. Create the Function
+### 2. Create the Function
 For our example, the function is once again very simple. In your future projects, the complexity and challenge of creating the function in python will be directly proportional to how well you planned your function in step 1.
 
 Our function might look something like this:
@@ -31,7 +33,7 @@ def celsius_to_fahrenheit(celsius : float):
     fahrenheit = (celsius * (9 / 5)) + 32
     return fahrenheit
 ```
-## 3. Identify Test Cases
+### 3. Identify Test Cases
 When creating test cases, it's important to consider what kinds of inputs you might receive. This is one of the most difficult parts of computer science, because it's up to the programmer's judgement to consider what kinds of cases need to be tested in order to ensure their function works as intended all the time.
 
 For our example, some possible cases we might want to ensure work could include:
@@ -44,7 +46,7 @@ For our example, some possible cases we might want to ensure work could include:
 * A decimal number (10.05)
 * -40 (Celsius and Fahrenheit are the same temperature at -40)
 
-## 4. Calculate Expected Output Values
+### 4. Calculate Expected Output Values
 After deciding on some test cases, we need to calculate what these values should output. For our example, we need to use our formula to calculate these values on our own, and then we can set them as our test cases.
 
 _For the following table, I used the temperature calculator from Google (which means I didn't use my formula). Before we create and run these tests, consider whether or not you agree with my method of calculating expected values. Should I have done something differently?_
@@ -59,7 +61,7 @@ _For the following table, I used the temperature calculator from Google (which m
 |10.5|50.9|
 |-40|-40|
 
-## 5. Create The Test Files
+### 5. Create The Test Files
 For `pytest` to work, my file with tests in it needs to be named starting with "test_".
 
 All of my test functions also need to start with "test_". When naming test functions, the name should describe what sort of case I am trying to test.
@@ -92,7 +94,7 @@ def test_same_value():
     assert celsius_to_fahrenheit(-40) == -40
 ```
 
-## 6. Run The Tests
+### 6. Run The Tests
 I would recommend creating your own `main.py` and `test_temperatures.py` and running the tests yourself as well, as the results of the tests don't translate well to markdown files (the instruction files of these lessons).
 
 Once you run the test files, you might be surprised at the result. Almost all of the tests passed! It may be surpsising that all of the sample numbers we used (except the the decimal) result in integers, but they do. In this case, it was okay to use the Google temperature converter for us to get our results.
@@ -105,7 +107,7 @@ One of the tests did fail however. Our test for decimals had the following resul
 
 This is one of those math quirks that comes from decimal numbers not playing nice with the binary of machine code. We will discuss this further in step 7.
 
-## 7. Iterate and Test Again
+### 7. Iterate and Test Again
 In our case, we had one test fail because decimals can't be calculated with perfect precision, but the result was really close to our actual value.
 
 **Option 1:** We could make it so that our results always get rounded to a specific decimal place in the function itself. However, this could result in not being able to calculate values within a certain precision down the line. 
@@ -124,7 +126,6 @@ from pytest import approx
 # Add the approx method surrounding our decimal value on the expected output side
 def test_decimal():
     assert celsius_to_fahrenheit(10.5) == approx(50.9)
-...
 ```
 
 After making these small changes, all 7 tests we created now pass!

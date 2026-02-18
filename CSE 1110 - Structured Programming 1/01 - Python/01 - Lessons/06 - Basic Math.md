@@ -1,35 +1,62 @@
-# Overview
+
+# Lesson 6 - Basic Math
+
+## Overview
 We've taken a brief look at how different variables can have different types, but variables are only really useful to us when we can do something with them.
 
 In this lesson, we will take a closer look at how to do some basic math in python.
 
 We won't do math on variables yet, but this lesson should give you a basic understanding of addition, subtraction, multiplication, and division in python.
 
-## Addition
+### Addition
 When we want to add values in python, we use `+`.
 
-## Subtraction
+```python
+my_number = 3 + 5
+
+print(my_number)
+```
+
+### Subtraction
 When we want to subtract values in python, we use `-`.
 
-## Multiplication
+```python
+my_number = 10 - 6
+
+print(my_number)
+```
+
+### Multiplication
 When we want to multiply a value in python, we use `*`.
 
-## Division
+```python
+my_number = 2 * 8
+
+print(my_number)
+```
+
+### Division
 When we want to divide a value in python, we use `/`.
 
-# Set Up
+```python
+my_number = 16 / 4
+
+print(my_number)
+```
+
+## Set Up
 Create a new python file called `basicmath.py`.
 
-# Copy
+## Copy
 ```python
 print(2+2)
 ```
 What do you think will print to the Terminal?
 
-# Change
+## Change
 Alter the value being printed to print a subtraction, multiplication, and a division statement (one at a time).
 
-# Copy
+## Copy
 ```python
 print(0.1+0.2)
 ```

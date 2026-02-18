@@ -3,21 +3,27 @@
 Now that the mazes have been created and solved, its off to the races! You will need to show off your maze AND a turtle solving the maze. In doing so, you will describe the IPO of each function you created and discuss how you utilize an IDE to manage your project effectively.
 
 Once mazes have been presented, you will have the opportunity to vote for your favourite mazes in regards to:
+
 * Best Theme
 * Best Aesthetics
 * Most Complex
+
 ## Project Criteria
 Your task is to present your maze with a turtle that can successfully navigate the maze from start to finish. When you are presenting you must:
+
 * Describe the IPO of each of the functions you created to help build your maze.
 * Describe different parts of the IDE and how they help with your workflow.
 * Run the program to show the maze and a turtle navigating the maze.
 
 You will also create a short written reflection that meets the following criteria:
+
 * No more than 300 words in length.
 * Convince me that you have met the required outcomes for different steps of the project.
 * Reference specific learning outcomes that you feel you exemplified.
 * Include one change you would make if you had infinite resources (time and money) to your project.
+
 ## Outcome Criteria
+
 * **2 Demonstrate the ability to translate algorithms into working programs.**
   * **2.1** Describe the purpose of key parts of a programming development environment.
   * **2.3** Use the key components of a programming development environment to write and run programs.
@@ -31,7 +37,9 @@ You will also create a short written reflection that meets the following criteri
     * **2.4.7** displaying results clearly
   * **2.5** Test programs using appropriate data.
   * **2.6** Revise programs based on testing.
+
 ## Mastery Rubric
+
 |                                                                                       | 5 – Mastery of Skill                                                                                                                                                                         | 4 – Excellence in Skill                                                                                    | 3 – Proficiency in Skill                                                                     | 2 – Attempting Skill                                                              | 1 – Starting to Attempt Skill                                 | 0 – Refusal to Engage with Skill    |
 | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------- | ----------------------------------- |
 | **2.1 Use a programming IDE.**                                                        | Uses the IDE fluently during the presentation to manage files, run the program, and navigate code while clearly demonstrating control and efficiency.                                        | Uses the IDE confidently during the presentation with only minor hesitation.                               | Uses the IDE to run and show the program, but with limited fluency.                          | Uses the IDE inconsistently or requires prompting to navigate or run the program. | Shows minimal ability to use the IDE during the presentation. | Does not use the IDE.               |
@@ -44,5 +52,6 @@ You will also create a short written reflection that meets the following criteri
 
 ## Submission
 The following are *required* submissions:
+
 * Your written reflection submitted as a word document.
 

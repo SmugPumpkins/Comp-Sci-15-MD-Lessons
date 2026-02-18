@@ -6,70 +6,267 @@
 
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+    * {
+        box-sizing: border-box;
+    }
 
-body {
-    max-width: 900px;
-    margin: 40px auto;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    line-height: 1.6;
-    background-color: #14012b;
-    color: white;
-}
+    body {
+        max-width: 900px;
+        margin: 40px auto;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        background-color: #100120;
+        color: rgb(238, 238, 238);
+    }
 
-pre {
-    margin: 1em 0;
-    padding: 12px;
-    overflow-x: auto;
-}
+    h1 {
+        font-size: 2.25rem;
+    }
 
-pre code {
-    padding: 0;
-    background: transparent;
-    border: 2px solid white;
-    border-radius: 5px;
-}
+    h1::after {
+        content: "";
+        display: block;
+        height: 4px;
+        background: rgb(238, 238, 238);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-code {
-    padding: 3px;
-    background: #413a4a;
-    border-radius: 3px;
-}
+    h2 {
+        font-size: 2rem;
+        color: rgb(252, 204, 141);
+        margin: 1.5rem 0.25rem;
+    }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5em 0;
-}
+    h2::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: rgb(252, 204, 141);
+        width: 100%;
+        margin-top: 0.1rem;
+    }
 
-th, td {
-    border: 1px solid white;
-    padding: 8px 10px;
-    text-align: left;
-    vertical-align: top;
-}
+    h3 {
+        font-weight: 300;
+        font-size: 1.75rem;
+        color: rgb(250, 249, 202);
+        margin: 1.25rem 0.75rem;
+    }
 
-thead {
-    background-color: #2b1a4a;
-}
+    h3::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(250, 249, 202);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 
-tbody tr:nth-child(even) {
-    background-color: #1d1235;
-}
+    h4 {
+        font-weight: 300;
+        font-size: 1.5rem;
+        color: rgb(201, 245, 248);
+        margin: 1rem 1.25rem;
+    }
+
+    h4::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(201, 245, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h5 {
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: rgb(239, 201, 248);
+        margin: 1rem 1.5rem;
+    }
+
+    h5::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(239, 201, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h6 {
+        font-weight: 300;
+        font-size: 1rem;
+        color: rgb(248, 210, 201);
+        margin: 1rem 1.75rem;
+    }
+
+    h6::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(248, 210, 201);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    a,
+    a:visited {
+        color: rgb(233, 157, 157);
+        text-decoration: underline;
+        font-weight: 400;
+    }
+
+    a:hover {
+        font-weight: 600;
+    }
+
+    body>p,
+    body>ul,
+    body>ol {
+        margin: 1rem 2rem;
+    }
+
+    p,
+    ul,
+    ol {
+        margin-bottom: 1rem;
+        text-align: justify;
+        text-align-last: left;
+    }
+
+    pre {
+        margin: 1em 0;
+        padding: 12px;
+        overflow-x: auto;
+    }
+
+    pre code {
+        padding: 0;
+        background: transparent;
+        border: 2px solid white;
+        border-radius: 5px;
+    }
+
+    code {
+        padding: 3px;
+        background: #413a4a;
+        border-radius: 3px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5em 0;
+    }
+
+    th,
+    td {
+        border: 1px solid white;
+        padding: 8px 10px;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    thead {
+        background-color: #2b1a4a;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #1d1235;
+    }
+
+    #end-message {
+        text-align: center;
+        text-align-last: center;
+        font-size: 1rem;
+        font-weight: 300;
+        margin: 0;
+        color: rgb(250, 249, 202);
+    }
+
+    footer {
+        margin-top: 7rem;
+    }
+
+    #spacer {
+        height: 1rem;
+        background: transparent;
+    }
+
+    #copy {
+        text-align: center;
+        text-align-last: center;
+        color: #100120;
+        color: #403150;
+    }
+
+    .flourish::before {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    .flourish::after {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    #ducky {
+        line-height: 2.65rem;
+        font-family: "Google Sans Code", monospace;
+        font-weight: 600;
+        font-size: 2.5rem;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .yellow {
+        color: #f7ec52;
+    }
+
+    .orange {
+        color: #fcac00;
+    }
+
+    .eye {
+        color: #BCFAF2;
+    }
+
+    .water {
+        color: #008dd5;
+    }
+
+    .grass {
+        color: #96f58e;
+    }
+
+    #rubric {
+        margin-left: -0.5in;
+        margin-right: -0.5in;
+        width: calc(100% + 1.0in);
+        font-size: 0.6rem;
+    }
+    #rubric th{
+    font-size: 0.8rem;
+    }
 </style>
 </head>
 <body>
-<h1>Overview</h1>
-<p>So far we have printed &ldquo;Hello, World!&rdquo; and a few other things to our terminal using <em>literals</em>. A literal is any time you write the literal value in your program. We literally wrote &ldquo;hello world&rdquo;. One of the most useful tools for programmers is using varaibles instead.</p>
-<h1>Set Up</h1>
+<h1>Lesson 2 - Introduction to Variables</h1>
+<h2>Overview</h2>
+<p>So far we have printed “Hello, World!” and a few other things to our terminal using <em>literals</em>. A literal is any time you write the literal value in your program. We literally wrote “hello world”. One of the most useful tools for programmers is using varaibles instead.</p>
+<h2>Set Up</h2>
 <p>Create a new python file and call it <code>stringvariable.py</code>.</p>
-<h1>Important Info</h1>
+<h2>Important Info</h2>
 <p>Variables in computer science work differently from variables in math.
 - In math, typically a variable represents an unknown value.
 - In computer science, a variable is used to store data we want to keep track of.</p>
@@ -79,23 +276,23 @@ tbody tr:nth-child(even) {
 <p>When we create a variable, we give it a name and a value. This process is called <strong>declaring</strong> a variable. A variable cannot be used until it has been declared. At the bottom of this lesson is some best practices for naming variables.</p>
 <p>Different variables can store different types of data, which we will learn more about later. For now, we will focus on String variables.</p>
 <p>A String variable has a value that contains a string of characters. It can be an empty pair of quotes, a single letter, a word, a phrase, a sentence, or even an entire novel!</p>
-<h1>Copy</h1>
+<h2>Copy</h2>
 <p>Copy the following code. In this code, we create a variable called <code>greeting</code> and set the value to <code>"Hello, World!"</code>. When creating a variable, you can choose any name you want. Below we will learn about common naming conventions in python.</p>
-<pre><code class="language-python">greeting = &quot;Hello, World!&quot;
+<pre><code class="language-python">greeting = "Hello, World!"
 print(greeting)
 </code></pre>
 <p>What happens when you run the code?</p>
 <p>Notice that our <code>=</code> sign acts as a way to set the value of our variable. Instead of a mathematical expression that is asserting the equality of 2 values, the <code>=</code> sign in code allows you to set the value of a variable.</p>
-<h1>Change</h1>
+<h2>Change</h2>
 <p>Change the greeting variable so that it greets you by name rather than <code>"Hello, World!"</code>.</p>
 <p>Run the program again to verify that it works.</p>
-<h1>Challenge</h1>
+<h2>Challenge</h2>
 <p>Once again, you will print multiple messages. Create 3 different variables to store these 3 messages, and print them to the terminal.</p>
 <p><code>Hello, World!</code></p>
 <p><code>Hello,</code> followed by your name</p>
 <p><code>I love computer science!</code></p>
 <h1>Best Practices</h1>
-<p>In most code editors, there is some kind of &ldquo;intellisense&rdquo; that will help you autocomplete variable names that have already been created in your program. </p>
+<p>In most code editors, there is some kind of “intellisense” that will help you autocomplete variable names that have already been created in your program. </p>
 <p>Because of this, any variable can have any name as long as you need, because you should only really be typing the whole thing once. </p>
 <p>These are some best practices that you will be expected to maintain in your code throughout the semester.</p>
 <ol>
@@ -124,9 +321,19 @@ print(greeting)
 <li>
 <p>If you are creating a value that will never change, you can identify it as a constant value by naming it with all caps.</p>
 <ul>
-<li><code>CONSTANT_VALUE</code> would be a variable that isn&rsquo;t supposed to change.</li>
+<li><code>CONSTANT_VALUE</code> would be a variable that isn’t supposed to change.</li>
 </ul>
 </li>
 </ol>
+<footer>
+<pre id="ducky">
+    <span class="yellow">_</span>
+ <span class="yellow">__(</span><span class="eye">o</span><span class="yellow">)</span><span class="orange">=</span>
+ <span class="yellow">\___)</span>
+<span class="grass">&gt;</span><span class="water">~~~~~</span><span class="grass">&lt;</span></pre>
+<p id="end-message" class="flourish"><em>Make something worth making.</em></p>
+<div id="spacer"></div>
+<p id="copy">© Nathan Forsyth</p>
+</footer>
 </body>
 </html>

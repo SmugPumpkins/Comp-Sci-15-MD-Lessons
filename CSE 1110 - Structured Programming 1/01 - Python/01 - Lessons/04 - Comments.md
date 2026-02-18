@@ -1,16 +1,20 @@
-# Overview
+# Lesson 4 - Commenting Code
+
+## Overview
 In programming, it can be useful to describe and label what your code does inside the code itself. We can do this with something called comments.
 
-# Important Information
+## Important Information
 Adding comments is sometimes called "documentation". Documenting your code is an important outcome throughout every single computer science module. By documenting your code, you show me what you understand more clearly. 
 
-# Copy
+## Copy
 A comment is specially marked code that the computer doesn't run. It is only for the eyes of human beings. In python a comment is created with a `#` symbol
+
 ```python
 # This is a comment.
 ```
 
 There won't be anything to change in this code, but if you ever need to write a comment that takes up multiple lines you can use 3 `"` symbols like this
+
 ```python
 """
 This
@@ -25,7 +29,8 @@ Lines
 If you want to comment multiple lines at once, you can highlight the lines you want and press `Ctrl` + `/`.
 
 
-# Best Practices
+## Best Practices
+
 1. Write comments in full and complete sentences.
 2. Follow D.R.Y. comments. Don't. Repeat. Yourself.
 3. For single line comments, write them on the line above the code you are explaining.

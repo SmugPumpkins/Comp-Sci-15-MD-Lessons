@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>23 - Testing Decimal Values</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        max-width: 900px;
+        margin: 40px auto;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        background-color: #100120;
+        color: rgb(238, 238, 238);
+    }
+
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    h1::after {
+        content: "";
+        display: block;
+        height: 4px;
+        background: rgb(238, 238, 238);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+        color: rgb(252, 204, 141);
+        margin: 1.5rem 0.25rem;
+    }
+
+    h2::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: rgb(252, 204, 141);
+        width: 100%;
+        margin-top: 0.1rem;
+    }
+
+    h3 {
+        font-weight: 300;
+        font-size: 1.75rem;
+        color: rgb(250, 249, 202);
+        margin: 1.25rem 0.75rem;
+    }
+
+    h3::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(250, 249, 202);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h4 {
+        font-weight: 300;
+        font-size: 1.5rem;
+        color: rgb(201, 245, 248);
+        margin: 1rem 1.25rem;
+    }
+
+    h4::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(201, 245, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h5 {
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: rgb(239, 201, 248);
+        margin: 1rem 1.5rem;
+    }
+
+    h5::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(239, 201, 248);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    h6 {
+        font-weight: 300;
+        font-size: 1rem;
+        color: rgb(248, 210, 201);
+        margin: 1rem 1.75rem;
+    }
+
+    h6::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: rgb(248, 210, 201);
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    a,
+    a:visited {
+        color: rgb(233, 157, 157);
+        text-decoration: underline;
+        font-weight: 400;
+    }
+
+    a:hover {
+        font-weight: 600;
+    }
+
+    body>p,
+    body>ul,
+    body>ol {
+        margin: 1rem 2rem;
+    }
+
+    p,
+    ul,
+    ol {
+        margin-bottom: 1rem;
+        text-align: justify;
+        text-align-last: left;
+    }
+
+    pre {
+        margin: 1em 0;
+        padding: 12px;
+        overflow-x: auto;
+    }
+
+    pre code {
+        padding: 0;
+        background: transparent;
+        border: 2px solid white;
+        border-radius: 5px;
+    }
+
+    code {
+        padding: 3px;
+        background: #413a4a;
+        border-radius: 3px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5em 0;
+    }
+
+    th,
+    td {
+        border: 1px solid white;
+        padding: 8px 10px;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    thead {
+        background-color: #2b1a4a;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #1d1235;
+    }
+
+    #end-message {
+        text-align: center;
+        text-align-last: center;
+        font-size: 1rem;
+        font-weight: 300;
+        margin: 0;
+        color: rgb(250, 249, 202);
+    }
+
+    footer {
+        margin-top: 7rem;
+    }
+
+    #spacer {
+        height: 1rem;
+        background: transparent;
+    }
+
+    #copy {
+        text-align: center;
+        text-align-last: center;
+        color: #100120;
+        color: #403150;
+    }
+
+    .flourish::before {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    .flourish::after {
+        content: "——";
+        margin: 0 0.5rem;
+    }
+
+    #ducky {
+        line-height: 2.65rem;
+        font-family: "Google Sans Code", monospace;
+        font-weight: 600;
+        font-size: 2.5rem;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .yellow {
+        color: #f7ec52;
+    }
+
+    .orange {
+        color: #fcac00;
+    }
+
+    .eye {
+        color: #BCFAF2;
+    }
+
+    .water {
+        color: #008dd5;
+    }
+
+    .grass {
+        color: #96f58e;
+    }
+
+    #rubric {
+        margin-left: -0.5in;
+        margin-right: -0.5in;
+        width: calc(100% + 1.0in);
+        font-size: 0.6rem;
+    }
+    #rubric th{
+    font-size: 0.8rem;
+    }
+</style>
+</head>
+<body>
+<h1>Lesson 23 - Testing Decimal Values</h1>
+<h2>Overview</h2>
+<p>This lesson introduces <code>approx()</code> from the <code>pytest</code> testing library. You will learn why decimal numbers can behave unexpectedly in programs and how <code>approx()</code> helps you write reliable tests when working with decimal values.</p>
+<h2>Important Information</h2>
+<p>Computers do not store decimal numbers the same way humans write them. Inside a computer, numbers are stored using binary (base 2). Many simple decimals, such as <code>0.1</code> or <code>0.2</code>, cannot be represented exactly in binary. Instead, the computer stores the closest possible approximation.</p>
+<p>Because of this, math that looks simple can produce surprising results. For example, adding <code>0.1</code> and <code>0.2</code> does not result in exactly <code>0.3</code>, but instead <code>0.30000000000000004</code>. This is not a Python bug, it is a limitation of how numbers are stored in hardware.</p>
+<p>When writing tests, this becomes a problem. A direct equality check (<code>==</code>) expects values to match exactly. If two decimal values are only slightly different due to rounding, a test can fail even though the calculation is logically correct.</p>
+<p>The <code>approx()</code> function from <code>pytest</code> solves this by checking whether two values are <em>close enough</em> to each other instead of exactly equal. It allows for a very small margin of error, which is appropriate when testing decimal math.</p>
+<h3>When <code>approx()</code> Is Not Needed</h3>
+<p>If you are comparing integers or decimals that are known to be exact, you can safely use <code>==</code>.</p>
+<pre><code class="language-python">def test_addition():
+    result = 2 + 3
+    assert result == 5
+</code></pre>
+<p>This test is safe because integers are stored exactly in binary.</p>
+<h3>When <code>approx()</code> Is Needed</h3>
+<p>When calculations involve decimals, especially results of division or repeated arithmetic, exact equality is risky.</p>
+<pre><code class="language-python">def test_decimal_math():
+    result = 0.1 + 0.2
+    assert result == 0.3  # This test will fail
+</code></pre>
+<p>Even though this looks correct, the test fails because <code>result</code> is actually something like <code>0.30000000000000004</code>.</p>
+<p>Using <code>approx()</code> fixes this problem.</p>
+<pre><code class="language-python">from pytest import approx
+
+def test_decimal_math():
+    result = 0.1 + 0.2
+    assert result == approx(0.3)
+</code></pre>
+<p>Here, <code>approx(0.3)</code> tells <code>pytest</code> to accept values that are extremely close to <code>0.3</code>, which makes the test both accurate and realistic.</p>
+<p>Testing is about checking correctness, not punishing tiny rounding errors that humans do not care about. When decimals are involved, <code>approx()</code> makes your tests match how computers actually work, rather than how numbers look on paper.</p>
+<footer>
+<pre id="ducky">
+    <span class="yellow">_</span>
+ <span class="yellow">__(</span><span class="eye">o</span><span class="yellow">)</span><span class="orange">=</span>
+ <span class="yellow">\___)</span>
+<span class="grass">&gt;</span><span class="water">~~~~~</span><span class="grass">&lt;</span></pre>
+<p id="end-message" class="flourish"><em>Make something worth making.</em></p>
+<div id="spacer"></div>
+<p id="copy">© Nathan Forsyth</p>
+</footer>
+</body>
+</html>

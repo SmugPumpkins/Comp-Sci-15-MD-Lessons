@@ -1,8 +1,10 @@
-# Overview
+# Lesson 23 - Testing Decimal Values
+
+## Overview
 
 This lesson introduces `approx()` from the `pytest` testing library. You will learn why decimal numbers can behave unexpectedly in programs and how `approx()` helps you write reliable tests when working with decimal values.
 
-# Important Information
+## Important Information
 
 Computers do not store decimal numbers the same way humans write them. Inside a computer, numbers are stored using binary (base 2). Many simple decimals, such as `0.1` or `0.2`, cannot be represented exactly in binary. Instead, the computer stores the closest possible approximation.
 

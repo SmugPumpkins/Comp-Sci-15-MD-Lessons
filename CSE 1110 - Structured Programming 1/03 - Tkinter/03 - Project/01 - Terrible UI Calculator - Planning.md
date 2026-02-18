@@ -8,32 +8,37 @@ A great place to find inspiration for a terrible UI is [GoulartNogueira/BadUI](h
 Your task is to use python and Tkinter to create a terrible calculator UI. The calculator may be a regular arithmetic calculator or a custom kind of calculator (like sport stats or triangle angles or something).
 
 Your project must include the following:
-* At least 10 input widgets.
+
+* At least 4 input widgets.
 * The use of styles to customize the appearance of widgets.
 * At least 1 label that is used for outputting data.
 * At least 3 functions that accept parameters.
 * At least 3 functions that return values.
 * At least 6 total functions.
 
-Your planning must include:
+Your planning document must include:
+
 * A description and explanation for how this project relates to algorithms.
 * Sketches of the UI layout you plan to create.
 * IPO Charts for each of your functions.
 * Either pseudocode or a flow chart to outline the overall control flow of your program.
     * *Note: I would recommend a **flow chart** for this project, as it will make it significantly easier to map out the control flow of events triggering things!*
-## Outcome Criteria
-* **1 Demonstrate introductory structured programming skills by planning and writing sequential algorithms.**
-  * **1.1** Explain what an algorithm is and why it is used.
-  * **1.2** Analyze simple algorithms and describe the task or tasks they perform.
-  * **1.3** Determine whether a problem can be solved using an input–process–output (IPO) approach.
-  * **1.4** Break a problem into input, processing, and output components.
-  * **1.5** Identify which data is already available to the program and which data must be provided as input.
-  * **1.6** Arrange inputs, processing steps, and outputs in the correct order so that:
-    * **1.6.1** processing occurs only after all required input is available
-    * **1.6.2** output occurs only after processing is complete
-  * **1.7** Write algorithms in a clear, standard format.
-  * **1.8** Test algorithms using appropriate data.
-  * **1.9** Revise and improve algorithms based on testing results.
+
+
+## Submission
+When submitting be sure that files are named correctly, are in the correct format, and are attached to the correct assignment.
+
+* *5% will be deducted for naming files incorrectly.*
+* *5% will be deducted for submitting files of the wrong type or missing specified file types.*
+* *5% will be deducted for files being submitted to the wrong assignment.*
+
+### File to Submit
+
+* **File Type:** `pdf`
+* **File Name:** `firstname_lastinitial_tkinter_plan.pdf`.
+    * Example: `Nathan_F_tkinter_plan.pdf`.
+* **Submit to schoology in the `Terrible UI Calculator - Planning` assignment.**
+
 
 ## Mastery Rubric
 
@@ -49,13 +54,17 @@ Your planning must include:
 | **1.8 Test algorithms using appropriate data.**                         | Describes and plans thorough testing using varied and meaningful data, clearly explaining how results validate algorithm correctness.                                                                                           | Plans and describes appropriate testing using relevant data.                                                   | Describes basic testing with appropriate data.                                                | Testing is minimal, poorly chosen, or weakly explained.                             | Shows little understanding of how to test algorithms.                       | Makes no attempt to test algorithms.                       |
 | **1.9 Revise and improve algorithms based on testing results.**         | Clearly explains how testing results lead to thoughtful revisions and improvements, demonstrating strong problem-solving independence.                                                                                          | Explains how algorithms are revised based on testing feedback.                                                 | Mentions making changes based on testing with limited detail.                                 | Shows limited or unclear revision based on testing.                                 | Shows little evidence of revising algorithms.                               | Makes no attempt to revise or improve algorithms.          |
 
+## Learning Outcomes
 
-## Submission
-The following are *required* submissions:
-* A word document with the following:
-    * Description of what an algorithm is and why it is being used.
-    * IPO charts for each function.
-    * Pseudocode or flow chart.
-    * Photos of interface sketches (upload photos to word document).
-
-
+* **1 Demonstrate introductory structured programming skills by planning and writing sequential algorithms.**
+  * **1.1** Explain what an algorithm is and why it is used.
+  * **1.2** Analyze simple algorithms and describe the task or tasks they perform.
+  * **1.3** Determine whether a problem can be solved using an input–process–output (IPO) approach.
+  * **1.4** Break a problem into input, processing, and output components.
+  * **1.5** Identify which data is already available to the program and which data must be provided as input.
+  * **1.6** Arrange inputs, processing steps, and outputs in the correct order so that:
+    * **1.6.1** processing occurs only after all required input is available
+    * **1.6.2** output occurs only after processing is complete
+  * **1.7** Write algorithms in a clear, standard format.
+  * **1.8** Test algorithms using appropriate data.
+  * **1.9** Revise and improve algorithms based on testing results.
